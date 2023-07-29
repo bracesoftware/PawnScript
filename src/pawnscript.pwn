@@ -52,7 +52,7 @@
 #define dpp_maxclass 100
 #define dpp_maxtasks 50
 #define dpp_maxiter 50
-#define dpp_maxobj 100
+#define dpp_maxtag 100
 #define dpp_maxtypedef 50
 #define dpp_maxenum 20
 //-----------------------------------------------------------
@@ -234,8 +234,8 @@ new dpp_funcreturn_char[dpp_maxfuncs];
 //-----------------------------------------------------------
 new dpp_objectid = -1;
 new dpp_isobjinit = 0;
-new dpp_validobj[dpp_maxobj];
-new dpp_objname[dpp_maxobj][dpp_maxsymbolchar];
+new dpp_validobj[dpp_maxtag];
+new dpp_objname[dpp_maxtag][dpp_maxsymbolchar];
 //-----------------------------------------------------------
 new dpp_returned[dpp_maxfuncs];
 new dpp_returntype[dpp_maxfuncs];
@@ -292,7 +292,7 @@ new dpp_event = 0;
 #include "modules/inline.inc"
 #include "modules/tasks.inc"
 #include "modules/iter.inc"
-#include "modules/objects.inc"
+#include "modules/tags.inc"
 #include "modules/typedef.inc"
 #include "modules/enum.inc"
 #include "modules/persistent.inc"

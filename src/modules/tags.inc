@@ -11,9 +11,9 @@
 */
 
 
-stock dpp_createobj(name[])
+stock dpp_createtag(name[])
 {
-    for(new i; i < dpp_maxobj; i++)
+    for(new i; i < dpp_maxtag; i++)
     {
         if(dpp_validobj[i] == 0)
         {

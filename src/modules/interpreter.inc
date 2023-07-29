@@ -1356,14 +1356,14 @@ stock dpp_process(line[])
     ////
     ///////////////////////////////////////////////////////
 
-    if(!strcmp(funcgroup[0], "object"))
+    if(!strcmp(funcgroup[0], "tag"))
     {
         if(isnull(args[1]))
         {
             dpp_error("Invalid expression.",);
             return 1;
         }
-        dpp_createobj(args[1]);
+        dpp_createtag(args[1]);
         return 1;
     }
 
@@ -1418,12 +1418,12 @@ stock dpp_process(line[])
             dpp_formatarg(args[i]);
         }
 
-        // Check for object name
+        // Check for tag name
 
         dpp_argclasscheck(funcgroup[0]);
 
         dpp_objectid = -1;
-        for(new i; i < dpp_maxobj; i++)
+        for(new i; i < dpp_maxtag; i++)
         {
             if(!strcmp(funcgroup[0], dpp_objname[i]))
             {

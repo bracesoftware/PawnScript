@@ -47,7 +47,7 @@
 - [`foreach`-loops and iterators](doc/foreach.md)
 - [`switch` and `case`](doc/switch.md)
 - [Form methods](doc/methods.md)
-- [Objects](doc/objects.md)
+- [Tags](doc/tags.md)
 - [Inline forms](doc/inline.md)
 - [`typedef` keyword](doc/typedef.md)
 - [Enumerators](doc/enum.md)
