@@ -2183,7 +2183,7 @@ stock dpp_process(line[])
         }
         if(!strcmp(funcgroup[1], "pawn"))
         {
-            dpp_config[data_comp] = 1;
+            dpp_config[pawn_comp] = 1;
             return 1;
         }
     }

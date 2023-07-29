@@ -6,7 +6,7 @@
   Complex and Easy-to-Use Extentsion to Pawn
 </h3>
 <img height="30" align="left" src="https://cdn.discordapp.com/attachments/1130879376423145522/1134843345462636665/brace_product.png">
-<img height="30" align="left" src="https://cdn.discordapp.com/attachments/1130879376423145522/1134843694487441438/brace_samp.png">
+<img height="30" align="left" href="https://sa-mp.com" src="https://cdn.discordapp.com/attachments/1130879376423145522/1134843694487441438/brace_samp.png">
 
 <br></br>
 
