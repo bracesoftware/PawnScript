@@ -3,7 +3,7 @@
 </p>
 <h1 align = "left">Welcome to the <i><b>PawnScript</b></i> Wiki</h1>
 <h3 align = "left">
-  Complex and Easy-to-Use Extentsion to Pawn
+  Complex but Easy-to-Use Extentsion to Pawn
 </h3>
 <img height="30" align="left" src="https://cdn.discordapp.com/attachments/1130879376423145522/1134843345462636665/brace_product.png">
 <img height="30" align="left" href="https://sa-mp.com" src="https://cdn.discordapp.com/attachments/1130879376423145522/1134843694487441438/brace_samp.png">

@@ -22,7 +22,7 @@ public dpp_processpawn(funcgroup[][],args[][],args_const[][])
             return 1;
         }
         // If the function used it "print"
-        if(!strcmp(funcgroup[1], "println"))
+        if(!strcmp(funcgroup[1], "callfunction"))
         {
             new mul, str[dpp_argcharsize];
             strmid(str, args[0], 0, dpp_argcharsize);
@@ -42,36 +42,18 @@ public dpp_processpawn(funcgroup[][],args[][],args_const[][])
             }
 
             //dpp_debug("Line \"%s\" successfully executed.", line);
-            print(args[0]);
-
-            if(!strcmp(funcgroup[2], "log"))
+            if(isnull(funcgroup[2]))
             {
-                dpp_savelog(DPP_LOG_FILE, args[0]);
-            }
-            return 1;
-        }
-
-        if(!strcmp(funcgroup[1], "cout"))
-        {
-            new coutargerr = 0;
-
-            for(new i; i < strlen(args[0]); i++)
-            {
-                if(args[0][i] == '\"') coutargerr = 1;
-                if(args[0][i] == ' ') coutargerr = 1;
-                if(args[0][i] == '\t') coutargerr = 1;
+                CallRemoteFunction(args[0], "");
             }
 
-            if(coutargerr == 1)
+            if(!strcmp(funcgroup[2], "local"))
             {
-                dpp_error("Invalid symbols in the argument 1.",);
+                CallLocalFunction(args[0], "");
             }
-            //dpp_debug("Line \"%s\" successfully executed.", line);
-            print(args[0]);
-
-            if(!strcmp(funcgroup[2], "log"))
+            if(!strcmp(funcgroup[2], "remote"))
             {
-                dpp_savelog(DPP_LOG_FILE, args[0]);
+                CallRemoteFunction(args[0], "");
             }
             return 1;
         }

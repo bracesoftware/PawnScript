@@ -45,7 +45,7 @@ Method test #2
 
 #### Method: `log`
 
-- Printed text will also be logged into `scriptfiles/dpp.log`.
+- Printed text will also be logged into `scriptfiles`.
 
 ```pawn
 console.println.log("Test");
@@ -55,9 +55,27 @@ console.println.log("Test");
 
 #### Method: `log`
 
-- Printed text will also be logged into `scriptfiles/dpp.log`.
+- Printed text will also be logged into `scriptfiles`.
 
 ```pawn
 console.cout.log(char);
+```
+
+### Form: `pawn.callfunction`
+
+#### Method: `local`
+
+- Equivalent to `CallLocalFunction` (it can only call functions declared inside `pawnscript.amx`).
+
+```pawn
+pawn.callfunction.local("funcname");
+```
+
+#### Method: `remote`
+
+- Equivalent to `CallRemoteFunction`.
+
+```pawn
+pawn.callfunction.remote("funcname");
 ```
 

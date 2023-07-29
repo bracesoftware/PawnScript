@@ -24,8 +24,8 @@
 //-----------------------------------------------------------
 #define DPP_VERSION_MAJOR 1
 #define DPP_VERSION_MINOR 0
-#define DPP_VERSION_PATCH 0
-#define DPP_VERSION_RELEASE 4
+#define DPP_VERSION_PATCH 1
+#define DPP_VERSION_RELEASE 1
 #define DPP_CELLMAX 8
 
 #define DPP_VERSION_BETA 0
@@ -473,4 +473,13 @@ main()
         printf("Keyword 3: '%s'",funcgroup[2]);
     }*/
     SetTimer("dpp_main", 1000, false);
+}
+
+//-----------------------------------------------------------
+
+forward pawnscript_testpawnfunc();
+public pawnscript_testpawnfunc()
+{
+    dpp_print("pawnscript_testpawnfunc was sucessfully called");
+    return 1;
 }

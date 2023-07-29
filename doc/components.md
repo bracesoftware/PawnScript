@@ -285,3 +285,21 @@ cool
 ```
 
 **WARNING**: Current `sscanf` delimiter is `-` because of some limitations we're facing, it may be changed in the future.
+
+
+---------------------------------------------------------------------------------
+
+## Component: `pawn`
+- Provides forms for interaction with the Pawn language.
+
+Import the component using:
+```pawn
+using.pawn;
+```
+
+### Form: `callfunction`
+- Calls a public function declared in the running Pawn code.
+
+```cpp
+pawn.callfunction("public_name");
+```
