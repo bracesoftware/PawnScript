@@ -6,11 +6,11 @@
 
 ## Example
 
-- Assigning a `TestObj` tag to a variable.
+- Assigning a `MyTag` tag to a variable.
 
 ```cpp
-tag,TestObj;
-TestObj<-new.int,testvar=10;
+tag,MyTag;
+MyTag<-new.int,testvar=10;
 ```
 
 ## Example `#2`
@@ -20,8 +20,8 @@ TestObj<-new.int,testvar=10;
 ```cpp
 namespace,ObjectTest;
 <;
-	tag,TestObj;
+	tag,MyTag;
 >;
 
-ObjectTest::TestObj<-new.int,testvar=1;
+ObjectTest::MyTag<-new.int,testvar=1;
 ```
