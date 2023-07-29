@@ -1,0 +1,95 @@
+console.println("========================== data.dpp ==========================");
+
+console.println.log("data.dpp is imported");
+
+using.data;
+
+new.str,scanftest1="ok";
+new.str,scanftest2="ok";
+new.str,scanftest3="ok";
+new.str,scanftest4="ok";
+new.int,scanftest5=2453;
+new.int,scanftest6=2453;
+
+new.str,scanftest="sscanf-is-so-cool-1-2";
+
+data.sscanf(scanftest,scanftest1,scanftest2,scanftest3,scanftest4,scanftest5,scanftest6);
+
+console.println.log(scanftest1);
+console.println.log(scanftest2);
+console.println.log(scanftest3);
+console.println.log(scanftest4);
+console.cout(scanftest5);
+console.cout(scanftest6);
+
+object,TestObj;
+TestObj<-new.int,testvar=10;
+
+namespace,ObjectTest;
+<;
+	object,TestObj;
+>;
+
+ObjectTest::TestObj<-new.int,testvar=1;
+
+
+
+new.int,undeftest=1;
+
+if.equ,defined?undeftest,1->console.println.log("undeftest is defined");
+
+#undef:undeftest;
+
+if.equ,defined?undeftest,1->console.println.log("undeftest is defined *(again!*)");
+
+console.cout.log(10%3);
+
+console.println.log("Did this work?");
+
+system.rem("Testing doubles");
+
+const*new.double,pi=3.14159;
+
+console.cout(pi);
+
+new.double,doubletestvar=723.42;
+
+int*form.DoubleTest?arg;
+{;
+	console.println.log("{arg@DoubleTest}");
+	return,1;
+};
+
+user.DoubleTest(doubletestvar);
+
+console.cout(3.4+3.2);
+console.cout(5+6);
+console.cout(0.4+5);
+console.cout.log(3+1.5);
+console.cout.log(doubletestvar/pi);
+
+if.equ,3.4+3.2,6.6->console.println.log("3.4+3.2 and 6.6 are equal");
+
+const*new.char,character='a';
+new.char,charvar='B';
+new.str,charstrtest="Oh my god";
+
+console.println.log("{pi} {doubletestvar} {character} {charvar} {charstrtest}");
+
+double*form.DoubleTestFunction;
+{
+	return,9.87;
+}
+
+char*form.CharTestFunction;
+{
+	return,'g';
+}
+
+console.cout.log(DoubleTestFunction);
+console.cout.log(CharTestFunction);
+
+typedef,const*new.int,constint;
+
+constint,typedeftest=1234234;
+console.println.log("{typedeftest}");

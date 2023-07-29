@@ -1,0 +1,103 @@
+using.system;
+using.samp;
+using.console;
+
+#pragma:allspc,true;
+#pragma:warnings,default;
+
+const*new.bool,DEBUG_OPTION=false;
+
+#pragma:debug,DEBUG_OPTION;
+#pragma:ctrlchar,*;
+
+#include:test;
+
+system.rem("Basic println example.");
+console.println("Hual is a fucking bitch");
+
+void*form.testfunc;
+{
+	console.println("testfunc works.");
+	console.println("testfunc works.");
+}
+
+void*form.NewTestFunc;
+{
+	console.println("OH YEAH MAN");
+}
+
+user.testfunc;
+user.NewTestFunc;
+
+system.rem("=================== NATIVES ===================");
+
+system.rem("a_samp for D++");
+
+const*new.int,MAX_PLAYERS=1000;
+const*new.int,MAX_ACTORS=1000;
+const*new.int,MAX_VEHICLES=2000;
+
+samp.SetGameModeText("d++ test");
+samp.SetMaxPlayers(MAX_PLAYERS);
+
+system.rem("===================FUNCS===================");
+
+str*form.testFunc;
+{
+	console.println("testFunc was called.");
+	return,"testFunc returned this.";
+}
+
+const*new.str,LMAO="Lmao";
+
+str*form.disableDebug;
+{
+	console.println("Debug disabled");
+	return,LMAO;
+}
+
+console.println(testFunc);
+console.println(disableDebug);
+
+system.rem("===================CALLBACKS===================");
+
+
+extern&struct*public.main;
+{
+	console.println("Hello World from main");
+	return.int,1;
+}
+
+extern&struct*public.OnGameModeInit;
+{
+	console.println("OnGameModeInit works");
+	return.int,1;
+	console.println("RETURN FAILED");
+	console.println("OMG LOL HAHAHAH RETURN DOES NOT WORK");
+}
+
+@hook;
+int*form.OnGameModeInit;
+{
+	console.println("OnGameModeInit works twice!!!");
+	return,1;
+}
+
+extern&struct*public.OnGameModeExit;
+{
+	console.println("OnGameModeExit works");
+	return.bool,true;
+}
+
+#include:vars;
+#include:math;
+#include:class;
+#include:args;
+#include:discord;
+#include:files;
+#include:inline;
+#include:tasks;
+#include:struct;
+#include:iter;
+#include:data;
+#include:enum;

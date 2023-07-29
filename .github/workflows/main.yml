@@ -1,0 +1,32 @@
+name: D++ - sampctl test build
+on:
+  push:
+    branches: [ "main" ]
+    
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+     
+      - uses: AGraber/sampctl-action@v1
+        with:
+          version: '1.10.0'
+       
+      - run: sampctl p build --forceEnsure
+
+      - run: sampctl version
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: DPP_AMX_PreRelease_SAMP
+          retention-days: 12 
+          if-no-files-found: error
+          
+          path: src/dpp_entry.amx

@@ -1,0 +1,12 @@
+{
+	"user": "samp-api",
+	"repo": "dpp",
+	"dependencies": [
+		"openmultiplayer/omp-stdlib"
+	],
+	"entry": "src/dpp_entry.pwn",
+	"output": "src/dpp_entry.amx",
+	"contributors": [
+		"DEntis-T"
+	]
+}

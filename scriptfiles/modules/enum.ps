@@ -1,0 +1,86 @@
+console.println("========================== enum.dpp ==========================");
+
+
+enum,WeekDays;
+{;
+	monday=1;
+	tuesday=2;
+	thursday=3;
+	saturday=4;
+};
+
+console.cout.log(WeekDays.monday);
+console.cout.log(WeekDays.tuesday);
+console.cout.log(WeekDays.thursday);
+console.cout.log(WeekDays.saturday);
+
+console.println.log("enum test included");
+console.cout.log(WeekDays.saturday+WeekDays.monday);
+
+
+enum,Months;
+{;
+	january=5;
+	february=6;
+	december=7;
+};
+
+console.cout.log(Months.january);
+console.cout.log(Months.february-Months.december);
+console.cout.log(Months.january%WeekDays.monday);
+
+console.println("Test?");
+
+console.println.log(statictest);
+console.println.log("LOCAL DEBUG: Tried to print the static var");
+
+int*form.StaticTest;
+{;
+	static*new.str,statictest="Static works here";
+	console.println.log(statictest);
+	console.println.log("LOCAL DEBUG: Printed static var");
+	return,1;
+};
+
+user.StaticTest;
+console.println.log("LOCAL DEBUG: Called statictest for the first time");
+console.println.log(statictest);
+console.println.log("LOCAL DEBUG: Printed static again");
+user.StaticTest;
+console.println.log("LOCAL DEBUG: Called statictest for the second time");
+
+new.int.unsigned,unsignedinteger=-3645;
+console.cout(unsignedinteger);
+new.int.unsigned,anotherunsignedint=9823;
+console.cout(anotherunsignedint);
+
+new.int.unsigned,pdmtest=364;
+export*int,"test1",pdmtest;
+set.int,pdmtest=0;
+import*int,"test1",pdmtest;
+console.println.log("Imported {pdmtest}");
+
+new.bool,pdmtest2=true;
+export*bool,"test2",pdmtest2;
+set.bool,pdmtest2=false;
+import*bool,"test2",pdmtest2;
+console.println.log("Imported {pdmtest2}");
+
+new.str,pdmtest3="Hello World";
+export*str,"test3",pdmtest3;
+set.str,pdmtest3="stfu";
+import*str,"test3",pdmtest3;
+console.println.log("Imported {pdmtest3}");
+
+new.double,pdmtest4=0.364;
+export*double,"test4",pdmtest4;
+set.double,pdmtest4=0.0;
+import*double,"test4",pdmtest4;
+console.println.log("Imported {pdmtest4}");
+
+new.char,pdmtest5='D';
+export*char,"test5",pdmtest5;
+set.char,pdmtest5='0';
+import*char,"test5",pdmtest5;
+console.println.log("Imported {pdmtest5}");
+

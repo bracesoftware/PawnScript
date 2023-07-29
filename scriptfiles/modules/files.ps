@@ -1,0 +1,69 @@
+console.println("========================== files.dpp ==========================");
+console.println("Files included");
+
+using.files;
+
+files.open_for_write("testfile.omg");
+files.write("wrote this nigga");
+files.close;
+
+files.open_for_read("testfile.omg");
+new.str,myvar_to_test_files="This should not be here";
+files.read(myvar_to_test_files);
+console.println("{myvar_to_test_files}");
+files.close;
+
+files.delete("newfile.omg");
+files.open_for_append("newfile.omg");
+files.write("first line");
+files.write("second line");
+files.write("third line");
+files.close;
+
+new.int,testintagainomg__aa=364;
+
+console.println("{testintagainomg__aa}");
+
+void*form.FILES_TEST_FORM?text;
+{;
+	console.println(text@FILES_TEST_FORM);
+};
+
+user.FILES_TEST_FORM("Funny thing");
+
+int*form.returntest;
+{;
+	console.println("Hello Worlddddddddddd");
+	if.equ, 23, 13 -> return.int,1;
+	return,2134;
+	console.println("Return failed lmao");
+};
+
+console.cout(returntest);
+
+str*form.yieldreturntest;
+{;
+	console.println("Hello Worlddddddd");
+	yield&return,"mega sexy return";
+	if.notequ,1,1->yield&return,"HOOOOOOOOOOOOOO";
+	console.println("Yield Return WORKS!");
+};
+
+console.println(yieldreturntest);
+
+if.equ,5,5->console.println("Syntax works!");
+
+if.equ,1,1->console.println("OmG");
+
+system.rem("Example code");
+new.int,syntax_test=1;
+
+void*form.whilelooptest;
+{;
+	set.int,syntax_test=syntax_test+1;
+	console.println.log("{syntax_test} eeeeeeeeeeeeeeeeee");
+};
+
+if.equ,1,1->while.notequ,syntax_test,11->user.whilelooptest;
+
+console.println.log("This is still runnin right? {syntax_test}");
