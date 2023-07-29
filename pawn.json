@@ -4,8 +4,8 @@
 	"dependencies": [
 		"openmultiplayer/omp-stdlib"
 	],
-	"entry": "src/dpp_entry.pwn",
-	"output": "src/dpp_entry.amx",
+	"entry": "src/pawnscript.pwn",
+	"output": "src/pawnscript.amx",
 	"contributors": [
 		"DEntis-T"
 	]
