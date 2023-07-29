@@ -2880,6 +2880,20 @@ stock dpp_process(line[])
     {
         dpp_funcfound = CallLocalFunction("dpp_processdata", "sss", funcgroup_form,args_form,args_fconst);
     }
+
+
+    ///////////////////////////////////////////////////////
+    ////
+    ////
+    ////            PAWN comp FUNC SYS
+    ////
+    ////
+    ///////////////////////////////////////////////////////
+
+    if(dpp_funcfound == 0)
+    {
+        dpp_funcfound = CallLocalFunction("dpp_processpawn", "sss", funcgroup_form,args_form,args_fconst);
+    }
     
 
 
