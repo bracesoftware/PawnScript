@@ -1941,6 +1941,11 @@ stock dpp_process(line[])
         }
         if(!strcmp(funcgroup[1], "double"))
         {
+            if(!dpp_isfloat(vargroup[1]))
+            {
+                dpp_error("Argument error; argument must be a double.",);
+                return 1;
+            }
             dpp_setdoublevar(vargroup[0],floatstr(vargroup[1]));
             return 1;
         }
@@ -2346,6 +2351,12 @@ stock dpp_process(line[])
         }
         if(!strcmp(funcgroup[1], "double"))
         {
+            if(!dpp_isfloat(args[1]))
+            {
+                dpp_error("Argument error; argument must be a double.",);
+                return 1;
+            }
+
             new Float:double_return = floatstr(args[1]);
 
             dpp_returned[dpp_processfunc] = 1;
@@ -2618,6 +2629,12 @@ stock dpp_process(line[])
         }
         if(!strcmp(funcgroup[1], "double"))
         {
+            if(!dpp_isfloat(args[1]))
+            {
+                dpp_error("Argument error; argument must be a double.",);
+                return 1;
+            }
+
             new Float:int_return = floatstr(args[1]);
 
             //dpp_returned[dpp_processfunc] = 1;
