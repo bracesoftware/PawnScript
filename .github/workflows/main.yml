@@ -1,4 +1,4 @@
-name: D++ - sampctl test build
+name: PawnScript - sampctl test build
 on:
   push:
     branches: [ "main" ]
@@ -25,8 +25,8 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: DPP_AMX_PreRelease_SAMP
+          name: PawnScript_AMX_PreRelease_SAMP
           retention-days: 12 
           if-no-files-found: error
           
-          path: src/dpp_entry.amx
+          path: src/pawnscript.amx
