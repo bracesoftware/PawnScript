@@ -9,6 +9,9 @@
 */
 
 
+#include <iostream>
+#include <string>
+
 #include "sdk\amx\amx.h"
 #include "sdk\plugincommon.h"
 
