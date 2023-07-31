@@ -25,7 +25,7 @@
 #define DPP_VERSION_MAJOR 1
 #define DPP_VERSION_MINOR 0
 #define DPP_VERSION_PATCH 2
-#define DPP_VERSION_RELEASE 1
+#define DPP_VERSION_RELEASE 2
 #define DPP_CELLMAX 8
 
 #define DPP_VERSION_BETA 0
@@ -445,7 +445,7 @@ public dpp_dostackoutput()
     return 1;
 }
 
-DPP_ProcessCode(line[]); public DPP_ProcessCode(line[])
+pawnscriptcall(line[]); public pawnscriptcall(line[])
 {
     dpp_process(line);
     return 1;

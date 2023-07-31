@@ -34,3 +34,34 @@ stock dpp_createtag(name[])
     }
     return 1;
 }
+
+
+dpp_argtagcheck(arg[]);
+public dpp_argtagcheck(arg[])
+{
+    new 
+        newvalue[64],
+        tagid = -1;
+
+    dpp_argclasscheck(arg);
+    dpp_argoclasscheck(arg);
+
+    for(new i; i < dpp_maxtag; i++)
+    {
+        if(dpp_validobj[i] == 1 && !strcmp(arg, dpp_objname[i]))
+        {
+            tagid = i;
+            break;
+        }
+    }
+
+    if(tagid == -1)
+    {
+        return 1;
+    }
+
+    format(newvalue, sizeof newvalue, "%i", tagid);
+
+    strmid(arg, newvalue, 0, dpp_maxsymbolchar, dpp_maxsymbolchar);
+    return 1;
+}

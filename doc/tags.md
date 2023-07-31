@@ -2,8 +2,6 @@
 
 - Tags in PawnScript are simple little attributes that you can mark variables with.
 
-> ***NOTE***: Tags have no particular use right now.
-
 ## Example
 
 - Assigning a `MyTag` tag to a variable.
@@ -24,4 +22,20 @@ namespace,TagTestNameSpace;
 >;
 
 TagTestNameSpace::MyTag<-new.int,testvar=1;
+```
+
+## `tagof` instruction
+
+- Since tags serve as little marks you can mark your special variables with, `tagof` instruction can be used to check if specific data is marked with a specific tag.
+
+```cpp
+tag,MyNewTag;
+MyNewTag<-new.int,tagtestinteger=1;
+if.equ,tagof?tagtestinteger,MyNewTag->console.println.log("tagtestinteger has the MyNewTag!");
+```
+
+Output:
+
+```
+tagtestinteger has the MyNewTag!
 ```

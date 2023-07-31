@@ -19,7 +19,7 @@
 ## Documentation
 
 - [Project management](doc/proj.md)
-- [Calling PawnScript from your gamemode](doc/pawn.md)
+- [Calling PawnScript from your Pawn code](doc/pawn.md)
 - [How does PawnScript work?](doc/how.md)
 
 ### The language
@@ -47,13 +47,13 @@
 - [`foreach`-loops and iterators](doc/foreach.md)
 - [`switch` and `case`](doc/switch.md)
 - [Form methods](doc/methods.md)
-- [Tags](doc/tags.md)
+- [Tags and `tagof` instruction](doc/tags.md)
 - [Inline forms](doc/inline.md)
 - [`typedef` keyword](doc/typedef.md)
 - [Enumerators](doc/enum.md)
 - [Static variables](doc/static.md)
 - [Decorators](doc/decorators.md)
-- [OOP](doc/objclass.md)
+- [Objects and classes](doc/objclass.md)
 - [Miscellaneous](doc/misc.md)
 
 ### Other info

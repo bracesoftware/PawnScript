@@ -33,3 +33,11 @@ object,TestObj3=TestClass2;
 console.cout.log(TestObj3.ClassTestVar);
 console.cout.log(TestObj3.TestClassDouble);
 console.println.log("#3 {TestObj3.ClassTestVar} & {TestObj3.TestClassDouble} & {TestObj3.TestClassBool}");
+
+
+tag,MyNewTag;
+MyNewTag<-new.int,tagtestinteger=1;
+if.equ,tagof?tagtestinteger,MyNewTag->console.println.log("tagtestinteger has the MyNewTag!");
+
+tag,AnotherTag;
+if.equ,tagof?tagtestinteger,AnotherTag->console.println.log("tagtestinteger has the AnotherTag!");

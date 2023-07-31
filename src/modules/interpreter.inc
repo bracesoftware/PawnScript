@@ -790,6 +790,7 @@ stock dpp_process(line[])
         dpp_argsystemval(args[i]);
         CallLocalFunction("dpp_arginstruct", "s", args[i]);
         CallLocalFunction("dpp_argenumcheck", "s", args[i]);
+        CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
         dpp_formatarg(args[i]);
     }
@@ -815,6 +816,7 @@ stock dpp_process(line[])
         dpp_argsystemval(args_form[i]);
         CallLocalFunction("dpp_arginstruct", "s", args_form[i]);
         CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
+        CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
         dpp_formatarg(args_form[i]);
     }
@@ -849,6 +851,7 @@ stock dpp_process(line[])
         dpp_argsystemval(vargroup[i]);
         CallLocalFunction("dpp_arginstruct", "s", vargroup[i]);
         CallLocalFunction("dpp_argenumcheck", "s", vargroup[i]);
+        CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
         dpp_formatarg(vargroup[i]);
     }
@@ -976,6 +979,8 @@ stock dpp_process(line[])
             dpp_argformargcheck(args[i]);
             dpp_argsystemval(args[i]);
             CallLocalFunction("dpp_arginstruct", "s", args[i]);
+            CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
+            CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
             dpp_formatarg(args[i]);
         }
@@ -1105,6 +1110,8 @@ stock dpp_process(line[])
                             dpp_argformargcheck(args[i]);
                             dpp_argsystemval(args[i]);
                             CallLocalFunction("dpp_arginstruct", "s", args[i]);
+                            CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
+                            CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
                             dpp_formatarg(args[i]);
                         }
@@ -1136,6 +1143,8 @@ stock dpp_process(line[])
                         dpp_argformargcheck(args[i]);
                         dpp_argsystemval(args[i]);
                         CallLocalFunction("dpp_arginstruct", "s", args[i]);
+                        CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
+                        CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
                         dpp_formatarg(args[i]);
                     }
@@ -1172,6 +1181,8 @@ stock dpp_process(line[])
                             dpp_argformargcheck(args[i]);
                             dpp_argsystemval(args[i]);
                             CallLocalFunction("dpp_arginstruct", "s", args[i]);
+                            CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
+                            CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
                             dpp_formatarg(args[i]);
                         }
@@ -1202,6 +1213,8 @@ stock dpp_process(line[])
                         dpp_argformargcheck(args[i]);
                         dpp_argsystemval(args[i]);
                         CallLocalFunction("dpp_arginstruct", "s", args[i]);
+                        CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
+                        CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
                         dpp_formatarg(args[i]);
                     }
@@ -1251,6 +1264,8 @@ stock dpp_process(line[])
                         dpp_argformargcheck(args[i]);
                         dpp_argsystemval(args[i]);
                         CallLocalFunction("dpp_arginstruct", "s", args[i]);
+                        CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
+                        CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
                         dpp_formatarg(args[i]);
                     }
@@ -1466,6 +1481,8 @@ stock dpp_process(line[])
             dpp_argformargcheck(args[i]);
             dpp_argsystemval(args[i]);
             CallLocalFunction("dpp_arginstruct", "s", args[i]);
+            CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
+            CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
             dpp_formatarg(args[i]);
         }

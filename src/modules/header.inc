@@ -747,6 +747,34 @@ dpp_arginstruct(arg[]); public dpp_arginstruct(arg[])
         }
         strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
     }
+
+    if(!strcmp(operands[0], "tagof"))
+    {
+        dpp_argclasscheck(operands[1]);
+        dpp_argoclasscheck(operands[1]);
+        
+        for(new i; i < dpp_maxvar; i++)
+        {
+            if(!strcmp(operands[1], dpp_vardata[i][var_name]))
+            {
+                if(dpp_vardata[i][var_valid] == 1)
+                {
+                    symbolid = i;
+                    break;
+                }
+            }
+        }
+
+        if(symbolid == -1)
+        {
+            format(newvalue, sizeof newvalue, "-1");
+        }
+        else
+        {
+            format(newvalue, sizeof newvalue, "%i", dpp_vardata[symbolid][var_object]);
+        }
+        strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
+    }
     return 1;
 }
 ///////////////FUNC CALLING/////////////////////
