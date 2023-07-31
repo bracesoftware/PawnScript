@@ -240,6 +240,9 @@ stock dpp_formatarg(argument[]) // creds DEntisT
     strmid(symbolname, argument, start+1, end);
     strmid(replacementname, argument, start, end+1);
 
+    dpp_argclasscheck(symbolname);
+    dpp_argoclasscheck(symbolname);
+
     for(new i; i < dpp_maxvar; i++)
     {
         if(!strcmp(dpp_vardata[i][var_name], symbolname))

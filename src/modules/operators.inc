@@ -48,6 +48,7 @@ stock dpp_add(arg[])
         for(new i; i < 2; i++)
         {
             dpp_argclasscheck(operands[i]);
+            dpp_argoclasscheck(operands[i]);
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
@@ -87,6 +88,7 @@ stock dpp_sub(arg[])
         for(new i; i < 2; i++)
         {
             dpp_argclasscheck(operands[i]);
+            dpp_argoclasscheck(operands[i]);
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
@@ -126,6 +128,7 @@ stock dpp_mul(arg[])
         for(new i; i < 2; i++)
         {
             dpp_argclasscheck(operands[i]);
+            dpp_argoclasscheck(operands[i]);
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
@@ -166,6 +169,7 @@ stock dpp_div(arg[])
         for(new i; i < 2; i++)
         {
             dpp_argclasscheck(operands[i]);
+            dpp_argoclasscheck(operands[i]);
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
@@ -206,6 +210,7 @@ stock dpp_exp(arg[])
         for(new i; i < 2; i++)
         {
             dpp_argclasscheck(operands[i]);
+            dpp_argoclasscheck(operands[i]);
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
@@ -237,6 +242,7 @@ stock dpp_drm(arg[])
         for(new i; i < 2; i++)
         {
             dpp_argclasscheck(operands[i]);
+            dpp_argoclasscheck(operands[i]);
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);

@@ -357,6 +357,10 @@ stock dpp_process(line[])
             dpp_currentenumid = DPP_INVALID_ENUM_ID;
             dpp_enuminterpreter = 1;
         }
+        if(dpp_event == dpp_event_class)
+        {
+            dpp_oclassinterpreter = 1;
+        }
         return 1;
     }
 
@@ -374,6 +378,10 @@ stock dpp_process(line[])
         if(dpp_event == dpp_event_enum)
         {
             dpp_enuminterpreter = 0;
+        }
+        if(dpp_event == dpp_event_class)
+        {
+            dpp_oclassinterpreter = 0;
         }
         return 1;
     }
@@ -410,6 +418,15 @@ stock dpp_process(line[])
             dpp_nextenumval = strval(enumdata[1]);
         }
         dpp_addenumval(dpp_currentenumid,enumdata[0],dpp_nextenumval);
+        return 1;
+    }
+
+    if(dpp_oclassinterpreter == 0)
+    {
+        format(codeblockline, sizeof codeblockline, "%s;", line);
+        dpp_debug("codeblockline:%s",codeblockline);
+        dpp_debug("dpp_currenttaskid:%i",dpp_currenttaskid);
+        strcat(dpp_oclassblock[dpp_usedclassid], codeblockline);
         return 1;
     }
 
@@ -757,12 +774,14 @@ stock dpp_process(line[])
 
 
     dpp_argclasscheck(dirgroup[1]);
+    dpp_argoclasscheck(dirgroup[1]);
     dpp_argformargcheck(dirgroup[1]);
 
     for(new i; i < dpp_maxargsc; i++)
     {
         dpp_removeslashes(args[i]);
         dpp_argclasscheck(args[i]);
+        dpp_argoclasscheck(args[i]);
         dpp_argarraycheck(args[i]);
         dpp_argfunccheck(args[i]);
         dpp_argvarcheck(args[i]);
@@ -778,6 +797,7 @@ stock dpp_process(line[])
     for(new i; i < dpp_maxargsc; i++)
     {
         dpp_argclasscheck(args_const[i]);
+        dpp_argoclasscheck(args_const[i]);
         dpp_argformargcheck(args_const[i]);
     }
 
@@ -786,6 +806,7 @@ stock dpp_process(line[])
     {
         dpp_removeslashes(args_form[i]);
         dpp_argclasscheck(args_form[i]);
+        dpp_argoclasscheck(args_form[i]);
         dpp_argarraycheck(args_form[i]);
         dpp_argfunccheck(args_form[i]);
         dpp_argvarcheck(args_form[i]);
@@ -801,6 +822,7 @@ stock dpp_process(line[])
     for(new i; i < dpp_maxargsc; i++)
     {
         dpp_argclasscheck(args_fconst[i]);
+        dpp_argoclasscheck(args_fconst[i]);
         dpp_argformargcheck(args_fconst[i]);
     }
 
@@ -811,12 +833,14 @@ stock dpp_process(line[])
         if(i == 0)
         {
             dpp_argclasscheck(vargroup[i]);
+            dpp_argoclasscheck(vargroup[i]);
             dpp_argformargcheck(vargroup[i]);
             i = 1;
         }
 
         dpp_removeslashes(vargroup[i]);
         dpp_argclasscheck(vargroup[i]);
+        dpp_argoclasscheck(vargroup[i]);
         dpp_argarraycheck(vargroup[i]);
         dpp_argfunccheck(vargroup[i]);
         dpp_argvarcheck(vargroup[i]);
@@ -857,7 +881,7 @@ stock dpp_process(line[])
     ///////////////////////////////////////////////////////
     ////
     ////
-    ////            CLASS SYS
+    ////            NAMESPACE, OBJECT & CLASS SYS
     ////
     ////
     ///////////////////////////////////////////////////////
@@ -866,7 +890,7 @@ stock dpp_process(line[])
     {
         dpp_createclass(args[1]);
 
-        dpp_event = dpp_event_class;
+        dpp_event = dpp_event_namespace;
         return 1;
     }
     if(!strcmp(structgroup[0], "using"))
@@ -874,8 +898,24 @@ stock dpp_process(line[])
         if(!strcmp(structgroup[1], "namespace"))
         {
             dpp_hookclass(args[1]);
-            dpp_event = dpp_event_class;
+            dpp_event = dpp_event_namespace;
         }
+        return 1;
+    }
+
+    if(!strcmp(funcgroup[0], "class"))
+    {
+        dpp_createoclass(args[1]);
+
+        dpp_event = dpp_event_class;
+        return 1;
+    }
+
+    if(!strcmp(funcgroup[0], "object"))
+    {
+        new address[2][dpp_maxsymbolchar];
+        dpp_parseline(args[1], address, '=');
+        dpp_createobject(address[0],address[1]);
         return 1;
     }
 
@@ -920,6 +960,7 @@ stock dpp_process(line[])
                     if(i == 1)
                     {
                         dpp_argclasscheck(args[i]);
+                        dpp_argoclasscheck(args[i]);
                         dpp_argformargcheck(args[i]);
                         i = 2;
                     }
@@ -927,6 +968,7 @@ stock dpp_process(line[])
 
             dpp_removeslashes(args[i]);
             dpp_argclasscheck(args[i]);
+            dpp_argoclasscheck(args[i]);
             dpp_argarraycheck(args[i]);
             dpp_argfunccheck(args[i]);
             dpp_argvarcheck(args[i]);
@@ -1055,6 +1097,7 @@ stock dpp_process(line[])
 
                             dpp_removeslashes(args[i]);
                             dpp_argclasscheck(args[i]);
+                            dpp_argoclasscheck(args[i]);
                             dpp_argarraycheck(args[i]);
                             dpp_argfunccheck(args[i]);
                             dpp_argvarcheck(args[i]);
@@ -1085,6 +1128,7 @@ stock dpp_process(line[])
 
                         dpp_removeslashes(args[i]);
                         dpp_argclasscheck(args[i]);
+                        dpp_argoclasscheck(args[i]);
                         dpp_argarraycheck(args[i]);
                         dpp_argfunccheck(args[i]);
                         dpp_argvarcheck(args[i]);
@@ -1120,6 +1164,7 @@ stock dpp_process(line[])
 
                             dpp_removeslashes(args[i]);
                             dpp_argclasscheck(args[i]);
+                            dpp_argoclasscheck(args[i]);
                             dpp_argarraycheck(args[i]);
                             dpp_argfunccheck(args[i]);
                             dpp_argvarcheck(args[i]);
@@ -1149,6 +1194,7 @@ stock dpp_process(line[])
                         
                         dpp_removeslashes(args[i]);
                         dpp_argclasscheck(args[i]);
+                        dpp_argoclasscheck(args[i]);
                         dpp_argarraycheck(args[i]);
                         dpp_argfunccheck(args[i]);
                         dpp_argvarcheck(args[i]);
@@ -1197,6 +1243,7 @@ stock dpp_process(line[])
 
                         dpp_removeslashes(args[i]);
                         dpp_argclasscheck(args[i]);
+                        dpp_argoclasscheck(args[i]);
                         dpp_argarraycheck(args[i]);
                         dpp_argfunccheck(args[i]);
                         dpp_argvarcheck(args[i]);
@@ -1224,6 +1271,7 @@ stock dpp_process(line[])
             {
                 new dpp_varid = -1, dpp_iterid = -1;
                 dpp_argclasscheck(args_const[1]);
+                dpp_argoclasscheck(args_const[1]);
                 for(new i; i < dpp_maxvar; i++)
                 {
                     if(!strcmp(args_const[1], dpp_vardata[i][var_name]))
@@ -1236,6 +1284,7 @@ stock dpp_process(line[])
                     }
                 }
                 dpp_argclasscheck(args_const[2]);
+                dpp_argoclasscheck(args_const[2]);
                 for(new i; i < dpp_maxiter; i++)
                 {
                     if(!strcmp(args_const[2], dpp_itername[i]))
@@ -1303,6 +1352,7 @@ stock dpp_process(line[])
     {
         new dpp_varid = -1;
         dpp_argclasscheck(args_const[1]);
+        dpp_argoclasscheck(args_const[1]);
 
         for(new i; i < dpp_maxvar; i++)
         {
@@ -1400,6 +1450,7 @@ stock dpp_process(line[])
                     if(i == 1)
                     {
                         dpp_argclasscheck(args[i]);
+                        dpp_argoclasscheck(args[i]);
                         dpp_argformargcheck(args[i]);
                         i = 2;
                     }
@@ -1407,6 +1458,7 @@ stock dpp_process(line[])
 
             dpp_removeslashes(args[i]);
             dpp_argclasscheck(args[i]);
+            dpp_argoclasscheck(args[i]);
             dpp_argarraycheck(args[i]);
             dpp_argfunccheck(args[i]);
             dpp_argvarcheck(args[i]);
@@ -1421,6 +1473,7 @@ stock dpp_process(line[])
         // Check for tag name
 
         dpp_argclasscheck(funcgroup[0]);
+        dpp_argoclasscheck(funcgroup[0]);
 
         dpp_objectid = -1;
         for(new i; i < dpp_maxtag; i++)
@@ -2954,6 +3007,7 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
     {
         //printf("funcgroup: '%s' | args: '%s' | aconst: '%s'", funcgroup,args,args_const);
         dpp_argclasscheck(funcgroup[1]);
+        dpp_argoclasscheck(funcgroup[1]);
         for(new i; i < dpp_maxfuncs; i++)
         {
             if(!strcmp(dpp_funcname[i], funcgroup[1]))

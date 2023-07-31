@@ -36,6 +36,7 @@
 #define DPP_INVALID_FORM_ID -1
 #define DPP_INVALID_TASK_ID -1
 #define DPP_INVALID_ENUM_ID -1
+#define DPP_INVALID_OBJECT_ID -1
 //-----------------------------------------------------------
 #define DPP_DEBUG 1
 #define DPP_BRACES 0
@@ -55,6 +56,8 @@
 #define dpp_maxtag 100
 #define dpp_maxtypedef 50
 #define dpp_maxenum 20
+#define dpp_maxobj 100
+#define dpp_maxoclass 50
 //-----------------------------------------------------------
 #define dpp_maxenumvals 100
 //-----------------------------------------------------------
@@ -188,7 +191,7 @@ new dpp_currentinlineid = DPP_INVALID_INLINE_ID;
 new dpp_validinline[dpp_maxinline];
 new dpp_inlinebaseform[dpp_maxinline];
 new dpp_inlinename[dpp_maxinline][dpp_maxsymbolchar];
-new dpp_inlinecodeblock[dpp_maxinline][1024];
+new dpp_inlinecodeblock[dpp_maxinline][dpp_buffersize];
 //-----------------------------------------------------------
 //tasks
 new dpp_internaltasks[dpp_maxtasks];
@@ -197,7 +200,7 @@ new dpp_taskinterpreter = 1;
 new dpp_currenttaskid = DPP_INVALID_TASK_ID;
 new dpp_validtask[dpp_maxtasks];
 new dpp_taskname[dpp_maxtasks][dpp_maxsymbolchar];
-new dpp_taskcodeblock[dpp_maxtasks][1024];
+new dpp_taskcodeblock[dpp_maxtasks][dpp_buffersize];
 new dpp_interval[dpp_maxtasks];
 //-----------------------------------------------------------
 //iterators
@@ -206,19 +209,31 @@ new dpp_itername[dpp_maxiter][dpp_maxsymbolchar];
 new dpp_itersize[dpp_maxiter];
 new dpp_itervalues[dpp_maxiter][dpp_maxitersize];
 //-----------------------------------------------------------
+//classes and objects
+new dpp_currentobject = DPP_INVALID_OBJECT_ID;
+new dpp_usedclassid;
+new dpp_oclassinterpreter = 1;
+
+new dpp_validobject[dpp_maxobj];
+new dpp_objectname[dpp_maxobj][dpp_maxsymbolchar];
+
+new dpp_validoclass[dpp_maxoclass];
+new dpp_oclassname[dpp_maxoclass][dpp_maxsymbolchar];
+new dpp_oclassblock[dpp_maxoclass][dpp_buffersize];
+//-----------------------------------------------------------
 //bunch of crap
 new dpp_currentfuncid = DPP_INVALID_FORM_ID;
 new dpp_validfunc[dpp_maxfuncs];
 new dpp_funcname[dpp_maxfuncs][dpp_maxsymbolchar];
-new dpp_funccodeblock[dpp_maxfuncs][1024];
+new dpp_funccodeblock[dpp_maxfuncs][dpp_buffersize];
 new dpp_autoform[dpp_maxfuncs];
 new dpp_hookform[dpp_maxfuncs];
 new dpp_structtype[dpp_maxfuncs];
 new dpp_methodform[dpp_maxfuncs];
 enum __dpp_argcache
 {
-    dpp_argname[32],
-    dpp_argvalue[1024]
+    dpp_argname[dpp_maxsymbolchar/2],
+    dpp_argvalue[dpp_buffersize/2]
 }
 new dpp_args[dpp_maxfuncs][dpp_maxformargs][__dpp_argcache];
 //-----------------------------------------------------------
@@ -228,10 +243,11 @@ new dpp_workingclassid = dpp_invalidclass;
 //-----------------------------------------------------------
 new dpp_funcreturn_int[dpp_maxfuncs];
 new dpp_funcreturn_bool[dpp_maxfuncs];
-new dpp_funcreturn_str[dpp_maxfuncs][1024];
+new dpp_funcreturn_str[dpp_maxfuncs][dpp_buffersize/2];
 new Float:dpp_funcreturn_double[dpp_maxfuncs];
 new dpp_funcreturn_char[dpp_maxfuncs];
 //-----------------------------------------------------------
+//tags
 new dpp_objectid = -1;
 new dpp_isobjinit = 0;
 new dpp_validobj[dpp_maxtag];
@@ -280,6 +296,7 @@ new dpp_event = 0;
 #define dpp_event_class 2
 #define dpp_event_inline 3
 #define dpp_event_enum 4
+#define dpp_event_namespace 5
 //-----------------------------------------------------------
 //includes
 #include "modules/utils.inc"
@@ -296,6 +313,7 @@ new dpp_event = 0;
 #include "modules/typedef.inc"
 #include "modules/enum.inc"
 #include "modules/persistent.inc"
+#include "modules/class.inc"
 
 #include "modules/interpreter.inc"
 //-----------------------------------------------------------

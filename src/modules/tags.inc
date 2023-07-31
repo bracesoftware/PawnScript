@@ -3,7 +3,7 @@
 * D++ Scripting Language
 *     Made for a SA:MP server
 *
-*  Object System
+*  Tag System
 *
 * 
 * - by: DEntisT, (c) 2022

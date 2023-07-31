@@ -112,6 +112,12 @@ stock dpp_createintvar(name[], value, obj = -1, staticvar = 0, baseform = -1, un
                 format(newvalue,sizeof(newvalue),"DPPCv@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
+            {
+                new newvalue[dpp_argcharsize];
+                format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
+                strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            }
 
             dpp_debug("variable \"%s\" assigned a value : %i",name,value);
             strmid(dpp_vardata[i][var_name], name, 0, 64);
@@ -168,6 +174,12 @@ stock dpp_createboolvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
                 format(newvalue,sizeof(newvalue),"DPPCv@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
+            {
+                new newvalue[dpp_argcharsize];
+                format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
+                strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            }
 
             dpp_debug("variable \"%s\" assigned a value : %s",name,value ? "true" : "false");
             strmid(dpp_vardata[i][var_name], name, 0, 64);
@@ -220,6 +232,12 @@ stock dpp_createstrvar(name[], const value[], obj = -1, staticvar = 0, baseform 
             {
                 new newvalue[dpp_argcharsize];
                 format(newvalue,sizeof(newvalue),"DPPCv@%s_%s",dpp_classname[dpp_workingclassid],name);
+                strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            }
+            if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
+            {
+                new newvalue[dpp_argcharsize];
+                format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
 
@@ -276,6 +294,12 @@ stock dpp_createdoublevar(name[], Float:value, obj = -1, staticvar = 0, baseform
                 format(newvalue,sizeof(newvalue),"DPPCv@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
+            {
+                new newvalue[dpp_argcharsize];
+                format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
+                strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            }
 
             dpp_debug("variable \"%s\" assigned a value : %f",name,value);
             strmid(dpp_vardata[i][var_name], name, 0, 64);
@@ -328,6 +352,12 @@ stock dpp_createcharvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
             {
                 new newvalue[dpp_argcharsize];
                 format(newvalue,sizeof(newvalue),"DPPCv@%s_%s",dpp_classname[dpp_workingclassid],name);
+                strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            }
+            if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
+            {
+                new newvalue[dpp_argcharsize];
+                format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
 

@@ -1,8 +1,8 @@
-console.println("Pawn file included");
+# Object-oriented Programming
 
-using.pawn;
+- Object-oriented programming (OOP) is a computer programming model that organizes software design around classes and objects. Classes are certain blocks of code, containing elements that can be accessed only via a certain object. After declaring an object, object drags elements from the class and creates its own copies, allowing same variable names, but with different values.
 
-pawn.callfunction("pawnscript_testpawnfunc");
+```cpp
 
 class,TestClass;
 {;
@@ -32,4 +32,19 @@ class,TestClass2;
 object,TestObj3=TestClass2;
 console.cout.log(TestObj3.ClassTestVar);
 console.cout.log(TestObj3.TestClassDouble);
-console.println.log("#1 {TestObj3.ClassTestVar} & {TestObj3.TestClassDouble} & {TestObj3.TestClassBool}");
+console.println.log("#3 {TestObj3.ClassTestVar} & {TestObj3.TestClassDouble} & {TestObj3.TestClassBool}");
+
+```
+
+Output:
+```
+827346
+364.234
+#1 827346 & 364.234
+9376216
+314.159
+#2 9376216 & 314.159
+100000
+21.763
+#3 100000 & 21.763 & false
+```

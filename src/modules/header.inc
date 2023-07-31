@@ -213,6 +213,7 @@ stock dpp_cwlu(const constargs[], modargs[])
 
     dpp_removeslashes(modargs);
     dpp_argclasscheck(modargs);
+    dpp_argoclasscheck(modargs);
     dpp_argarraycheck(modargs);
     dpp_argfunccheck(modargs);
     dpp_argvarcheck(modargs);
@@ -686,6 +687,7 @@ dpp_arginstruct(arg[]); public dpp_arginstruct(arg[])
     if(!strcmp(operands[0], "defined"))
     {
         dpp_argclasscheck(operands[1]);
+        dpp_argoclasscheck(operands[1]);
         
         for(new i; i < dpp_maxiter; i++)
         {
@@ -941,6 +943,7 @@ stock dpp_argformargcheck(arg[])
     dpp_parseline(arg,systemarg,'@');
 
     dpp_argclasscheck(systemarg[1]);
+    dpp_argoclasscheck(systemarg[1]);
 
     for(new i; i < dpp_maxfuncs; i++)
     {
@@ -992,6 +995,7 @@ dpp_formatcheck(arg[],replacement[]); public dpp_formatcheck(arg[],replacement[]
     dpp_parseline(arg,systemarg,'@');
     
     dpp_argclasscheck(systemarg[1]);
+    dpp_argoclasscheck(systemarg[1]);
 
     for(new i; i < dpp_maxfuncs; i++)
     {
@@ -1040,6 +1044,7 @@ public dpp_callmethod(funcgroup[][],args[][],args_const[][])
         return 1;
     }
     dpp_argclasscheck(funcgroup[2]);
+    dpp_argoclasscheck(funcgroup[2]);
     for(new i; i < dpp_maxfuncs; i++)
     {
         if(!strcmp(dpp_funcname[i], funcgroup[2]))

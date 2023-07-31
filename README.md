@@ -11,7 +11,7 @@
 <br></br>
 
 ## Introduction
-:computer: ¤ PawnScript is a small interpreted language written in Pawn and thus it is its extension (similar to C/C++ or Java/JavaScript). It is designed with the role of enabling modification of the gamemode code on the server during run-time. It contains various features and things that aren't even introduced into Pawn itself. PawnScript has a very complex syntax which makes it very hard to learn but also fragile to small mistakes.
+:computer: ¤ PawnScript is a small interpreted semi-statically-typed object-oriented (and really memory-consuming) language written in Pawn and thus it is its extension (similar to C/C++ or Java/JavaScript). It is designed with the role of enabling modification of the gamemode code on the server during run-time. It contains various features and things that aren't even introduced into Pawn itself. PawnScript has a very complex syntax which makes it very hard to learn but also fragile to small mistakes.
 
 
 > :paperclip: It is made purely for fun and with an intention to learn more about Pawn itself, thus PawnScript should not be taken as a serious language. However, the language itself is still impressive considering it is written in Pawn.
@@ -53,6 +53,7 @@
 - [Enumerators](doc/enum.md)
 - [Static variables](doc/static.md)
 - [Decorators](doc/decorators.md)
+- [OOP](doc/objclass.md)
 - [Miscellaneous](doc/misc.md)
 
 ### Other info

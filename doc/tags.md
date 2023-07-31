@@ -18,10 +18,10 @@ MyTag<-new.int,testvar=10;
 - Tags inside namespaces.
 
 ```cpp
-namespace,ObjectTest;
+namespace,TagTestNameSpace;
 <;
 	tag,MyTag;
 >;
 
-ObjectTest::MyTag<-new.int,testvar=1;
+TagTestNameSpace::MyTag<-new.int,testvar=1;
 ```
