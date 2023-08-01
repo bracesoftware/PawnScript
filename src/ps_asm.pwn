@@ -57,6 +57,29 @@ public dpp_processasm(dirgroup[][],dirargs[][])
             //dpp_print("dpp_currentid : '%i' | dpp_currentsector : '%i'",dpp_currentid,dpp_currentsector);
             return 1;
         }
+        if(!strcmp(dirargs[0], "csnm"))
+        {
+            if(dpp_currentsector == dpp_memsec_var)
+            {
+                strmid(dpp_vardata[dpp_currentid][var_name], dirargs[1], 0, 64, 64);
+                return 1;
+            }
+        }
+        if(!strcmp(dirargs[0], "dtyp"))
+        {
+            if(dpp_currentsector == dpp_memsec_var)
+            {
+                if(dpp_var_type_int <= strval(dirargs[1]) <= dpp_var_type_char)
+                {
+                    dpp_vardata[dpp_currentid][var_type] = strval(dirargs[1]);
+                }
+                else
+                {
+                    dpp_error("Wrong data type ID specified.",);
+                }
+                return 1;
+            }
+        }
         if(!strcmp(dirargs[0], "vlset"))
         {
             if(dpp_currentsector == dpp_memsec_var)

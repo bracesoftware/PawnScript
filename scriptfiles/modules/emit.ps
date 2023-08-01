@@ -27,3 +27,16 @@ new.char,ADDRESSOFTEST5='0';
 #emit:vlset,'K';
 
 console.cout.log(ADDRESSOFTEST5);
+
+new.int,ADDRESSOFTEST6=1;
+#emit:addrset,addressof?ADDRESSOFTEST6;
+#emit:dtyp,5;
+#emit:vlset,'Z';
+
+console.cout.log(ADDRESSOFTEST6);
+
+new.int,ADDRESSOFTEST7=364;
+#emit:addrset,addressof?ADDRESSOFTEST7;
+#emit:csnm,__ADDRESSOFTEST7;
+
+console.cout.log(__ADDRESSOFTEST7);

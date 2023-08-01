@@ -96,3 +96,56 @@ true
 23.746000
 'K'
 ```
+
+### `dtyp`
+
+- Used to change the return type.
+
+```cpp
+#emit:addrset,addressof?varname;
+#emit:dtyp,4;
+```
+
+- `1` = `int`
+- `2` = `bool`
+- `3` = `str`
+- `4` = `double`
+- `5` = `char`
+
+
+#### Example
+
+- Create an integer variable, change its data type to `char`, set a value, and then print the value.
+
+```cpp
+new.int,ADDRESSOFTEST6=1;
+#emit:addrset,addressof?ADDRESSOFTEST6;
+#emit:dtyp,5;
+#emit:vlset,'Z';
+
+console.cout.log(ADDRESSOFTEST6);
+```
+
+Output:
+
+```
+'Z'
+```
+
+### `csnm`
+
+- Change the symbol name.
+
+```cpp
+new.int,ADDRESSOFTEST7=364;
+#emit:addrset,addressof?ADDRESSOFTEST7;
+#emit:csnm,__ADDRESSOFTEST7;
+
+console.cout.log(__ADDRESSOFTEST7);
+```
+
+Output:
+
+```
+364
+```
