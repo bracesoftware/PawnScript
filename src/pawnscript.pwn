@@ -6,7 +6,7 @@
 * Entry point
 *
 * 
-* - by: DEntisT, (c) 2022
+* - by: DEntisT, (c) 2023
 *
 */
 //-----------------------------------------------------------
@@ -109,6 +109,9 @@ new dpp_lastdeco = dpp_deco_invalid;
 // PREDEFINES
 //-----------------------------------------------------------
 #define dpp_null "null"
+//-----------------------------------------------------------
+//PawnScriptASM
+#define dpp_memsec_var 1
 //-----------------------------------------------------------
 // REQUIRED.
 #include <open.mp>
@@ -319,6 +322,7 @@ new dpp_event = 0;
 //-----------------------------------------------------------
 //compiler sys
 #include "compiler/index.inc"
+#include "ps_asm.pwn"
 //-----------------------------------------------------------
 // component impl
 #include "components/system.inc"

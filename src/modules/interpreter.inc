@@ -2210,6 +2210,13 @@ stock dpp_process(line[])
         dpp_processpragma(dirgroup,dirargs);
         return 1;
     }
+    if(!strcmp(dirgroup[0], "#emit"))
+    {
+        new dirargs[3][dpp_maxargsc];
+        dpp_parseline(dirgroup[1],dirargs,',');
+        dpp_processasm(dirgroup,dirargs);
+        return 1;
+    }
 
     ///////////////////////////////////////////////////////
     ////
@@ -3036,8 +3043,8 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
                         strmid(dpp_args[i][argid][dpp_argvalue],
                             args[argid],
                             0,
-                            dpp_argcharsize,
-                            dpp_argcharsize);
+                            dpp_argcharsize/2,
+                            dpp_argcharsize/2);
                     }
                     dpp_returned[i] = 0;
                     dpp_processfunc = i;
@@ -3056,16 +3063,11 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
                                 {
                                     for(new argid; argid < dpp_maxformargs; argid++)
                                     {
-                                        /*strmid(dpp_args[hookfuncid][argid][dpp_argname],
-                                            dpp_args[i][argid][dpp_argname],
-                                            0,
-                                            dpp_argcharsize,
-                                            dpp_argcharsize);*/
                                         strmid(dpp_args[hookfuncid][argid][dpp_argvalue],
                                             args[argid],
                                             0,
-                                            dpp_argcharsize,
-                                            dpp_argcharsize);
+                                            dpp_argcharsize/2,
+                                            dpp_argcharsize/2);
                                     }
                                     dpp_processfunc = hookfuncid;
                                     //dpp_warning("#1 Hookfunc: '%s' | Code: '%s'",dpp_funcname[hookfuncid],dpp_funccodeblock[hookfuncid]);

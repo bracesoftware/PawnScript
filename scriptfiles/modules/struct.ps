@@ -2,7 +2,7 @@ console.println("========================== struct.dpp =========================
 
 extern&struct*samp_command.testcmd?playerid&params;
 {;
-	samp.SendClientMessage,playerid@testcmd,0,"Your command works!";
+	samp.SendClientMessage,playerid,0,"Your command works!";
 	return.int,1;
 };
 
@@ -55,9 +55,9 @@ misc.swap(misctest1,misctest2);
 
 console.println("{misctest1} and {misctest2}");
 
-int*form.ForTest2?num;
+int*form.ForTest2?numarg;
 {;
-	console.println("Damn for loop test {num@ForTest2}");
+	console.println("Damn for loop test {numarg@ForTest2}");
 	return,1;
 };
 

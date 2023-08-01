@@ -775,6 +775,35 @@ dpp_arginstruct(arg[]); public dpp_arginstruct(arg[])
         }
         strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
     }
+    if(!strcmp(operands[0], "addressof"))
+    {
+        new memory_sector;
+        dpp_argclasscheck(operands[1]);
+        dpp_argoclasscheck(operands[1]);
+        
+        for(new i; i < dpp_maxvar; i++)
+        {
+            if(!strcmp(operands[1], dpp_vardata[i][var_name]))
+            {
+                if(dpp_vardata[i][var_valid] == 1)
+                {
+                    memory_sector = dpp_memsec_var;
+                    symbolid = i;
+                    break;
+                }
+            }
+        }
+
+        if(symbolid == -1 || memory_sector == 0)
+        {
+            format(newvalue, sizeof newvalue, "65535@65535");
+        }
+        else
+        {
+            format(newvalue, sizeof newvalue, "%i@%i", symbolid, memory_sector);
+        }
+        strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
+    }
     return 1;
 }
 ///////////////FUNC CALLING/////////////////////
@@ -956,6 +985,38 @@ stock void:dpp_savelog(const file[],const message[])
 }
 
 //////////
+/*
+stock dpp_argformargcheck(arg[])
+{
+    //i.e., playerid@OnPlayerConnect
+    new newvalue[dpp_argcharsize],
+        argvalid = 0,
+        argid;
+
+    if(dpp_processfunc == DPP_INVALID_FORM_ID)
+    {
+        return 1;
+    }
+
+    for(new i; i < dpp_maxformargs; i++)
+    {
+        if(!strcmp(dpp_args[dpp_processfunc][i][dpp_argname],arg))
+        {
+            argid = i;
+            argvalid = 1;
+            break;
+        }
+    }
+
+    if(argvalid == 1)
+    {
+        format(newvalue,sizeof newvalue,"%s",dpp_args[dpp_processfunc][argid][dpp_argvalue]);
+
+        strmid(arg, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+    }
+    return 1;
+}
+*/
 
 stock dpp_argformargcheck(arg[])
 {

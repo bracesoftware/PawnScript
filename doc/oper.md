@@ -74,8 +74,40 @@ Output:
 1
 ```
 
+### Operator: `::`
+- Namespace access operator.
+```cpp
+namespace,MyNameSpace;
+<;
+	void*form.MyForm;
+	{;
+		console.println.log("I'm here!");
+	};
+>;
+
+user.MyNameSpace::MyForm;
+```
+
+### Operator: `.`
+- Code block access operator.
+
+```cpp
+console.println.log("Hi!");
+```
+
+### Operator: `@`
+- Memory access operator.
+
+```cpp
+void*form.MyForm?argument;
+{;
+	console.cout.log(argument@MyForm);
+};
+```
 
 ---------------------------------------------------------------------------------------------------------
+
+## More info
 
 Little example:
 
