@@ -3231,6 +3231,23 @@ public dpp_processpragma(dirgroup[][],dirargs[][])
                 dpp_option_escapechar = '\\';
                 return 1;
             }
+
+            new mul2;
+            for(new i; i < strlen(dirargs[1]); i++)
+            {
+                if(dirargs[1][i] == '\'') mul2++, strdel(dirargs[1], i, i+1);
+            }
+            if(mul2 == 0)
+            {
+                dpp_error("You need to use \"'\" to start a char.",);
+                return 0;
+            }
+            if(mul2 != 2)
+            {
+                dpp_error("Data type mismatch; [%i] \"%s\"", mul2, dirargs[1]);
+                return 0;
+            }
+
             dpp_option_escapechar = dirargs[1][0];
             //dpp_info("Control character updated to: %c", dpp_option_escapechar);
             return 1;
