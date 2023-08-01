@@ -10,6 +10,7 @@
 *
 */
 //-----------------------------------------------------------
+new dpp_ignoreline=0;
 //@_
 #define SCRIPT_EXT ".ps"
 #define LOG_EXT ".pslog"
@@ -24,8 +25,8 @@
 //-----------------------------------------------------------
 #define DPP_VERSION_MAJOR 1
 #define DPP_VERSION_MINOR 0
-#define DPP_VERSION_PATCH 2
-#define DPP_VERSION_RELEASE 2
+#define DPP_VERSION_PATCH 3
+#define DPP_VERSION_RELEASE 1
 #define DPP_CELLMAX 8
 
 #define DPP_VERSION_BETA 0

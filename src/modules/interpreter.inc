@@ -27,18 +27,20 @@ stock dpp_process(line[])
         dpp_deletespaces(line);
     }*/
     dpp_codetrim(line, .edge = edge_left);
-    new
-        iscomment = 0;
 
-    if(!strcmp(line,"/*"))
+    if(line[0] == '/' && line[1] == '*')
     {
-        iscomment = 1;
+        dpp_ignoreline = 1;
     }
-    if(!strcmp(line,"*/"))
+    if(line[0] == '*' && line[1] == '/')
     {
-        iscomment = 0;
+        dpp_ignoreline = 0;
     }
-    if(iscomment == 1)
+    if(dpp_ignoreline == 1)
+    {
+        return 1;
+    }
+    if(line[0] == '/' && line[1] == '/')
     {
         return 1;
     }

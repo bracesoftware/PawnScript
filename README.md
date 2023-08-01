@@ -27,6 +27,7 @@
 - [Directives](doc/directives.md)
 - [Interpreter options](doc/options.md)
 - [Interpreter components](doc/components.md)
+- [Comments](doc/comments.md)
 - [Third-party API](doc/api.md)
 - [Modules](doc/modules.md)
 - [Constants](doc/const.md)
