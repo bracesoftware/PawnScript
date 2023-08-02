@@ -220,8 +220,8 @@ stock dpp_formatarg(argument[]) // creds DEntisT
         return 1;
     }
     new 
-        start,
-        end,
+        start=-1,
+        end=-1,
         len = strlen(argument),
         symbolname[64],
         replacementname[64],
@@ -351,6 +351,10 @@ stock dpp_formatarg(argument[]) // creds DEntisT
     if(constvalid == 1 || varvalid == 1 || argvalid == 1)
     {
         dpp_strreplace(argument,replacementname,replacement,.maxlength=dpp_maxformatlen);
+    }
+    else if( (constvalid == 0 || varvalid == 0 || argvalid == 0) && start != -1 || end != -1)
+    {
+        dpp_strreplace(argument,replacementname,"null",.maxlength=dpp_maxformatlen);
     }
 
     /*new 

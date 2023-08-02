@@ -22,12 +22,12 @@ stock dpp_argmathcheck(arg[])
         return 1;
     }
 
+    dpp_exp(arg);
+    dpp_div(arg);
+    dpp_drm(arg);
+    dpp_mul(arg);
     dpp_add(arg);
     dpp_sub(arg);
-    dpp_div(arg);
-    dpp_mul(arg);
-    dpp_exp(arg);
-    dpp_drm(arg);
     return 1;
 }
 
@@ -52,6 +52,7 @@ stock dpp_add(arg[])
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
+            dpp_argmathcheck(operands[i]);
             CallLocalFunction("dpp_argenumcheck", "s", operands[i]);
         }
     }
@@ -92,6 +93,7 @@ stock dpp_sub(arg[])
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
+            dpp_argmathcheck(operands[i]);
             CallLocalFunction("dpp_argenumcheck", "s", operands[i]);
         }
     }
@@ -132,6 +134,7 @@ stock dpp_mul(arg[])
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
+            dpp_argmathcheck(operands[i]);
             CallLocalFunction("dpp_argenumcheck", "s", operands[i]);
         }
     }
@@ -173,6 +176,7 @@ stock dpp_div(arg[])
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
+            dpp_argmathcheck(operands[i]);
             CallLocalFunction("dpp_argenumcheck", "s", operands[i]);
         }
     }
@@ -214,6 +218,7 @@ stock dpp_exp(arg[])
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
+            dpp_argmathcheck(operands[i]);
             CallLocalFunction("dpp_argenumcheck", "s", operands[i]);
         }
     }
@@ -246,6 +251,7 @@ stock dpp_drm(arg[])
             dpp_argarraycheck(operands[i]);
             dpp_argfunccheck(operands[i]);
             dpp_argvarcheck(operands[i]);
+            dpp_argmathcheck(operands[i]);
             CallLocalFunction("dpp_argenumcheck", "s", operands[i]);
         }
     }

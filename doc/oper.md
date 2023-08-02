@@ -105,6 +105,30 @@ void*form.MyForm?argument;
 };
 ```
 
+### Operator: `->`
+
+- Conditional operator.
+
+```cpp
+if.equ,1,1->console.println.log("1 and 1 are equal");
+```
+
+### Operator: `<-`
+
+- Attribute assignment operator.
+
+```cpp
+MyTag<-new.int,myvar=1;
+```
+
+### Operator: `=`
+
+- Data assignment operator.
+
+```cpp
+new.int,myvar=1;
+```
+
 ---------------------------------------------------------------------------------------------------------
 
 ## More info

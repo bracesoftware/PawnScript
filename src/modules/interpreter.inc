@@ -121,6 +121,7 @@ stock dpp_process(line[])
 
     for(new i; i < dpp_maxargsc; i++)
     {
+        dpp_codetrim(args[i]);
         strmid(args_const[i], args[i],0,dpp_argcharsize,dpp_argcharsize);
     }
 
@@ -131,6 +132,7 @@ stock dpp_process(line[])
 
     for(new i; i < dpp_maxargsc; i++)
     {
+        dpp_codetrim(args_form[i]);
         strmid(args_fconst[i], args_form[i],0,dpp_argcharsize,dpp_argcharsize);
     }    
 
@@ -223,6 +225,11 @@ stock dpp_process(line[])
         }
     }
 
+    for(new i; i < 2; i++)
+    {
+        dpp_codetrim(structgroup[i]);
+    }
+
     //console.cout,"Hello World";
 
     //  funcgroup[0]    console
@@ -280,54 +287,6 @@ stock dpp_process(line[])
         dpp_print("Process terminated; restart the machine.");
         return 1;
     }
-
-    /*
-    if(!strcmp(funcgroup[0], "inline"))
-    {
-        if(!strcmp(funcgroup[1],"end"))
-        {
-            dpp_currentinlineid = DPP_INVALID_FORM_ID;
-            dpp_inlineinterpreter = 1;
-            dpp_error("'dpp_inlineinterpreter' is updated to '%i'",dpp_inlineinterpreter);
-            dpp_error("'dpp_currentinlineid' is updated to '%i'",dpp_currentinlineid);
-        }
-        if(!strcmp(funcgroup[1],"do"))
-        {
-            dpp_inlineinterpreter = 0;
-            dpp_error("'dpp_inlineinterpreter' is updated to '%i'",dpp_inlineinterpreter);
-        }
-        return 1;
-    }
-
-    
-    if(!strcmp(funcgroup[0], "task"))
-    {
-        if(!strcmp(funcgroup[1],"end"))
-        {
-            dpp_currenttaskid = DPP_INVALID_TASK_ID;
-            dpp_taskinterpreter = 1;
-        }
-        if(!strcmp(funcgroup[1],"do"))
-        {
-            dpp_taskinterpreter = 0;
-        }
-        return 1;
-    }
-
-    if(!strcmp(funcgroup[0], "class"))
-    {
-        if(!strcmp(funcgroup[1],"end"))
-        {
-            dpp_workingclassid = dpp_invalidclass;
-        }
-        if(!strcmp(funcgroup[1],"do"))
-        {
-            dpp_workingclassid = dpp_lastclass;
-        }
-        return 1;
-    }
-    */
-
     if(dpp_strcmp(funcgroup[0], "<"))
     {
         dpp_workingclassid = dpp_lastclass;
@@ -834,6 +793,7 @@ stock dpp_process(line[])
 
     for(new i; i < 2; i++)
     {
+        dpp_codetrim(vargroup[i]);
         if(i == 0)
         {
             dpp_argclasscheck(vargroup[i]);
@@ -1716,7 +1676,7 @@ stock dpp_process(line[])
         {
             if(!dpp_isnumeric(vargroup[1]))
             {
-                dpp_error("Argument error; value must be an integer.",);
+                dpp_error("Argument error [%s]; value must be an integer.",vargroup[1]);
                 return 0;
             }
             if(!strcmp(funcgroup[2], "unsigned"))

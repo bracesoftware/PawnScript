@@ -65,3 +65,17 @@ new.int.unsigned,positivealways=-1;
 ```
 
 **NOTE**: If you assign a negative value, it'll be replaced with a positive value; in this case - the variable will have a value of 1 instead.
+
+## `addressof` instruction
+
+- This is a built-in instruction which returns an address of a symbol, most frequently a variable.
+
+```cpp
+console.cout(addressof?myvar);
+```
+
+Output:
+
+```
+1@1
+```
