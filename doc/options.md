@@ -37,7 +37,7 @@ You can toggle PawnScript hooking system on or off.
 Change the parsing escape character.
 
 ```cpp
-#pragma:ctrlchar,*;
+#pragma:ctrlchar,'*';
 ```
 
 ## `allspc`
