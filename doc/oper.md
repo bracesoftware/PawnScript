@@ -144,7 +144,7 @@ Output:
 
 ### Operator: `&`
 
-- Bitwise OR.
+- Bitwise AND.
 
 ```cpp
 console.cout.log(1&0);
