@@ -22,14 +22,17 @@ stock dpp_argmathcheck(arg[])
         return 1;
     }
 
+    dpp_sub(arg);
+    dpp_add(arg);
+
+    dpp_mul(arg);
+    dpp_div(arg);
+
+    dpp_drm(arg);
+    dpp_exp(arg);
+
     dpp_bor(arg);
     dpp_ban(arg);
-    dpp_exp(arg);
-    dpp_div(arg);
-    dpp_drm(arg);
-    dpp_mul(arg);
-    dpp_add(arg);
-    dpp_sub(arg);
     return 1;
 }
 
@@ -308,8 +311,8 @@ stock dpp_exp(arg[])
         }
     }
 
-    format(newvalue, sizeof newvalue, "%i", 
-        floatround(floatpower(Float:(strval(operands[0])),Float:(strval(operands[1])))));
+    format(newvalue, sizeof newvalue, "%f", 
+        floatpower(Float:(strval(operands[0])),Float:(strval(operands[1]))));
 
     return format(arg, strlen(arg), newvalue);
 }

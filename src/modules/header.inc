@@ -675,7 +675,9 @@ stock dpp_2split(const src[], dest1[], dest2[], operator__)
     }
 
     strmid(dest1, src, 0, operpos, dpp_operandsize);
-    strmid(dest2, src, operpos, strlen(src), dpp_operandsize);
+    strmid(dest2, src, operpos+1, strlen(src), dpp_operandsize);
+
+    //dpp_print("Split [%s] into [%s] and [%s]",src,dest1,dest2);
     return 1;
 }
 ///////////////////
