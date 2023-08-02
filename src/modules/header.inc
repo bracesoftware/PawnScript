@@ -657,6 +657,27 @@ stock dpp_argsystemval(arg[])
     }    
     return 1;
 }
+////////////////
+stock dpp_2split(const src[], dest1[], dest2[], operator__)
+{
+    new operpos = -1;
+    for(new i; i < strlen(src); i++)
+    {
+        if(src[i] == operator__)
+        {
+            operpos = i;
+            break;
+        }
+    }
+    if(operpos == -1)
+    {
+        return 1;
+    }
+
+    strmid(dest1, src, 0, operpos, dpp_operandsize);
+    strmid(dest2, src, operpos, strlen(src), dpp_operandsize);
+    return 1;
+}
 ///////////////////
 dpp_arginstruct(arg[]); public dpp_arginstruct(arg[])
 {

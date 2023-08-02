@@ -38,8 +38,8 @@ stock dpp_bor(arg[])
 {
     // using::console.cout,add?1:1
     new newvalue[dpp_argcharsize];
-    new operands[2][64];
-    dpp_parseline(arg, operands, '|');
+    new operands[2][dpp_operandsize];
+    dpp_2split(arg, operands[0], operands[1], '|'); //dpp_parseline(arg, operands, '|');
 
     if(isnull(operands[0]) || isnull(operands[1]))
     {
@@ -79,8 +79,8 @@ stock dpp_ban(arg[])
 {
     // using::console.cout,add?1:1
     new newvalue[dpp_argcharsize];
-    new operands[2][64];
-    dpp_parseline(arg, operands, '&');
+    new operands[2][dpp_operandsize];
+    dpp_2split(arg, operands[0], operands[1], '&'); //dpp_parseline(arg, operands, '&');
 
     if(isnull(operands[0]) || isnull(operands[1]))
     {
@@ -120,8 +120,8 @@ stock dpp_add(arg[])
 {
     // using::console.cout,add?1:1
     new newvalue[dpp_argcharsize];
-    new operands[2][64];
-    dpp_parseline(arg, operands, '+');
+    new operands[2][dpp_operandsize];
+    dpp_2split(arg, operands[0], operands[1], '+'); //dpp_parseline(arg, operands, '+');
 
     if(isnull(operands[0]) || isnull(operands[1]))
     {
@@ -161,8 +161,8 @@ stock dpp_sub(arg[])
 {
     // using::console.cout,add?1:1
     new newvalue[dpp_argcharsize];
-    new operands[2][64];
-    dpp_parseline(arg, operands, '-');
+    new operands[2][dpp_operandsize];
+    dpp_2split(arg, operands[0], operands[1], '-'); //dpp_parseline(arg, operands, '-');
 
     if(isnull(operands[0]) || isnull(operands[1]))
     {
@@ -202,8 +202,8 @@ stock dpp_mul(arg[])
 {
     // using::console.cout,add?1:1
     new newvalue[dpp_argcharsize];
-    new operands[2][64];
-    dpp_parseline(arg, operands, '*');
+    new operands[2][dpp_operandsize];
+    dpp_2split(arg, operands[0], operands[1], '*'); //dpp_parseline(arg, operands, '*');
 
     if(isnull(operands[0]) || isnull(operands[1]))
     {
@@ -244,8 +244,8 @@ stock dpp_div(arg[])
 {
     // using::console.cout,add?1:1
     new newvalue[dpp_argcharsize];
-    new operands[2][64];
-    dpp_parseline(arg, operands, '/');
+    new operands[2][dpp_operandsize];
+    dpp_2split(arg, operands[0], operands[1], '/'); //dpp_parseline(arg, operands, '/');
 
     if(isnull(operands[0]) || isnull(operands[1]))
     {
@@ -286,8 +286,8 @@ stock dpp_exp(arg[])
 {
     // using::console.cout,add?1:1
     new newvalue[dpp_argcharsize];
-    new operands[2][64];
-    dpp_parseline(arg, operands, '^');
+    new operands[2][dpp_operandsize];
+    dpp_2split(arg, operands[0], operands[1], '^'); //dpp_parseline(arg, operands, '^');
 
     if(isnull(operands[0]) || isnull(operands[1]))
     {
@@ -319,8 +319,8 @@ stock dpp_drm(arg[])
 {
     // using::console.cout,add?1:1
     new newvalue[dpp_argcharsize];
-    new operands[2][64];
-    dpp_parseline(arg, operands, '%');
+    new operands[2][dpp_operandsize];
+    dpp_2split(arg, operands[0], operands[1], '%'); //dpp_parseline(arg, operands, '%');
 
     if(isnull(operands[0]) || isnull(operands[1]))
     {

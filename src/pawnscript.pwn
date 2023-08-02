@@ -114,6 +114,8 @@ new dpp_lastdeco = dpp_deco_invalid;
 //PawnScriptASM
 #define dpp_memsec_var 1
 //-----------------------------------------------------------
+#define dpp_operandsize 64
+//-----------------------------------------------------------
 // REQUIRED.
 #include <open.mp>
 //-----------------------------------------------------------
