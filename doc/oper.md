@@ -129,6 +129,33 @@ MyTag<-new.int,myvar=1;
 new.int,myvar=1;
 ```
 
+### Operator: `|`
+
+- Bitwise OR.
+
+```cpp
+console.cout.log(1|0);
+```
+
+Output:
+```
+1
+```
+
+### Operator: `&`
+
+- Bitwise OR.
+
+```cpp
+console.cout.log(1&0);
+```
+
+Output:
+
+```
+0
+```
+
 ---------------------------------------------------------------------------------------------------------
 
 ## More info
