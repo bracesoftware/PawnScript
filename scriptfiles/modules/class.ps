@@ -11,7 +11,7 @@
 console.println("========================== class.dpp ==========================");
 
 namespace,dogInfo;
-<;
+{;
 	new.str,name="Alexander";
 
 	const*new.int,age=15;
@@ -21,22 +21,25 @@ namespace,dogInfo;
 		console.println("This is a bulldog.");
 		return,1;
 	};
->;
 
+	new.int,stacktest="Stack Works!";
+};
+
+console.println.log(dogInfo::stacktest);
 console.println(dogInfo::name);
 user.dogInfo::dogRace;
 
 console.cout(dogInfo::age);
 
 namespace,manInfo;
-<;
+{;
 	new.str,name="Alex";
->;
+};
 
 using*namespace,dogInfo;
-<;
+{;
 	new.str,owner="Tommy";
->;
+};
 
 console.println(dogInfo::owner);
 
@@ -45,9 +48,9 @@ console.println(dogInfo::owner);
 	console.println(dogInfo::owner);
 
 using*namespace,manInfo;
-<;
+{;
 	new.int,age=86;
->;
+};
 
 console.println(manInfo::name);
 console.cout(manInfo::age);

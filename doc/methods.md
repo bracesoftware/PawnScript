@@ -16,14 +16,14 @@ console.println.TestMethod("Method test #1");
 
 
 namespace,MyNameSpace;
-<;
+{;
 	@method;
 	int*form.TestMethod?text;
 	{;
 		console.println.log("Printed: {text@MyNameSpace::TestMethod}");
 		return.int,1;
 	};
->;
+};
 
 console.println.MyNameSpace::TestMethod("Method test #2");
 ```

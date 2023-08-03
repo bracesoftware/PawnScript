@@ -1254,3 +1254,45 @@ public dpp_callform(external_form[])
     }
     return 1;
 }
+
+// Memory stack for braces "{}" 
+
+dpp_initstack();
+public dpp_initstack()
+{
+    for(new x; x < DPP_BRACE_STACK_SIZE; x++)
+    {
+        dpp_bracestack[x] = DPP_INVALID_STACK_VALUE;
+    }
+    return 1;
+}
+
+stock dpp_bracestackpush(value) //push
+{
+    for(new x; x < DPP_BRACE_STACK_SIZE; x++)
+    {
+        if(dpp_bracestack[x] == DPP_INVALID_STACK_VALUE)
+        {
+            dpp_bracestack[x] = value;
+            return value;
+        } 
+    }
+    return DPP_INVALID_STACK_VALUE;
+}
+
+// POP THE VALUE:
+
+stock dpp_bracestackpop() //pop
+{
+    new dest = DPP_INVALID_STACK_VALUE;
+    for(new x = DPP_BRACE_STACK_SIZE - 1; x > -1; x--)
+    {
+        if(dpp_bracestack[x] != DPP_INVALID_STACK_VALUE)
+        {
+            dest = dpp_bracestack[x];
+            dpp_bracestack[x] = DPP_INVALID_STACK_VALUE;
+            return dest;
+        } 
+    }
+    return dest;
+}

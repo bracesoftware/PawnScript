@@ -61,7 +61,8 @@ stock dpp_process(line[])
         vargroup[2][256],
         args_const[dpp_maxargsc][dpp_argcharsize],
         structgroup[2][512],
-        dirgroup[2][256];
+        dirgroup[2][256],
+        tokengroup[2][256];
 
     new 
         nativegroup[2][1024],
@@ -84,6 +85,20 @@ stock dpp_process(line[])
 
     dpp_parseline(line,dirgroup,':');
     dpp_parseline(line,nativegroup, '(');
+
+    for(new i; i < strlen(line); i++)
+    {
+        if(line[i] == '\t')
+        {
+            line[i] = '\32';
+        }
+    }
+    dpp_parseline(line,tokengroup, '\32');
+    for(new i; i < 2; i++)
+    {
+        dpp_codetrim(tokengroup[i]);
+    }
+    //dpp_print("token1 : '%s' | token2 : '%s'", tokengroup[0], tokengroup[1]);
 
     dpp_parseline(line, args, ',');
     for(new i; i < dpp_maxtypedef; i++)
@@ -287,20 +302,21 @@ stock dpp_process(line[])
         dpp_print("Process terminated; restart the machine.");
         return 1;
     }
-    if(dpp_strcmp(funcgroup[0], "<"))
+    /*if(dpp_strcmp(funcgroup[0], "<"))
     {
         dpp_workingclassid = dpp_lastclass;
         return 1;
-    }
+    }*/
 
-    if(dpp_strcmp(funcgroup[0], ">"))
+    /*if(dpp_strcmp(funcgroup[0], ">"))
     {
         dpp_workingclassid = dpp_invalidclass;
         return 1;
-    }
+    }*/
 
     if(dpp_strcmp(funcgroup[0], "}"))
     {
+        dpp_event = dpp_bracestackpop();
         if(dpp_event == dpp_event_form)
         {
             dpp_sysreturned = 0;
@@ -322,11 +338,16 @@ stock dpp_process(line[])
         {
             dpp_oclassinterpreter = 1;
         }
+        if(dpp_event == dpp_event_namespace)
+        {
+            dpp_workingclassid = dpp_invalidclass;
+        }
         return 1;
     }
 
     if(dpp_strcmp(funcgroup[0], "{"))
     {
+        dpp_bracestackpush(dpp_event);
         if(dpp_event == dpp_event_form)
         {
             dpp_interpreter = 0;
@@ -343,6 +364,10 @@ stock dpp_process(line[])
         if(dpp_event == dpp_event_class)
         {
             dpp_oclassinterpreter = 0;
+        }
+        if(dpp_event == dpp_event_namespace)
+        {
+            dpp_workingclassid = dpp_lastclass;
         }
         return 1;
     }

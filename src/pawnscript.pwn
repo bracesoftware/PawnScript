@@ -115,6 +115,9 @@ new dpp_lastdeco = dpp_deco_invalid;
 #define dpp_memsec_var 1
 //-----------------------------------------------------------
 #define dpp_operandsize 64
+#define DPP_INVALID_STACK_VALUE 65535
+#define DPP_BRACE_STACK_SIZE 10
+new dpp_bracestack[DPP_BRACE_STACK_SIZE];
 //-----------------------------------------------------------
 // REQUIRED.
 #include <open.mp>
@@ -351,6 +354,8 @@ dpp_main(); public dpp_main()
 main_again();
 public main_again()
 {
+    CallLocalFunction("dpp_initstack", "");
+    
     if(dpp_compiled == 1)
     {
         dpp_execute("index"SCRIPT_EXT);

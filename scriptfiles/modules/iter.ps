@@ -29,9 +29,9 @@ console.cout.log(sizeof?testiter);
 console.cout(1); console.println("Lmao ok");
 
 namespace,IterClass;
-<;
+{;
 	iter::define,iter,10;
->;
+};
 
 iter::add,IterClass::iter,364;
 foreach.int&var,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");
@@ -61,14 +61,14 @@ console.println.TestMethod("Method test #1");
 
 
 namespace,MethodClass;
-<;
+{;
 	@method;
 	int*form.TestMethod?text;
 	{;
 		console.println.log("Printed: {text@MethodClass::TestMethod}");
 		return.int,1;
 	};
->;
+};
 
 
 console.println.MethodClass::TestMethod("Method test #2");
@@ -82,9 +82,9 @@ int*form.MegaFormBoo?text;
 user.MegaFormBoo("MegaFormBoo was sucessfully called");
 
 namespace,SAMP;
-<;
+{;
 	iter::define,Player,MAX_PLAYERS;
->;
+};
 
 @hook;
 void*form.OnPlayerConnect?playerid;
