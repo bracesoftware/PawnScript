@@ -6,7 +6,7 @@
 
 ```cpp
 int*form.InlineTestFunc;
-{;
+{
 	new.int,formid=__proccessed_form_id;
 	console.println("'InlineTestFunc' is {formid}");
 	
@@ -19,7 +19,7 @@ int*form.InlineTestFunc;
 	user.inlineformtest;
 	user.inlineformtest;
 	yield&return,1;
-};
+}
 
 user.InlineTestFunc;
 user.InlineTestFunc;

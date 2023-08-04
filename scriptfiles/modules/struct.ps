@@ -11,10 +11,10 @@
 console.println("========================== struct.dpp ==========================");
 
 extern&struct*samp_command.testcmd?playerid&params;
-{;
+{
 	samp.SendClientMessage,playerid,0,"Your command works!";
 	return.int,1;
-};
+}
 
 console.println("Struct test included!");
 
@@ -34,7 +34,7 @@ else->if.equ,1,1->console.println("Lmao else works!");
 system.rem("Another else test");
 
 int*form.ElseTest;
-{;
+{
 	if.equ,1,2->console.println("1 and 2 are equal");
 	else->if.equ,2,3->console.println("2 and 3 are equal");
 	else->console.println("Nothing is equal");
@@ -43,7 +43,7 @@ int*form.ElseTest;
 	else->console.println("This should not be printed");
 
 	return,1;
-};
+}
 
 system.rem("idk why");
 user.ElseTest;
@@ -66,10 +66,10 @@ misc.swap(misctest1,misctest2);
 console.println("{misctest1} and {misctest2}");
 
 int*form.ForTest2?numarg;
-{;
+{
 	console.println("Damn for loop test {numarg@ForTest2}");
 	return,1;
-};
+}
 
 set.int,forlooptestvar=0;
 for.int&var,forlooptestvar,5->user.ForTest2(forlooptestvar);

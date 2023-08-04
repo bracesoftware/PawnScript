@@ -78,12 +78,12 @@ Output:
 - Namespace access operator.
 ```cpp
 namespace,MyNameSpace;
-<;
+{
 	void*form.MyForm;
-	{;
+	{
 		console.println.log("I'm here!");
-	};
->;
+	}
+}
 
 user.MyNameSpace::MyForm;
 ```
@@ -100,9 +100,9 @@ console.println.log("Hi!");
 
 ```cpp
 void*form.MyForm?argument;
-{;
+{
 	console.cout.log(argument@MyForm);
-};
+}
 ```
 
 ### Operator: `->`

@@ -17,9 +17,9 @@ MyTag<-new.int,testvar=10;
 
 ```cpp
 namespace,TagTestNameSpace;
-<;
+{
 	tag,MyTag;
->;
+}
 
 TagTestNameSpace::MyTag<-new.int,testvar=1;
 ```

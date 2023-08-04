@@ -11,26 +11,26 @@
 console.println("========================== tasks.dpp ==========================");
 
 public&task.testtask#1000;
-{;
+{
 	console.println("Task works!");
 	console.cout.log(1+1+2);
-};
+}
 
 public&task.anothersexytask#3000;
-{;
+{
 	console.println("Another task also works!");
 	samp.SendClientMessage(0,0,"Test client message");
-};
+}
 
 extern&struct*public.OnPlayerConnect?playerid;
-{;
+{
 	samp.SendClientMessage(playerid@OnPlayerConnect,0,"Welcome to the D++ server");
-};
+}
 
 extern&struct*public.OnPlayerDisconnect?playerid&reason;
-{;
+{
 	console.println("Player {playerid@OnPlayerDisconnect} disconnected | Reason: {reason@OnPlayerDisconnect}");
 	return.int,1;
-};
+}
 
 console.println.log("Tasks are working ig");

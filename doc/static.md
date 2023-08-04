@@ -4,9 +4,9 @@
 
 ```cpp
 int*form.StaticTest;
-{;
+{
 	static*new.str,statictest="Static works here";
 	console.println.log(statictest);
 	return,1;
-};
+}
 ```

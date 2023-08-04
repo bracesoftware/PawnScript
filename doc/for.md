@@ -28,10 +28,10 @@ For loop id 10
 
 ```cpp
 int*form.ForTest2?num;
-{;
+{
 	console.println("'num' is {num@ForTest2}");
 	return,1;
-};
+}
 
 set.int,forlooptestvar=0;
 for.int&var,forlooptestvar,5->user.ForTest2(forlooptestvar);

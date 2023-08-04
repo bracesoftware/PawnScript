@@ -29,9 +29,9 @@ console.cout.log(sizeof?testiter);
 console.cout(1); console.println("Lmao ok");
 
 namespace,IterClass;
-{;
+{
 	iter::define,iter,10;
-};
+}
 
 iter::add,IterClass::iter,364;
 foreach.int&var,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");
@@ -52,55 +52,54 @@ console.println.log("This should be in dpp.log in scriptfiles/");
 
 @method;
 int*form.TestMethod?text;
-{;
+{
 	console.println("Printed: {text@TestMethod}");
 	return.int,1;
-};
+}
 
 console.println.TestMethod("Method test #1");
 
 
 namespace,MethodClass;
-{;
+{
 	@method;
 	int*form.TestMethod?text;
-	{;
+	{
 		console.println.log("Printed: {text@MethodClass::TestMethod}");
 		return.int,1;
-	};
-};
-
+	}
+}
 
 console.println.MethodClass::TestMethod("Method test #2");
 
 int*form.MegaFormBoo?text;
-{;
+{
 	console.println("{text@MegaFormBoo}");
 	return.int,1;
-};
+}
 
 user.MegaFormBoo("MegaFormBoo was sucessfully called");
 
 namespace,SAMP;
-{;
+{
 	iter::define,Player,MAX_PLAYERS;
-};
+}
 
 @hook;
 void*form.OnPlayerConnect?playerid;
-{;
+{
 	iter::add,SAMP::Player,playerid@OnPlayerConnect;
-};
+}
 
 @hook;
 void*form.OnPlayerDisconnect?playerid;
-{;
+{
 	iter::remove,SAMP::Player,playerid@OnPlayerConnect;
-};
+}
 
 public&task.PrintPlayers#1000;
-{;
+{
 	foreach.int&var,foreachtestvar,SAMP::Player->console.println("foreach test #4 {foreachtestvar}");
 
-};
+}
 

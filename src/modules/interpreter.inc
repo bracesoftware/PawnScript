@@ -35,6 +35,12 @@ stock dpp_process(line[])
     if(line[0] == '*' && line[1] == '/')
     {
         dpp_ignoreline = 0;
+        if(strlen(line) >= 3)
+        {
+            line[0] = '\32';
+            line[1] = '\32';
+            dpp_subexecute2(line);
+        }
     }
     if(dpp_ignoreline == 1)
     {
@@ -314,7 +320,7 @@ stock dpp_process(line[])
         return 1;
     }*/
 
-    if(dpp_strcmp(funcgroup[0], "}"))
+    if(line[0] == '}')
     {
         dpp_event = dpp_bracestackpop();
         if(dpp_event == dpp_event_form)
@@ -342,10 +348,16 @@ stock dpp_process(line[])
         {
             dpp_workingclassid = dpp_invalidclass;
         }
+
+        if(strlen(line) >= 2)
+        {
+            line[0] = '\32';
+            dpp_subexecute2(line);
+        }
         return 1;
     }
 
-    if(dpp_strcmp(funcgroup[0], "{"))
+    if(line[0] == '{')
     {
         dpp_bracestackpush(dpp_event);
         if(dpp_event == dpp_event_form)
@@ -368,6 +380,12 @@ stock dpp_process(line[])
         if(dpp_event == dpp_event_namespace)
         {
             dpp_workingclassid = dpp_lastclass;
+        }
+
+        if(strlen(line) >= 2)
+        {
+            line[0] = '\32';
+            dpp_subexecute2(line);
         }
         return 1;
     }

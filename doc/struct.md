@@ -10,9 +10,9 @@ Example:
 
 ```cpp
 void*form.Announce;
-{;
+{
 	console.println("Script is loading");
-};
+}
 ```
 
 ## External forms
@@ -27,9 +27,9 @@ void*form.Announce;
 
 ```cpp
 extern&struct*public.main;
-{;
+{
 	console.println.log("Program begins here!");
-};
+}
 ```
 
 ### Component: `samp`
@@ -40,8 +40,8 @@ Example:
 
 ```cpp
 extern&struct*samp_command.testcmd?playerid&params;
-{;
+{
 	samp.SendClientMessage(playerid@testcmd,0,"Your command works!");
 	return.int,1;
-};
+}
 ```

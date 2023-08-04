@@ -9,8 +9,8 @@
 ```cpp
 @hook;
 void*form.MyTestFunc;
-{;
-};
+{
+}
 ```
 
 ## `@method`
@@ -20,8 +20,8 @@ void*form.MyTestFunc;
 ```cpp
 @method;
 void*form.MyTestFunc;
-{;
-};
+{
+}
 
 console.println.MyTestFunc(...);
 ```

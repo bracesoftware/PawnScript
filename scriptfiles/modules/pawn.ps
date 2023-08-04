@@ -15,10 +15,10 @@ using.pawn;
 pawn.callfunction("pawnscript_testpawnfunc");
 
 class,TestClass;
-{;
+{
 	new.int,ClassTestVar=827346;
 	new.double,TestClassDouble=364.234;
-};
+}
 
 object,TestObj=TestClass;
 console.cout.log(TestObj.ClassTestVar);
@@ -33,11 +33,11 @@ console.cout.log(TestObj2.TestClassDouble);
 console.println.log("#2 {TestObj2.ClassTestVar} & {TestObj2.TestClassDouble}");
 
 class,TestClass2;
-{;
+{
 	new.int,ClassTestVar=100000;
 	new.double,TestClassDouble=21.7636;
 	new.bool,TestClassBool=false;
-};
+}
 
 object,TestObj3=TestClass2;
 console.cout.log(TestObj3.ClassTestVar);

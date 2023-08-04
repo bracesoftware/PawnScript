@@ -35,9 +35,9 @@ foreach test #2 10
 
 ```cpp
 namespace,IterClass;
-<;
+{
 	iter::define,iter,10;
->;
+}
 
 iter::add,IterClass::iter,364;
 foreach.int&var,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");

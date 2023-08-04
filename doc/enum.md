@@ -6,12 +6,12 @@
 
 ```cpp
 enum,WeekDays;
-{;
+{
 	monday;
 	tuesday;
 	thursday;
 	saturday;
-};
+}
 
 console.cout.log(WeekDays.monday);
 console.cout.log(WeekDays.tuesday);
@@ -26,12 +26,12 @@ console.cout.log(WeekDays.saturday+WeekDays.monday);
 
 ```cpp
 enum,WeekDays;
-{;
+{
 	monday=1;
 	tuesday=2;
 	thursday=3;
 	saturday=4;
-};
+}
 
 console.cout.log(WeekDays.monday);
 console.cout.log(WeekDays.tuesday);
@@ -43,11 +43,11 @@ console.cout.log(WeekDays.saturday+WeekDays.monday);
 
 
 enum,Months;
-{;
+{
 	january=5;
 	february=6;
 	december=7;
-};
+}
 
 console.cout.log(Months.january);
 console.cout.log(Months.february-Months.december);

@@ -8,11 +8,11 @@
 
 ```cpp
 int*form.MyForm;
-{;
+{
 	console.println("Hello World");
 	return,1;
 	console.println("This code won't be executed");
-};
+}
 
 console.cout(MyForm);
 system.rem("Thing above will print 1");
@@ -25,11 +25,11 @@ system.rem("Thing above will print 1");
 
 ```cpp
 int*form.MyForm;
-{;
+{
 	console.println("Hello World");
 	yield&return,1;
 	console.println("This code will be executed too");
-};
+}
 
 console.cout(MyForm);
 system.rem("Thing above will print 1");
@@ -44,15 +44,15 @@ Little example:
 
 ```cpp
 int*form.TestFunction;
-{;
+{
 	return.bool,false;
-};
+}
 ```
 
 - Return type assigned to a form `TestFunction` is integer, but we returned a boolean. If we do not want to return any value, we just assign the `void` return type:
 
 ```cpp
 void*form.TestFunction;
-{;
+{
 	system.rem("Now we can't use a return keyword in this form block.");
-};
+}

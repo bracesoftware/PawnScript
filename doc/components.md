@@ -54,9 +54,9 @@ system.rem("SOME TEXT");
 
 ```cpp
 int*form.arginit_test?playerid&string;
-{;
+{
 	return,1;
-};
+}
 
 system.arginit(arginit_test,1,"Hello!");
 ```
@@ -69,10 +69,10 @@ system.arginit(arginit_test,1,"Hello!");
 
 ```cpp
 extern&struct*public.main;
-{;
+{
 	console.println("Hello World from main");
 	return.int,1;
-};
+}
 ```
 
 
@@ -112,9 +112,9 @@ samp.SendClientMessage(playerid@OnPlayerConnect,0,"Welcome to the PawnScript ser
 system.rem("OnGameModeInit should be called by itself.");
 
 extern&struct*public.OnGameModeInit;
-{;
+{
 	console.println("OnGameModeInit works");
-};
+}
 ```
 
 ### Automated user form: `OnGameModeExit`
@@ -123,9 +123,9 @@ extern&struct*public.OnGameModeInit;
 
 ```cpp
 extern&struct*public.OnGameModeExit;
-{;
+{
 	console.println("OnGameModeExit works");
-};
+}
 ```
 
 ### Automated user form: `OnPlayerConnect`
@@ -134,9 +134,9 @@ extern&struct*public.OnGameModeExit;
 
 ```cpp
 extern&struct*public.OnPlayerConnect?playerid;
-{;
+{
 	samp.SendClientMessage(playerid@OnPlayerConnect,0,"Welcome to the PawnScript server");
-};
+}
 ```
 
 ### Automated user form: `OnPlayerDisconnect`
@@ -146,10 +146,10 @@ extern&struct*public.OnPlayerConnect?playerid;
 ```cpp
 
 extern&struct*public.OnPlayerDisconnect?playerid&reason;
-{;
+{
 	console.println("Player {playerid@OnPlayerDisconnect} disconnected | Reason: {reason@OnPlayerDisconnect}");
 	return.int,1;
-};
+}
 ```
 
 **WARNING**: For some unknown reason, Windows can crash when the form is called with reason `1`.
@@ -244,14 +244,14 @@ misc.swap(var1,var2);
 - Provides forms for data management.
 
 Import the component using:
-```pawn
+```cpp
 using.data;
 ```
 
 ### Form: `sscanf`
 - Parses and splits a string.
 
-```pawn
+```cpp
 using.data;
 
 new.str,scanftest1="ok";

@@ -27,9 +27,9 @@ So you are using the `using` procedure on a `console` component to use the `prin
 
 ```cpp
 void*form.formname;
-{;
+{
 	console.println("my first user form");
-};
+}
 ```
 
 So now you've made an user form. Code between the curly braces is called a form code block. It may contain a native form call or a variable, constant or iterator declaration, and even an inline form initialization.
@@ -38,20 +38,20 @@ You also may return values.
 
 ```cpp
 str*form.formname;
-{;
+{
 	console.println("my first user form");
 	return,"this was returned";
-};
+}
 ```
 
 Then you can use this user form as an argument in a native form.
 
 ```cpp
 str*form.formname;
-{;
+{
 	console.println("my first user form");
 	return,"this was returned";
-};
+}
 
 console.println(formname);
 ```
@@ -81,24 +81,24 @@ console.println(CONST_NAME);
 
 ```cpp
 int*form.functobehooked;
-{;
+{
 	console.println("HOOKED");
 	return,1;
-};
+}
 
 @hook;
 int*form.functobehooked;
-{;
+{
 	console.println("HOOKED 1");
 	return.int,1;
-};
+}
 
 @hook;
 int*form.functobehooked;
-{;
+{
 	console.println("HOOKED 2");
 	return.int,1;
-};
+}
 
 user.functobehooked;
 ```

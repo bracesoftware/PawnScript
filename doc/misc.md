@@ -23,10 +23,10 @@ Test string
 ```
 
 ```cpp
-void*form.testfunction?message;
-{;
+void*form.testfunction?message; 
+{
 	console.println(message@testfunction);
-};
+}
 
 user.testfunction("{test}");
 ```
