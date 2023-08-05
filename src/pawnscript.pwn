@@ -250,6 +250,7 @@ enum __dpp_argcache
 new dpp_args[dpp_maxfuncs][dpp_maxformargs][__dpp_argcache];
 //-----------------------------------------------------------
 new dpp_validclass[dpp_maxclass];
+new dpp_classconstexpr[dpp_maxclass];
 new dpp_classname[dpp_maxclass][dpp_maxsymbolchar];
 new dpp_workingclassid = dpp_invalidclass;
 //-----------------------------------------------------------
@@ -334,7 +335,8 @@ new dpp_failedif = 0;
 #include "modules/interpreter.inc"
 //-----------------------------------------------------------
 //compiler sys
-#include "compiler/index.inc"
+#include "core/index.inc"
+#include "core/utils.inc"
 #include "ps_asm.pwn"
 //-----------------------------------------------------------
 // component impl

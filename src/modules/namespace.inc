@@ -100,7 +100,7 @@ stock dpp_argclasscheck(arg[])
     return 1;
 }
 
-stock dpp_createclass(const name[])
+stock dpp_createclass(const name[], constexpr = 0)
 {
     for(new i; i < dpp_maxclass; i++)
     {
@@ -122,6 +122,7 @@ stock dpp_createclass(const name[])
             }
 
             dpp_validclass[i] = 1;
+            dpp_classconstexpr[i] = constexpr;
             strmid(dpp_classname[i], name, 0, 64,64);
             dpp_lastclass = i;
             return 1;
@@ -136,6 +137,11 @@ stock dpp_hookclass(const name[])
     {
         if(!strcmp(dpp_classname[i],name) && dpp_validclass[i] == 1)
         {
+            if(dpp_classconstexpr[i] == 1)
+            {
+                dpp_fatalerror(1);
+                return 1;
+            }
             dpp_lastclass = i;
             return 1;
         }

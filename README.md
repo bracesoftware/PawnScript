@@ -59,6 +59,7 @@
 - [Decorators](doc/decorators.md)
 - [Objects and classes](doc/objclass.md)
 - [`do` statement](doc/do.md)
+- [`constexpr` keyword](doc/constexpr.md)
 - [Miscellaneous](doc/misc.md)
 
 ### Other info

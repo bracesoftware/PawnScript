@@ -924,6 +924,16 @@ stock dpp_process(line[])
         return 1;
     }
 
+    if(!strcmp(structgroup[0], "constexpr"))
+    {
+        if(!strcmp(structgroup[1], "namespace"))
+        {
+            dpp_createclass(args[1], .constexpr = 1);
+            dpp_event = dpp_event_namespace;
+        }
+        return 1;
+    }
+
     if(!strcmp(funcgroup[0], "class"))
     {
         dpp_createoclass(args[1]);
