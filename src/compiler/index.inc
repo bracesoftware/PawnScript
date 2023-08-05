@@ -107,7 +107,8 @@ stock dpp_compile(const script[])
 {
     print("                                        ");
     new content[16000];
-    printf("\tPawnScript   %i.%i.%i-R%i\t\tBraceTM Inc.", DPP_VERSION_MAJOR,DPP_VERSION_MINOR,DPP_VERSION_PATCH,DPP_VERSION_RELEASE);
+    printf("\tPawnScript   %i.%i.%i-R%i\tBrace Inc.", DPP_VERSION_MAJOR,DPP_VERSION_MINOR,DPP_VERSION_PATCH,DPP_VERSION_RELEASE);
+    printf("\tPawn         %d.%02d.%02d\tITB CompuPhase", __Pawn >>> 8, __Pawn & 0xFF, __PawnBuild/*__pawn_build*/); // from YSI
     //dpp_print("Interpreter version %i.%i.%i-R%i - by: DEntisT",DPP_VERSION_MAJOR,DPP_VERSION_MINOR,DPP_VERSION_PATCH,DPP_VERSION_RELEASE);
     if(fexist("index.dppc")) fremove("index.dppc");
     //dpp_print("Compiling \"%s\"...",script);

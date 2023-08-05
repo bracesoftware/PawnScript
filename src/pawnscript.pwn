@@ -121,6 +121,9 @@ new dpp_bracestack[DPP_BRACE_STACK_SIZE];
 //-----------------------------------------------------------
 // REQUIRED.
 #include <open.mp>
+#if !defined fcreatedir
+    native fcreatedir(const filename[]);
+#endif
 //-----------------------------------------------------------
 //new content[16000];
 //new subcontent[16000];

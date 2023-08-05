@@ -21,6 +21,28 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
             dpp_error("Component \"files\" is not imported.",);
             return 1;
         }
+        if(!strcmp(funcgroup[1], "createdir"))
+        {
+            new mul, str[dpp_argcharsize];
+            strmid(str, args[0], 0, dpp_argcharsize);
+            for(new i; i < strlen(args[0]); i++)
+            {
+                if(args[0][i] == '\"') mul++, strdel(args[0], i, i+1);
+            }
+            if(mul == 0)
+            {
+                dpp_error("You need to use '\"' to start a string.",);
+                return 1;
+            }
+            if(mul != 2)
+            {
+                dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
+                return 1;
+            }
+
+            fcreatedir(args[0]);
+            return 1;
+        }
         if(!strcmp(funcgroup[1], "delete"))
         {
             new mul, str[dpp_argcharsize];
