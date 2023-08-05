@@ -348,6 +348,10 @@ stock dpp_process(line[])
         {
             dpp_workingclassid = dpp_invalidclass;
         }
+        if(dpp_event == dpp_event_if)
+        {
+            dpp_failedif = 0;
+        }
 
         if(strlen(line) >= 2)
         {
@@ -381,12 +385,21 @@ stock dpp_process(line[])
         {
             dpp_workingclassid = dpp_lastclass;
         }
+        if(dpp_event == dpp_event_if)
+        {
+            dpp_failedif = 1;
+        }
 
         if(strlen(line) >= 2)
         {
             line[0] = '\32';
             dpp_subexecute2(line);
         }
+        return 1;
+    }
+
+    if(dpp_failedif == 1)
+    {
         return 1;
     }
 
@@ -927,6 +940,12 @@ stock dpp_process(line[])
         return 1;
     }
 
+    if(!strcmp(funcgroup[0], "do"))
+    {
+        dpp_event = dpp_event_do;
+        return 1;
+    }
+
     ///////////////////////////////////////////////////////
     ////
     ////
@@ -1000,6 +1019,7 @@ stock dpp_process(line[])
                 {
                     dpp_subexecute2(extracode);
                     dpp_skipelse = 1;
+                    return 1;
                 }
                 else if( dpp_isfloat(args[1]) && dpp_isfloat(args[2]) )
                 {
@@ -1007,8 +1027,10 @@ stock dpp_process(line[])
                     {
                         dpp_subexecute2(extracode);
                         dpp_skipelse = 1;
+                        return 1;
                     }
                 }
+                dpp_event = dpp_event_if;
                 return 1;
             }
 
@@ -1018,6 +1040,7 @@ stock dpp_process(line[])
                 {
                     dpp_subexecute2(extracode);
                     dpp_skipelse = 1;
+                    return 1;
                 }
                 else if( dpp_isfloat(args[1]) && dpp_isfloat(args[2]) )
                 {
@@ -1025,8 +1048,10 @@ stock dpp_process(line[])
                     {
                         dpp_subexecute2(extracode);
                         dpp_skipelse = 1;
+                        return 1;
                     }
                 }
+                dpp_event = dpp_event_if;
                 return 1;
             }
 
@@ -1036,7 +1061,9 @@ stock dpp_process(line[])
                 {
                     dpp_subexecute2(extracode);
                     dpp_skipelse = 1;
+                    return 1;
                 }
+                dpp_event = dpp_event_if;
                 return 1;
             }
 
@@ -1046,7 +1073,9 @@ stock dpp_process(line[])
                 {
                     dpp_subexecute2(extracode);
                     dpp_skipelse = 1;
+                    return 1;
                 }
+                dpp_event = dpp_event_if;
                 return 1;
             }
 
@@ -1056,7 +1085,9 @@ stock dpp_process(line[])
                 {
                     dpp_subexecute2(extracode);
                     dpp_skipelse = 1;
+                    return 1;
                 }
+                dpp_event = dpp_event_if;
                 return 1;
             }
 
@@ -1066,7 +1097,9 @@ stock dpp_process(line[])
                 {
                     dpp_subexecute2(extracode);
                     dpp_skipelse = 1;
+                    return 1;
                 }
+                dpp_event = dpp_event_if;
                 return 1;
             }
             dpp_skipelse = 0;

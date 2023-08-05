@@ -58,6 +58,7 @@
 - [Static variables](doc/static.md)
 - [Decorators](doc/decorators.md)
 - [Objects and classes](doc/objclass.md)
+- [`do` statement](doc/do.md)
 - [Miscellaneous](doc/misc.md)
 
 ### Other info
