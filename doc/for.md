@@ -6,7 +6,7 @@
 
 ```cpp
 new.int,forlooptestvar=0;
-if.equ,1,1->for.int&var,forlooptestvar,10->console.println("For loop id {forlooptestvar}");
+if.equ,1,1->for.int,forlooptestvar,10->console.println("For loop id {forlooptestvar}");
 ```
 
 Output:
@@ -34,7 +34,7 @@ int*form.ForTest2?num;
 }
 
 set.int,forlooptestvar=0;
-for.int&var,forlooptestvar,5->user.ForTest2(forlooptestvar);
+for.int,forlooptestvar,5->user.ForTest2(forlooptestvar);
 ```
 
 Output:

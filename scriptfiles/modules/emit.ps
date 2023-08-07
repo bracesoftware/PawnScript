@@ -126,8 +126,11 @@ constexpr*namespace,TestConstNamespace;
 
 user.TestConstNamespace::MyForm;
 
-using*namespace,TestConstNamespace;
+if.equ,1,2->do;
 {
-	// Oops! Fatal error!
-	// Process will be terminated at this point!
+	using*namespace,TestConstNamespace;
+	{
+		// Oops! Fatal error!
+		// Process will be terminated at this point!
+	}
 }

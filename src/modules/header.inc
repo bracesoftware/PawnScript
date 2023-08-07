@@ -602,6 +602,24 @@ stock dpp_subexecute2(const code[])
     }
     return 1;
 }
+
+stock dpp_subexecute__3(const code[])
+{
+    new __codelines[1024][1024];
+
+    dpp_parsecode(code, __codelines);
+    //dpp_debug("Executing:\n\n%s", code);
+    for(new i; i < 1024; i++)
+    {
+        if(dpp_continue == 1)
+        {
+            dpp_continue = 0;
+            break;
+        }
+        dpp_subprocess(__codelines[i]);
+    }
+    return 1;
+}
 ////////////////////////////////////////////////
 
 

@@ -12,11 +12,11 @@ iter::add,testiter,1;
 iter::add,testiter,10;
 iter::remove,testiter,1;
 
-foreach.int&var,foreachtestvar,testiter->console.println("foreach test {foreachtestvar}");
+foreach.int,foreachtestvar,testiter->console.println("foreach test {foreachtestvar}");
 
 iter::add,testiter,1;
 
-foreach.int&var,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}");
+foreach.int,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}");
 
 #undef:testiter;
 ```
@@ -40,7 +40,7 @@ namespace,IterClass;
 }
 
 iter::add,IterClass::iter,364;
-foreach.int&var,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");
+foreach.int,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");
 ```
 
 Output:

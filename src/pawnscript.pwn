@@ -25,7 +25,7 @@ new dpp_ignoreline=0;
 //-----------------------------------------------------------
 #define DPP_VERSION_MAJOR 1
 #define DPP_VERSION_MINOR 0
-#define DPP_VERSION_PATCH 3
+#define DPP_VERSION_PATCH 4
 #define DPP_VERSION_RELEASE 1
 #define DPP_CELLMAX 8
 
@@ -110,6 +110,18 @@ new dpp_lastdeco = dpp_deco_invalid;
 // PREDEFINES
 //-----------------------------------------------------------
 #define dpp_null "null"
+#define dpp_null__ " "
+
+#define dpp_event_form 0
+#define dpp_event_task 1
+#define dpp_event_class 2
+#define dpp_event_inline 3
+#define dpp_event_enum 4
+#define dpp_event_namespace 5
+
+#define dpp_event_do 10
+#define dpp_event_if 11
+#define dpp_event_try 12
 //-----------------------------------------------------------
 //PawnScriptASM
 #define dpp_memsec_var 1
@@ -128,7 +140,9 @@ new dpp_bracestack[DPP_BRACE_STACK_SIZE];
 //new content[16000];
 //new subcontent[16000];
 //-----------------------------------------------------------
-
+new dpp_tryinterpreter = 1;
+new dpp_trycodeblock[dpp_buffersize];
+//-----------------------------------------------------------
 new dpp_lastvalueprcfunc;
 //-----------------------------------------------------------
 new dpp_enuminterpreter = 1;
@@ -304,16 +318,12 @@ new dpp_compiled = 0;
 new dpp_lastclass;
 // do and end
 new dpp_event = 0;
-#define dpp_event_form 0
-#define dpp_event_task 1
-#define dpp_event_class 2
-#define dpp_event_inline 3
-#define dpp_event_enum 4
-#define dpp_event_namespace 5
 
-#define dpp_event_do 10
-#define dpp_event_if 11
 new dpp_failedif = 0;
+//-----------------------------------------------------------
+new 
+    dpp_break=0, 
+    dpp_continue=0;
 //-----------------------------------------------------------
 //includes
 #include "modules/utils.inc"

@@ -16,11 +16,11 @@ iter::add,testiter,1;
 iter::add,testiter,10;
 iter::remove,testiter,1;
 
-foreach.int&var,foreachtestvar,testiter->console.println("foreach test {foreachtestvar}");
+foreach.int,foreachtestvar,testiter->console.println("foreach test {foreachtestvar}");
 
 iter::add,testiter,1;
 
-foreach.int&var,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}");
+foreach.int,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}");
 
 console.cout.log(sizeof?testiter);
 
@@ -34,7 +34,7 @@ namespace,IterClass;
 }
 
 iter::add,IterClass::iter,364;
-foreach.int&var,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");
+foreach.int,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");
 
 if.equ,defined?IterClass::iter,1->console.println("IterClass::iter is defined!");
 if.equ,defined?IterClass::iter,0->console.println("IterClass::iter is NOT defined!");
@@ -99,7 +99,7 @@ void*form.OnPlayerDisconnect?playerid;
 
 public&task.PrintPlayers#1000;
 {
-	foreach.int&var,foreachtestvar,SAMP::Player->console.println("foreach test #4 {foreachtestvar}");
+	foreach.int,foreachtestvar,SAMP::Player->console.println("foreach test #4 {foreachtestvar}");
 
 }
 

@@ -1,0 +1,44 @@
+/*
+*
+*  	PawnScript
+*
+* 	Test File
+*   Brace Inc.
+*
+*
+*/
+
+
+if.equ,1,1->do;
+{
+	console.println.log("Hello World!");
+}
+
+try;
+{
+	console.println.log("Try works!");
+	break;
+}
+if.equ,1,1->while.equ,1,1->;
+
+
+new.int,fortestagainomg=0;
+
+try;
+{
+	if.equ,fortestagainomg,5->continue;
+	else->if.equ,fortestagainomg,8->break;
+	else->do;
+	{
+		console.cout(fortestagainomg);
+	}
+}
+for.int,fortestagainomg,10->;
+
+try;
+{
+	if.equ,fortestagainomg,15->break;
+	console.cout(fortestagainomg);
+	set.int,fortestagainomg=fortestagainomg+1;
+}
+while.notequ,fortestagainomg,20->;

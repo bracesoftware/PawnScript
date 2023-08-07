@@ -352,6 +352,10 @@ stock dpp_process(line[])
         {
             dpp_failedif = 0;
         }
+        if(dpp_event == dpp_event_try)
+        {
+            dpp_tryinterpreter = 1;
+        }
 
         if(strlen(line) >= 2)
         {
@@ -388,6 +392,10 @@ stock dpp_process(line[])
         if(dpp_event == dpp_event_if)
         {
             dpp_failedif = 1;
+        }
+        if(dpp_event == dpp_event_try)
+        {
+            dpp_tryinterpreter = 0;
         }
 
         if(strlen(line) >= 2)
@@ -444,6 +452,13 @@ stock dpp_process(line[])
         dpp_debug("codeblockline:%s",codeblockline);
         dpp_debug("dpp_currenttaskid:%i",dpp_currenttaskid);
         strcat(dpp_oclassblock[dpp_usedclassid], codeblockline);
+        return 1;
+    }
+
+    if(dpp_tryinterpreter == 0)
+    {
+        format(codeblockline, sizeof codeblockline, "%s;", line);
+        strcat(dpp_trycodeblock, codeblockline);
         return 1;
     }
 
@@ -950,9 +965,42 @@ stock dpp_process(line[])
         return 1;
     }
 
+    ///////////////////////////////////////////////////////
+    ////
+    ////
+    ////            DO AND TRY SYS
+    ////
+    ////
+    ///////////////////////////////////////////////////////
+
     if(!strcmp(funcgroup[0], "do"))
     {
         dpp_event = dpp_event_do;
+        return 1;
+    }
+    if(!strcmp(funcgroup[0], "try"))
+    {
+        dpp_event = dpp_event_try;
+        strmid(dpp_trycodeblock, dpp_null__, 0, dpp_buffersize, dpp_buffersize);
+        return 1;
+    }
+
+    ///////////////////////////////////////////////////////
+    ////
+    ////
+    ////            BREAK AND CONTINUE SYS
+    ////
+    ////
+    ///////////////////////////////////////////////////////
+
+    if(!strcmp(funcgroup[0], "break"))
+    {
+        dpp_break = 1;
+        return 1;
+    }
+    if(!strcmp(funcgroup[0], "continue"))
+    {
+        dpp_continue = 1;
         return 1;
     }
 
@@ -1139,9 +1187,19 @@ stock dpp_process(line[])
                     //if( floatstr(args[1]) == floatstr(args[2]) )
                     do
                     {
+                        if(dpp_break == 1)
+                        {
+                            dpp_break = 0;
+                            return 1;
+                        }
+
                         for(new whilecodeid; whilecodeid < 2; whilecodeid++)
                         {
                             dpp_subexecute2(whileloopcode[whilecodeid]);
+                        }
+                        if(isnull(extracode))
+                        {
+                            dpp_subexecute__3(dpp_trycodeblock);
                         }
 
                         for(new i; i < dpp_maxargsc; i++)
@@ -1172,9 +1230,19 @@ stock dpp_process(line[])
 
                 do
                 {
+                    if(dpp_break == 1)
+                    {
+                        dpp_break = 0;
+                        return 1;
+                    }
+
                     for(new whilecodeid; whilecodeid < 2; whilecodeid++)
                     {
                         dpp_subexecute2(whileloopcode[whilecodeid]);
+                    }
+                    if(isnull(extracode))
+                    {
+                        dpp_subexecute__3(dpp_trycodeblock);
                     }
 
                     for(new i; i < dpp_maxargsc; i++)
@@ -1210,9 +1278,19 @@ stock dpp_process(line[])
                     //if( floatstr(args[1]) == floatstr(args[2]) )
                     do
                     {
+                        if(dpp_break == 1)
+                        {
+                            dpp_break = 0;
+                            return 1;
+                        }
+
                         for(new whilecodeid; whilecodeid < 2; whilecodeid++)
                         {
                             dpp_subexecute2(whileloopcode[whilecodeid]);
+                        }
+                        if(isnull(extracode))
+                        {
+                            dpp_subexecute__3(dpp_trycodeblock);
                         }
 
                         for(new i; i < dpp_maxargsc; i++)
@@ -1242,9 +1320,19 @@ stock dpp_process(line[])
                 }
                 do
                 {
+                    if(dpp_break == 1)
+                    {
+                        dpp_break = 0;
+                        return 1;
+                    }
+
                     for(new whilecodeid; whilecodeid < 2; whilecodeid++)
                     {
                         dpp_subexecute2(whileloopcode[whilecodeid]);
+                    }
+                    if(isnull(extracode))
+                    {
+                        dpp_subexecute__3(dpp_trycodeblock);
                     }
 
                     for(new i; i < dpp_maxargsc; i++)
@@ -1277,7 +1365,7 @@ stock dpp_process(line[])
         //for loops
         if(!strcmp(funcgroup[0], "for"))
         {
-            if(!strcmp(funcgroup[1], "int&var"))
+            if(!strcmp(funcgroup[1], "int"))
             {
                 new dpp_varid = -1;
                 for(new i; i < dpp_maxvar; i++)
@@ -1298,6 +1386,12 @@ stock dpp_process(line[])
                 }
                 do
                 {
+                    if(dpp_break == 1)
+                    {
+                        dpp_break = 0;
+                        return 1;
+                    }
+
                     for(new i; i < 15; i++)
                     {
                         strmid(args[i], args_const[i],0,dpp_argcharsize,dpp_argcharsize);
@@ -1321,6 +1415,11 @@ stock dpp_process(line[])
                     //dpp_error("Found a variable: '%s', supposed var: '%s'",dpp_vardata[dpp_varid][var_name],args_const[1]);
                     dpp_vardata[dpp_varid][integervalue]++;
                     dpp_subexecute2(extracode);
+
+                    if(isnull(extracode))
+                    {
+                        dpp_subexecute__3(dpp_trycodeblock);
+                    }
                 }
                 while(dpp_vardata[dpp_varid][integervalue] < strval(args[2]));
                 return 1;
@@ -1330,7 +1429,7 @@ stock dpp_process(line[])
         //foreach
         if(!strcmp(funcgroup[0], "foreach"))
         {
-            if(!strcmp(funcgroup[1], "int&var"))
+            if(!strcmp(funcgroup[1], "int"))
             {
                 new dpp_varid = -1, dpp_iterid = -1;
                 dpp_argclasscheck(args_const[1]);
@@ -1371,8 +1470,25 @@ stock dpp_process(line[])
                 {
                     if(dpp_itervalues[dpp_iterid][i] != dpp_invaliditerval)
                     {
+                        if(dpp_break == 1)
+                        {
+                            dpp_break = 0;
+                            return 1;
+                        }
+                        if(dpp_continue == 1)
+                        {
+                            dpp_continue = 0;
+                            continue;
+                        }
+
                         dpp_vardata[dpp_varid][integervalue] = dpp_itervalues[dpp_iterid][i];
+
                         dpp_subexecute2(extracode);
+
+                        if(isnull(extracode))
+                        {
+                            dpp_subexecute__3(dpp_trycodeblock);
+                        }
                     }
                 }
                 return 1;

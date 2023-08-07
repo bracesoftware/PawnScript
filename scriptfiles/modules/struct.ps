@@ -19,7 +19,7 @@ extern&struct*samp_command.testcmd?playerid&params;
 console.println("Struct test included!");
 
 new.int,forlooptestvar=0;
-if.equ,1,1->for.int&var,forlooptestvar,10->console.println("For loop id {forlooptestvar}");
+if.equ,1,1->for.int,forlooptestvar,10->console.println("For loop id {forlooptestvar}");
 
 if.gt,forlooptestvar,1->console.println("forlooptestvar §({forlooptestvar}§) is greater than 1");
 if.lt,forlooptestvar,20->console.println("forlooptestvar §({forlooptestvar}§) is less than 20");
@@ -72,5 +72,5 @@ int*form.ForTest2?numarg;
 }
 
 set.int,forlooptestvar=0;
-for.int&var,forlooptestvar,5->user.ForTest2(forlooptestvar);
+for.int,forlooptestvar,5->user.ForTest2(forlooptestvar);
 
