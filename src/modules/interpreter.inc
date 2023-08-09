@@ -74,6 +74,7 @@ stock dpp_process(line[])
         nativegroup[2][1024],
         arggroup[2][1024],
         funcgroup_form[3][1024],
+        retvar[2][1024],
         args_form[dpp_maxargsc][dpp_argcharsize],
         args_fconst[dpp_maxargsc][dpp_argcharsize];
 
@@ -91,6 +92,30 @@ stock dpp_process(line[])
 
     dpp_parseline(line,dirgroup,':');
     dpp_parseline(line,nativegroup, '(');
+    dpp_parseline(nativegroup[1],retvar,')');
+
+    if(!isnull(retvar[1]))
+    {
+        dpp_codetrim(retvar[1]);
+        for(new i; i < dpp_maxvar; i++)
+        {
+            if(!strcmp(retvar[1], dpp_vardata[i][var_name]))
+            {
+                if(dpp_vardata[i][var_valid] == 1)
+                {
+                    dpp_retvar__ = i;
+                    break;
+                }
+            }
+        }
+    }
+    else if(isnull(retvar[1]) && !isnull(retvar[0]))
+    {
+        if(dpp_option_reqref == 1)
+        {
+            dpp_warning("Return reference is required.",);
+        }
+    }
 
     for(new i; i < strlen(line); i++)
     {
@@ -3440,6 +3465,40 @@ public dpp_processpragma(dirgroup[][],dirargs[][])
             if(!strcmp(dirargs[1], "default"))
             {
                 dpp_option_allspc = 0;
+                //dpp_info("Excessive space-tolerance disabled.");
+                return 1;
+            }
+            else
+            {
+                //dpp_error("Wrong option value at \"%s\"; value can be either 'true' or 'false'.\nCurrent value: '%s'", line,args[1]);
+            }
+            return 1;
+        }
+
+        ////////////////////////////////////////////////
+        //
+        //                  reqref OPTION
+        //
+        ////////////////////////////////////////////////
+        if(!strcmp(dirargs[0], "reqref"))
+        {
+            dpp_argarraycheck(dirargs[1]);
+            if(!strcmp(dirargs[1], "false"))
+            {
+                dpp_option_reqref = 0;
+                //dpp_info("Excessive space-tolerance disabled.");
+                return 1;
+            }
+            if(!strcmp(dirargs[1], "true"))
+            {
+                dpp_option_reqref = 1;
+                //dpp_info("Excessive space-tolerance enabled.");
+                return 1;
+            }
+
+            if(!strcmp(dirargs[1], "default"))
+            {
+                dpp_option_reqref = 0;
                 //dpp_info("Excessive space-tolerance disabled.");
                 return 1;
             }

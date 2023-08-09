@@ -18,7 +18,7 @@ public dpp_processdata(funcgroup[][],args[][],args_const[][])
         if(dpp_config[data_comp] == 0)
         {
             dpp_error("Component \"data\" is not imported.",);
-            return 1;
+            dpp_internal<return>(0);
         }
         if(!strcmp(funcgroup[1], "sscanf"))
         {
@@ -31,12 +31,12 @@ public dpp_processdata(funcgroup[][],args[][],args_const[][])
             if(mul == 0)
             {
                 dpp_error("You need to use '\"' to start a string.",);
-                return 1;
+                dpp_internal<return>(0);
             }
             if(mul != 2)
             {
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
-                return 1;
+                dpp_internal<return>(0);
             }
 
             //dpp_warning("sscanf debug 1",);
@@ -79,13 +79,13 @@ public dpp_processdata(funcgroup[][],args[][],args_const[][])
             }
 
             //dpp_warning("sscanf debug 5",);
-            return 1;
+            dpp_internal<return>(1);
         }
 
         else
         {
             dpp_error("Unknown form in the component \"data\".",);
-            return 1;
+            dpp_internal<return>(0);
         }
     }
     return 0;

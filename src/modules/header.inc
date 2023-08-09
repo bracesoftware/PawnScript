@@ -25,6 +25,24 @@
 #define dpp_debug%0(%1)%2;
 #endif
 
+/*
+These are 2-way macros. Because they have both impact on 
+the Pawn code and PawnScript code.
+
+
+Example:
+dpp_internal<return>(VALUE)
+VALUE will be returned by the native PAWNSCRIPT function,
+but inside Pawn it will always return 1 to prevent the
+undefined symbol error.
+
+This is widely used by the components!
+DO NOT CHANGE THEM!
+*/
+#define @PAWNSCRIPT_INTERNAL__@%0\32; @PAWNSCRIPT_INTERNAL__@
+#define dpp_internal%0< @PAWNSCRIPT_INTERNAL__@
+#define @PAWNSCRIPT_INTERNAL__@return>%1(%2)    dpp_vardata[dpp_retvar__][integervalue]=%2;return 1
+
 new
     dpp_error_str[1024];
 

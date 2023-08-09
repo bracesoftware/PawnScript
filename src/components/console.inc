@@ -19,7 +19,7 @@ public dpp_processconsole(funcgroup[][],args[][])
         if(dpp_config[console_comp] == 0)
         {
             dpp_error("Component \"console\" is not imported.",);
-            return 1;
+            dpp_internal<return>(0);
         }
         // If the function used it "print"
         if(!strcmp(funcgroup[1], "println"))
@@ -33,12 +33,12 @@ public dpp_processconsole(funcgroup[][],args[][])
             if(mul == 0)
             {
                 dpp_error("You need to use '\"' to start a string.",);
-                return 1;
+                dpp_internal<return>(0);
             }
             if(mul != 2)
             {
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
-                return 1;
+                dpp_internal<return>(0);
             }
 
             //dpp_debug("Line \"%s\" successfully executed.", line);
@@ -48,7 +48,7 @@ public dpp_processconsole(funcgroup[][],args[][])
             {
                 dpp_savelog(DPP_LOG_FILE, args[0]);
             }
-            return 1;
+            dpp_internal<return>(1);
         }
 
         if(!strcmp(funcgroup[1], "cout"))
@@ -65,6 +65,7 @@ public dpp_processconsole(funcgroup[][],args[][])
             if(coutargerr == 1)
             {
                 dpp_error("Invalid symbols in the argument 1.",);
+                dpp_internal<return>(0);
             }
             //dpp_debug("Line \"%s\" successfully executed.", line);
             print(args[0]);
@@ -73,13 +74,13 @@ public dpp_processconsole(funcgroup[][],args[][])
             {
                 dpp_savelog(DPP_LOG_FILE, args[0]);
             }
-            return 1;
+            dpp_internal<return>(1);
         }
         else
         {
             dpp_error("Unknown form in the component \"console\".",);
-            return 1;
+            dpp_internal<return>(0); // Here we return 0 in PAWNSCRIPT
         }
     }
-    return 0;
+    return 0; // Here we want to return 0 in PAWN.
 }

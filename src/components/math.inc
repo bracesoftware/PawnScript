@@ -19,17 +19,17 @@ public dpp_processmath(funcgroup[][],args[][])
         if(dpp_config[math_comp] == 0)
         {
             dpp_error("Component \"math\" is not imported.",);
-            return 1;
+            dpp_internal<return>(0);
         }
         if(!strcmp(funcgroup[1], "func"))
         {
-            return 1;
+            dpp_internal<return>(1);
         }
 
         else
         {
             dpp_error("Unknown form in the component \"math\".",);
-            return 1;
+            dpp_internal<return>(0);
         }
     }
     return 0;

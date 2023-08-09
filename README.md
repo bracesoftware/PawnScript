@@ -61,6 +61,7 @@
 - [`do` statement](doc/do.md)
 - [`constexpr` keyword](doc/constexpr.md)
 - [`try`, `break` and `continue`](doc/try.md)
+- [Return reference](doc/retref.md)
 - [Miscellaneous](doc/misc.md)
 
 ### Other info

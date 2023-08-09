@@ -40,6 +40,21 @@ Change the parsing escape character.
 #pragma:ctrlchar,'*';
 ```
 
+## `reqref`
+- Default value: `false`
+
+Enable warnings when return reference isn't provided.
+
+```cpp
+#pragma:reqref,true;
+```
+
+
+
+
+## ***Deprecated!***
+- or rather unmaintained. Don't use this.
+
 ## `allspc`
 - Default value: `false`
 

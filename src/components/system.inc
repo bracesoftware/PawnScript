@@ -19,7 +19,7 @@ public dpp_processsystem(funcgroup[][],args[][],args_const[][])
         if(dpp_config[system_comp] == 0)
         {
             dpp_error("Component \"system\" is not imported.",);
-            return 1;
+            dpp_internal<return>(0);
         }
         // If the function used it "print"
         if(!strcmp(funcgroup[1], "rem"))
@@ -33,16 +33,21 @@ public dpp_processsystem(funcgroup[][],args[][],args_const[][])
             if(mul == 0)
             {
                 dpp_error("You need to use '\"' to start a string.",);
-                return 1;
+                dpp_internal<return>(0);
             }
             if(mul != 2)
             {
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
-                return 1;
+                dpp_internal<return>(0);
             }
 
             // do nothing, this is a comment
-            return 1;
+
+            if(!strcmp(funcgroup[2], "log")) // we can log it tho.
+            {
+                dpp_savelog(DPP_LOG_FILE, args[0]);
+            }
+            dpp_internal<return>(1);
         }
         if(!strcmp(funcgroup[1], "arginit"))
         {
@@ -86,16 +91,17 @@ public dpp_processsystem(funcgroup[][],args[][],args_const[][])
                                 }
                             }
                         }
-                        return 1;
+                        dpp_internal<return>(1);
                     }
                 }
             }
             dpp_error("Form \"%s\" is not registered.",args_const[0]);
+            dpp_internal<return>(0);
         }
         else
         {
             dpp_error("Unknown form in the component \"system\".",);
-            return 0;
+            dpp_internal<return>(0);
         }
     }
     return 0;

@@ -137,6 +137,8 @@ new dpp_bracestack[DPP_BRACE_STACK_SIZE];
     native fcreatedir(const filename[]);
 #endif
 //-----------------------------------------------------------
+new dpp_retvar__ = 0;
+//-----------------------------------------------------------
 //new content[16000];
 //new subcontent[16000];
 //-----------------------------------------------------------
@@ -311,6 +313,7 @@ new dpp_option_warnings = 1;
 new dpp_option_hooking = 1;
 new dpp_option_escapechar = '\\';
 new dpp_option_allspc = 0;
+new dpp_option_reqref = 0; 
 //-----------------------------------------------------------
 // data
 new dpp_compiling_pass = 1;

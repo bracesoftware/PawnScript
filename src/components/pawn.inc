@@ -19,7 +19,7 @@ public dpp_processpawn(funcgroup[][],args[][],args_const[][])
         if(dpp_config[pawn_comp] == 0)
         {
             dpp_error("Component \"pawn\" is not imported.",);
-            return 1;
+            dpp_internal<return>(0);
         }
         // If the function used it "print"
         if(!strcmp(funcgroup[1], "callfunction"))
@@ -33,12 +33,12 @@ public dpp_processpawn(funcgroup[][],args[][],args_const[][])
             if(mul == 0)
             {
                 dpp_error("You need to use '\"' to start a string.",);
-                return 1;
+                dpp_internal<return>(0);
             }
             if(mul != 2)
             {
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
-                return 1;
+                dpp_internal<return>(0);
             }
 
             //dpp_debug("Line \"%s\" successfully executed.", line);
@@ -55,12 +55,12 @@ public dpp_processpawn(funcgroup[][],args[][],args_const[][])
             {
                 CallRemoteFunction(args[0], "");
             }
-            return 1;
+            dpp_internal<return>(1);
         }
         else
         {
             dpp_error("Unknown form in the component \"console\".",);
-            return 1;
+            dpp_internal<return>(0);
         }
     }
     return 0;
