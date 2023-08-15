@@ -16,3 +16,16 @@ Output:
 ```
 1234234
 ```
+
+## `typedef`s inside namespaces
+
+- You can also create a type definition within a namespace.
+
+```cpp
+namespace,mytestnamespace;
+{
+	typedef,new.int.short,shortint;
+}
+
+mytestnamespace::shortint,myvar=0;
+```
