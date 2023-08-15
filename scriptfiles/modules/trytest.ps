@@ -30,7 +30,7 @@ try;
 	else->if.equ,fortestagainomg,8->break;
 	else->do;
 	{
-		console.cout(fortestagainomg);
+		console.rawout(fortestagainomg);
 	}
 }
 for.int,fortestagainomg,10->;
@@ -38,7 +38,7 @@ for.int,fortestagainomg,10->;
 try;
 {
 	if.equ,fortestagainomg,15->break;
-	console.cout(fortestagainomg);
+	console.rawout(fortestagainomg);
 	set.int,fortestagainomg=fortestagainomg+1;
 }
 while.notequ,fortestagainomg,20->;
@@ -54,4 +54,4 @@ console.println.log("Hello World again") ReturnReference__;
 
 #pragma:reqref,false;
 
-console.cout(ReturnReference__);
+console.rawout(ReturnReference__);

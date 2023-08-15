@@ -19,13 +19,13 @@ enum,WeekDays;
 	saturday=4;
 }
 
-console.cout.log(WeekDays.monday);
-console.cout.log(WeekDays.tuesday);
-console.cout.log(WeekDays.thursday);
-console.cout.log(WeekDays.saturday);
+console.rawout.log(WeekDays.monday);
+console.rawout.log(WeekDays.tuesday);
+console.rawout.log(WeekDays.thursday);
+console.rawout.log(WeekDays.saturday);
 
 console.println.log("enum test included");
-console.cout.log(WeekDays.saturday+WeekDays.monday);
+console.rawout.log(WeekDays.saturday+WeekDays.monday);
 
 
 enum,Months;
@@ -35,9 +35,9 @@ enum,Months;
 	december=7;
 }
 
-console.cout.log(Months.january);
-console.cout.log(Months.february-Months.december);
-console.cout.log(Months.january%WeekDays.monday);
+console.rawout.log(Months.january);
+console.rawout.log(Months.february-Months.december);
+console.rawout.log(Months.january%WeekDays.monday);
 
 console.println("Test?");
 
@@ -60,9 +60,9 @@ user.StaticTest;
 console.println.log("LOCAL DEBUG: Called statictest for the second time");
 
 new.int.unsigned,unsignedinteger=-3645;
-console.cout(unsignedinteger);
+console.rawout(unsignedinteger);
 new.int.unsigned,anotherunsignedint=9823;
-console.cout(anotherunsignedint);
+console.rawout(anotherunsignedint);
 
 new.int.unsigned,pdmtest=364;
 export*int,"test1",pdmtest;

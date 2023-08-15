@@ -22,11 +22,11 @@ iter::add,testiter,1;
 
 foreach.int,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}");
 
-console.cout.log(sizeof?testiter);
+console.rawout.log(sizeof?testiter);
 
 #undef:testiter;
 
-console.cout(1); console.println("Lmao ok");
+console.rawout(1); console.println("Lmao ok");
 
 namespace,IterClass;
 {

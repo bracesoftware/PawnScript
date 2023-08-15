@@ -15,15 +15,22 @@
 - Provides console-related forms.
 
 Import the component using:
-```pawn
-using.console;
+```cpp
+using console;
 ```
 
 ### Form: `cout`
 - Character output.
 
 ```pawn
-console.cout(1);
+console.cout('c');
+```
+
+### Form: `cin`
+- Character input. Code execution will not be stopped, only a destination variable in which the RCON input will be stored is set.
+
+```pawn
+console.cin(destvar); 
 ```
 
 ### Form: `println`
@@ -33,14 +40,29 @@ console.cout(1);
 console.println("Hello World!");
 ```
 
+### Form: `inputln`
+- Text line input. Code execution will not be stopped, only a destination variable in which the RCON input will be stored is set.
+
+```pawn
+console.inputln(destvar);
+```
+
+### Form: `rawout`
+
+- Raw text output.
+
+```cpp
+console.rawout(RandomTextIg??);
+```
+
 ---------------------------------------------------------------------------------------------------------
 
 ## Component: `system`
 - Provides random, usually internal, forms.
 
 Import the component using:
-```pawn
-using.system;
+```cpp
+using system;
 ```
 
 ### Form: `rem`
@@ -82,8 +104,8 @@ extern&struct*public.main;
 - Provides a set of forms used to interact with the SAMP or open.mp server.
 
 Import the component using:
-```pawn
-using.samp;
+```cpp
+using samp;
 ```
 
 ### Form: `SetGameModeText`
@@ -162,35 +184,35 @@ extern&struct*public.OnPlayerDisconnect?playerid&reason;
 - Provides file-related forms.
 
 Import the component using:
-```pawn
-using.files;
+```cpp
+using files;
 ```
 
 ### Form: `open_for_write`
 - Opens a file with an intention to write data into it. File is created if it does not exist.
 
-```pawn
+```cpp
 files.open_for_write("file_name.txt");
 ```
 
 ### Form: `open_for_read`
 - Opens a file with an intention to read data from it. File is created if it does not exist.
 
-```pawn
+```cpp
 files.open_for_read("file_name.txt");
 ```
 
 ### Form: `open_for_append`
 - Opens a file with an intention to append data into it. File is created if it does not exist.
 
-```pawn
+```cpp
 files.open_for_append("file_name.txt");
 ```
 
 ### Form: `read`
 - Reads data from the opened file and stores it into a variable.
 
-```pawn
+```cpp
 new.str,dest_string="something that should change";
 files.read(dest_string);
 ```
@@ -198,14 +220,14 @@ files.read(dest_string);
 ### Form: `write`
 - Writes data into the opened file.
 
-```pawn
+```cpp
 files.write("wrote this into file_name.txt");
 ```
 
 ### Form: `close`
 - Closes the opened file.
 
-```pawn
+```cpp
 files.close;
 ```
 
@@ -213,8 +235,16 @@ files.close;
 
 - Deletes a certain file.
 
-```pawn
+```cpp
 files.delete("newfile.omg");
+```
+
+### Form: `createdir`
+
+- Creates a directory.
+
+```cpp
+files.createdir("mydir");
 ```
 
 ---------------------------------------------------------------------------------------------------------
@@ -224,8 +254,8 @@ files.delete("newfile.omg");
 - Provides miscellaneous forms.
 
 Import the component using:
-```pawn
-using.misc;
+```cpp
+using misc;
 ```
 
 ### Form: `swap`
@@ -245,14 +275,14 @@ misc.swap(var1,var2);
 
 Import the component using:
 ```cpp
-using.data;
+using data;
 ```
 
 ### Form: `sscanf`
 - Parses and splits a string.
 
 ```cpp
-using.data;
+using data;
 
 new.str,scanftest1="ok";
 new.str,scanftest2="ok";
@@ -293,8 +323,8 @@ cool
 - Provides forms for interaction with the Pawn language.
 
 Import the component using:
-```pawn
-using.pawn;
+```cpp
+using pawn;
 ```
 
 ### Form: `callfunction`

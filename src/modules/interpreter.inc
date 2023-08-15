@@ -128,15 +128,28 @@ stock dpp_process(line[])
     for(new i; i < 2; i++)
     {
         dpp_codetrim(tokengroup[i]);
+        //printf("tokengroup[%i] : '%s'",i,tokengroup[i]);
     }
     //dpp_print("token1 : '%s' | token2 : '%s'", tokengroup[0], tokengroup[1]);
 
+    //std::uint,myvar=1;
     dpp_parseline(line, args, ',');
+    dpp_codetrim(args[0]);
     for(new i; i < dpp_maxtypedef; i++)
     {
         if(dpp_validtypedef[i] == 1)
         {
-            dpp_strreplace(args[0], dpp_typedefname[i], dpp_typedefrepl[i], .maxlength = dpp_maxstrsize);
+            new toreplace[256],typegroup[2][256],typegroup2[2][128];
+            strmid(toreplace, dpp_typedefname[i], 0, sizeof toreplace, sizeof toreplace);
+            dpp_parseline(toreplace, typegroup, '@');
+            dpp_parseline(typegroup[1], typegroup2, '_');
+
+            if(!strcmp(typegroup[0], "DPPCt") && !isnull(typegroup2[0]) && !isnull(typegroup2[1]))
+            {
+                format(toreplace, sizeof toreplace, "%s::%s",typegroup2[0],typegroup2[1]);
+            }
+            
+            dpp_strreplace(args[0], toreplace, dpp_typedefrepl[i], .maxlength = dpp_maxstrsize);
         }
     }
     dpp_codetrim(args[0]);
@@ -2415,44 +2428,44 @@ stock dpp_process(line[])
     ////
     ///////////////////////////////////////////////////////
 
-    if(!strcmp(funcgroup[0], "using"))
+    if(!strcmp(tokengroup[0], "using"))
     {
-        if(!strcmp(funcgroup[1], "console"))
+        if(!strcmp(tokengroup[1], "console"))
         {
             dpp_config[console_comp] = 1;
             return 1;
         }
-        if(!strcmp(funcgroup[1], "system"))
+        if(!strcmp(tokengroup[1], "system"))
         {
             dpp_config[system_comp] = 1;
             return 1;
         }
-        if(!strcmp(funcgroup[1], "samp"))
+        if(!strcmp(tokengroup[1], "samp"))
         {
             dpp_config[samp_comp] = 1;
             return 1;
         }
-        if(!strcmp(funcgroup[1], "math"))
+        if(!strcmp(tokengroup[1], "math"))
         {
             dpp_config[math_comp] = 1;
             return 1;
         }
-        if(!strcmp(funcgroup[1], "files"))
+        if(!strcmp(tokengroup[1], "files"))
         {
             dpp_config[files_comp] = 1;
             return 1;
         }
-        if(!strcmp(funcgroup[1], "misc"))
+        if(!strcmp(tokengroup[1], "misc"))
         {
             dpp_config[misc_comp] = 1;
             return 1;
         }
-        if(!strcmp(funcgroup[1], "data"))
+        if(!strcmp(tokengroup[1], "data"))
         {
             dpp_config[data_comp] = 1;
             return 1;
         }
-        if(!strcmp(funcgroup[1], "pawn"))
+        if(!strcmp(tokengroup[1], "pawn"))
         {
             dpp_config[pawn_comp] = 1;
             return 1;
@@ -3083,7 +3096,7 @@ stock dpp_process(line[])
 
     if(dpp_funcfound == 0)
     {
-        dpp_funcfound = CallLocalFunction("dpp_processconsole", "ss", funcgroup_form,args_form);
+        dpp_funcfound = CallLocalFunction("dpp_processconsole", "sss", funcgroup_form,args_form,args_fconst);
     }
 
     ///////////////////////////////////////////////////////

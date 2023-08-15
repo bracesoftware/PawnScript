@@ -8,7 +8,7 @@
 *         with the language
 *         on a higher level.
 * 
-* - by: DEntisT, (c) 2022
+* - by: DEntisT, (c) 2023
 *
 */
 

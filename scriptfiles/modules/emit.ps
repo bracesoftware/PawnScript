@@ -12,13 +12,13 @@ new.int,ADDRESSOFTEST=0;
 #emit:addrset,addressof?ADDRESSOFTEST;
 #emit:vlset,23746;
 
-console.cout.log(ADDRESSOFTEST);
+console.rawout.log(ADDRESSOFTEST);
 
 new.bool,ADDRESSOFTEST2=false;
 #emit:addrset,addressof?ADDRESSOFTEST2;
 #emit:vlset,true;
 
-console.cout.log(ADDRESSOFTEST2);
+console.rawout.log(ADDRESSOFTEST2);
 
 new.str,ADDRESSOFTEST3="000";
 #emit:addrset,addressof?ADDRESSOFTEST3;
@@ -30,7 +30,7 @@ new.double,ADDRESSOFTEST4=0.0;
 #emit:addrset,addressof?ADDRESSOFTEST4;
 #emit:vlset,23.746;
 
-console.cout.log(ADDRESSOFTEST4);
+console.rawout.log(ADDRESSOFTEST4);
 
 new.char,ADDRESSOFTEST5='0';
 #emit:addrset,addressof?ADDRESSOFTEST5;
@@ -49,7 +49,7 @@ new.int,ADDRESSOFTEST7=364;
 #emit:addrset,addressof?ADDRESSOFTEST7;
 #emit:csnm,__ADDRESSOFTEST7;
 
-console.cout.log(__ADDRESSOFTEST7);
+console.rawout.log(__ADDRESSOFTEST7);
 
 // This is also a comment.
 
@@ -66,15 +66,15 @@ set.int,SyntaxCheck=1&0;
 console.println("SyntaxCheck is {SyntaxCheck}");
 
 
-console.cout(2*3+1);
-console.cout(12-1*2);
-console.cout(10-3+4+1);
+console.rawout(2*3+1);
+console.rawout(12-1*2);
+console.rawout(10-3+4+1);
 
-console.cout(1+1);
-console.cout(0-2-3);
-console.cout(4*2);
-console.cout(6/3);
-console.cout(12*2/2);
+console.rawout(1+1);
+console.rawout(0-2-3);
+console.rawout(4*2);
+console.rawout(6/3);
+console.rawout(12*2/2);
 
 
 //namespace sus;

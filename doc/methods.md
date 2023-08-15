@@ -79,3 +79,12 @@ pawn.callfunction.local("funcname");
 pawn.callfunction.remote("funcname");
 ```
 
+### Form: `system.rem`
+
+#### Method: `log`
+
+- A comment text will also be logged into `scriptfiles`.
+
+```pawn
+system.rem.log("Test");
+```
