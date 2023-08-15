@@ -56,7 +56,7 @@ new.double,decimal_point=3.14;
 new.char,character='b';
 ```
 
-### `unsigned int`
+### `int.unsigned`
 
 - Integers that can't have a negative value.
 
@@ -65,6 +65,20 @@ new.int.unsigned,positivealways=-1;
 ```
 
 **NOTE**: If you assign a negative value, it'll be replaced with a positive value; in this case - the variable will have a value of 1 instead.
+
+
+### `int.short`
+
+- Integers that can't have a negative value or a value bigger than 65535.
+
+```cpp
+new.int.short,positivealways=-1; // Value will be set to 0.
+new.int.short,theresalimit=65576; // Value will be set to 0.
+```
+
+**NOTE**: If you set a value that is smaller than 0 or bigger than 65535, value of the variable will be 0.
+
+
 
 ## `addressof` instruction
 
@@ -79,3 +93,4 @@ Output:
 ```
 1@1
 ```
+

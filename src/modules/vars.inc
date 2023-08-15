@@ -85,7 +85,7 @@ stock dpp_findvar(const name[], dest)
 
 ///////////////////////////CREATE/////////////////////////////
 
-stock dpp_createintvar(name[], value, obj = -1, staticvar = 0, baseform = -1, unsigned = 0)
+stock dpp_createintvar(name[], value, obj = -1, staticvar = 0, baseform = -1, unsigned = 0, short = 0)
 {
     for(new i; i < dpp_maxvar; i++)
     {
@@ -134,6 +134,7 @@ stock dpp_createintvar(name[], value, obj = -1, staticvar = 0, baseform = -1, un
             }
 
             dpp_vardata[i][var_unsigned] = unsigned;
+            dpp_vardata[i][var_short] = short;
             
             if(dpp_objectid != -1)
             {
@@ -399,6 +400,11 @@ stock dpp_setintvar(const name[], value)
             if(dpp_vardata[i][var_unsigned])
             {
                 dpp_vardata[i][integervalue] = value < 0 ? value*(-1) : value;
+                return 1;    
+            }
+            if(dpp_vardata[i][var_short])
+            {
+                dpp_vardata[i][integervalue] = 0 <= value <= dpp_shortlim ? value : 0;
                 return 1;    
             }
             dpp_vardata[i][integervalue] = value;

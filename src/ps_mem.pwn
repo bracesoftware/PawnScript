@@ -133,6 +133,7 @@ new dpp_lastdeco = dpp_deco_invalid;
 #define dpp_memsec_var 1
 //-----------------------------------------------------------
 #define dpp_operandsize 64
+#define dpp_shortlim 65535
 #define DPP_INVALID_STACK_VALUE 65535
 #define DPP_BRACE_STACK_SIZE 10
 new dpp_bracestack[DPP_BRACE_STACK_SIZE];
@@ -201,6 +202,7 @@ enum __dpp_var_val
     var_type,
     var_object,
     var_unsigned,
+    var_short,
     integervalue,
     /*bool:*/boolvalue,
     Float:floatvalue,

@@ -1925,6 +1925,12 @@ stock dpp_process(line[])
                 return 1;
             }
 
+            if(!strcmp(funcgroup[2], "short"))
+            {
+                dpp_createintvar(vargroup[0],0 <= strval(vargroup[1]) <= dpp_shortlim ? strval(vargroup[1]) : 0, .short = 1);
+                return 1;
+            }
+
             dpp_createintvar(vargroup[0],strval(vargroup[1]));
             return 1;
         }
