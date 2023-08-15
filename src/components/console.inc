@@ -142,11 +142,11 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
                 dpp_internal<return>(0);
             }
 
-            print(args[0][0]);
+            print(args[0]);
 
             if(!strcmp(funcgroup[2], "log"))
             {
-                dpp_savelog(DPP_LOG_FILE, args[0][0]);
+                dpp_savelog(DPP_LOG_FILE, args[0]);
             }
             dpp_internal<return>(1);
         }
