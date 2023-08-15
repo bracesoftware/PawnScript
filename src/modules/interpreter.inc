@@ -139,8 +139,8 @@ stock dpp_process(line[])
     {
         if(dpp_validtypedef[i] == 1)
         {
-            new toreplace[256],typegroup[2][256],typegroup2[2][128];
-            strmid(toreplace, dpp_typedefname[i], 0, sizeof toreplace, sizeof toreplace);
+            new toreplace[dpp_maxstrsize],typegroup[2][256],typegroup2[2][128];
+            strmid(toreplace, dpp_typedefname[i], 0, dpp_maxstrsize,dpp_maxstrsize);
             dpp_parseline(toreplace, typegroup, '@');
             dpp_parseline(typegroup[1], typegroup2, '_');
 

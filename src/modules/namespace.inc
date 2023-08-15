@@ -97,7 +97,7 @@ stock dpp_argclasscheck(arg[])
     format(newvalue,sizeof(newvalue),"DPPCt@%s_%s",funcgroup[0],funcgroup[1]);
     dpp_debug("Class backtrace 3:\n\tnewvalue : '%s'",newvalue);
 
-    for(new i; i < dpp_maxtag; i++)
+    for(new i; i < dpp_maxtypedef; i++)
     {
         if(!strcmp(dpp_typedefname[i],newvalue) && dpp_validtypedef[i] == 1)
         {
