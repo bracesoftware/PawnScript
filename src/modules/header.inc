@@ -1,14 +1,22 @@
 /*
- *
- * D++ Scripting Language
- *     Made for a SA:MP server
- *
- * Functions/header
- *
- * 
- * - by: DEntisT, (c) 2022
- *
- */
+
+Version: MPL 1.1
+
+The contents of this file are subject to the Mozilla Public License Version 
+1.1 the "License"; you may not use this file except in compliance with 
+the License. You may obtain a copy of the License at 
+http://www.mozilla.org/MPL/
+
+Software distributed under the License is distributed on an "AS IS" basis,
+WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+for the specific language governing rights and limitations under the
+License.
+
+Portions created by the Initial Developer are Copyright (c) 2022
+the Initial Developer. All Rights Reserved.
+
+*/
+
 
 #define dpp_header 1
 
@@ -513,11 +521,11 @@ stock dpp_execute(const script[])
     dpp_execheader("index.dppc");
     dpp_nullcomment();*/
 
-    new File:file = fopen(script, io_read), rlen;
+    dpp_indexhandle = fopen(script, io_read);
     new codelines[dpp_maxcodelines][1024];
-    if(file)
+    if(dpp_indexhandle)
     {
-        while(rlen = fread(file, content))
+        while(fread(dpp_indexhandle, content))
         {
             dpp_codetrim(content);
             for(new i; i < strlen(content); i++)
@@ -543,7 +551,7 @@ stock dpp_execute(const script[])
         CallLocalFunction("DPP_ENTRYPOINT", "");
     }
 
-    else if(!file)
+    else if(!dpp_indexhandle)
     {
         dpp_error("Invalid file.",);
     }

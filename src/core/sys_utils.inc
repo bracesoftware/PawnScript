@@ -17,28 +17,16 @@ the Initial Developer. All Rights Reserved.
 
 */
 
+#define dpp_fatalerror__(%1)    printf("*** [PawnScript] FATAL ERROR - Info: "%1)
 
-
-forward dpp_processmath(funcgroup[][],args[][]);
-public dpp_processmath(funcgroup[][],args[][])
+stock dpp_fatalerror(errorid)
 {
-    if(!strcmp(funcgroup[0], "math"))
+    if(errorid == 1)
     {
-        if(dpp_config[math_comp] == 0)
-        {
-            dpp_error("Component \"math\" is not imported.",);
-            dpp_internal<return>(0);
-        }
-        if(!strcmp(funcgroup[1], "func"))
-        {
-            dpp_internal<return>(1);
-        }
-
-        else
-        {
-            dpp_error("Unknown form in the component \"math\".",);
-            dpp_internal<return>(0);
-        }
+        dpp_fatalerror__("Attempted to modify a constexpr namespace.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
     }
     return 0;
 }

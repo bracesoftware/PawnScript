@@ -316,6 +316,23 @@ cool
 
 **WARNING**: Current `sscanf` delimiter is `-` because of some limitations we're facing, it may be changed in the future.
 
+### Form: `strdist`
+- Returns a distance between 2 strings.
+
+```cpp
+data.strdist("hi", "hi") myretref;
+console.println.log("myretref is {myretref}");
+```
+
+Output:
+
+```
+myretref is 0
+```
+
+### Returns
+
+Unlike most of the functions, whose return 0 for failed operation and 1 for successful operation, this one returns 65535 for failed operation and integer distance (difference) between 2 strings. In example above, `myretref` is 0 because the 2 strings are the same.
 
 ---------------------------------------------------------------------------------
 

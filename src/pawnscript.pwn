@@ -1,14 +1,26 @@
 /*
-*
-* PawnScript Scripting Language
-*     Made for a SA:MP server
-*
-* Entry point
-*
-* 
-* - by: DEntisT, (c) 2023
-*
+
+The ORIGINAL CODE is the `PawnScript the Language` Source Code.
+The INITIAL DEVELOPER is Brace Inc., DEntisT.
+
+Version: MPL 1.1
+
+The contents of this file are subject to the Mozilla Public License Version 
+1.1 the "License"; you may not use this file except in compliance with 
+the License. You may obtain a copy of the License at 
+http://www.mozilla.org/MPL/
+
+Software distributed under the License is distributed on an "AS IS" basis,
+WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+for the specific language governing rights and limitations under the
+License.
+
+Portions created by the Initial Developer are Copyright (c) 2022
+the Initial Developer. All Rights Reserved.
+
 */
+
+
 //-----------------------------------------------------------
 
 #include "ps_mem.pwn"
@@ -42,7 +54,8 @@
 //-----------------------------------------------------------
 //compiler sys
 #include "core/index.inc"
-#include "core/utils.inc"
+#include "core/sys_utils.inc"
+#include "core/component_impl.inc"
 #include "ps_asm.pwn"
 //-----------------------------------------------------------
 // component impl
@@ -201,6 +214,59 @@ public OnGameModeExit()
 //-----------------------------------------------------------
 
 
+
+stock levenstein(const a[], const b[]) {
+    new
+        aLength = strlen(a),
+        bLength = strlen(b),
+        cache[256],
+        index = 0,
+        bIndex = 0,
+        distance,
+        bDistance,
+        result,
+        code;
+
+    if (!strcmp(a, b)) {
+        return 0;
+    }
+
+    if (aLength == 0) {
+        return bLength;
+    }
+
+    if (bLength == 0) {
+        return aLength;
+    }
+
+    while (index < aLength) {
+        cache[index] = index + 1;
+        index++;
+    }
+
+    while (bIndex < bLength) {
+        code = b[bIndex];
+        result = distance = bIndex++;
+        index = -1;
+
+        while (++index < aLength) {
+            bDistance = code == a[index] ? distance : distance + 1;
+            distance = cache[index];
+
+            cache[index] = result = distance > result
+            ? bDistance > result
+                ? result + 1
+                : bDistance
+            : bDistance > distance
+                ? distance + 1
+                : bDistance;
+        }
+    }
+
+    return result;
+}
+
+
 main()
 {
     /*new File:file = fopen("test.txt");
@@ -217,6 +283,16 @@ main()
         printf("Keyword 2: '%s'",funcgroup[1]);
         printf("Keyword 3: '%s'",funcgroup[2]);
     }*/
+
+    // "kdhjsafgkj" vs "d"
+    // dpp_data__strdist = 10
+    // levenstein = 9
+
+    /*new index;
+    printf("Distance: %i",     dpp_data__strdist("kitten", "tt"));
+    printf("Levenstein distance: %i", levenstein("kitten", "tt"));
+    printf("++index : %i", index--);
+    printf("index : %i", index);*/
     SetTimer("dpp_main", 1000, false);
 }
 
