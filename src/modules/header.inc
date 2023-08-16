@@ -49,7 +49,11 @@ DO NOT CHANGE THEM!
 */
 #define @PAWNSCRIPT_INTERNAL__@%0\32; @PAWNSCRIPT_INTERNAL__@
 #define dpp_internal%0< @PAWNSCRIPT_INTERNAL__@
-#define @PAWNSCRIPT_INTERNAL__@return>%1(%2)    dpp_vardata[dpp_retvar__][integervalue]=%2;return 1
+#define @PAWNSCRIPT_INTERNAL__@return>%1(%2)            dpp_vardata[dpp_retvar__][integervalue]=%2;return 1
+#define @PAWNSCRIPT_INTERNAL__@Float:return>%1(%2)      dpp_vardata[dpp_retvar__][floatvalue]=%2;return 1
+#define @PAWNSCRIPT_INTERNAL__@bool:return>%1(%2)       dpp_vardata[dpp_retvar__][boolvalue]=%2;return 1
+#define @PAWNSCRIPT_INTERNAL__@string:return>%1(%2<%3>) strmid(dpp_vardata[dpp_retvar__][stringvalue],%2,0,%3,%3);return 1
+#define @PAWNSCRIPT_INTERNAL__@char%0return>%1(%2<%3>)  dpp_vardata[dpp_retvar__][charvalue]=%2;return 1
 
 new
     dpp_error_str[1024];

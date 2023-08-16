@@ -8,6 +8,8 @@
 - [`files`](#component-files)
 - [`misc`](#component-misc)
 - [`data`](#component-data)
+- [`pawn`](#component-pawn)
+- [`math`](#component-math)
 
 ---------------------------------------------------------------------------------------------------------
 
@@ -350,3 +352,29 @@ using pawn;
 ```cpp
 pawn.callfunction("public_name");
 ```
+
+---------------------------------------------------------------------------------
+
+## Component: `math`
+- Mathematical operations and functions.
+
+Import the component using:
+```cpp
+using math;
+```
+
+### Form: `vectorsize`
+- Calculates the distance between two 3-dimensional points.
+
+```cpp
+math.vectorsize(234.1,4211.3,43.3,-43.33,-0.1,-823) myretref; // Pretty random coordinates.
+console.rawout.log(myretref);
+```
+
+Output:
+```
+4308.519042
+```
+
+#### Returns
+This function is also one of those which have a specific return value, 0.0 is returned if the operation has failed or if the distance is REALLY just zero, and a specific `double` number will be returned if the operation is executed successfully.

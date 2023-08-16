@@ -21,10 +21,10 @@ the Initial Developer. All Rights Reserved.
 stock Float:dpp_math__vectorsize(Float:x1, Float:y1, Float:z1, Float:x2, Float:y2, Float:z2)
 {
     new
-        a = x1 < x2 ? x2 - x1 : x1 - x2,
-        b = y1 < y2 ? y2 - y1 : y1 - y2,
-        h = z1 < z2 ? z2 - z1 : z1 - z2,
-        base_hyp = floatsqroot(a*a+b*b);
+        Float:a = x1 < x2 ? x2 - x1 : x1 - x2,
+        Float:b = y1 < y2 ? y2 - y1 : y1 - y2,
+        Float:h = z1 < z2 ? z2 - z1 : z1 - z2,
+        Float:base_hyp = floatsqroot(a*a+b*b);
 
     return floatsqroot(h*h + base_hyp*base_hyp); 
 }

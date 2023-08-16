@@ -29,9 +29,47 @@ public dpp_processmath(funcgroup[][],args[][])
             dpp_error("Component \"math\" is not imported.",);
             dpp_internal<return>(0);
         }
-        if(!strcmp(funcgroup[1], "func"))
+        if(!strcmp(funcgroup[1], "vectorsize"))
         {
-            dpp_internal<return>(1);
+            if(!dpp_isfloat(args[0]))
+            {
+                dpp_error("Argument is supposed to be a double.",);
+                dpp_internal<Float:return>(0.0);
+            }
+            if(!dpp_isfloat(args[1]))
+            {
+                dpp_error("Argument is supposed to be a double.",);
+                dpp_internal<Float:return>(0.0);
+            }
+            if(!dpp_isfloat(args[2]))
+            {
+                dpp_error("Argument is supposed to be a double.",);
+                dpp_internal<Float:return>(0.0);
+            }
+            if(!dpp_isfloat(args[3]))
+            {
+                dpp_error("Argument is supposed to be a double.",);
+                dpp_internal<Float:return>(0.0);
+            }
+            if(!dpp_isfloat(args[4]))
+            {
+                dpp_error("Argument is supposed to be a double.",);
+                dpp_internal<Float:return>(0.0);
+            }
+            if(!dpp_isfloat(args[5]))
+            {
+                dpp_error("Argument is supposed to be a double.",);
+                dpp_internal<Float:return>(0.0);
+            }
+
+            new Float:dist = dpp_math__vectorsize(floatstr(args[0]),
+                                                  floatstr(args[1]),
+                                                  floatstr(args[2]),
+                                                  floatstr(args[3]),
+                                                  floatstr(args[4]),
+                                                  floatstr(args[5]));
+
+            dpp_internal<Float:return>(dist);
         }
 
         else
