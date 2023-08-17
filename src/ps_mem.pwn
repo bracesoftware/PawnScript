@@ -24,10 +24,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define LOG_EXT ".pslog"
 #define STACKOUTPUT_FILE "stackoutput"LOG_EXT
 #define PROJECT_NAME "PawnScript"
-#pragma dynamic 21575000000000
-#pragma warning disable 204
-#pragma warning disable 211
-#pragma option -;+
+
 //-----------------------------------------------------------
 #define dpp_invalidclass 100
 //-----------------------------------------------------------
