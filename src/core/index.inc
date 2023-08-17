@@ -114,11 +114,11 @@ stock dpp_printmem__()
 {
     dpp_nullcomment();
     printf("\tHeap space\t\t%i bytes", heapspace());
-    printf("\tEntity cells (each)\t\t%i bytes (reserved)", dpp_rescells__*4);
-    printf("\tAll entity cells\t\t%i bytes (reserved)",dpp_entities__*dpp_rescells__*4);
-    printf("\tEntity cells (each)\t\t%i bytes (modified)", dpp_maxconst*4);
-    printf("\tAll entity cells\t\t%i bytes (modified)",dpp_entities__*dpp_maxconst*4);
-    printf("\tUnused memory:\t%i bytes",dpp_entities__*dpp_rescells__*4-dpp_entities__*dpp_maxconst*4);
+    printf("\tEntity cells (each)\t\t%i cells (reserved)", dpp_rescells__*4);
+    printf("\tAll entity cells\t\t%i cells (reserved)",dpp_entities__*dpp_rescells__*4);
+    printf("\tEntity cells (each)\t\t%i cells (modified)", dpp_maxconst*4);
+    printf("\tAll entity cells\t\t%i cells (modified)",dpp_entities__*dpp_maxconst*4);
+    printf("\tUnused memory:\t%i cells",dpp_entities__*dpp_rescells__*4-dpp_entities__*dpp_maxconst*4);
     dpp_nullcomment();
     printf("\tTotal usage est.\t\t%i bytes", heapspace() + dpp_entities__*dpp_rescells__*4);
     dpp_nullcomment();

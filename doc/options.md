@@ -64,11 +64,11 @@ Output:
 
 ```
 		Heap space		1204958948 bytes
-		Entity cells (each)		800 bytes (reserved)
-		All entity cells		9600 bytes (reserved)
-		Entity cells (each)		400 bytes (modified)
-		All entity cells		4800 bytes (modified)
-		Unused memory:	4800 bytes
+		Entity cells (each)		800 cells (reserved)
+		All entity cells		9600 cells (reserved)
+		Entity cells (each)		400 cells (modified)
+		All entity cells		4800 cells (modified)
+		Unused memory:	4800 cells
 
 		Total usage est.		1204968548 bytes
 ```
