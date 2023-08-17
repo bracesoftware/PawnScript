@@ -54,6 +54,7 @@ the Initial Developer. All Rights Reserved.
 #include "modules/enum.inc"
 #include "modules/persistent.inc"
 #include "modules/class.inc"
+#include "modules/template.inc"
 
 #include "modules/interpreter.inc"
 //-----------------------------------------------------------

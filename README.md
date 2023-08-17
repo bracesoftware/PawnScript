@@ -62,6 +62,7 @@
 - [`constexpr` keyword](doc/constexpr.md)
 - [`try`, `break` and `continue`](doc/try.md)
 - [Return reference](doc/retref.md)
+- [Call templates](doc/template.md)
 - [Miscellaneous](doc/misc.md)
 
 ### Other info

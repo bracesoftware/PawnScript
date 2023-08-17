@@ -86,6 +86,10 @@ stock dpp_process(line[])
         args_form[dpp_maxargsc][dpp_argcharsize],
         args_fconst[dpp_maxargsc][dpp_argcharsize];
 
+    new 
+        templategroup[2][1024],
+        templategroup2[2][1024];
+
     new extracode[3000];
     new line2[3000];
     new dpp_funcfound;
@@ -101,6 +105,20 @@ stock dpp_process(line[])
     dpp_parseline(line,dirgroup,':');
     dpp_parseline(line,nativegroup, '(');
     dpp_parseline(nativegroup[1],retvar,')');
+
+    //template <console.println.log> cpl;
+    //  templategroup[0]    template
+    //  templategroup[1]    console.println.log>cpl
+    //  templategroup2[0]   console.println.log
+    //  templategroup2[1]   cpl
+
+    dpp_parseline(line,templategroup, '<');
+    dpp_parseline(templategroup[1],templategroup2,'>');
+
+    dpp_codetrim(templategroup[0]);
+    dpp_codetrim(templategroup[1]);
+    dpp_codetrim(templategroup2[0]);
+    dpp_codetrim(templategroup2[1]);
 
     if(!isnull(retvar[1]))
     {
@@ -160,6 +178,7 @@ stock dpp_process(line[])
             dpp_strreplace(args[0], toreplace, dpp_typedefrepl[i], .maxlength = dpp_maxstrsize);
         }
     }
+
     dpp_codetrim(args[0]);
     dpp_parseline(args[0], funcgroup, '.');
 
@@ -168,6 +187,24 @@ stock dpp_process(line[])
     dpp_codetrim(funcgroup[2]);
 
     dpp_parseline(args[1], vargroup, '=');
+
+    for(new i; i < dpp_maxtemplate; i++)
+    {
+        if(dpp_validtemplate[i] == 1)
+        {
+            new toreplace[dpp_maxstrsize],templategr[2][256],templategr2[2][128];
+            strmid(toreplace, dpp_templatename[i], 0, dpp_maxstrsize,dpp_maxstrsize);
+            dpp_parseline(toreplace, templategr, '@');
+            dpp_parseline(templategr[1], templategr2, '_');
+
+            if(!strcmp(templategr[0], "DPPCz") && !isnull(templategr2[0]) && !isnull(templategr2[1]))
+            {
+                format(toreplace, sizeof toreplace, "%s::%s",templategr2[0],templategr2[1]);
+            }
+            
+            dpp_strreplace(nativegroup[0], toreplace, dpp_templaterepl[i], .maxlength = dpp_maxstrsize);
+        }
+    }
 
     dpp_parseline(nativegroup[0], funcgroup_form, '.');
     dpp_parseline(nativegroup[1], arggroup, ')');
@@ -787,6 +824,21 @@ stock dpp_process(line[])
         }
         //typedef,const*new.int,newintconst;
         dpp_createtypedef(args_const[2],args_const[1]);
+        return 1;
+    }
+
+    ///////////////////////////////////////////////////////
+    ////
+    ////
+    ////            TEMPLATE SYS
+    ////
+    ////
+    ///////////////////////////////////////////////////////
+
+
+    if(!strcmp(templategroup[0], "template"))
+    {
+        dpp_createtemplate(templategroup2[1],templategroup2[0]);
         return 1;
     }
 

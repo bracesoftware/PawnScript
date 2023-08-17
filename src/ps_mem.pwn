@@ -53,8 +53,8 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxformargs 10
 //-----------------------------------------------------------
 // Constant values (used for initial memory allocation)
-#define dpp_entities__ 12
-#define dpp_rescells__ 200
+#define dpp_entities__ 13
+#define dpp_rescells__ 255
 
 #define dpp_maxconst__ dpp_rescells__
 #define dpp_maxfuncs__ dpp_rescells__
@@ -68,38 +68,42 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxenum__ dpp_rescells__
 #define dpp_maxobj__ dpp_rescells__
 #define dpp_maxoclass__ dpp_rescells__
+#define dpp_maxtemplate__ dpp_rescells__
 // Variables with max values of constants above.
 // Used in #pragma to select amount of memory used for each entity.
-new dpp_maxconst = dpp_maxconst__;
-new dpp_maxfuncs = dpp_maxfuncs__;
-new dpp_maxinline = dpp_maxinline__;
-new dpp_maxvar = dpp_maxvar__;
-new dpp_maxclass = dpp_maxclass__;
-new dpp_maxtasks = dpp_maxtasks__;
-new dpp_maxiter = dpp_maxiter__;
-new dpp_maxtag = dpp_maxtag__;
-new dpp_maxtypedef = dpp_maxtypedef__;
-new dpp_maxenum = dpp_maxenum__;
-new dpp_maxobj = dpp_maxobj__;
-new dpp_maxoclass = dpp_maxoclass__;
+new dpp_maxconst        = dpp_maxconst__;
+new dpp_maxfuncs        = dpp_maxfuncs__;
+new dpp_maxinline       = dpp_maxinline__;
+new dpp_maxvar          = dpp_maxvar__;
+new dpp_maxclass        = dpp_maxclass__;
+new dpp_maxtasks        = dpp_maxtasks__;
+new dpp_maxiter         = dpp_maxiter__;
+new dpp_maxtag          = dpp_maxtag__;
+new dpp_maxtypedef      = dpp_maxtypedef__;
+new dpp_maxenum         = dpp_maxenum__;
+new dpp_maxobj          = dpp_maxobj__;
+new dpp_maxoclass       = dpp_maxoclass__;
+new dpp_maxtemplate     = dpp_maxtemplate__;
 dpp_memory__dyn(dyn)
 {
 if(dyn>dpp_rescells__)
 {
 dyn=dpp_rescells__; // Avoid invalid memory addresses and instructions.
 }
-dpp_maxconst = dyn;
-dpp_maxfuncs = dyn;
-dpp_maxinline = dyn;
-dpp_maxvar = dyn;
-dpp_maxclass = dyn;
-dpp_maxtasks = dyn;
-dpp_maxiter = dyn;
-dpp_maxtag = dyn;
-dpp_maxtypedef = dyn;
-dpp_maxenum = dyn;
-dpp_maxobj = dyn;
-dpp_maxoclass = dyn;
+dpp_maxconst            = dyn;
+dpp_maxfuncs            = dyn;
+dpp_maxinline           = dyn;
+dpp_maxvar              = dyn;
+dpp_maxclass            = dyn;
+dpp_maxtasks            = dyn;
+dpp_maxiter             = dyn;
+dpp_maxtag              = dyn;
+dpp_maxtypedef          = dyn;
+dpp_maxenum             = dyn;
+dpp_maxobj              = dyn;
+dpp_maxoclass           = dyn;
+dpp_maxtemplate         = dyn;
+#emit const.pri 1
 #emit retn
 }
 //-----------------------------------------------------------
@@ -206,6 +210,10 @@ new dpp_enumvalues[dpp_maxenum__][dpp_maxenumvals][__dpp_valcache];
 new dpp_validtypedef[dpp_maxtypedef__];
 new dpp_typedefname[dpp_maxtypedef__][dpp_maxstrsize];
 new dpp_typedefrepl[dpp_maxtypedef__][dpp_maxstrsize];
+//-----------------------------------------------------------
+new dpp_validtemplate[dpp_maxtemplate__];
+new dpp_templatename[dpp_maxtemplate__][dpp_maxstrsize];
+new dpp_templaterepl[dpp_maxtemplate__][dpp_maxstrsize];
 //-----------------------------------------------------------
 enum dpp_enumset
 {
