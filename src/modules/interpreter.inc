@@ -3543,6 +3543,12 @@ public dpp_processpragma(dirgroup[][],dirargs[][])
         //dpp_printmem__
         if(!strcmp(dirargs[0], "dynamic"))
         {
+            if(!strcmp(dirargs[1], "default"))
+            {
+                dpp_memory__dyn(dpp_rescells__);
+                dpp_printmem__();
+                return 1;
+            }
             if(!dpp_isnumeric(dirargs[1]))
             {
                 dpp_error("Failed to allocate memory; insufficient value passed.",);
