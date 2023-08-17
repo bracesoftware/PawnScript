@@ -268,6 +268,7 @@ stock levenstein(const a[], const b[]) {
 
 main()
 {
+    //CallLocalFunction("dpp_asmtest", "");
     SetTimer("dpp_main", 1000, false);
 }
 
@@ -340,6 +341,7 @@ public dpp_asmtest()
     #emit push.adr          arr
     #emit push.c            8
     #emit sysreq.c          printf
+    #emit stack             12
 
     #emit load.pri          dpp_alt__
     #emit load.s.alt        __cellbytes
