@@ -47,7 +47,13 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_internal<return>(0);
             }
 
-            fcreatedir(args[0]);
+            //fcreatedir(args[0]);
+            @emit__ tempaddr        ,.str=args[0]
+            #emit push.c            dpp_tempaddr__
+            #emit push.c            4
+            #emit sysreq.c          fcreatedir
+            #emit stack             8
+            //#emit retn
             dpp_internal<return>(1);
         }
         if(!strcmp(funcgroup[1], "delete"))
@@ -69,7 +75,13 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_internal<return>(0);
             }
 
-            fremove(args[0]);
+            //fremove(args[0]);
+            @emit__ tempaddr        ,.str=args[0]
+            #emit push.c            dpp_tempaddr__
+            #emit push.c            4
+            #emit sysreq.c          fremove
+            #emit stack             8
+            //#emit retn
             dpp_internal<return>(1);
         }
         if(!strcmp(funcgroup[1], "open_for_append"))

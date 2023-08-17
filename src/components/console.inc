@@ -107,7 +107,10 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
                 }
             }
 
-            dpp_inputtype = DPP_INPUT_TYPE_LINE;
+            //dpp_inputtype = DPP_INPUT_TYPE_LINE;
+            #emit const.alt         1
+            #emit stor.alt          dpp_inputtype
+            //printf("dpp_inputtype is %sDPP_INPUT_TYPE_LINE", dpp_inputtype==DPP_INPUT_TYPE_LINE?"":"not ");
             dpp_internal<return>(1);
         }
 
@@ -132,7 +135,10 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
                 }
             }
 
-            dpp_inputtype = DPP_INPUT_TYPE_CHAR;
+            //dpp_inputtype = DPP_INPUT_TYPE_CHAR;
+            #emit const.alt         2
+            #emit stor.alt          dpp_inputtype
+            //printf("dpp_inputtype is %sDPP_INPUT_TYPE_LINE", dpp_inputtype==DPP_INPUT_TYPE_CHAR?"":"not ");
             dpp_internal<return>(1);
         }
 
