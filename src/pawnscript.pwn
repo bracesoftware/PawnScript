@@ -335,13 +335,21 @@ public dpp_asmtest()
     // For some reason,
     // instruction sets below result in an error.
     new __cellbytes=4,
-    arr[]="hi %s",
+    arr[]="hi %s %s",
     arr2[]="hi again";
+    strmid(dpp_tempaddr__, "Test", 0, sizeof dpp_tempaddr__, sizeof dpp_tempaddr__);
+    print(dpp_tempaddr__);
+    #emit push.c            dpp_tempaddr__
     #emit push.adr          arr2
     #emit push.adr          arr
-    #emit push.c            8
+    #emit push.c            12
     #emit sysreq.c          printf
-    #emit stack             12
+    #emit stack             16
+
+    #emit push.c dpp_tempaddr__
+    #emit push.c 4
+    #emit sysreq.c print
+    #emit stack 8
 
     #emit load.pri          dpp_alt__
     #emit load.s.alt        __cellbytes
@@ -351,6 +359,7 @@ public dpp_asmtest()
     #emit zero.alt
     #emit nop
     printf("%i", dpp_pri__);
-    return 1;
+    #emit retn
+    return 1; // Make compiler happy.
 }
 //-----------------------------------------------------------

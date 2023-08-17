@@ -71,7 +71,12 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
             }
 
             //dpp_debug("Line \"%s\" successfully executed.", line);
-            print(args[0]);
+            //print(args[0]);
+            strmid(dpp_tempaddr__, args[0], 0, sizeof dpp_tempaddr__);
+            #emit push.c        dpp_tempaddr__
+            #emit push.c        4
+            #emit sysreq.c      print
+            #emit stack         8
 
             if(!strcmp(funcgroup[2], "log"))
             {
@@ -150,7 +155,11 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
                 dpp_internal<return>(0);
             }
 
-            print(args[0]);
+            strmid(dpp_tempaddr__, args[0], 0, sizeof dpp_tempaddr__);
+            #emit push.c        dpp_tempaddr__
+            #emit push.c        4
+            #emit sysreq.c      print
+            #emit stack         8
 
             if(!strcmp(funcgroup[2], "log"))
             {
@@ -161,7 +170,11 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
 
         if(!strcmp(funcgroup[1], "rawout")) // Output of raw text: console.rawout(This will be printed!);
         {
-            print(args[0]);
+            strmid(dpp_tempaddr__, args[0], 0, sizeof dpp_tempaddr__);
+            #emit push.c        dpp_tempaddr__
+            #emit push.c        4
+            #emit sysreq.c      print
+            #emit stack         8
 
             if(!strcmp(funcgroup[2], "log"))
             {
