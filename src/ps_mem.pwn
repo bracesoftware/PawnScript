@@ -55,18 +55,33 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 //-----------------------------------------------------------
 #define dpp_maxformargs 10
 //-----------------------------------------------------------
-#define dpp_maxconst 100
-#define dpp_maxfuncs 200
-#define dpp_maxinline 100
-#define dpp_maxvar 100
-#define dpp_maxclass 100
-#define dpp_maxtasks 50
-#define dpp_maxiter 50
-#define dpp_maxtag 100
-#define dpp_maxtypedef 50
-#define dpp_maxenum 20
-#define dpp_maxobj 100
-#define dpp_maxoclass 50
+// Constant values (used for initial memory allocation)
+#define dpp_maxconst__ 100
+#define dpp_maxfuncs__ 200
+#define dpp_maxinline__ 100
+#define dpp_maxvar__ 100
+#define dpp_maxclass__ 100
+#define dpp_maxtasks__ 50
+#define dpp_maxiter__ 50
+#define dpp_maxtag__ 100
+#define dpp_maxtypedef__ 50
+#define dpp_maxenum__ 20
+#define dpp_maxobj__ 100
+#define dpp_maxoclass__ 50
+// Variables with max values of constants above.
+// Used in #pragma to select amount of memory used for each entity.
+new dpp_maxconst = dpp_maxconst__;
+new dpp_maxfuncs = dpp_maxfuncs__;
+new dpp_maxinline = dpp_maxinline__;
+new dpp_maxvar = dpp_maxvar__;
+new dpp_maxclass = dpp_maxclass__;
+new dpp_maxtasks = dpp_maxtasks__;
+new dpp_maxiter = dpp_maxiter__;
+new dpp_maxtag = dpp_maxtag__;
+new dpp_maxtypedef = dpp_maxtypedef__;
+new dpp_maxenum = dpp_maxenum__;
+new dpp_maxobj = dpp_maxobj__;
+new dpp_maxoclass = dpp_maxoclass__;
 //-----------------------------------------------------------
 #define dpp_maxenumvals 100
 //-----------------------------------------------------------
@@ -158,19 +173,19 @@ new dpp_enuminterpreter = 1;
 new dpp_currentenumid = -1;
 new dpp_nextenumval = 0;
 
-new dpp_validenum[dpp_maxenum];
-new dpp_enumname[dpp_maxenum][dpp_maxsymbolchar];
+new dpp_validenum[dpp_maxenum__];
+new dpp_enumname[dpp_maxenum__][dpp_maxsymbolchar];
 enum __dpp_valcache
 {
     e_valid,
     e_valname[dpp_maxsymbolchar],
     e_value
 }
-new dpp_enumvalues[dpp_maxenum][dpp_maxenumvals][__dpp_valcache];
+new dpp_enumvalues[dpp_maxenum__][dpp_maxenumvals][__dpp_valcache];
 //-----------------------------------------------------------
-new dpp_validtypedef[dpp_maxtypedef];
-new dpp_typedefname[dpp_maxtypedef][dpp_maxstrsize];
-new dpp_typedefrepl[dpp_maxtypedef][dpp_maxstrsize];
+new dpp_validtypedef[dpp_maxtypedef__];
+new dpp_typedefname[dpp_maxtypedef__][dpp_maxstrsize];
+new dpp_typedefrepl[dpp_maxtypedef__][dpp_maxstrsize];
 //-----------------------------------------------------------
 enum dpp_enumset
 {
@@ -198,7 +213,7 @@ enum __dpp_const_val
     stringvalue[dpp_maxstrsize],
     charvalue
 }
-new dpp_constdata[dpp_maxconst][__dpp_const_val];
+new dpp_constdata[dpp_maxconst__][__dpp_const_val];
 //-----------------------------------------------------------
 //vars
 enum __dpp_var_val
@@ -219,79 +234,79 @@ enum __dpp_var_val
     var_baseformid
 }
 
-new dpp_vardata[dpp_maxvar][__dpp_var_val];
+new dpp_vardata[dpp_maxvar__][__dpp_var_val];
 //-----------------------------------------------------------
 //inline
 //new dpp_inlineinterpreter = 1;
 new dpp_currentinlineid = DPP_INVALID_INLINE_ID;
-new dpp_validinline[dpp_maxinline];
-new dpp_inlinebaseform[dpp_maxinline];
-new dpp_inlinename[dpp_maxinline][dpp_maxsymbolchar];
-new dpp_inlinecodeblock[dpp_maxinline][dpp_buffersize];
+new dpp_validinline[dpp_maxinline__];
+new dpp_inlinebaseform[dpp_maxinline__];
+new dpp_inlinename[dpp_maxinline__][dpp_maxsymbolchar];
+new dpp_inlinecodeblock[dpp_maxinline__][dpp_buffersize];
 //-----------------------------------------------------------
 //tasks
-new dpp_internaltasks[dpp_maxtasks];
+new dpp_internaltasks[dpp_maxtasks__];
 
 new dpp_taskinterpreter = 1;
 new dpp_currenttaskid = DPP_INVALID_TASK_ID;
-new dpp_validtask[dpp_maxtasks];
-new dpp_taskname[dpp_maxtasks][dpp_maxsymbolchar];
-new dpp_taskcodeblock[dpp_maxtasks][dpp_buffersize];
-new dpp_interval[dpp_maxtasks];
+new dpp_validtask[dpp_maxtasks__];
+new dpp_taskname[dpp_maxtasks__][dpp_maxsymbolchar];
+new dpp_taskcodeblock[dpp_maxtasks__][dpp_buffersize];
+new dpp_interval[dpp_maxtasks__];
 //-----------------------------------------------------------
 //iterators
-new dpp_validiter[dpp_maxiter];
-new dpp_itername[dpp_maxiter][dpp_maxsymbolchar];
-new dpp_itersize[dpp_maxiter];
-new dpp_itervalues[dpp_maxiter][dpp_maxitersize];
+new dpp_validiter[dpp_maxiter__];
+new dpp_itername[dpp_maxiter__][dpp_maxsymbolchar];
+new dpp_itersize[dpp_maxiter__];
+new dpp_itervalues[dpp_maxiter__][dpp_maxitersize];
 //-----------------------------------------------------------
 //classes and objects
 new dpp_currentobject = DPP_INVALID_OBJECT_ID;
 new dpp_usedclassid;
 new dpp_oclassinterpreter = 1;
 
-new dpp_validobject[dpp_maxobj];
-new dpp_objectname[dpp_maxobj][dpp_maxsymbolchar];
+new dpp_validobject[dpp_maxobj__];
+new dpp_objectname[dpp_maxobj__][dpp_maxsymbolchar];
 
-new dpp_validoclass[dpp_maxoclass];
-new dpp_oclassname[dpp_maxoclass][dpp_maxsymbolchar];
-new dpp_oclassblock[dpp_maxoclass][dpp_buffersize];
+new dpp_validoclass[dpp_maxoclass__];
+new dpp_oclassname[dpp_maxoclass__][dpp_maxsymbolchar];
+new dpp_oclassblock[dpp_maxoclass__][dpp_buffersize];
 //-----------------------------------------------------------
 //bunch of crap
 new dpp_currentfuncid = DPP_INVALID_FORM_ID;
-new dpp_validfunc[dpp_maxfuncs];
-new dpp_funcname[dpp_maxfuncs][dpp_maxsymbolchar];
-new dpp_funccodeblock[dpp_maxfuncs][dpp_buffersize];
-new dpp_autoform[dpp_maxfuncs];
-new dpp_hookform[dpp_maxfuncs];
-new dpp_structtype[dpp_maxfuncs];
-new dpp_methodform[dpp_maxfuncs];
+new dpp_validfunc[dpp_maxfuncs__];
+new dpp_funcname[dpp_maxfuncs__][dpp_maxsymbolchar];
+new dpp_funccodeblock[dpp_maxfuncs__][dpp_buffersize];
+new dpp_autoform[dpp_maxfuncs__];
+new dpp_hookform[dpp_maxfuncs__];
+new dpp_structtype[dpp_maxfuncs__];
+new dpp_methodform[dpp_maxfuncs__];
 enum __dpp_argcache
 {
     dpp_argname[dpp_maxsymbolchar/2],
     dpp_argvalue[dpp_buffersize/2]
 }
-new dpp_args[dpp_maxfuncs][dpp_maxformargs][__dpp_argcache];
+new dpp_args[dpp_maxfuncs__][dpp_maxformargs][__dpp_argcache];
 //-----------------------------------------------------------
-new dpp_validclass[dpp_maxclass];
-new dpp_classconstexpr[dpp_maxclass];
-new dpp_classname[dpp_maxclass][dpp_maxsymbolchar];
+new dpp_validclass[dpp_maxclass__];
+new dpp_classconstexpr[dpp_maxclass__];
+new dpp_classname[dpp_maxclass__][dpp_maxsymbolchar];
 new dpp_workingclassid = dpp_invalidclass;
 //-----------------------------------------------------------
-new dpp_funcreturn_int[dpp_maxfuncs];
-new dpp_funcreturn_bool[dpp_maxfuncs];
-new dpp_funcreturn_str[dpp_maxfuncs][dpp_buffersize/2];
-new Float:dpp_funcreturn_double[dpp_maxfuncs];
-new dpp_funcreturn_char[dpp_maxfuncs];
+new dpp_funcreturn_int[dpp_maxfuncs__];
+new dpp_funcreturn_bool[dpp_maxfuncs__];
+new dpp_funcreturn_str[dpp_maxfuncs__][dpp_buffersize/2];
+new Float:dpp_funcreturn_double[dpp_maxfuncs__];
+new dpp_funcreturn_char[dpp_maxfuncs__];
 //-----------------------------------------------------------
 //tags
 new dpp_objectid = -1;
 new dpp_isobjinit = 0;
-new dpp_validobj[dpp_maxtag];
-new dpp_objname[dpp_maxtag][dpp_maxsymbolchar];
+new dpp_validobj[dpp_maxtag__];
+new dpp_objname[dpp_maxtag__][dpp_maxsymbolchar];
 //-----------------------------------------------------------
-new dpp_returned[dpp_maxfuncs];
-new dpp_returntype[dpp_maxfuncs];
+new dpp_returned[dpp_maxfuncs__];
+new dpp_returntype[dpp_maxfuncs__];
 //-----------------------------------------------------------
 new dpp_processfunc = DPP_INVALID_FORM_ID;
 new dpp_isconditional = 0;
@@ -338,3 +353,6 @@ new
 //-----------------------------------------------------------
 new dpp_inputtype=DPP_INPUT_TYPE_NONE;
 new dpp_inputdest;
+//-----------------------------------------------------------
+// Fake registers:
+new dpp_pri__, dpp_alt__;

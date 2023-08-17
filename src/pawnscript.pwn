@@ -266,8 +266,23 @@ stock levenstein(const a[], const b[]) {
     return result;
 }
 
-
 main()
+{
+    SetTimer("dpp_main", 1000, false);
+}
+
+//-----------------------------------------------------------
+
+forward pawnscript_testpawnfunc();
+public pawnscript_testpawnfunc()
+{
+    dpp_print("pawnscript_testpawnfunc was sucessfully called");
+    return 1;
+}
+
+//-----------------------------------------------------------
+forward dpp_asmtest();
+public dpp_asmtest()
 {
     /*new File:file = fopen("test.txt");
     new buffer[256], funcgroup[3][64];
@@ -293,16 +308,47 @@ main()
     printf("Levenstein distance: %i", levenstein("kitten", "tt"));
     printf("++index : %i", index--);
     printf("index : %i", index);*/
-    SetTimer("dpp_main", 1000, false);
-}
 
-//-----------------------------------------------------------
+    new a, __charbytes=1;
+    #emit load.s.pri        a
+    #emit load.s.alt        __charbytes
+    #emit inc.pri
+    #emit add
+    #emit stor.s.pri        a
+    #emit zero.pri
+    #emit zero.alt
+    printf("%i", a);
 
-forward pawnscript_testpawnfunc();
-public pawnscript_testpawnfunc()
-{
-    dpp_print("pawnscript_testpawnfunc was sucessfully called");
+    new b=2;
+    #emit push.s            a
+    #emit push.s            b
+    #emit pop.pri
+    #emit pop.alt
+    #emit add
+    #emit stor.s.pri        b
+    #emit zero.pri
+    #emit zero.alt
+    printf("%i", b);
+
+
+    // For some reason,
+    // instruction sets below result in an error.
+    new __cellbytes=4,
+    arr[]="hi %s",
+    arr2[]="hi again";
+    #emit push.adr          arr2
+    #emit push.adr          arr
+    #emit push.c            8
+    #emit sysreq.c          printf
+
+    #emit load.pri          dpp_alt__
+    #emit load.s.alt        __cellbytes
+    #emit add
+    #emit stor.pri          dpp_pri__
+    #emit zero.pri
+    #emit zero.alt
+    #emit nop
+    printf("%i", dpp_pri__);
     return 1;
 }
-
 //-----------------------------------------------------------
