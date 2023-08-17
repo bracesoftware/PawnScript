@@ -17,6 +17,21 @@ the Initial Developer. All Rights Reserved.
 
 */
 
+#define tempaddr 0
+
+#define @emit__%0\32;%1\10;%3 dpp_asm__(%1);
+
+stock dpp_asm__(operand, int = 0, bool:bool = false, const str[] = "null")
+{
+    #pragma unused int
+    #pragma unused bool
+    if(operand == tempaddr)
+    {
+        strmid(dpp_tempaddr__, str, 0, sizeof dpp_tempaddr__);
+        return 1;
+    }
+    return 1;
+}
 
 new dpp_currentid;
 new dpp_currentsector;
