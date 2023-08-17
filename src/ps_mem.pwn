@@ -56,18 +56,21 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxformargs 10
 //-----------------------------------------------------------
 // Constant values (used for initial memory allocation)
-#define dpp_maxconst__ 100
-#define dpp_maxfuncs__ 200
-#define dpp_maxinline__ 100
-#define dpp_maxvar__ 100
-#define dpp_maxclass__ 100
-#define dpp_maxtasks__ 50
-#define dpp_maxiter__ 50
-#define dpp_maxtag__ 100
-#define dpp_maxtypedef__ 50
-#define dpp_maxenum__ 20
-#define dpp_maxobj__ 100
-#define dpp_maxoclass__ 50
+#define dpp_entities__ 12
+#define dpp_rescells__ 200
+
+#define dpp_maxconst__ dpp_rescells__
+#define dpp_maxfuncs__ dpp_rescells__
+#define dpp_maxinline__ dpp_rescells__
+#define dpp_maxvar__ dpp_rescells__
+#define dpp_maxclass__ dpp_rescells__
+#define dpp_maxtasks__ dpp_rescells__
+#define dpp_maxiter__ dpp_rescells__
+#define dpp_maxtag__ dpp_rescells__
+#define dpp_maxtypedef__ dpp_rescells__
+#define dpp_maxenum__ dpp_rescells__
+#define dpp_maxobj__ dpp_rescells__
+#define dpp_maxoclass__ dpp_rescells__
 // Variables with max values of constants above.
 // Used in #pragma to select amount of memory used for each entity.
 new dpp_maxconst = dpp_maxconst__;
@@ -82,6 +85,26 @@ new dpp_maxtypedef = dpp_maxtypedef__;
 new dpp_maxenum = dpp_maxenum__;
 new dpp_maxobj = dpp_maxobj__;
 new dpp_maxoclass = dpp_maxoclass__;
+dpp_memory__dyn(dyn)
+{
+if(dyn>dpp_rescells__)
+{
+dyn=dpp_rescells__; // Avoid invalid memory addresses and instructions.
+}
+dpp_maxconst = dyn;
+dpp_maxfuncs = dyn;
+dpp_maxinline = dyn;
+dpp_maxvar = dyn;
+dpp_maxclass = dyn;
+dpp_maxtasks = dyn;
+dpp_maxiter = dyn;
+dpp_maxtag = dyn;
+dpp_maxtypedef = dyn;
+dpp_maxenum = dyn;
+dpp_maxobj = dyn;
+dpp_maxoclass = dyn;
+#emit retn
+}
 //-----------------------------------------------------------
 #define dpp_maxenumvals 100
 //-----------------------------------------------------------

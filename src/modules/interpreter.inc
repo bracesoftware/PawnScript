@@ -3535,6 +3535,24 @@ public dpp_processpragma(dirgroup[][],dirargs[][])
             }
             return 1;
         }
+        ////////////////////////////////////////////////
+        //
+        //                  dynamic OPTION
+        //
+        ////////////////////////////////////////////////
+        //dpp_printmem__
+        if(!strcmp(dirargs[0], "dynamic"))
+        {
+            if(!dpp_isnumeric(dirargs[1]))
+            {
+                dpp_error("Failed to allocate memory; insufficient value passed.",);
+                return 1;
+            }
+
+            dpp_memory__dyn(strval(dirargs[1]));
+            dpp_printmem__();
+            return 1;
+        }
 
         else
         {

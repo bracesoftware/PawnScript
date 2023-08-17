@@ -49,6 +49,31 @@ Enable warnings when return reference isn't provided.
 #pragma:reqref,true;
 ```
 
+## `dynamic`
+- Default value: `200`
+
+Sets the amount of usable cells in which entity data will be stored. Each entity in PawnScript symbolises one cell, for example, a variable occupies 1 cell and stores all its data inside.
+
+```cpp
+#pragma:dynamic,default;
+//or
+#pragma:dynamic,100; // Must be lower than the default value.
+```
+
+Output:
+
+```
+		Heap space		1204958948 bytes
+		Entity cells (each)		800 bytes (reserved)
+		All entity cells		9600 bytes (reserved)
+		Entity cells (each)		400 bytes (modified)
+		All entity cells		4800 bytes (modified)
+		Unused memory:	4800 bytes
+
+		Total usage est.		1204968548 bytes
+```
+
+
 
 
 

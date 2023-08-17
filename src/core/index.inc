@@ -110,6 +110,21 @@ stock dpp_compile(const script[])
 }
 */
 
+stock dpp_printmem__()
+{
+    dpp_nullcomment();
+    printf("\tHeap space\t\t%i bytes", heapspace());
+    printf("\tEntity cells (each)\t\t%i bytes (reserved)", dpp_rescells__*4);
+    printf("\tAll entity cells\t\t%i bytes (reserved)",dpp_entities__*dpp_rescells__*4);
+    printf("\tEntity cells (each)\t\t%i bytes (modified)", dpp_maxconst*4);
+    printf("\tAll entity cells\t\t%i bytes (modified)",dpp_entities__*dpp_maxconst*4);
+    printf("\tUnused memory:\t%i bytes",dpp_entities__*dpp_rescells__*4-dpp_entities__*dpp_maxconst*4);
+    dpp_nullcomment();
+    printf("\tTotal usage est.\t\t%i bytes", heapspace() + dpp_entities__*dpp_rescells__*4);
+    dpp_nullcomment();
+    #emit retn
+}
+
 stock dpp_compile(const script[])
 {
     print("                                        ");
@@ -117,6 +132,8 @@ stock dpp_compile(const script[])
     printf("\tPawnScript   %i.%i.%i-R%i\tBrace Inc.", DPP_VERSION_MAJOR,DPP_VERSION_MINOR,DPP_VERSION_PATCH,DPP_VERSION_RELEASE);
     printf("\tPawn         %d.%02d.%02d\tITB CompuPhase", __Pawn >>> 8, __Pawn & 0xFF, __PawnBuild/*__pawn_build*/); // from YSI
     //dpp_print("Interpreter version %i.%i.%i-R%i - by: DEntisT",DPP_VERSION_MAJOR,DPP_VERSION_MINOR,DPP_VERSION_PATCH,DPP_VERSION_RELEASE);
+    dpp_nullcomment();
+    dpp_printmem__();
     if(fexist("index.dppc")) fremove("index.dppc");
     //dpp_print("Compiling \"%s\"...",script);
     print("                                        ");
