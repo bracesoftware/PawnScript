@@ -77,14 +77,22 @@ new
 
 stock dpp_incerrcnt()
 {
-    dpp_errorcount++;
-    return 1;
+    #emit load.pri          dpp_errorcount
+    #emit inc.pri
+    #emit stor.pri          dpp_errorcount
+    #emit const.pri         1
+    #emit retn
+    return 1; // Fulfill PAWN's desires.
 }
 
 stock dpp_incwarncnt()
 {
-    dpp_warningcount++;
-    return 1;
+    #emit load.pri          dpp_incwarncnt
+    #emit inc.pri
+    #emit stor.pri          dpp_incwarncnt
+    #emit const.pri         1
+    #emit retn
+    return 1; // Fulfill PAWN's desires.
 }
 
 stock dpp_parsecode(const code[], destln[][])
