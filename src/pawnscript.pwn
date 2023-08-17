@@ -213,59 +213,6 @@ public OnGameModeExit()
 
 //-----------------------------------------------------------
 
-
-
-stock levenstein(const a[], const b[]) {
-    new
-        aLength = strlen(a),
-        bLength = strlen(b),
-        cache[256],
-        index = 0,
-        bIndex = 0,
-        distance,
-        bDistance,
-        result,
-        code;
-
-    if (!strcmp(a, b)) {
-        return 0;
-    }
-
-    if (aLength == 0) {
-        return bLength;
-    }
-
-    if (bLength == 0) {
-        return aLength;
-    }
-
-    while (index < aLength) {
-        cache[index] = index + 1;
-        index++;
-    }
-
-    while (bIndex < bLength) {
-        code = b[bIndex];
-        result = distance = bIndex++;
-        index = -1;
-
-        while (++index < aLength) {
-            bDistance = code == a[index] ? distance : distance + 1;
-            distance = cache[index];
-
-            cache[index] = result = distance > result
-            ? bDistance > result
-                ? result + 1
-                : bDistance
-            : bDistance > distance
-                ? distance + 1
-                : bDistance;
-        }
-    }
-
-    return result;
-}
-
 main()
 {
     //CallLocalFunction("dpp_asmtest", "");
@@ -282,6 +229,25 @@ public pawnscript_testpawnfunc()
 }
 
 //-----------------------------------------------------------
+myprintf(const formattedstr[], {Float,_}:...)
+{
+    if(numargs() == 1)
+    {
+        @emit__ tempaddr    ,.str=formattedstr
+        #emit push.c        dpp_tempaddr__
+        #emit push.c        4
+        #emit sysreq.c      print
+        #emit stack         8
+        #emit retn
+        return 0;
+    }
+
+    #emit nop // Just no.
+
+    #emit retn
+    return 0;
+}
+
 forward dpp_asmtest();
 public dpp_asmtest()
 {
@@ -359,6 +325,22 @@ public dpp_asmtest()
     #emit zero.alt
     #emit nop
     printf("%i", dpp_pri__);
+
+    #emit nop
+    new test=5;
+    @emit__ tempfloat       ,.float=23.34
+    #emit push.c            dpp_tempfloat__
+    #emit push.adr          test
+    @emit__ tempreg         ,.int=__cellbytes
+    #emit push.c            dpp_tempreg__
+    @emit__ tempaddr        ,.str="Testaddr2 %i %i %f"
+    #emit push.c            dpp_tempaddr__
+    #emit push.c            16
+    #emit sysreq.c          printf
+    #emit stack             20
+
+    myprintf("hi");
+
     #emit retn
     return 1; // Make compiler happy.
 }

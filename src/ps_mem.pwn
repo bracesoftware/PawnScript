@@ -382,3 +382,5 @@ new dpp_pri__, dpp_alt__;
 new dpp_bytes__;
 #pragma unused dpp_bytes__
 new dpp_tempaddr__[dpp_maxstrsize];
+new dpp_tempreg__;
+new Float:dpp_tempfloat__;

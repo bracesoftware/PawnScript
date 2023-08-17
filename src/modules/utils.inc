@@ -24,6 +24,59 @@ the Initial Developer. All Rights Reserved.
 // creds Y_Less
 
 
+
+stock levenstein(const a[], const b[]) { //southclaws
+    new
+        aLength = strlen(a),
+        bLength = strlen(b),
+        cache[256],
+        index = 0,
+        bIndex = 0,
+        distance,
+        bDistance,
+        result,
+        code;
+
+    if (!strcmp(a, b)) {
+        return 0;
+    }
+
+    if (aLength == 0) {
+        return bLength;
+    }
+
+    if (bLength == 0) {
+        return aLength;
+    }
+
+    while (index < aLength) {
+        cache[index] = index + 1;
+        index++;
+    }
+
+    while (bIndex < bLength) {
+        code = b[bIndex];
+        result = distance = bIndex++;
+        index = -1;
+
+        while (++index < aLength) {
+            bDistance = code == a[index] ? distance : distance + 1;
+            distance = cache[index];
+
+            cache[index] = result = distance > result
+            ? bDistance > result
+                ? result + 1
+                : bDistance
+            : bDistance > distance
+                ? distance + 1
+                : bDistance;
+        }
+    }
+
+    return result;
+}
+
+
 enum string_edges {
     edge_left  = 1,
     edge_right = 2,
@@ -31,7 +84,7 @@ enum string_edges {
 };
 
 // Big thanks to Slice (oscar broman), without him
-// D++ would not exist the way it does now
+// PawnScript would not exist the way it does now
 stock dpp_codetrim(string[], const chars[] = !"", string_edges:edge = edge_both) 
 {
     new bool:packed = ispacked(string);
