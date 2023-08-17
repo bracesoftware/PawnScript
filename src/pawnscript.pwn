@@ -243,19 +243,31 @@ myprintf(const formattedstr[], {Float,_}:...)
         #emit push.c        4
         #emit sysreq.c      print
         #emit stack         8
+        #emit const.pri     0
         #emit retn
         return 0;
     }
 
     #emit nop // Just no.
 
+    #emit const.pri         0
     #emit retn
-    return 0;
+    return 0; // Make the compiler happy.
+}
+
+__asmtest2()
+{
+    // This function will actually return a value
+    // stored inside a primary register.
+    #emit const.pri         24
+    #emit retn
+    return 1; // Make compiler happy.
 }
 
 forward dpp_asmtest();
 public dpp_asmtest()
 {
+    printf("%i", __asmtest2());
     /*new File:file = fopen("test.txt");
     new buffer[256], funcgroup[3][64];
     while(fread(file, buffer))
