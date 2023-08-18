@@ -66,7 +66,7 @@ public dpp_processpawn(funcgroup[][],args[][],args_const[][])
         }
         else
         {
-            dpp_error("Unknown form in the component \"console\".",);
+            dpp_error("Unknown form in the component \"pawn\".",);
             dpp_internal<return>(0);
         }
     }

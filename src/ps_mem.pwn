@@ -224,7 +224,8 @@ enum dpp_enumset
     files_comp,
     misc_comp,
     data_comp,
-    pawn_comp
+    pawn_comp,
+    iter_comp
 }
 
 new dpp_config[dpp_enumset];

@@ -9,16 +9,17 @@
 */
 
 console.println("========================== iter.dpp ==========================");
-iter::define,testiter,100;
+//iter::define,testiter,100;
+iterator<100>testiter; // New syntax.
 new.int,foreachtestvar=0;
 
-iter::add,testiter,1;
-iter::add,testiter,10;
-iter::remove,testiter,1;
+iter.add(testiter,1);
+iter.add(testiter,10);
+iter.remove(testiter,1);
 
 foreach.int,foreachtestvar,testiter->console.println("foreach test {foreachtestvar}");
 
-iter::add,testiter,1;
+iter.add(testiter,1);
 
 foreach.int,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}");
 
@@ -30,10 +31,10 @@ console.rawout(1); console.println("Lmao ok");
 
 namespace,IterClass;
 {
-	iter::define,iter,10;
+	iterator<10>iter;
 }
 
-iter::add,IterClass::iter,364;
+iter.add(IterClass::iter,364);
 foreach.int,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");
 
 if.equ,defined?IterClass::iter,1->console.println("IterClass::iter is defined!");
@@ -82,19 +83,19 @@ user.MegaFormBoo("MegaFormBoo was sucessfully called");
 
 namespace,SAMP;
 {
-	iter::define,Player,MAX_PLAYERS;
+	iterator<MAX_PLAYERS>Player;
 }
 
 @hook;
 void*form.OnPlayerConnect?playerid;
 {
-	iter::add,SAMP::Player,playerid@OnPlayerConnect;
+	iter.add(SAMP::Player,playerid@OnPlayerConnect);
 }
 
 @hook;
 void*form.OnPlayerDisconnect?playerid;
 {
-	iter::remove,SAMP::Player,playerid@OnPlayerConnect;
+	iter.remove(SAMP::Player,playerid@OnPlayerConnect);
 }
 
 public&task.PrintPlayers#1000;

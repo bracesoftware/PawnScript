@@ -1916,23 +1916,34 @@ stock dpp_process(line[])
     ///////////////////////////////////////////////////////
     ////
     ////
-    ////            ITERATOR SYS
+    ////            DATA STRUCTURE SYS
     ////
     ////
     ///////////////////////////////////////////////////////
 
-    if(!strcmp(funcgroup[0], "iter::define"))
+        //iterator<size>name;
+    if(!strcmp(templategroup[0], "iterator"))
     {
-        if(!dpp_isnumeric(args[2]))
-        {
-            dpp_error("Argument error; value must be an integer.",);
-            return 0;
-        }
-        dpp_createiter(args[1],strval(args[2]));
+        dpp_removeslashes(templategroup2[0]);
+        dpp_argclasscheck(templategroup2[0]);
+        dpp_argoclasscheck(templategroup2[0]);
+        dpp_argarraycheck(templategroup2[0]);
+        dpp_argfunccheck(templategroup2[0]);
+        dpp_argvarcheck(templategroup2[0]);
+        dpp_argmathcheck(templategroup2[0]);
+        dpp_argformargcheck(templategroup2[0]);
+        dpp_argsystemval(templategroup2[0]);
+        CallLocalFunction("dpp_arginstruct", "s", templategroup2[0]);
+        CallLocalFunction("dpp_argenumcheck", "s", templategroup2[0]);
+        CallLocalFunction("dpp_argtagcheck", "s", templategroup2[0]);
+
+        dpp_formatarg(templategroup2[0]);
+        
+        dpp_createiter(templategroup2[1],strval(templategroup2[0]));
         return 1;
     }
 
-    if(!strcmp(funcgroup[0], "iter::add"))
+    /*if(!strcmp(funcgroup[0], "iter::add"))
     {
         if(!dpp_isnumeric(args[2]))
         {
@@ -1952,7 +1963,7 @@ stock dpp_process(line[])
         }
         dpp_removevalue(args[1],strval(args[2]));
         return 1;
-    }
+    }*/
 
     /*if(!strcmp(funcgroup[0], "iter::delete"))
     {
@@ -2534,6 +2545,11 @@ stock dpp_process(line[])
         if(!strcmp(tokengroup[1], "pawn"))
         {
             dpp_config[pawn_comp] = 1;
+            return 1;
+        }
+        if(!strcmp(tokengroup[1], "iter"))
+        {
+            dpp_config[iter_comp] = 1;
             return 1;
         }
     }
@@ -3255,6 +3271,19 @@ stock dpp_process(line[])
     if(dpp_funcfound == 0)
     {
         dpp_funcfound = CallLocalFunction("dpp_processpawn", "sss", funcgroup_form,args_form,args_fconst);
+    }
+
+    ///////////////////////////////////////////////////////
+    ////
+    ////
+    ////            PAWN comp FUNC SYS
+    ////
+    ////
+    ///////////////////////////////////////////////////////
+
+    if(dpp_funcfound == 0)
+    {
+        dpp_funcfound = CallLocalFunction("dpp_processiter", "sss", funcgroup_form,args_form,args_fconst);
     }
     
 

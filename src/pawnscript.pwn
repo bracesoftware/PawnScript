@@ -34,7 +34,7 @@ the Initial Developer. All Rights Reserved.
 // REQUIRED.
 #include <open.mp>
 #if !defined fcreatedir
-    native fcreatedir(const filename[]);
+native fcreatedir(const filename[]);
 #endif
 
 //-----------------------------------------------------------
@@ -73,6 +73,7 @@ the Initial Developer. All Rights Reserved.
 #include "components/misc.inc"
 #include "components/data.inc"
 #include "components/pawn.inc"
+#include "components/iter.inc"
 //-----------------------------------------------------------
 
 dpp_main(); public dpp_main()

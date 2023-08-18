@@ -48,7 +48,7 @@
 - [Tasks](doc/tasks.md)
 - [Form structure types](doc/struct.md)
 - [`for`-loops](doc/for.md)
-- [`foreach`-loops and iterators](doc/foreach.md)
+- [Data structures and `foreach`](doc/foreach.md)
 - [`switch` and `case`](doc/switch.md)
 - [Form methods](doc/methods.md)
 - [Tags and `tagof` instruction](doc/tags.md)
