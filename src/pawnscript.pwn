@@ -55,6 +55,7 @@ native fcreatedir(const filename[]);
 #include "modules/persistent.inc"
 #include "modules/class.inc"
 #include "modules/template.inc"
+#include "modules/vectors.inc"
 
 #include "modules/interpreter.inc"
 //-----------------------------------------------------------
@@ -74,6 +75,7 @@ native fcreatedir(const filename[]);
 #include "components/data.inc"
 #include "components/pawn.inc"
 #include "components/iter.inc"
+#include "components/vector.inc"
 //-----------------------------------------------------------
 
 dpp_main(); public dpp_main()

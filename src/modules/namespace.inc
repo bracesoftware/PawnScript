@@ -102,12 +102,12 @@ stock dpp_argclasscheck(arg[])
     }
 
 
-    format(newvalue,sizeof(newvalue),"DPPCt@%s_%s",funcgroup[0],funcgroup[1]);
+    format(newvalue,sizeof(newvalue),"DPPCy@%s_%s",funcgroup[0],funcgroup[1]);
     dpp_debug("Class backtrace 3:\n\tnewvalue : '%s'",newvalue);
 
-    for(new i; i < dpp_maxtypedef; i++)
+    for(new i; i < dpp_maxvector; i++)
     {
-        if(!strcmp(dpp_typedefname[i],newvalue) && dpp_validtypedef[i] == 1)
+        if(!strcmp(dpp_vectorname[i],newvalue) && dpp_validvector[i] == 1)
         {
             strmid(arg, newvalue, 0, dpp_argcharsize,dpp_argcharsize);//classelementvalid[dpp_classelement_var] = 1;
             break;

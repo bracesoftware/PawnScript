@@ -30,8 +30,8 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 //-----------------------------------------------------------
 #define DPP_VERSION_MAJOR 1
 #define DPP_VERSION_MINOR 0
-#define DPP_VERSION_PATCH 4
-#define DPP_VERSION_RELEASE 1
+#define DPP_VERSION_PATCH 5
+#define DPP_VERSION_RELEASE __time[1]*2+__line
 #define DPP_CELLMAX 8
 
 #define DPP_VERSION_BETA 0
@@ -53,7 +53,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxformargs 10
 //-----------------------------------------------------------
 // Constant values (used for initial memory allocation)
-#define dpp_entities__ 13
+#define dpp_entities__ 14
 #define dpp_rescells__ 255
 
 #define dpp_maxconst__ dpp_rescells__
@@ -69,6 +69,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxobj__ dpp_rescells__
 #define dpp_maxoclass__ dpp_rescells__
 #define dpp_maxtemplate__ dpp_rescells__
+#define dpp_maxvector__ dpp_rescells__
 // Variables with max values of constants above.
 // Used in #pragma to select amount of memory used for each entity.
 new dpp_maxconst        = dpp_maxconst__;
@@ -84,6 +85,7 @@ new dpp_maxenum         = dpp_maxenum__;
 new dpp_maxobj          = dpp_maxobj__;
 new dpp_maxoclass       = dpp_maxoclass__;
 new dpp_maxtemplate     = dpp_maxtemplate__;
+new dpp_maxvector       = dpp_maxvector__;
 dpp_memory__dyn(dyn)
 {
 if(dyn>dpp_rescells__)
@@ -103,6 +105,7 @@ dpp_maxenum             = dyn;
 dpp_maxobj              = dyn;
 dpp_maxoclass           = dyn;
 dpp_maxtemplate         = dyn;
+dpp_maxvector           = dyn;
 #emit const.pri 1
 #emit retn
 }
@@ -110,7 +113,9 @@ dpp_maxtemplate         = dyn;
 #define dpp_maxenumvals 100
 //-----------------------------------------------------------
 #define dpp_maxitersize 1000
+#define dpp_maxvectorsize 5000
 #define dpp_invaliditerval -1
+#define dpp_invalidvectorval -1
 //-----------------------------------------------------------
 #define dpp_formstruct_local 0
 #define dpp_formstruct_sampcmd 1
@@ -225,7 +230,8 @@ enum dpp_enumset
     misc_comp,
     data_comp,
     pawn_comp,
-    iter_comp
+    iter_comp,
+    vector_comp
 }
 
 new dpp_config[dpp_enumset];
@@ -288,6 +294,11 @@ new dpp_validiter[dpp_maxiter__];
 new dpp_itername[dpp_maxiter__][dpp_maxsymbolchar];
 new dpp_itersize[dpp_maxiter__];
 new dpp_itervalues[dpp_maxiter__][dpp_maxitersize];
+//vectors
+new dpp_validvector[dpp_maxvector__];
+new dpp_vectorname[dpp_maxvector__][dpp_maxsymbolchar];
+new dpp_vectorsize[dpp_maxvector__]; // Completely irrelevant.
+new dpp_vectorvalues[dpp_maxvector__][dpp_maxvectorsize];
 //-----------------------------------------------------------
 //classes and objects
 new dpp_currentobject = DPP_INVALID_OBJECT_ID;

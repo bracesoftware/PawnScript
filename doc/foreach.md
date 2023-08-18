@@ -37,7 +37,7 @@ foreach test #2 10
 
 ### Example `#2`
 
-- Iterators inside classes.
+- Iterators inside namespaces.
 
 ```cpp
 namespace,IterClass;
@@ -58,8 +58,76 @@ foreach test #3 364
 ## Vectors
 - Vectors are just like iterators, but with dynamic sizes (there is still a limit, but it is huge) which means that they can change after the vector declaration.
 
+### Example
+
+```cpp
+
+vector<324>vectorname; // 	An initial size can be a completely random number,
+// 							because the size updates dynamically during the runtime.
+
+// `using vector` is already in stdlib.ps
+vector.add(vectorname,1);
+vector.add(vectorname,312);
+vector.add(vectorname,2);
+new.int,vectortest=0;
+
+console.rawout(sizeof?vectorname); // Size is changed from 324 to 3.
+foreach.int,vectortest,vectorname->std::writeln("vector test #1 {vectortest}");
+
+vector.remove(vectorname,312);
+
+console.rawout(sizeof?vectorname); // Size is changed from 3 to 2.
+foreach.int,vectortest,vectorname->std::writeln("vector test #2 {vectortest}");
+
 ```
-??? COMING SOON ???
+
+Output:
+
+```
+3
+vector test #1 1
+vector test #1 312
+vector test #1 2
+2
+vector test #2 1
+vector test #2 2
+```
+
+
+### Example `#2`
+
+- Vectors inside namespaces.
+
+```cpp
+namespace,vectors;
+{
+	vector<324>myvec;
+	new.int,vectortest2=0;
+}
+
+vector.add(vectors::myvec,24);
+vector.add(vectors::myvec,31);
+vector.add(vectors::myvec,29);
+
+console.rawout(sizeof?vectors::myvec); // Size is changed from 324 to 3.
+foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #3 {vectors::vectortest2}");
+
+vector.remove(vectors::myvec,24);
+
+console.rawout(sizeof?vectors::myvec); // Size is changed from 3 to 2.
+foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #4 {vectors::vectortest2}");
+```
+
+Output:
+
+```
+3
+vector test #3 24
+vector test #3 31
+vector test #3 29
+2
+vector test #4 31
+vector test #4 29
 ```
 
 ## `sizeof` instruction

@@ -750,20 +750,46 @@ dpp_arginstruct(arg[]); public dpp_arginstruct(arg[])
     dpp_parseline(arg,operands,'?');
     if(!strcmp(operands[0], "sizeof"))
     {
+        dpp_argclasscheck(operands[1]);
+        dpp_argoclasscheck(operands[1]);
+        new dpp_iterid = -1, dpp_vectorid = -1;
         for(new i; i < dpp_maxiter; i++)
         {
             if(!strcmp(operands[1], dpp_itername[i]))
             {
                 if(dpp_validiter[i] == 1)
                 {
-                    symbolid = i;
+                    dpp_iterid = i;
                     break;
                 }
             }
         }
-        if(symbolid == -1) return 1;
-        format(newvalue, sizeof newvalue, "%i", dpp_itersize[symbolid]);
+        for(new i; i < dpp_maxvector; i++)
+        {
+            if(!strcmp(operands[1], dpp_vectorname[i]))
+            {
+                if(dpp_validvector[i] == 1)
+                {
+                    dpp_vectorid = i;
+                    break;
+                }
+            }
+        }
+        if(dpp_iterid == -1 && dpp_vectorid == -1)
+        {
+            return 1;
+        }
+
+        if(dpp_iterid != -1)
+        {
+            format(newvalue, sizeof newvalue, "%i", dpp_itersize[dpp_iterid]);
+        }
+        if(dpp_vectorid != -1)
+        {
+            format(newvalue, sizeof newvalue, "%i", dpp_vectorsize[dpp_vectorid]);
+        }
         strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
+        return 1;
     }
 
     if(!strcmp(operands[0], "defined"))
@@ -776,6 +802,18 @@ dpp_arginstruct(arg[]); public dpp_arginstruct(arg[])
             if(!strcmp(operands[1], dpp_itername[i]))
             {
                 if(dpp_validiter[i] == 1)
+                {
+                    symbolid = i;
+                    break;
+                }
+            }
+        }
+
+        for(new i; i < dpp_maxvector; i++)
+        {
+            if(!strcmp(operands[1], dpp_vectorname[i]))
+            {
+                if(dpp_validvector[i] == 1)
                 {
                     symbolid = i;
                     break;
