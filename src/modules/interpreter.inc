@@ -1010,6 +1010,8 @@ stock dpp_process(line[])
         dpp_deletecharvar(dirgroup[1]);
         dpp_deletefunc(dirgroup[1]);
         dpp_deletevector(dirgroup[1]);
+
+        @emit__     stk@pop        ,.str=dirgroup[1]
         return 1;
     }
 

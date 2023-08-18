@@ -21,6 +21,7 @@ the Initial Developer. All Rights Reserved.
 
 stock dpp_createtypedef(name[], const replacement[])
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxtypedef; i++)
     {
         if(dpp_validtypedef[i] == 0)
@@ -31,6 +32,7 @@ stock dpp_createtypedef(name[], const replacement[])
                 format(newvalue,sizeof(newvalue),"DPPCt@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            dpp_symbolcheck__(name);
             dpp_validtypedef[i] = 1;
             strmid(dpp_typedefname[i], name, 0, dpp_maxstrsize,dpp_maxstrsize);
             strmid(dpp_typedefrepl[i], replacement, 0, dpp_maxstrsize,dpp_maxstrsize);

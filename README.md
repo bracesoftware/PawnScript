@@ -24,6 +24,7 @@
 - [Project management](doc/proj.md)
 - [Calling PawnScript from your Pawn code](doc/pawn.md)
 - [How does PawnScript work?](doc/how.md)
+- [Errors](doc/errors.md)
 
 ### The language
 

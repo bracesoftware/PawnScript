@@ -110,17 +110,22 @@ stock dpp_compile(const script[])
 }
 */
 
+stock dpp_stackspace()
+{
+    return DPP_STKSIZE*4;
+}
+
 stock dpp_printmem__()
 {
     dpp_nullcomment();
-    printf("\tHeap space\t\t%i bytes", heapspace());
-    printf("\tEntity cells (each)\t\t%i cells (reserved)", dpp_rescells__*4);
-    printf("\tAll entity cells\t\t%i cells (reserved)",dpp_entities__*dpp_rescells__*4);
-    printf("\tEntity cells (each)\t\t%i cells (modified)", dpp_maxconst*4);
-    printf("\tAll entity cells\t\t%i cells (modified)",dpp_entities__*dpp_maxconst*4);
-    printf("\tUnused memory:\t%i cells",dpp_entities__*dpp_rescells__*4-dpp_entities__*dpp_maxconst*4);
+    printf("\tTotal stack space:\t\t%i bytes", dpp_stackspace());
+    printf("\tEntity cells (each):\t\t%i cells (reserved)", dpp_rescells__*4);
+    printf("\tAll entity cells:\t\t%i cells (reserved)",dpp_entities__*dpp_rescells__*4);
+    printf("\tEntity cells (each):\t\t%i cells (modified)", dpp_maxconst*4);
+    printf("\tAll entity cells:\t\t%i cells (modified)",dpp_entities__*dpp_maxconst*4);
+    printf("\tUnused memory:\t\t%i cells",dpp_entities__*dpp_rescells__*4-dpp_entities__*dpp_maxconst*4);
     dpp_nullcomment();
-    printf("\tTotal usage est.\t\t%i bytes", heapspace() + dpp_entities__*dpp_rescells__*4);
+    printf("\tTotal usage est.\t\t%i bytes", dpp_stackspace() + dpp_entities__*dpp_rescells__*64); // Estimation
     dpp_nullcomment();
     #emit retn
 }

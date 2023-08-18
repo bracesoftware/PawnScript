@@ -26,6 +26,6 @@ Output:
 
 ```
 [Info] My namespace function works!
-[Info] *** [PawnScript] FATAL ERROR - Info: Attempted to modify a constexpr namespace.
-[Info] [PawnScript] SERVER THREAD - Info: Process has been terminated to prevent further complications.
+[Info] *** [PawnScript] FATAL ERROR - Info: Attempted to modify a constexpr code block.
+[Info] [PawnScript] SERVER THREAD - Info: Process has been terminated to prevent further complication.
 ```

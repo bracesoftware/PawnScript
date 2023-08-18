@@ -62,6 +62,7 @@ stock dpp_argoclasscheck(arg[])
 
 stock dpp_createoclass(const name[])
 {
+    dpp_symbolcheck__(name);
     for(new i; i < dpp_maxoclass; i++)
     {
         if(dpp_validoclass[i] == 0)
@@ -78,6 +79,7 @@ stock dpp_createoclass(const name[])
 
 stock dpp_createobject(const name[], const classname[])
 {
+    dpp_symbolcheck__(name);
     new classid = -1;
     for(new i; i < dpp_maxoclass; i++)
     {

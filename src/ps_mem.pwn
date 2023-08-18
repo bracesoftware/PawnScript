@@ -401,3 +401,57 @@ new dpp_bytes__;
 new dpp_tempaddr__[dpp_maxstrsize];
 new dpp_tempreg__;
 new Float:dpp_tempfloat__;
+//-----------------------------------------------------------
+#define dpp_numinvchar__ 38
+
+new dpp_invchar__[dpp_numinvchar__] = {
+    '?', 
+    '+', 
+    '-', 
+    '*', 
+    '/', 
+    '\\', 
+    ':', 
+    '(', 
+    ')', 
+    '{', 
+    '}', 
+    '[', 
+    ']',
+    '&',
+    '%',
+    '=',
+    '$',
+    '#',
+    '^',
+    'ˇ',
+    '!',
+    '~',
+    '`',
+    '\'',
+    '\"',
+    '˝',
+    '˛',
+    '°',
+    '˘',
+    '¸',
+    '.',
+    ',',
+    '\32',
+    '\t',
+    '¤',
+    '˙',
+    '´'
+};
+//-----------------------------------------------------------
+#define DPP_STKSIZE dpp_entities__*dpp_rescells__
+#define DPP_STKNULL "PS__null__"
+new dpp_stkreg[DPP_STKSIZE][dpp_maxsymbolchar];
+#define tempaddr 0
+#define tempreg 1
+#define tempfloat 2
+#define stk@push 3
+#define stk@pop 4
+#define stk@allcol 5
+new dpp_allowcollision;
+#define @emit__%0\32;%1\10;%3 dpp_asm__(%1);

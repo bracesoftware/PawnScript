@@ -38,6 +38,7 @@ native fcreatedir(const filename[]);
 #endif
 
 //-----------------------------------------------------------
+#include "ps_stk.pwn"
 //includes
 #include "modules/utils.inc"
 #include "modules/header.inc"
@@ -92,6 +93,7 @@ main_again();
 public main_again()
 {
     CallLocalFunction("dpp_initstack", "");
+    CallLocalFunction("dpp_initstk", "");
     
     if(dpp_compiled == 1)
     {

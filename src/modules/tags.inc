@@ -19,12 +19,12 @@ the Initial Developer. All Rights Reserved.
 
 stock dpp_createtag(name[])
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxtag; i++)
     {
         if(dpp_validobj[i] == 0)
         {
             dpp_validobj[i] = 1;
-            strmid(dpp_objname[i], name, 0, dpp_maxsymbolchar, dpp_maxsymbolchar);
 
             if(dpp_workingclassid != dpp_invalidclass)
             {
@@ -32,6 +32,8 @@ stock dpp_createtag(name[])
                 format(newvalue,sizeof(newvalue),"DPPCo@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             strmid(dpp_objname[i], name, 0, dpp_maxsymbolchar, dpp_maxsymbolchar);
 

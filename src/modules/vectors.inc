@@ -19,6 +19,7 @@ the Initial Developer. All Rights Reserved.
 
 stock dpp_createvector(const name[], size)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxvector; i++)
     {
         if(dpp_validvector[i] == 0)
@@ -31,6 +32,7 @@ stock dpp_createvector(const name[], size)
                 format(newvalue,sizeof(newvalue),"DPPCy@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(dpp_vectorname[i], newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            dpp_symbolcheck__(name);
             dpp_vectorsize[i] = size; // Completely irrelevant initial size.
             for(new vecvalid; vecvalid < dpp_maxvectorsize; vecvalid++) // Initialize ALL of the reserved memory.
             {

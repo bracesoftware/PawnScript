@@ -19,6 +19,7 @@ the Initial Developer. All Rights Reserved.
 
 stock dpp_createiter(const name[], size)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxiter; i++)
     {
         if(dpp_validiter[i] == 0)
@@ -31,6 +32,7 @@ stock dpp_createiter(const name[], size)
                 format(newvalue,sizeof(newvalue),"DPPCi@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(dpp_itername[i], newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            dpp_symbolcheck__(name);
             dpp_itersize[i] = size;
             for(new itervalid; itervalid < size; itervalid++)
             {

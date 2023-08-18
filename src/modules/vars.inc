@@ -95,24 +95,11 @@ stock dpp_findvar(const name[], dest)
 
 stock dpp_createintvar(name[], value, obj = -1, staticvar = 0, baseform = -1, unsigned = 0, short = 0)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxvar; i++)
     {
         if(dpp_vardata[i][var_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
 
             if(dpp_workingclassid != dpp_invalidclass)
             {
@@ -126,6 +113,8 @@ stock dpp_createintvar(name[], value, obj = -1, staticvar = 0, baseform = -1, un
                 format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             dpp_debug("variable \"%s\" assigned a value : %i",name,value);
             strmid(dpp_vardata[i][var_name], name, 0, 64);
@@ -158,25 +147,11 @@ stock dpp_createintvar(name[], value, obj = -1, staticvar = 0, baseform = -1, un
 
 stock dpp_createboolvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxvar; i++)
     {
         if(dpp_vardata[i][var_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
-
             if(dpp_workingclassid != dpp_invalidclass)
             {
                 new newvalue[dpp_argcharsize];
@@ -189,6 +164,8 @@ stock dpp_createboolvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
                 format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             dpp_debug("variable \"%s\" assigned a value : %s",name,value ? "true" : "false");
             strmid(dpp_vardata[i][var_name], name, 0, 64);
@@ -218,25 +195,11 @@ stock dpp_createboolvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
 
 stock dpp_createstrvar(name[], const value[], obj = -1, staticvar = 0, baseform = -1)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxvar; i++)
     {
         if(dpp_vardata[i][var_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
-
             if(dpp_workingclassid != dpp_invalidclass)
             {
                 new newvalue[dpp_argcharsize];
@@ -249,6 +212,8 @@ stock dpp_createstrvar(name[], const value[], obj = -1, staticvar = 0, baseform 
                 format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             dpp_debug("variable \"%s\" assigned a value : \"%s\"",name,value);
             strmid(dpp_vardata[i][var_name], name, 0, 64);
@@ -278,25 +243,11 @@ stock dpp_createstrvar(name[], const value[], obj = -1, staticvar = 0, baseform 
 
 stock dpp_createdoublevar(name[], Float:value, obj = -1, staticvar = 0, baseform = -1)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxvar; i++)
     {
         if(dpp_vardata[i][var_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
-
             if(dpp_workingclassid != dpp_invalidclass)
             {
                 new newvalue[dpp_argcharsize];
@@ -309,6 +260,8 @@ stock dpp_createdoublevar(name[], Float:value, obj = -1, staticvar = 0, baseform
                 format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             dpp_debug("variable \"%s\" assigned a value : %f",name,value);
             strmid(dpp_vardata[i][var_name], name, 0, 64);
@@ -338,25 +291,11 @@ stock dpp_createdoublevar(name[], Float:value, obj = -1, staticvar = 0, baseform
 
 stock dpp_createcharvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxvar; i++)
     {
         if(dpp_vardata[i][var_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
-
             if(dpp_workingclassid != dpp_invalidclass)
             {
                 new newvalue[dpp_argcharsize];
@@ -369,6 +308,7 @@ stock dpp_createcharvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
                 format(newvalue,sizeof(newvalue),"DPPOv@%s_%s",dpp_objectname[dpp_currentobject],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            dpp_symbolcheck__(name);
 
             dpp_debug("variable \"%s\" assigned a value : %c",name,value);
             strmid(dpp_vardata[i][var_name], name, 0, 64);
@@ -623,6 +563,7 @@ stock dpp_deletestaticvars()
             if(dpp_vardata[i][var_static] == 1)
             {
                 dpp_vardata[i][var_valid] = 0;
+                @emit__ stk@pop ,.str=dpp_vardata[i][var_name]
                 //dpp_warning("Deleted a static var '%s' [%i]",dpp_vardata[i][var_name],i);
             }
         }

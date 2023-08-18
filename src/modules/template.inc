@@ -31,6 +31,7 @@ stock dpp_createtemplate(name[], const func[])
                 format(newvalue,sizeof(newvalue),"DPPCz@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            dpp_symbolcheck__(name);
             dpp_validtemplate[i] = 1;
             strmid(dpp_templatename[i], name, 0, dpp_maxstrsize,dpp_maxstrsize);
             strmid(dpp_templaterepl[i], func, 0, dpp_maxstrsize,dpp_maxstrsize);

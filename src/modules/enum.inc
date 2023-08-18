@@ -21,6 +21,7 @@ the Initial Developer. All Rights Reserved.
 
 stock dpp_createenum(const name[])
 {
+    dpp_symbolcheck__(name);
     for(new i; i < dpp_maxenum; i++)
     {
         if(dpp_validenum[i] == 0)

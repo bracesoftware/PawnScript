@@ -20,6 +20,7 @@ the Initial Developer. All Rights Reserved.
 
 dpp_createinline(name[], baseformid); public dpp_createinline(name[], baseformid)
 {
+    dpp_symbolcheck__(name);
     for(new i; i < dpp_maxinline; i++)
     {
         if(dpp_validinline[i] == 0)
@@ -42,6 +43,7 @@ stock dpp_clearformstack(formid)
         if(dpp_inlinebaseform[i] == formid)
         {
             dpp_validinline[i] = 0;
+            @emit__ stk@pop ,.str=dpp_inlinename[i]
             strmid(dpp_inlinecodeblock[i],";",0,10,10);
             return 1;
         }

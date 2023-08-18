@@ -123,25 +123,11 @@ stock dpp_argclasscheck(arg[])
 
 stock dpp_createclass(const name[], constexpr = 0)
 {
+    dpp_symbolcheck__(name);
     for(new i; i < dpp_maxclass; i++)
     {
         if(dpp_validclass[i] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid namespace name.",);
-                return 1;
-            }
-
             dpp_validclass[i] = 1;
             dpp_classconstexpr[i] = constexpr;
             strmid(dpp_classname[i], name, 0, 64,64);

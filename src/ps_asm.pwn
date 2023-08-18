@@ -17,11 +17,6 @@ the Initial Developer. All Rights Reserved.
 
 */
 
-#define tempaddr 0
-#define tempreg 1
-#define tempfloat 2
-
-#define @emit__%0\32;%1\10;%3 dpp_asm__(%1);
 
 stock dpp_asm__(operand, int = 0, bool:bool = false, Float:float = 0.0, const str[] = "null")
 {
@@ -44,6 +39,21 @@ stock dpp_asm__(operand, int = 0, bool:bool = false, Float:float = 0.0, const st
         #emit zero.pri
         #emit load.s.pri        float
         #emit stor.pri          dpp_tempfloat__
+        return 1;
+    }
+    if(operand == stk@push)
+    {
+        dpp__emitpush___(str);
+        return 1;
+    }
+    if(operand == stk@pop)
+    {
+        dpp__emitpop___(str);
+        return 1;
+    }
+    if(operand == stk@allcol)
+    {
+        dpp_allowcollision = 1;
         return 1;
     }
     #emit retn
@@ -89,6 +99,16 @@ public dpp_processasm(dirgroup[][],dirargs[][])
         {
             new address[2][10];
             dpp_parseline(dirargs[1], address, '@');
+            if(isnull(address[0]) || isnull(address[1]))
+            {
+                dpp_fatalerror(4);
+                return 1;
+            }
+            if(!dpp_isnumeric(address[0]) || !dpp_isnumeric(address[1]))
+            {
+                dpp_fatalerror(4);
+                return 1;
+            }
             dpp_currentid = strval(address[0]);
             dpp_currentsector = strval(address[1]);
 
@@ -216,12 +236,8 @@ public dpp_processasm(dirgroup[][],dirargs[][])
             }
             return 1;
         }
-        // oops! Wrong operation.
-        else
-        {
-            dpp_error("Unknown operation \"%s\".", dirargs[0]);
-            return 0;
-        }
+        dpp_fatalerror(3);
+        return 1;
     }
     return 1;
 }

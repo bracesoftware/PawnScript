@@ -76,31 +76,19 @@ stock dpp_argarraycheck(arg[])
 
 stock dpp_createintconst(name[], value)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxconst; i++)
     {
         if(dpp_constdata[i][const_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
-
             if(dpp_workingclassid != dpp_invalidclass)
             {
                 new newvalue[dpp_argcharsize];
                 format(newvalue,sizeof(newvalue),"DPPCc@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             dpp_debug("Constant \"%s\" assigned a value : %i",name,value);
             strmid(dpp_constdata[i][const_name], name, 0, 64);
@@ -115,24 +103,11 @@ stock dpp_createintconst(name[], value)
 
 stock dpp_createboolconst(name[], value)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxconst; i++)
     {
         if(dpp_constdata[i][const_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
 
             if(dpp_workingclassid != dpp_invalidclass)
             {
@@ -140,6 +115,8 @@ stock dpp_createboolconst(name[], value)
                 format(newvalue,sizeof(newvalue),"DPPCc@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             dpp_debug("Constant \"%s\" assigned a value : %s",name,value ? "true" : "false");
             strmid(dpp_constdata[i][const_name], name, 0, 64);
@@ -154,31 +131,18 @@ stock dpp_createboolconst(name[], value)
 
 stock dpp_createstrconst(name[], const value[])
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxconst; i++)
     {
         if(dpp_constdata[i][const_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
-
             if(dpp_workingclassid != dpp_invalidclass)
             {
                 new newvalue[dpp_argcharsize];
                 format(newvalue,sizeof(newvalue),"DPPCc@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+            dpp_symbolcheck__(name);
 
             dpp_debug("Constant \"%s\" assigned a value : \"%s\"",name,value);
             strmid(dpp_constdata[i][const_name], name, 0, 64);
@@ -193,31 +157,20 @@ stock dpp_createstrconst(name[], const value[])
 
 stock dpp_createdoubleconst(name[], Float:value)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxconst; i++)
     {
         if(dpp_constdata[i][const_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
-
+        
             if(dpp_workingclassid != dpp_invalidclass)
             {
                 new newvalue[dpp_argcharsize];
                 format(newvalue,sizeof(newvalue),"DPPCc@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             dpp_debug("Constant \"%s\" assigned a value : %f",name,value);
             strmid(dpp_constdata[i][const_name], name, 0, 64);
@@ -233,31 +186,19 @@ stock dpp_createdoubleconst(name[], Float:value)
 
 stock dpp_createcharconst(name[], value)
 {
+    //dpp_symbolcheck__(name);
     for(new i; i < dpp_maxconst; i++)
     {
         if(dpp_constdata[i][const_valid] == 0)
         {
-            new name_error;
-
-            for(new x; x < strlen(name); x++)
-            {
-                if(name[x] == '\"') name_error = 1;
-                if(name[x] == ' ') name_error = 1;
-                if(name[x] == '\t') name_error = 1;
-            }
-            if(dpp_isnumeric(name)) name_error = 1;
-            if(name_error == 1)
-            {
-                dpp_error("Invalid symbol name.",);
-                return 1;
-            }
-
             if(dpp_workingclassid != dpp_invalidclass)
             {
                 new newvalue[dpp_argcharsize];
                 format(newvalue,sizeof(newvalue),"DPPCc@%s_%s",dpp_classname[dpp_workingclassid],name);
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
+
+            dpp_symbolcheck__(name);
 
             dpp_debug("Constant \"%s\" assigned a value : %c",name,value);
             strmid(dpp_constdata[i][const_name], name, 0, 64);

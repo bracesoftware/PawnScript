@@ -19,11 +19,39 @@ the Initial Developer. All Rights Reserved.
 
 #define dpp_fatalerror__(%1)    printf("*** [PawnScript] FATAL ERROR - Info: "%1)
 
-stock dpp_fatalerror(errorid)
+stock dpp_fatalerror(errorid, const fmat[] = "")
 {
     if(errorid == 1)
     {
-        dpp_fatalerror__("Attempted to modify a constexpr namespace.");
+        dpp_fatalerror__("Attempted to modify a constexpr code block.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
+    if(errorid == 2)
+    {
+        dpp_fatalerror__("System encountered an invalid declaration.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
+    if(errorid == 3)
+    {
+        dpp_fatalerror__("Invalid assembler instruction.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
+    if(errorid == 4)
+    {
+        dpp_fatalerror__("Invalid memory access.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
+    if(errorid == 5)
+    {
+        dpp_fatalerror__("Redefinition of a symbol: '%s'", fmat);
         dpp_terminated = 1;
         dpp_info("Process has been terminated to prevent further complication.");
         return 1;

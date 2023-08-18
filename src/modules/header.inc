@@ -95,6 +95,42 @@ stock dpp_incwarncnt()
     return 1; // Fulfill PAWN's desires.
 }
 
+dpp_symbolcheck__(const name[])
+{
+    if(isnull(name))
+    {
+        #emit const.pri         1
+        #emit retn
+        return 0; // Fulfill PAWN's desires.
+    }
+    if(dpp_isnumeric(name))
+    {
+        dpp_fatalerror(2);
+        #emit const.pri         1
+        #emit retn
+        return 0; // Fulfill PAWN's desires.
+    }
+    for(new i; i < strlen(name); i++)
+    {
+        for(new j; j < dpp_numinvchar__; j++)
+        {
+            if(name[i] == dpp_invchar__[j])
+            {
+                dpp_fatalerror(2);
+                #emit const.pri         1
+                #emit retn
+                return 0; // Fulfill PAWN's desires.
+            }
+        }
+    }
+
+    @emit__     stk@push        ,.str=name
+
+    #emit const.pri         1
+    #emit retn
+    return 0; // Fulfill PAWN's desires.
+}
+
 stock dpp_parsecode(const code[], destln[][])
 {
     new 
@@ -343,12 +379,17 @@ stock dpp_deletefunc(const name[])
 
 stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, struct = dpp_formstruct_local, method = 0, ret = dpp_rtn_type_void)
 {
+    if(hookform == 1)
+    {
+        @emit__ stk@allcol
+    }
     if(dpp_workingclassid != dpp_invalidclass)
     {
         new newvalue[dpp_argcharsize];
         format(newvalue,sizeof(newvalue),"DPPCf@%s_%s",dpp_classname[dpp_workingclassid],funcname);
         strmid(funcname, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
     }
+    dpp_symbolcheck__(funcname);
     new dpp_formcount;
     for(new i; i < dpp_maxfuncs; i++)
     {
@@ -666,6 +707,7 @@ stock dpp_subexecute__3(const code[])
 
 stock dpp_createtask(const name[], interval)
 {
+    dpp_symbolcheck__(name);
     for(new i; i < dpp_maxtasks; i++)
     {
         if(dpp_validtask[i] != 1)
@@ -983,6 +1025,7 @@ stock dpp_argfunccheck(arg[])
                 }
 
                 dpp_processfunc = DPP_INVALID_FORM_ID;
+                dpp_deletestaticvars();
                 dpp_clearformstack(dpp_processfunc); dpp_processfunc = DPP_INVALID_FORM_ID;
                 /////////////////////////////////////
 
