@@ -149,3 +149,115 @@ Output:
 ```
 364
 ```
+
+### `load.pri`
+
+- Set the value of the primary register to the value stored inside the loaded address.
+
+```cpp
+new.int,var=1;
+#emit:addrset,addressof?var;
+#emit:load.pri;
+```
+
+`PRI` is now 1.
+
+### `load.alt`
+
+- Set the value of the alternate register to the value stored inside the loaded address.
+
+```cpp
+new.int,var=1;
+#emit:addrset,addressof?var;
+#emit:load.alt;
+```
+
+`ALT` is now 1.
+
+### `const.pri`
+
+- Set the value of the primary register to a constant value not loaded with `addrset`.
+
+```cpp
+#emit:const.pri,1;
+```
+
+`PRI` is now 1.
+
+
+### `const.alt`
+
+- Set the value of the alternate register to a constant value not loaded with `addrset`.
+
+```cpp
+#emit:const.alt,1;
+```
+
+`ALT` is now 1.
+
+
+### `stor.pri`
+
+- Set the value of the primary register to a constant value not loaded with `addrset`.
+
+```cpp
+new.int,var=1;
+#emit:addrset,addressof?var;
+#emit:const.pri,6;
+#emit:stor.pri;
+```
+
+`var` is now 6.
+
+
+
+### `stor.alt`
+
+- Store the value of the alternate register into a loaded address.
+
+```cpp
+new.int,var=1;
+#emit:addrset,addressof?var;
+#emit:const.alt,6;
+#emit:stor.alt;
+```
+
+`var` is now 6.
+
+### `add`, `sub`, `mul`, `div`
+
+- **Add**ittion, **sub**tractin, **mul**tiplication and **div**ision.
+
+```cpp
+#emit:add; //pri = pri+alt
+#emit:sub; //pri = pri-alt<0?pri-alt*(-1):pri-alt;
+#emit:mul; //pri = pri*alt
+#emit:div; //pri = alt==0?0:pri/alt
+```
+
+### `xchg`
+
+- Exchange the values of the primary and alternate register.
+
+```cpp
+#emit:const.pri,0; //pri=0
+#emit:const.alt,1; //alt=1
+#emit:xchg; //pri=1, alt=0
+```
+
+### `zero.pri`
+
+- Changes the value of the primary register to 0.
+
+```cpp
+#emit:zero.pri; //pri=0
+```
+
+
+### `zero.alt`
+
+- Changes the value of the alternate register to 0.
+
+```cpp
+#emit:zero.alt; //alt=0
+```

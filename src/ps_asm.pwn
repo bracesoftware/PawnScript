@@ -185,6 +185,16 @@ public dpp_processasm(dirgroup[][],dirargs[][])
             return 1;
 
         }
+        if(!strcmp(dirargs[0], "zero.pri"))
+        {
+            dpp_pri__=0;
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "zero.alt"))
+        {
+            dpp_alt__=0;
+            return 1;
+        }
 
         /*
         * addrset
