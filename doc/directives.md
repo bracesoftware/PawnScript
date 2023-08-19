@@ -271,6 +271,7 @@ new.int,var=1;
 | `1` | `cur` | This is the register holding a cell ID in the memory. |
 | `2` | `sec` | This is the register holding a cell entity type or memory sector. |
 | `3` | `tmp` | This is the register holding some random rubbish. |
+| `4` | `nxt` | This is the register holding a next free cell ID within a memory sector. |
 
 ```cpp
 #emit:lctrl,1; //pri=cur
@@ -285,3 +286,30 @@ new.int,var=1;
 ```
 
 **WARNING**: Never change the value of the `CUR` and `SEC` register after using `addrset`, because those 2 update the address you are operating on and you may change something you didn't want to, whereas `TMP` can be used as a third general-use register.
+
+### `push` and `pop`
+
+#### `push`
+
+- Push the current address contained within the `CUR` and `SEC` to the stack (create a symbol).
+
+#### `pop`
+
+- Pop the current address contained within the `CUR` and `SEC` from the stack (delete a symbol).
+
+```cpp
+#emit:const.pri,1; // Set the value of PRI to 1 (which is var memory sector id)
+#emit:sctrl,2; // Set the sector to 1
+#emit:lctrl,4; // Get the next free cell id
+#emit:sctrl,1; // Set that cell id.
+#emit:push; // Push that address to the stack.
+#emit:csnm,temporaryvar; // Name it that because it's name is not in the stack, so we will pop it later.
+#emit:dtyp,1; // Make it an integer.
+#emit:vlset,300; // Give it a value of 300.
+std::writeln("temporaryvar is {temporaryvar}"); // Print the value
+#emit:pop; // Invalidate the current address.
+// Optional: Reset the registers.
+#emit:zero.pri;
+#emit:zero.alt;
+std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is null"
+```

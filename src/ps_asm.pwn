@@ -62,6 +62,7 @@ stock dpp_asm__(operand, int = 0, bool:bool = false, Float:float = 0.0, const st
 
 new dpp_currentid; // cur reg
 new dpp_currentsector; // sec reg
+new dpp_nextid;
 
 
 stock dpp_parseaddr(addr[])
@@ -212,6 +213,11 @@ public dpp_processasm(dirgroup[][],dirargs[][])
                 dpp_pri__=dpp_tmp;
                 return 1;
             }
+            if(strval(dirargs[1]) == 4)
+            {
+                dpp_pri__=dpp_nextid;
+                return 1;
+            }
             return 1;
         }
         if(!strcmp(dirargs[0], "sctrl"))
@@ -224,12 +230,45 @@ public dpp_processasm(dirgroup[][],dirargs[][])
             if(strval(dirargs[1]) == 2)
             {
                 dpp_currentsector=dpp_pri__;
+                if(dpp_currentsector == dpp_memsec_var)
+                {
+                    for(new i; i < dpp_maxvar; i++)
+                    {
+                        if(dpp_vardata[i][var_valid] == 0)
+                        {
+                            dpp_nextid = i;
+                            break;
+                        }
+                    }                    
+                    return 1;
+                }
                 return 1;
             }
             if(strval(dirargs[1]) == 3)
             {
                 dpp_tmp=dpp_pri__;
                 return 1;
+            }
+            if(strval(dirargs[1]) == 4)
+            {
+                dpp_nextid=dpp_pri__;
+                return 1;
+            }
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "push"))
+        {
+            if(dpp_currentsector == dpp_memsec_var)
+            {
+                dpp_vardata[dpp_currentid][var_valid] = 1;
+            }
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "pop"))
+        {
+            if(dpp_currentsector == dpp_memsec_var)
+            {
+                dpp_vardata[dpp_currentid][var_valid] = 0;
             }
             return 1;
         }
