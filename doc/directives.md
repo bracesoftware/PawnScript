@@ -332,7 +332,7 @@ std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is 
 
 ### `dec.alt`
 
-- Increase the value stored inside the alternate register by 1.
+- Decrease the value stored inside the alternate register by 1.
 
 ```cpp
 #emit:dec.alt; //alt--
@@ -340,7 +340,7 @@ std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is 
 
 ### `dec.pri`
 
-- Increase the value stored inside the primary register by 1.
+- Decrease the value stored inside the primary register by 1.
 
 ```cpp
 #emit:dec.pri; //pri--
