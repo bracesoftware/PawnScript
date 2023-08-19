@@ -266,9 +266,11 @@ new.int,var=1;
 
 - Set the value of the primary register to the current value of the register specified. There are a few registers available and they're listed below.
 
-`1`: `cur` - This is the register holding a cell ID in the memory.
-`2`: `sec` - This is the register holding a cell entity type or memory sector.
-`3`: `tmp` - This is the register holding some random rubbish.
+| ID  | Name  | Purpose |
+|-----|-------|-----------------------------------------------------|
+| `1` | `cur` | This is the register holding a cell ID in the memory. |
+| `2` | `sec` | This is the register holding a cell entity type or memory sector. |
+| `3` | `tmp` | This is the register holding some random rubbish. |
 
 ```cpp
 #emit:lctrl,1; //pri=cur
