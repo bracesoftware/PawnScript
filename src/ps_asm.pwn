@@ -195,6 +195,44 @@ public dpp_processasm(dirgroup[][],dirargs[][])
             dpp_alt__=0;
             return 1;
         }
+        if(!strcmp(dirargs[0], "lctrl"))
+        {
+            if(strval(dirargs[1]) == 1)
+            {
+                dpp_pri__=dpp_currentid;
+                return 1;
+            }
+            if(strval(dirargs[1]) == 2)
+            {
+                dpp_pri__=dpp_currentsector;
+                return 1;
+            }
+            if(strval(dirargs[1]) == 3)
+            {
+                dpp_pri__=dpp_tmp;
+                return 1;
+            }
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "sctrl"))
+        {
+            if(strval(dirargs[1]) == 1)
+            {
+                dpp_currentid=dpp_pri__;
+                return 1;
+            }
+            if(strval(dirargs[1]) == 2)
+            {
+                dpp_currentsector=dpp_pri__;
+                return 1;
+            }
+            if(strval(dirargs[1]) == 3)
+            {
+                dpp_tmp=dpp_pri__;
+                return 1;
+            }
+            return 1;
+        }
 
         /*
         * addrset

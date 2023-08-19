@@ -261,3 +261,25 @@ new.int,var=1;
 ```cpp
 #emit:zero.alt; //alt=0
 ```
+
+### `lctrl`
+
+- Set the value of the primary register to the current value of the register specified. There are a few registers available and they're listed below.
+
+`1`: `cur` - This is the register holding a cell ID in the memory.
+`2`: `sec` - This is the register holding a cell entity type or memory sector.
+`3`: `tmp` - This is the register holding some random rubbish.
+
+```cpp
+#emit:lctrl,1; //pri=cur
+```
+
+### `sctrl`
+
+- Set the value of the specified register to the current value of the primary register. The registers use same IDs mentioned above.
+
+```cpp
+#emit:sctrl,1; //cur=pri
+```
+
+**WARNING**: Never change the value of the `CUR` and `SEC` register after using `addrset`, because those 2 update the address you are operating on and you may change something you didn't want to, whereas `TMP` can be used as a third general-use register.
