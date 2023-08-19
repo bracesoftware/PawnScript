@@ -313,3 +313,35 @@ std::writeln("temporaryvar is {temporaryvar}"); // Print the value
 #emit:zero.alt;
 std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is null"
 ```
+
+### `inc.alt`
+
+- Increase the value stored inside the alternate register by 1.
+
+```cpp
+#emit:inc.alt; //alt++
+```
+
+### `inc.pri`
+
+- Increase the value stored inside the primary register by 1.
+
+```cpp
+#emit:inc.pri; //pri++
+```
+
+### `dec.alt`
+
+- Increase the value stored inside the alternate register by 1.
+
+```cpp
+#emit:dec.alt; //alt--
+```
+
+### `dec.pri`
+
+- Increase the value stored inside the primary register by 1.
+
+```cpp
+#emit:dec.pri; //pri--
+```
