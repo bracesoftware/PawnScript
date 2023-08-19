@@ -226,8 +226,8 @@ public OnGameModeExit()
 
 main()
 {
-    CallLocalFunction("dpp_asmtest", "");
-    //SetTimer("dpp_main", 1000, false);
+    //CallLocalFunction("dpp_asmtest", "");
+    SetTimer("dpp_main", 1000, false);
 }
 
 //-----------------------------------------------------------
@@ -240,6 +240,7 @@ public pawnscript_testpawnfunc()
 }
 
 //-----------------------------------------------------------
+#pragma unused myprintf
 myprintf(const formattedstr[], {Float,_}:...)
 {
     if(numargs() == 1)
@@ -274,7 +275,7 @@ new stk, stp, tmp; // globals are not involved in the stack
 f(arg)
 {
     // compiler automatically adds a PROC instruction at the beginning of every function
-
+    #pragma unused arg
     new x = 200;
   
     #emit LCTRL 3

@@ -272,6 +272,28 @@ public dpp_processasm(dirgroup[][],dirargs[][])
             }
             return 1;
         }
+        if(!strcmp(dirargs[0], "inc.alt"))
+        {
+            dpp_alt__++;
+            return 1;
+        }
+
+        if(!strcmp(dirargs[0], "inc.pri"))
+        {
+            dpp_pri__++;
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "dec.alt"))
+        {
+            dpp_alt__--;
+            return 1;
+        }
+
+        if(!strcmp(dirargs[0], "dec.pri"))
+        {
+            dpp_pri__--;
+            return 1;
+        }
 
         /*
         * addrset
