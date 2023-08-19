@@ -187,6 +187,7 @@ new dpp_lastdeco = dpp_deco_invalid;
 #define DPP_INVALID_STACK_VALUE 65535
 #define DPP_BRACE_STACK_SIZE 10
 new dpp_bracestack[DPP_BRACE_STACK_SIZE];
+new dpp_bracestack__2[DPP_BRACE_STACK_SIZE];
 //-----------------------------------------------------------
 new dpp_retvar__ = 0;
 //-----------------------------------------------------------
@@ -272,7 +273,7 @@ enum __dpp_var_val
 new dpp_vardata[dpp_maxvar__][__dpp_var_val];
 //-----------------------------------------------------------
 //inline
-//new dpp_inlineinterpreter = 1;
+new dpp_inlineinterpreter = 1;
 new dpp_currentinlineid = DPP_INVALID_INLINE_ID;
 new dpp_validinline[dpp_maxinline__];
 new dpp_inlinebaseform[dpp_maxinline__];

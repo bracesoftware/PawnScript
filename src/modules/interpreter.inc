@@ -585,6 +585,45 @@ stock dpp_process(line[])
         return 1;
     }
 
+    if(line[0] == '>')
+    {
+        dpp_event = dpp_bracestackpop__2();
+        if(dpp_event == dpp_event_inline)
+        {
+            dpp_inlineinterpreter = 1;
+        }
+
+        if(strlen(line) >= 2)
+        {
+            line[0] = '\32';
+            dpp_subexecute2(line);
+        }
+        return 1;
+    }
+
+    if(line[0] == '<')
+    {
+        dpp_bracestackpush__2(dpp_event);
+        if(dpp_event == dpp_event_inline)
+        {
+            dpp_inlineinterpreter = 0;
+        }
+
+        if(strlen(line) >= 2)
+        {
+            line[0] = '\32';
+            dpp_subexecute2(line);
+        }
+        return 1;
+    }
+
+    if(dpp_inlineinterpreter == 0)
+    {
+        format(codeblockline, sizeof codeblockline, "%s;", line);
+        strcat(dpp_inlinecodeblock[dpp_currentinlineid], codeblockline);
+        return 1;
+    }
+
 
     //if(dpp_sysreturned == 1) return 1;
 
@@ -626,12 +665,35 @@ stock dpp_process(line[])
 
     //int*form.TestFunc;
     //bool/char/double/str
+    /*
+    CallLocalFunction("dpp_createinline", "si", funcgroup[1], dpp_processfunc);dpp_event = dpp_event_inline;
+    */
+    if(!strcmp(funcdeclgroup2[1], "inline"))
+    {
+        if(dpp_processfunc == DPP_INVALID_FORM_ID)
+        {
+            dpp_fatalerror(2);
+            return 1;
+        }
+
+        new arguments[2][1024];
+        strmid(arguments[0], tokengroup2[1], 0,256,256);
+        strmid(arguments[1], funcdeclgroup2[0], 0, 256,256);
+
+        if(!strcmp(tokengroup2[0], "void"))
+        {
+            CallLocalFunction("dpp_createinline", "si", arguments[0], dpp_processfunc);
+            dpp_event = dpp_event_inline;
+        }
+        return 1;
+    }
 
     if(!strcmp(funcdeclgroup2[1], "public"))
     {
         if(dpp_processfunc != DPP_INVALID_FORM_ID)
         {
-            dpp_error("You can't create a form [\"%s\"] inside a form.",funcgroup[1]);
+            //dpp_error("You can't create a form [\"%s\"] inside a form.",funcgroup[1]);
+            dpp_fatalerror(2);
             return 1;
         }
 
@@ -783,7 +845,7 @@ stock dpp_process(line[])
     }*/
 
 
-    if(!strcmp(funcgroup[0], "inline&form"))
+    /*if(!strcmp(funcgroup[0], "inline&form"))
     {
         if(dpp_processfunc == DPP_INVALID_FORM_ID)
         {
@@ -794,7 +856,7 @@ stock dpp_process(line[])
 
         dpp_event = dpp_event_inline;
         return 1;
-    }
+    }*/
 
 
     ///////////////////////////////////////////////////////
@@ -1687,13 +1749,13 @@ stock dpp_process(line[])
             }
         }
         //do
-        if(!strcmp(funcgroup[0], "do"))
+        /*if(!strcmp(funcgroup[0], "do"))
         {
             format(extracode, sizeof extracode, "%s;",extracode);
             strcat(dpp_inlinecodeblock[dpp_currentinlineid], extracode);
             //dpp_error("Added code '%s' to inline form [%i]",dpp_inlinecodeblock[dpp_currentinlineid],extracode);
             return 1;
-        }
+        }*/
         return 1;
     } 
 

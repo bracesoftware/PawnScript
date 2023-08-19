@@ -1405,6 +1405,10 @@ public dpp_initstack()
     {
         dpp_bracestack[x] = DPP_INVALID_STACK_VALUE;
     }
+    for(new x; x < DPP_BRACE_STACK_SIZE; x++)
+    {
+        dpp_bracestack__2[x] = DPP_INVALID_STACK_VALUE;
+    }
     return 1;
 }
 
@@ -1432,6 +1436,38 @@ stock dpp_bracestackpop() //pop
         {
             dest = dpp_bracestack[x];
             dpp_bracestack[x] = DPP_INVALID_STACK_VALUE;
+            return dest;
+        } 
+    }
+    return dest;
+}
+
+
+
+stock dpp_bracestackpush__2(value) //push
+{
+    for(new x; x < DPP_BRACE_STACK_SIZE; x++)
+    {
+        if(dpp_bracestack__2[x] == DPP_INVALID_STACK_VALUE)
+        {
+            dpp_bracestack__2[x] = value;
+            return value;
+        } 
+    }
+    return DPP_INVALID_STACK_VALUE;
+}
+
+// POP THE VALUE:
+
+stock dpp_bracestackpop__2() //pop
+{
+    new dest = DPP_INVALID_STACK_VALUE;
+    for(new x = DPP_BRACE_STACK_SIZE - 1; x > -1; x--)
+    {
+        if(dpp_bracestack__2[x] != DPP_INVALID_STACK_VALUE)
+        {
+            dest = dpp_bracestack__2[x];
+            dpp_bracestack__2[x] = DPP_INVALID_STACK_VALUE;
             return dest;
         } 
     }

@@ -10,10 +10,12 @@ int InlineTestFunc() public;
 	new.int,formid=__proccessed_form_id;
 	console.println("'InlineTestFunc' is {formid}");
 	
-	inline&form.inlineformtest; 
-		do->console.println("Inline works.");
-		do->console.println.log("The inline finally works!");
-
+	void inlineformtest() inline;
+	<
+		console.println("Inline works.");
+		console.println.log("The inline finally works!");
+	>
+	
 	user.inlineformtest;
 	user.inlineformtest;
 	user.inlineformtest;
