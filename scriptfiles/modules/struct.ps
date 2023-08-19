@@ -33,7 +33,7 @@ else->if.equ,1,1->console.println("Lmao else works!");
 
 system.rem("Another else test");
 
-int*form.ElseTest;
+int ElseTest() public;
 {
 	if.equ,1,2->console.println("1 and 2 are equal");
 	else->if.equ,2,3->console.println("2 and 3 are equal");
@@ -63,7 +63,7 @@ misc.swap(misctest1,misctest2);
 
 console.println("{misctest1} and {misctest2}");
 
-int*form.ForTest2?numarg;
+int ForTest2(numarg) public;
 {
 	console.println("Damn for loop test {numarg@ForTest2}");
 	return,1;

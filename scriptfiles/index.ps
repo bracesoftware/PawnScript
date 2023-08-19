@@ -24,13 +24,13 @@ const*new.bool,DEBUG_OPTION=false;
 system.rem("Basic println example.");
 console.println("Hual is a fucking bitch");
 
-void*form.testfunc;
+void testfunc() public;
 {
 	console.println("testfunc works.");
 	console.println("testfunc works.");
 }
 
-void*form.NewTestFunc;
+void NewTestFunc() public;
 {
 	console.println("OH YEAH MAN");
 }
@@ -51,7 +51,7 @@ samp.SetMaxPlayers(MAX_PLAYERS);
 
 system.rem("===================FUNCS===================");
 
-str*form.testFunc;
+str testFunc() public;
 {
 	console.println("testFunc was called.");
 	return,"testFunc returned this.";
@@ -59,7 +59,7 @@ str*form.testFunc;
 
 const*new.str,LMAO="Lmao";
 
-str*form.disableDebug;
+str disableDebug() public;
 {
 	console.println("Debug disabled");
 	return,LMAO;
@@ -86,7 +86,7 @@ extern&struct*public.OnGameModeInit;
 }
 
 @hook;
-int*form.OnGameModeInit;
+int OnGameModeInit() public;
 {
 	console.println("OnGameModeInit works twice!!!");
 	return,1;
@@ -97,6 +97,13 @@ extern&struct*public.OnGameModeExit;
 	console.println("OnGameModeExit works");
 	return.bool,true;
 }
+
+void syntaxtextfunc(text, num) public;{
+	std::writeln(text@syntaxtextfunc);
+	std::writec(num@syntaxtextfunc);
+}
+
+user.syntaxtextfunc("Hey", 'c');
 
 #include:vars;
 #include:math;

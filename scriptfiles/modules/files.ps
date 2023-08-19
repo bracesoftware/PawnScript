@@ -32,14 +32,14 @@ new.int,testintagainomg__aa=364;
 
 console.println("{testintagainomg__aa}");
 
-void*form.FILES_TEST_FORM?text;
+void FILES_TEST_FORM(text) public;
 {
 	console.println(text@FILES_TEST_FORM);
 }
 
 user.FILES_TEST_FORM("Funny thing");
 
-int*form.returntest;
+int returntest() public;
 {
 	console.println("Hello Worlddddddddddd");
 	if.equ, 23, 13 -> return.int,1;
@@ -49,7 +49,7 @@ int*form.returntest;
 
 console.rawout(returntest);
 
-str*form.yieldreturntest;
+str yieldreturntest() public;
 {
 	console.println("Hello Worlddddddd");
 	yield&return,"mega sexy return";
@@ -66,7 +66,7 @@ if.equ,1,1->console.println("OmG");
 system.rem("Example code");
 new.int,syntax_test=1;
 
-void*form.whilelooptest;
+void whilelooptest() public;
 {
 	set.int,syntax_test=syntax_test+1;
 	console.println.log("{syntax_test} eeeeeeeeeeeeeeeeee");

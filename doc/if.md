@@ -33,7 +33,7 @@ If-method is a new term used to describe the way how are you comparing the 2 ele
 - A quick example form:
 
 ```cpp
-int*form.ElseTest;
+int ElseTest() public;
 {
 	if.equ,1,2->console.println("1 and 2 are equal");
 	else->if.equ,2,3->console.println("2 and 3 are equal");
@@ -45,7 +45,7 @@ int*form.ElseTest;
 	return,1;
 }
 
-user.ElseTest;
+user.ElseTest();
 ```
 
 Output:

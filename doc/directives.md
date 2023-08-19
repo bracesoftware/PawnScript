@@ -6,7 +6,7 @@
 
 - Used to include a file:
 
-```pawn
+```cpp
 #include:file;
 ```
 
@@ -14,13 +14,13 @@
 
 - Used to undefine a symbol; that can be an iterator, variable, constant or whatever.
 
-```pawn
+```cpp
 #undef:var;
 ```
 
 Example:
 
-```pawn
+```cpp
 new.int,undeftest=1;
 
 if.equ,defined?undeftest,1->console.println.log("undeftest is defined");

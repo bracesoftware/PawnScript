@@ -1,7 +1,7 @@
-# Passing arguments to user forms
+# Passing arguments to user functions
 
 ```cpp
-void*form.form?text&num;
+void form(text, num) public;
 {
 	console.println(text@form);
 	console.cout(num@form);

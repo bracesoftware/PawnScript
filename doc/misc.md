@@ -23,7 +23,7 @@ Test string
 ```
 
 ```cpp
-void*form.testfunction?message; 
+void testfunction(message) public; 
 {
 	console.println(message@testfunction);
 }

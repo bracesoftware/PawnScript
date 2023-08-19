@@ -7,7 +7,7 @@
 - In PawnScript, to return a value it means to execute the code and give the result output, after returning a value, code block execution will stop.
 
 ```cpp
-int*form.MyForm;
+int MyForm() public;
 {
 	console.println("Hello World");
 	return,1;
@@ -24,7 +24,7 @@ system.rem("Thing above will print 1");
 - `yield` return will do the same thing as a normal return, the difference is that the code block won't stop being executed until `};` or `return..,..;`.
 
 ```cpp
-int*form.MyForm;
+int MyForm() public;
 {
 	console.println("Hello World");
 	yield&return,1;
@@ -43,16 +43,16 @@ system.rem("Thing above will print 1");
 Little example:
 
 ```cpp
-int*form.TestFunction;
+int TestFunction() public;
 {
 	return.bool,false;
 }
 ```
 
-- Return type assigned to a form `TestFunction` is integer, but we returned a boolean. If we do not want to return any value, we just assign the `void` return type:
+- Return type assigned to a function `TestFunction` is integer, but we returned a boolean. If we do not want to return any value, we just assign the `void` return type:
 
 ```cpp
-void*form.TestFunction;
+void TestFunction() public;
 {
-	system.rem("Now we can't use a return keyword in this form block.");
+	system.rem("Now we can't use a return keyword in this function block.");
 }

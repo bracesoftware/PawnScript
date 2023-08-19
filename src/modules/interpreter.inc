@@ -76,7 +76,8 @@ stock dpp_process(line[])
         args_const[dpp_maxargsc][dpp_argcharsize],
         structgroup[2][512],
         dirgroup[2][256],
-        tokengroup[2][256];
+        tokengroup[2][256],
+        tokengroup2[2][256];
 
     new 
         nativegroup[2][1024],
@@ -89,6 +90,10 @@ stock dpp_process(line[])
     new 
         templategroup[2][1024],
         templategroup2[2][1024];
+
+    new 
+        funcdeclgroup[2][1024],
+        funcdeclgroup2[2][1024];
 
     new extracode[3000];
     new line2[3000];
@@ -106,6 +111,32 @@ stock dpp_process(line[])
     dpp_parseline(line,nativegroup, '(');
     dpp_parseline(nativegroup[1],retvar,')');
 
+    //int func(arg1,arg2) public;
+    //  funcdeclgroup[0]    int func
+    //  funcdeclgroup[1]    arg1,arg2) public
+    //  funcdeclgroup2[0]   arg1,arg2
+    //  funcdeclgroup2[1]   public
+    //  tokengroup2[0]      int
+    //  tokengroup2[1]      func
+
+    dpp_parseline(line,funcdeclgroup, '(');
+    for(new i; i < strlen(funcdeclgroup[0]); i++)
+    {
+        if(funcdeclgroup[0][i] == '\t')
+        {
+            funcdeclgroup[0][i] = '\32';
+        }
+    }
+    dpp_parseline(funcdeclgroup[0],tokengroup2,'\32');
+    dpp_parseline(funcdeclgroup[1],funcdeclgroup2,')');
+
+    dpp_codetrim(tokengroup2[0]);
+    dpp_codetrim(tokengroup2[1]);
+    dpp_codetrim(funcdeclgroup[0]);
+    dpp_codetrim(funcdeclgroup[1]);
+    dpp_codetrim(funcdeclgroup2[0]);
+    dpp_codetrim(funcdeclgroup2[1]);
+
     //template <console.println.log> cpl;
     //  templategroup[0]    template
     //  templategroup[1]    console.println.log>cpl
@@ -120,7 +151,16 @@ stock dpp_process(line[])
     dpp_codetrim(templategroup2[0]);
     dpp_codetrim(templategroup2[1]);
 
-    if(!isnull(retvar[1]))
+    new dpp_isretrefkw = 0;
+    for(new i; i < dpp_maxkwords; i++)
+    {
+        if(!strcmp(retvar[1], dpp_kwords[i]))
+        {
+            dpp_isretrefkw = 1;
+            break;
+        }
+    }
+    if(!isnull(retvar[1]) && dpp_isretrefkw == 0)
     {
         dpp_codetrim(retvar[1]);
         for(new i; i < dpp_maxvar; i++)
@@ -135,7 +175,7 @@ stock dpp_process(line[])
             }
         }
     }
-    else if(isnull(retvar[1]) && !isnull(retvar[0]))
+    else if(isnull(retvar[1]) && !isnull(retvar[0]) && dpp_isretrefkw == 0)
     {
         if(dpp_option_reqref == 1)
         {
@@ -587,7 +627,7 @@ stock dpp_process(line[])
     //int*form.TestFunc;
     //bool/char/double/str
 
-    if(!strcmp(structgroup[1], "form"))
+    if(!strcmp(funcdeclgroup2[1], "public"))
     {
         if(dpp_processfunc != DPP_INVALID_FORM_ID)
         {
@@ -596,36 +636,37 @@ stock dpp_process(line[])
         }
 
         new arguments[2][1024];
-        dpp_parseline(funcgroup[1],arguments,'?');
+        strmid(arguments[0], tokengroup2[1], 0,256,256);
+        strmid(arguments[1], funcdeclgroup2[0], 0, 256,256);
 
         if(dpp_lastdeco == dpp_deco_invalid)
         {
-            if(!strcmp(structgroup[0], "void"))
+            if(!strcmp(tokengroup2[0], "void"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.ret = dpp_rtn_type_void);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "int"))
+            if(!strcmp(tokengroup2[0], "int"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.ret = dpp_rtn_type_int);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "bool"))
+            if(!strcmp(tokengroup2[0], "bool"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.ret = dpp_rtn_type_bool);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "str"))
+            if(!strcmp(tokengroup2[0], "str"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.ret = dpp_rtn_type_str);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "double"))
+            if(!strcmp(tokengroup2[0], "double"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.ret = dpp_rtn_type_double);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "char"))
+            if(!strcmp(tokengroup2[0], "char"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.ret = dpp_rtn_type_char);
                 dpp_event = dpp_event_form;
@@ -633,32 +674,32 @@ stock dpp_process(line[])
         }
         if(dpp_lastdeco == dpp_deco_hook)//hook
         {
-            if(!strcmp(structgroup[0], "void"))
+            if(!strcmp(tokengroup2[0], "void"))
             {
                 dpp_createfunc(arguments[0],arguments[1],0,1,.ret = dpp_rtn_type_void);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "int"))
+            if(!strcmp(tokengroup2[0], "int"))
             {
                 dpp_createfunc(arguments[0],arguments[1],0,1,.ret = dpp_rtn_type_int);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "bool"))
+            if(!strcmp(tokengroup2[0], "bool"))
             {
                 dpp_createfunc(arguments[0],arguments[1],0,1,.ret = dpp_rtn_type_bool);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "str"))
+            if(!strcmp(tokengroup2[0], "str"))
             {
                 dpp_createfunc(arguments[0],arguments[1],0,1,.ret = dpp_rtn_type_str);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "double"))
+            if(!strcmp(tokengroup2[0], "double"))
             {
                 dpp_createfunc(arguments[0],arguments[1],0,1,.ret = dpp_rtn_type_double);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "char"))
+            if(!strcmp(tokengroup2[0], "char"))
             {
                 dpp_createfunc(arguments[0],arguments[1],0,1,.ret = dpp_rtn_type_char);
                 dpp_event = dpp_event_form;
@@ -667,32 +708,32 @@ stock dpp_process(line[])
         // ,.method = 1
         if(dpp_lastdeco == dpp_deco_method)//method
         {
-            if(!strcmp(structgroup[0], "void"))
+            if(!strcmp(tokengroup2[0], "void"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.method = 1,.ret = dpp_rtn_type_void);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "int"))
+            if(!strcmp(tokengroup2[0], "int"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.method = 1,.ret = dpp_rtn_type_int);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "bool"))
+            if(!strcmp(tokengroup2[0], "bool"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.method = 1,.ret = dpp_rtn_type_bool);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "str"))
+            if(!strcmp(tokengroup2[0], "str"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.method = 1,.ret = dpp_rtn_type_str);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "double"))
+            if(!strcmp(tokengroup2[0], "double"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.method = 1,.ret = dpp_rtn_type_double);
                 dpp_event = dpp_event_form;
             }
-            if(!strcmp(structgroup[0], "char"))
+            if(!strcmp(tokengroup2[0], "char"))
             {
                 dpp_createfunc(arguments[0],arguments[1],.method = 1,.ret = dpp_rtn_type_char);
                 dpp_event = dpp_event_form;

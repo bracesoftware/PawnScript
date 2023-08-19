@@ -8,7 +8,7 @@
 
 ```cpp
 @hook;
-void*form.MyTestFunc;
+void MyTestFunc() public;
 {
 }
 ```
@@ -19,7 +19,7 @@ void*form.MyTestFunc;
 
 ```cpp
 @method;
-void*form.MyTestFunc;
+void MyTestFunc() public;
 {
 }
 

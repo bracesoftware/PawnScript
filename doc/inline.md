@@ -5,7 +5,7 @@
 ## Example
 
 ```cpp
-int*form.InlineTestFunc;
+int InlineTestFunc() public;
 {
 	new.int,formid=__proccessed_form_id;
 	console.println("'InlineTestFunc' is {formid}");

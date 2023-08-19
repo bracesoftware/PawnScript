@@ -7,7 +7,7 @@
 ```cpp
 constexpr*namespace,TestConstNamespace;
 {
-	void*form.MyForm;
+	void MyForm() public;
 	{
 		console.println.log("My namespace function works!");
 	}

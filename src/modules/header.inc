@@ -428,10 +428,11 @@ stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, struc
             }
 
             new formargs[dpp_maxformargs][100];
-            dpp_parseline(args,formargs,'&');
+            dpp_parseline(args,formargs,',');
 
             for(new argid; argid < dpp_maxformargs; argid++)
             {
+                dpp_codetrim(formargs[argid]);
                 strmid(dpp_args[i][argid][dpp_argname],formargs[argid],0,100,100);
             }
 

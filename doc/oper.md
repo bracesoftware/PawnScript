@@ -79,13 +79,13 @@ Output:
 ```cpp
 namespace,MyNameSpace;
 {
-	void*form.MyForm;
+	void MyFunc() public;
 	{
 		console.println.log("I'm here!");
 	}
 }
 
-user.MyNameSpace::MyForm;
+user.MyNameSpace::MyFunc;
 ```
 
 ### Operator: `.`
@@ -99,9 +99,9 @@ console.println.log("Hi!");
 - Memory access operator.
 
 ```cpp
-void*form.MyForm?argument;
+void MyFunc(argument) public;
 {
-	console.cout.log(argument@MyForm);
+	console.cout.log(argument@MyFunc);
 }
 ```
 
@@ -166,7 +166,7 @@ Little example:
 if.equ,5/5,1+0->console.println,"Math test passed!";
 ```
 
-You may also use constants, variables and user forms as an Operator arguments:
+You may also use constants, variables and user functions as an operator arguments:
 
 ```cpp
 new.int,MATHVAR=1+1;

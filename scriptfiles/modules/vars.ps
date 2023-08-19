@@ -26,21 +26,21 @@ if.equ,myvar,"myvar::worked."->console.println(myvar);
 if.equ,false,true->console.println("false is equal to true");
 
 
-int*form.functobehooked?arg1&arg2&arg3;
+int functobehooked(arg1, arg2, arg3) public;
 {
 	console.println("HOOKED");
 	return,1;
 }
 
 @hook;
-int*form.functobehooked;
+int functobehooked() public;
 {
 	console.println("HOOKED 1");
 	return.int,1;
 }
 
 @hook;
-int*form.functobehooked;
+int functobehooked() public;
 {
 	console.println("HOOKED 2");
 	return.int,1;
@@ -49,8 +49,6 @@ int*form.functobehooked;
 user.functobehooked("oh lol",1,false);
 
 
-void*form.arginit_test?playerid&string;
-{
-}
+void arginit_test(playerid, string) public; // Just a declaration
 
-system.arginit(arginit_test,1,"Hello!");
+//system.arginit(arginit_test,1,"Hello!");

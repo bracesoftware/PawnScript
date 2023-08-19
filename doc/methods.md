@@ -1,6 +1,6 @@
-# Form methods
+# Function methods
 
-- Form methods are sub-functions executed after a certain function call. There are native and user methods. Native ones are built into the compiler, whereas user ones are defined by the programmer.
+- Function methods are sub-functions executed after a certain function call. There are native and user methods. Native ones are built into the compiler, whereas user ones are defined by the programmer.
 
 ## User methods
 
@@ -39,9 +39,9 @@ Method test #2
 
 ## Native methods
 
-- Native methods are a bit different, they are integrated into the interpreter and only work on certain native forms. Below is a list of forms and methods built into them.
+- Native methods are a bit different, they are integrated into the interpreter and only work on certain native functions. Below is a list of functions and methods built into them.
 
-### Form: `console.println`
+### Function: `console.println`
 
 #### Method: `log`
 
@@ -51,7 +51,7 @@ Method test #2
 console.println.log("Test");
 ```
 
-### Form: `console.cout`
+### Function: `console.cout`
 
 #### Method: `log`
 
@@ -61,7 +61,7 @@ console.println.log("Test");
 console.cout.log(char);
 ```
 
-### Form: `pawn.callfunction`
+### Function: `pawn.callfunction`
 
 #### Method: `local`
 
@@ -79,7 +79,7 @@ pawn.callfunction.local("funcname");
 pawn.callfunction.remote("funcname");
 ```
 
-### Form: `system.rem`
+### Function: `system.rem`
 
 #### Method: `log`
 
