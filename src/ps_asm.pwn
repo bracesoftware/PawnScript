@@ -60,8 +60,8 @@ stock dpp_asm__(operand, int = 0, bool:bool = false, Float:float = 0.0, const st
     return 1;
 }
 
-new dpp_currentid;
-new dpp_currentsector;
+new dpp_currentid; // cur reg
+new dpp_currentsector; // sec reg
 
 
 stock dpp_parseaddr(addr[])
@@ -90,6 +90,102 @@ public dpp_processasm(dirgroup[][],dirargs[][])
     //#emit:operation,operand;
     if(!strcmp(dirgroup[0], "#emit"))
     {
+        // Some standard assembly first
+        // There we will use variables as a replacement for registers.
+        if(!strcmp(dirargs[0], "const.pri"))
+        {
+            dpp_pri__ = strval(dirargs[1]);
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "const.alt"))
+        {
+            dpp_alt__ = strval(dirargs[1]);
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "load.pri"))
+        {
+            if(dpp_currentsector == dpp_memsec_var)
+            {
+                // These instructions support only integers...
+                if(dpp_vardata[dpp_currentid][var_type] == dpp_var_type_int)
+                {
+                    dpp_pri__= dpp_vardata[dpp_currentid][integervalue];
+                    return 1;
+                }
+                dpp_pri__ = 0;
+            }
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "load.alt"))
+        {
+            if(dpp_currentsector == dpp_memsec_var)
+            {
+                // These instructions support only integers...
+                if(dpp_vardata[dpp_currentid][var_type] == dpp_var_type_int)
+                {
+                    dpp_alt__= dpp_vardata[dpp_currentid][integervalue];
+                    return 1;
+                }
+                dpp_alt__ = 0;
+            }
+            return 1;
+
+        }
+        if(!strcmp(dirargs[0], "add"))
+        {
+            dpp_pri__ = dpp_pri__+dpp_alt__;
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "sub"))
+        {
+            dpp_pri__ = dpp_pri__-dpp_alt__ < 0 ? dpp_pri__-dpp_alt__*(-1) : dpp_pri__-dpp_alt__;
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "mul"))
+        {
+            dpp_pri__ = dpp_pri__*dpp_alt__;
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "div"))
+        {
+            dpp_pri__ = dpp_alt__ == 0 ? 0 : dpp_pri__/dpp_alt__;
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "xchg"))
+        {
+            dpp_tmp = dpp_pri__;
+            dpp_pri__ = dpp_alt__;
+            dpp_alt__ = dpp_tmp;
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "stor.pri"))
+        {
+            if(dpp_currentsector == dpp_memsec_var)
+            {
+                // INTEGERS
+                if(dpp_vardata[dpp_currentid][var_type] == dpp_var_type_int)
+                {
+                    dpp_vardata[dpp_currentid][integervalue] = dpp_pri__;
+                    return 1;
+                }
+            }
+            return 1;
+        }
+        if(!strcmp(dirargs[0], "stor.alt"))
+        {
+            if(dpp_currentsector == dpp_memsec_var)
+            {
+                // INTEGERS
+                if(dpp_vardata[dpp_currentid][var_type] == dpp_var_type_int)
+                {
+                    dpp_vardata[dpp_currentid][integervalue] = dpp_alt__;
+                    return 1;
+                }
+            }
+            return 1;
+
+        }
+
         /*
         * addrset
         *

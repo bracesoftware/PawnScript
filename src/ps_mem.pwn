@@ -395,7 +395,7 @@ new dpp_inputtype=DPP_INPUT_TYPE_NONE;
 new dpp_inputdest;
 //-----------------------------------------------------------
 // Fake registers:
-new dpp_pri__, dpp_alt__;
+new dpp_pri__, dpp_alt__, dpp_tmp;
 new dpp_bytes__;
 #pragma unused dpp_bytes__
 new dpp_tempaddr__[dpp_maxstrsize];

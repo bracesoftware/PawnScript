@@ -50,3 +50,10 @@ foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #4 {v
 //#emit:lol,1;
 //#emit:addrset,NINJAGOOOO@@j;
 new.int,hey=9;
+#emit:addrset,addressof?hey; // Store the ADDRESS of 'hey' into cur and sec registers
+#emit:const.alt,2; // Store 2 into alternate register
+#emit:load.pri; // Store the VALUE of 'hey' into primary register
+#emit:add; // pri = pri+alt
+#emit:stor.pri; // store the value of primary register into the address found in cur and sec registers.
+// Alternate way of updating the value is just by using the `vlset` instruction
+console.rawout.log(hey); // Raw output 
