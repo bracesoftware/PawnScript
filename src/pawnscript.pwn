@@ -226,8 +226,8 @@ public OnGameModeExit()
 
 main()
 {
-    //CallLocalFunction("dpp_asmtest", "");
-    SetTimer("dpp_main", 1000, false);
+    CallLocalFunction("dpp_asmtest", "");
+    //SetTimer("dpp_main", 1000, false);
 }
 
 //-----------------------------------------------------------
@@ -268,6 +268,35 @@ __asmtest2()
     #emit const.pri         24
     #emit retn
     return 1; // Make compiler happy.
+}
+
+new stk, stp, tmp; // globals are not involved in the stack
+f(arg)
+{
+    // compiler automatically adds a PROC instruction at the beginning of every function
+
+    new x = 200;
+  
+    #emit LCTRL 3
+    #emit STOR.pri stp
+  
+    #emit LCTRL 4
+    #emit STOR.pri stk
+  
+    printf("STP: %d STK: %d\n", stp, stk);
+  
+    // prints the contents of the stack from top to bottom (lower address to higher address)
+    while(stk != stp) {
+        #emit LOAD.pri stk
+        #emit LOAD.I
+        #emit STOR.pri tmp
+        printf("%d", tmp);
+        stk += 4;
+    }
+    
+    // compiler uses whatever information it has and adds instructions to correct the stack before returning
+    // if items have been pushed or popped manually using #emit, the compiler will not be aware of it
+    return 1234;
 }
 
 forward dpp_asmtest();
@@ -362,9 +391,48 @@ public dpp_asmtest()
     #emit sysreq.c          printf
     #emit stack             20
 
-    myprintf("hi");
-
+    /*#emit proc
+    @emit__ tempaddr        ,.str="ASM FUNC CALLED!"
+    #emit push.c            dpp_tempaddr__
+    #emit push.c            4
+    #emit sysreq.c          print
+    #emit stack             8
+    #emit zero.pri
     #emit retn
+    @emit__ tempaddr        ,.str="This is not a function!"
+    #emit push.c            dpp_tempaddr__
+    #emit push.c            4
+    #emit sysreq.c          print
+    #emit stack             8
+    #emit call.pri
+    */   
+    a = 1;
+    f(101);
+    #emit stor.s.pri a // store the value stored in the primary register (return value) in 'a'
+    printf("\nPRI: %d", a);
+
+
+    static const str[] = "Random number: %d";
+
+    //printf(str, random());
+    
+    #emit push.c            0 // zero arguments
+    #emit sysreq.c          random
+    #emit stack             4 // must manually clean the stack (only one item was pushed onto the stack; hence, we move STK up by 4)
+    // random value was returned in the primary register
+
+    // prepare to push the random value
+    // note that 'printf' takes values as variable arguments: we need to push addresses
+    #emit heap              4 // make space for the random value in the heap
+    #emit stor.i // store the value of the primary register in the newly allocated space
+    
+    #emit push.alt // push the address of the random value
+    #emit push.c            str // 'str' is static local string; hence, it is present in the data segment
+    #emit push.c            8
+    #emit sysreq.c          printf
+    #emit stack             12 // total of three items were pushed; hence, pop 3 cells
+
+    #emit heap              -4
     return 1; // Make compiler happy.
 }
 //-----------------------------------------------------------
