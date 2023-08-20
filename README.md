@@ -21,6 +21,7 @@
 
 ## Documentation
 
+- [How to setup PawnScript?](doc/setup.md)
 - [Project management](doc/proj.md)
 - [Calling PawnScript from your Pawn code](doc/pawn.md)
 - [How does PawnScript work?](doc/how.md)
