@@ -10,13 +10,17 @@
 
 console.println("========================== tasks.dpp ==========================");
 
-public&task.testtask#1000;
+@task;
+	this->interval=1000;
+void testtask() public;
 {
 	console.println("Task works!");
 	console.rawout.log(1+1+2);
 }
 
-public&task.anothersexytask#3000;
+@task;
+	this->interval=3000;
+void anothersexytask() public;
 {
 	console.println("Another task also works!");
 	samp.SendClientMessage(0,0,"Test client message");

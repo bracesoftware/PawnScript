@@ -25,3 +25,40 @@ void MyTestFunc() public;
 
 console.println.MyTestFunc(...);
 ```
+
+## `@task`
+
+- Used to make a timer.
+
+```cpp
+@task;
+void mytask() public;
+{
+	console.println("Task works!");
+}
+```
+
+# `this` keyword
+
+- This keyword is used for modifying decorator argument values, without a specific order.
+
+```cpp
+@task;
+	this->interval=1000;
+void mytask() public;
+{
+	console.println("Task works!");
+}
+```
+
+Note that this is NOT possible:
+
+
+```cpp
+this->interval=1000; // `this` is modifying the arguments of last used decorator
+@task;
+void mytask() public;
+{
+	console.println("Task works!");
+}
+```

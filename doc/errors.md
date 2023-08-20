@@ -55,3 +55,15 @@ new.int,$/87656RANDOM NAME LMAO=0;
 new.int,hey=43;
 new.int,hey=9; // Error.
 ```
+
+## `Invalid expression; assumed zero.`
+
+- You probably made a typo in your code or you wrote something non-sense.
+
+```cpp
+@hook=j;
+constexpr=namespace UUUUU+class+enum;
+inT func() publex;{
+	retern,0;
+}
+```

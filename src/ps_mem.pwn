@@ -157,6 +157,7 @@ new dpp_switchedvar;
 #define dpp_deco_invalid 0
 #define dpp_deco_hook 1
 #define dpp_deco_method 2
+#define dpp_deco_task 3
 new dpp_lastdeco = dpp_deco_invalid;
 //-----------------------------------------------------------
 // PREDEFINES
@@ -456,8 +457,8 @@ new dpp_stkreg[DPP_STKSIZE][dpp_maxsymbolchar];
 #define stk@allcol 5
 new dpp_allowcollision;
 #define @emit__%0\32;%1\10;%3 dpp_asm__(%1);
-
-#define dpp_maxkwords 51
+//-----------------------------------------------------------
+#define dpp_maxkwords 53
 new dpp_kwords[dpp_maxkwords][256] = {
     "public",
     "inline",
@@ -509,5 +510,9 @@ new dpp_kwords[dpp_maxkwords][256] = {
     "export",
     "import",
     "true",
-    "false"
+    "false",
+    "this",
+    "interval"
 };
+//-----------------------------------------------------------
+new dpp_interval__;

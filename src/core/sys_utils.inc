@@ -56,5 +56,12 @@ stock dpp_fatalerror(errorid, const fmat[] = "")
         dpp_info("Process has been terminated to prevent further complication.");
         return 1;
     }
+    if(errorid == 6)
+    {
+        dpp_fatalerror__("Invalid expression; assumed zero: '%s'", fmat);
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
     return 0;
 }

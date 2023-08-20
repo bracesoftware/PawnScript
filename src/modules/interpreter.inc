@@ -659,6 +659,11 @@ stock dpp_process(line[])
         dpp_lastdeco = dpp_deco_method;
         return 1;
     }
+    if(!strcmp(funcgroup[0], "@task"))
+    {
+        dpp_lastdeco = dpp_deco_task;
+        return 1;
+    }
 
     ///////////////////////////////////////////////////////
     ////
@@ -806,7 +811,15 @@ stock dpp_process(line[])
                 dpp_event = dpp_event_form;
             }
         }
-
+        if(dpp_lastdeco == dpp_deco_task)//task
+        {
+            if(!strcmp(tokengroup2[0], "void"))
+            {
+                dpp_createtask(arguments[0],dpp_interval__);
+                dpp_event = dpp_event_task;
+                dpp_interval__=0;
+            }
+        }
         dpp_lastdeco = dpp_deco_invalid;
         return 1;
     }
@@ -985,7 +998,7 @@ stock dpp_process(line[])
 
 
 
-    if(!strcmp(funcgroup[0], "public&task"))
+    /*if(!strcmp(funcgroup[0], "public&task"))
     {
         if(dpp_processfunc != DPP_INVALID_FORM_ID)
         {
@@ -999,7 +1012,7 @@ stock dpp_process(line[])
 
         dpp_event = dpp_event_task;
         return 1;
-    }
+    }*/
 
 
     ///////////////////////////////////////////////////////
@@ -1094,7 +1107,7 @@ stock dpp_process(line[])
         dpp_argsystemval(vargroup[i]);
         CallLocalFunction("dpp_arginstruct", "s", vargroup[i]);
         CallLocalFunction("dpp_argenumcheck", "s", vargroup[i]);
-        CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+        CallLocalFunction("dpp_argtagcheck", "s", vargroup[i]);
 
         dpp_formatarg(vargroup[i]);
 
@@ -1773,13 +1786,36 @@ stock dpp_process(line[])
             }
         }
         //do
-        /*if(!strcmp(funcgroup[0], "do"))
+        if(!strcmp(funcgroup[0], "this"))
         {
-            format(extracode, sizeof extracode, "%s;",extracode);
-            strcat(dpp_inlinecodeblock[dpp_currentinlineid], extracode);
-            //dpp_error("Added code '%s' to inline form [%i]",dpp_inlinecodeblock[dpp_currentinlineid],extracode);
+            if(dpp_lastdeco == dpp_deco_invalid)
+            {
+                return 1;
+            }
+            new thisargs[2][64];
+            dpp_parseline(extracode,thisargs,'=');
+            if(!strcmp(thisargs[0],"interval"))
+            {
+                new i = 1;
+                dpp_removeslashes(thisargs[i]);
+                dpp_argclasscheck(thisargs[i]);
+                dpp_argoclasscheck(thisargs[i]);
+                dpp_argarraycheck(thisargs[i]);
+                dpp_argfunccheck(thisargs[i]);
+                dpp_argvarcheck(thisargs[i]);
+                dpp_argmathcheck(thisargs[i]);
+                dpp_argformargcheck(thisargs[i]);
+                dpp_argsystemval(thisargs[i]);
+                CallLocalFunction("dpp_arginstruct", "s", thisargs[i]);
+                CallLocalFunction("dpp_argenumcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_argtagcheck", "s", thisargs[i]);
+
+                dpp_formatarg(thisargs[i]);
+
+                dpp_interval__ = strval(thisargs[1]);
+            }
             return 1;
-        }*/
+        }
         return 1;
     } 
 
@@ -3585,7 +3621,8 @@ stock dpp_process(line[])
     {
         if(strlen(line) > 5)
         {
-            dpp_error("Invalid code line: \"%s\".", line);
+            //dpp_error("Invalid code line: \"%s\".", line);
+            dpp_fatalerror(6,line);
         }
     }
     

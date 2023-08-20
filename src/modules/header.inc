@@ -99,6 +99,7 @@ dpp_symbolcheck__(const name[])
 {
     if(isnull(name))
     {
+        dpp_fatalerror(2);
         #emit const.pri         1
         #emit retn
         return 0; // Fulfill PAWN's desires.
@@ -121,6 +122,17 @@ dpp_symbolcheck__(const name[])
                 #emit retn
                 return 0; // Fulfill PAWN's desires.
             }
+        }
+    }
+
+    for(new i; i < dpp_maxkwords; i++)
+    {
+        if(!strcmp(name, dpp_kwords[i]))
+        {
+            dpp_fatalerror(2);
+            #emit const.pri         1
+            #emit retn
+            return 0; // Fulfill PAWN's desires.
         }
     }
 
