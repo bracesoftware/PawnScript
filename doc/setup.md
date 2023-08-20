@@ -1,14 +1,13 @@
-<img height="100" align="center" src="">
 
 # How to setup PawnScript?
 
 Let's assume you've got an empty open.mp/SA:MP server ready to use. You can get one [here](https://github.com/openmultiplayer/open.mp/releases).
 
-<img height="400" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142888793645535343/image.png">
+<img height="300" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142888793645535343/image.png">
 
 Create `scriptfiles` and `gamemodes` folders.
 
-<img height="400" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142889338523357264/image.png">
+<img height="300" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142889338523357264/image.png">
 
 Go to the releases page and select the latest release.
 
@@ -132,7 +131,7 @@ stack_output=true
 
 And then, lastly, open your `index.ps` and start writing code!
 
-<img height="50" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142899985675989073/image.png">
+<img height="100" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142899985675989073/image.png">
 
 Then run your server.
 
