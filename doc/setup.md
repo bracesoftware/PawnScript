@@ -136,6 +136,6 @@ And then, lastly, open your `index.ps` and start writing code!
 
 Then run your server.
 
-<img height="100" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142901174417231953/image.png">
+<img height="200" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142901174417231953/image.png">
 
 And that's it!
