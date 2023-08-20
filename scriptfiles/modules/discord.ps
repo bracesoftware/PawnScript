@@ -38,8 +38,8 @@ user.dppprint("{test}");
 
 
 new.int,testvar=0;
-while.notequ,testvar,10->set.int,testvar=testvar+1&console.println("{testvar}");
+while.notequ,testvar,10->testvar=testvar+1&console.println("{testvar}");
 
-while.equ,testvar,10->set.int,testvar=testvar+1&console.println("This should be printed only once!");
+while.equ,testvar,10->testvar=testvar+1&console.println("This should be printed only once!");
 
-if.equ,1,1->while.equ,testvar,11->set.int,testvar=testvar+1&console.println("This should be printed again!");
+if.equ,1,1->while.equ,testvar,11->testvar=testvar+1&console.println("This should be printed again!");

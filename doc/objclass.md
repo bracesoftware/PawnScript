@@ -15,8 +15,8 @@ console.cout.log(TestObj.TestClassDouble);
 console.println.log("#1 {TestObj.ClassTestVar} & {TestObj.TestClassDouble}");
 
 object,TestObj2=TestClass;
-set.int,TestObj2.ClassTestVar=9376216;
-set.double,TestObj2.TestClassDouble=314.159267243;
+TestObj2.ClassTestVar=9376216;
+TestObj2.TestClassDouble=314.159267243;
 console.cout.log(TestObj2.ClassTestVar);
 console.cout.log(TestObj2.TestClassDouble);
 console.println.log("#2 {TestObj2.ClassTestVar} & {TestObj2.TestClassDouble}");

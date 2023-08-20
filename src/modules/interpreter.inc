@@ -20,6 +20,7 @@ the Initial Developer. All Rights Reserved.
 
 new process_backtrace[2048];
 new process_bcktrc[1024];
+new varsetgroup[2][64];
 
 stock dpp_process(line[])
 {
@@ -99,6 +100,10 @@ stock dpp_process(line[])
     new line2[3000];
     new dpp_funcfound;
     
+    strmid(varsetgroup[0], "", 0,1,1);
+    strmid(varsetgroup[1], "", 0,1,1);
+    dpp_parseline(line,varsetgroup,'=');
+
     strmid(line2, line, 0, strlen(line), strlen(line));
     dpp_checkforconditionals(line, line2, extracode, "->");
     dpp_checkforobjinit(line, line2, extracode, "<-");
@@ -1066,11 +1071,15 @@ stock dpp_process(line[])
     for(new i; i < 2; i++)
     {
         dpp_codetrim(vargroup[i]);
+        dpp_codetrim(varsetgroup[i]);
         if(i == 0)
         {
             dpp_argclasscheck(vargroup[i]);
             dpp_argoclasscheck(vargroup[i]);
             dpp_argformargcheck(vargroup[i]);
+            dpp_argclasscheck(varsetgroup[i]);
+            dpp_argoclasscheck(varsetgroup[i]);
+            dpp_argformargcheck(varsetgroup[i]);
             i = 1;
         }
 
@@ -1088,6 +1097,21 @@ stock dpp_process(line[])
         CallLocalFunction("dpp_argtagcheck", "s", args[i]);
 
         dpp_formatarg(vargroup[i]);
+
+        dpp_removeslashes(varsetgroup[i]);
+        dpp_argclasscheck(varsetgroup[i]);
+        dpp_argoclasscheck(varsetgroup[i]);
+        dpp_argarraycheck(varsetgroup[i]);
+        dpp_argfunccheck(varsetgroup[i]);
+        dpp_argvarcheck(varsetgroup[i]);
+        dpp_argmathcheck(varsetgroup[i]);
+        dpp_argformargcheck(varsetgroup[i]);
+        dpp_argsystemval(varsetgroup[i]);
+        CallLocalFunction("dpp_arginstruct", "s", varsetgroup[i]);
+        CallLocalFunction("dpp_argenumcheck", "s", varsetgroup[i]);
+        CallLocalFunction("dpp_argtagcheck", "s", varsetgroup[i]);
+
+        dpp_formatarg(varsetgroup[i]);
     }
 
     ///////////////////////////////////////////////////////
@@ -2388,8 +2412,89 @@ stock dpp_process(line[])
             return 0;
         }
     }*/
+    //var=val;
+    if(!isnull(varsetgroup[0]) && !isnull(varsetgroup[1]))
+    {
+        new varid=-1;
+        for(new i; i < dpp_maxvar; i++)
+        {
+            if(dpp_vardata[i][var_valid] == 1)
+            {
+                if(!strcmp(varsetgroup[0], dpp_vardata[i][var_name]))
+                {
+                    varid = i;
+                    break;
+                }
+            }
+        }
+        if(varid != -1)
+        {
+            if(dpp_vardata[varid][var_type] == dpp_var_type_int)
+            {
+                if(dpp_isnumeric(varsetgroup[1]))
+                {
+                    dpp_setintvar(varsetgroup[0],strval(varsetgroup[1]));
+                    return 1;
+                }
+            }//if
+            if(dpp_vardata[varid][var_type] == dpp_var_type_bool)
+            {
+                if(strcmp(varsetgroup[1],"true")==0 || strcmp(varsetgroup[1],"false")==0)
+                {
+                    new dpp_boolval;
+
+
+                    if(!strcmp(varsetgroup[1], "false"))
+                    {
+                        dpp_boolval = 0;
+                    }
+                    if(!strcmp(varsetgroup[1], "true"))
+                    {
+                        dpp_boolval = 1;
+                    }
+
+                    dpp_setboolvar(varsetgroup[0],dpp_boolval);
+                    return 1;
+                }
+            }//if
+            if(dpp_vardata[varid][var_type] == dpp_var_type_str)
+            {
+                new mul2;
+                for(new i; i < strlen(varsetgroup[1]); i++)
+                {
+                    if(varsetgroup[1][i] == '\"') mul2++, strdel(varsetgroup[1], i, i+1);
+                }
+                if(mul2 == 2)
+                {
+                    dpp_setstrvar(varsetgroup[0],varsetgroup[1]);
+                    return 1;
+                }
+            }//if
+            if(dpp_vardata[varid][var_type] == dpp_var_type_double)
+            {
+                if(dpp_isfloat(varsetgroup[1]))
+                {
+                    dpp_setdoublevar(varsetgroup[0],floatstr(varsetgroup[1]));
+                    return 1;
+                }
+            }//if
+            if(dpp_vardata[varid][var_type] == dpp_var_type_char)
+            {
+                new mul2;
+                for(new i; i < strlen(varsetgroup[1]); i++)
+                {
+                    if(varsetgroup[1][i] == '\'') mul2++, strdel(varsetgroup[1], i, i+1);
+                }
+                if(mul2 == 2)
+                {
+                    dpp_setcharvar(varsetgroup[0],varsetgroup[1][0]);
+                    return 1;
+                }
+            }//if
+        }
+    }
     //set.int,var=1;
-    if(!strcmp(funcgroup[0], "set"))
+    /*if(!strcmp(funcgroup[0], "set"))
     {
         if(!strcmp(funcgroup[1], "int"))
         {
@@ -2427,8 +2532,7 @@ stock dpp_process(line[])
         }
         if(!strcmp(funcgroup[1], "str"))
         {
-            new mul2, str2[dpp_argcharsize];
-            strmid(str2, vargroup[1], 0, dpp_argcharsize);
+            new mul2;
             for(new i; i < strlen(vargroup[1]); i++)
             {
                 if(vargroup[1][i] == '\"') mul2++, strdel(vargroup[1], i, i+1);
@@ -2484,7 +2588,7 @@ stock dpp_process(line[])
   
         
         return 1;
-    }
+    }*/
 
     ///////////////////////////////////////////////////////
     ////

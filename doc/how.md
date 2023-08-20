@@ -14,7 +14,7 @@
 
 `index.ps`:
 ```cpp
-using.console;
+using console;
 ```
 
 - This line will enable the use of an integrated component called "console". Console component provides forms and functions you can use for character output. If we did not enable the component, we'd run into an error.
@@ -23,7 +23,7 @@ using.console;
 
 `index.ps`:
 ```cpp
-using.console;
+using console;
 
 console.println("Hello World!");
 ```

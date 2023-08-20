@@ -28,7 +28,7 @@ try;
 {
 	if.equ,fortestagainomg,15->break;
 	console.cout(fortestagainomg);
-	set.int,fortestagainomg=fortestagainomg+1;
+	fortestagainomg=fortestagainomg+1;
 }
 while.notequ,fortestagainomg,20->;
 ```

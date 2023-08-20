@@ -10,7 +10,7 @@ new.str,myvar="myvar worked.";
 To change its value, use:
 
 ```cpp
-set.str,myvar="myvar worked again.";
+myvar="myvar worked again.";
 ```
 
 

@@ -33,7 +33,7 @@ int*form.ForTest2?num;
 	return,1;
 }
 
-set.int,forlooptestvar=0;
+forlooptestvar=0;
 for.int,forlooptestvar,5->user.ForTest2(forlooptestvar);
 ```
 
