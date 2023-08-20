@@ -1,6 +1,6 @@
-# Inline forms
+# Inline functions
 
-- Inline forms are forms that can be declared inside a local or external form and is erased from the stack after the form call.
+- Inline functions are functions that can be declared inside a local or external function and is erased from the stack after the function call.
 
 ## Example
 

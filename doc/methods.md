@@ -6,7 +6,7 @@
 
 ```cpp
 @method;
-int*form.TestMethod?text;
+int TestMethod() public;
 {
 	console.println("Printed: {text@TestMethod}");
 	return.int,1;
@@ -18,7 +18,7 @@ console.println.TestMethod("Method test #1");
 namespace,MyNameSpace;
 {
 	@method;
-	int*form.TestMethod?text;
+	int TestMethod(text) public;
 	{
 		console.println.log("Printed: {text@MyNameSpace::TestMethod}");
 		return.int,1;
