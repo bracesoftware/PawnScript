@@ -3,8 +3,7 @@
 - Object-oriented programming (OOP) is a computer programming model that organizes software design around classes and objects. Classes are certain blocks of code, containing elements that can be accessed only via a certain object. After declaring an object, object drags elements from the class and creates its own copies, allowing same variable names, but with different values.
 
 ```cpp
-
-class,TestClass;
+class TestClass;
 {
 	new.int,ClassTestVar=827346;
 	new.double,TestClassDouble=364.234;
@@ -22,7 +21,7 @@ console.cout.log(TestObj2.ClassTestVar);
 console.cout.log(TestObj2.TestClassDouble);
 console.println.log("#2 {TestObj2.ClassTestVar} & {TestObj2.TestClassDouble}");
 
-class,TestClass2;
+class TestClass2;
 {
 	new.int,ClassTestVar=100000;
 	new.double,TestClassDouble=21.7636;
@@ -33,7 +32,6 @@ object,TestObj3=TestClass2;
 console.cout.log(TestObj3.ClassTestVar);
 console.cout.log(TestObj3.TestClassDouble);
 console.println.log("#3 {TestObj3.ClassTestVar} & {TestObj3.TestClassDouble} & {TestObj3.TestClassBool}");
-
 ```
 
 Output:

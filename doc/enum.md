@@ -5,7 +5,7 @@
 ## Example `#1`
 
 ```cpp
-enum,WeekDays;
+enum WeekDays;
 {
 	monday;
 	tuesday;
@@ -25,7 +25,7 @@ console.cout.log(WeekDays.saturday+WeekDays.monday);
 ## Example `#2`
 
 ```cpp
-enum,WeekDays;
+enum WeekDays;
 {
 	monday=1;
 	tuesday=2;
@@ -42,7 +42,7 @@ console.println.log("enum test included");
 console.cout.log(WeekDays.saturday+WeekDays.monday);
 
 
-enum,Months;
+enum Months;
 {
 	january=5;
 	february=6;

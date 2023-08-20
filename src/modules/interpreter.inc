@@ -1153,9 +1153,9 @@ stock dpp_process(line[])
         return 1;
     }
 
-    if(!strcmp(funcgroup[0], "class"))
+    if(!strcmp(tokengroup[0], "class"))
     {
-        dpp_createoclass(args[1]);
+        dpp_createoclass(tokengroup[1]);
 
         dpp_event = dpp_event_class;
         return 1;
@@ -1804,14 +1804,9 @@ stock dpp_process(line[])
     ////
     ///////////////////////////////////////////////////////
 
-    if(!strcmp(funcgroup[0], "enum"))
+    if(!strcmp(tokengroup[0], "enum"))
     {
-        if(isnull(args[1]))
-        {
-            dpp_error("Invalid expression.",);
-            return 1;
-        }
-        dpp_createenum(args[1]);
+        dpp_createenum(tokengroup[1]);
 
         dpp_event = dpp_event_enum;
         return 1;
