@@ -815,9 +815,10 @@ stock dpp_process(line[])
         {
             if(!strcmp(tokengroup2[0], "void"))
             {
-                dpp_createtask(arguments[0],dpp_interval__);
+                dpp_createtask(arguments[0],dpp_interval__,dpp_repeat__);
                 dpp_event = dpp_event_task;
                 dpp_interval__=0;
+                dpp_repeat__=1;
             }
         }
         dpp_lastdeco = dpp_deco_invalid;
@@ -1813,6 +1814,36 @@ stock dpp_process(line[])
                 dpp_formatarg(thisargs[i]);
 
                 dpp_interval__ = strval(thisargs[1]);
+            }
+            if(!strcmp(thisargs[0],"repeat"))
+            {
+                new i = 1;
+                dpp_removeslashes(thisargs[i]);
+                dpp_argclasscheck(thisargs[i]);
+                dpp_argoclasscheck(thisargs[i]);
+                dpp_argarraycheck(thisargs[i]);
+                dpp_argfunccheck(thisargs[i]);
+                dpp_argvarcheck(thisargs[i]);
+                dpp_argmathcheck(thisargs[i]);
+                dpp_argformargcheck(thisargs[i]);
+                dpp_argsystemval(thisargs[i]);
+                CallLocalFunction("dpp_arginstruct", "s", thisargs[i]);
+                CallLocalFunction("dpp_argenumcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_argtagcheck", "s", thisargs[i]);
+
+                dpp_formatarg(thisargs[i]);
+
+                new value=1;
+                if(!strcmp(thisargs[1],"true"))
+                {
+                    value=1;
+                }
+                if(!strcmp(thisargs[1],"false"))
+                {
+                    value=0;
+                }
+
+                dpp_repeat__ = value;
             }
             return 1;
         }

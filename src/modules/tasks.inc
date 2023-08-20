@@ -26,7 +26,7 @@ public dpp_taskinit()
     {
     	if(dpp_validtask[i] == 1)
     	{
-    		dpp_internaltasks[i] = SetTimerEx("dpp_runtask", dpp_interval[i], true, "i", i);
+    		dpp_internaltasks[i] = SetTimerEx("dpp_runtask", dpp_interval[i], bool:dpp_repeat[i], "i", i);
     	}
     }
     return 1;

@@ -290,6 +290,7 @@ new dpp_validtask[dpp_maxtasks__];
 new dpp_taskname[dpp_maxtasks__][dpp_maxsymbolchar];
 new dpp_taskcodeblock[dpp_maxtasks__][dpp_buffersize];
 new dpp_interval[dpp_maxtasks__];
+new dpp_repeat[dpp_maxtasks__];
 //-----------------------------------------------------------
 //iterators
 new dpp_validiter[dpp_maxiter__];
@@ -458,7 +459,7 @@ new dpp_stkreg[DPP_STKSIZE][dpp_maxsymbolchar];
 new dpp_allowcollision;
 #define @emit__%0\32;%1\10;%3 dpp_asm__(%1);
 //-----------------------------------------------------------
-#define dpp_maxkwords 53
+#define dpp_maxkwords 54
 new dpp_kwords[dpp_maxkwords][256] = {
     "public",
     "inline",
@@ -512,7 +513,9 @@ new dpp_kwords[dpp_maxkwords][256] = {
     "true",
     "false",
     "this",
-    "interval"
+    "interval",
+    "repeat"
 };
 //-----------------------------------------------------------
 new dpp_interval__;
+new dpp_repeat__=1;

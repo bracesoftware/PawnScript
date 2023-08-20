@@ -718,7 +718,7 @@ stock dpp_subexecute__3(const code[])
 ////////////////////////////////////////////////
 
 
-stock dpp_createtask(const name[], interval)
+stock dpp_createtask(const name[], interval, repeat)
 {
     dpp_symbolcheck__(name);
     for(new i; i < dpp_maxtasks; i++)
@@ -729,6 +729,7 @@ stock dpp_createtask(const name[], interval)
             dpp_validtask[i] = 1;
             strmid(dpp_taskname[i], name, 0, 64, 64);
             dpp_interval[i] = interval;
+            dpp_repeat[i] = repeat;
             return 1;
         }
     }
