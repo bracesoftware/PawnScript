@@ -11,7 +11,7 @@ Create `scriptfiles` and `gamemodes` folders.
 
 Go to the releases page and select the latest release.
 
-<img height="50" align="center" src="//https://cdn.discordapp.com/attachments/1130879376423145522/1142896097212248214/image.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142896097212248214/image.png">
 
 Download the `pawnscript` archive that suits your OS; `.zip` for Microsoft Windows and `.tar.gz` for Linux. Open the archive and extract `pawnscript.amx` into your `gamemodes` folder.
 
