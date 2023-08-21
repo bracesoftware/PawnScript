@@ -102,7 +102,7 @@ stock dpp_process(line[])
     
     strmid(varsetgroup[0], "", 0,1,1);
     strmid(varsetgroup[1], "", 0,1,1);
-    dpp_parseline(line,varsetgroup,'=');
+    dpp_2split(line,varsetgroup[0],varsetgroup[1],'=');
 
     strmid(line2, line, 0, strlen(line), strlen(line));
     dpp_checkforconditionals(line, line2, extracode, "->");
@@ -231,7 +231,7 @@ stock dpp_process(line[])
     dpp_codetrim(funcgroup[1]);
     dpp_codetrim(funcgroup[2]);
 
-    dpp_parseline(args[1], vargroup, '=');
+    dpp_2split(args[1], vargroup[0],vargroup[1], '=');
 
     for(new i; i < dpp_maxtemplate; i++)
     {
@@ -1043,6 +1043,7 @@ stock dpp_process(line[])
         CallLocalFunction("dpp_arginstruct", "s", args[i]);
         CallLocalFunction("dpp_argenumcheck", "s", args[i]);
         CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+        CallLocalFunction("dpp_logics", "s", args[i]);
 
         dpp_formatarg(args[i]);
     }
@@ -1069,6 +1070,7 @@ stock dpp_process(line[])
         CallLocalFunction("dpp_arginstruct", "s", args_form[i]);
         CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
         CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+        CallLocalFunction("dpp_logics", "s", args[i]);
 
         dpp_formatarg(args_form[i]);
     }
@@ -1109,6 +1111,7 @@ stock dpp_process(line[])
         CallLocalFunction("dpp_arginstruct", "s", vargroup[i]);
         CallLocalFunction("dpp_argenumcheck", "s", vargroup[i]);
         CallLocalFunction("dpp_argtagcheck", "s", vargroup[i]);
+        CallLocalFunction("dpp_logics", "s", vargroup[i]);
 
         dpp_formatarg(vargroup[i]);
 
@@ -1124,6 +1127,7 @@ stock dpp_process(line[])
         CallLocalFunction("dpp_arginstruct", "s", varsetgroup[i]);
         CallLocalFunction("dpp_argenumcheck", "s", varsetgroup[i]);
         CallLocalFunction("dpp_argtagcheck", "s", varsetgroup[i]);
+        CallLocalFunction("dpp_logics", "s", varsetgroup[i]);
 
         dpp_formatarg(varsetgroup[i]);
     }
@@ -1305,6 +1309,7 @@ stock dpp_process(line[])
             CallLocalFunction("dpp_arginstruct", "s", args[i]);
             CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
             CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+            CallLocalFunction("dpp_logics", "s", args[i]);
 
             dpp_formatarg(args[i]);
         }
@@ -1460,6 +1465,7 @@ stock dpp_process(line[])
                             CallLocalFunction("dpp_arginstruct", "s", args[i]);
                             CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
                             CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+                            CallLocalFunction("dpp_logics", "s", args[i]);
 
                             dpp_formatarg(args[i]);
                         }
@@ -1503,6 +1509,7 @@ stock dpp_process(line[])
                         CallLocalFunction("dpp_arginstruct", "s", args[i]);
                         CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
                         CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+                        CallLocalFunction("dpp_logics", "s", args[i]);
 
                         dpp_formatarg(args[i]);
                     }
@@ -1551,6 +1558,7 @@ stock dpp_process(line[])
                             CallLocalFunction("dpp_arginstruct", "s", args[i]);
                             CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
                             CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+                            CallLocalFunction("dpp_logics", "s", args[i]);
 
                             dpp_formatarg(args[i]);
                         }
@@ -1593,6 +1601,7 @@ stock dpp_process(line[])
                         CallLocalFunction("dpp_arginstruct", "s", args[i]);
                         CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
                         CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+                        CallLocalFunction("dpp_logics", "s", args[i]);
 
                         dpp_formatarg(args[i]);
                     }
@@ -1650,6 +1659,7 @@ stock dpp_process(line[])
                         CallLocalFunction("dpp_arginstruct", "s", args[i]);
                         CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
                         CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+                        CallLocalFunction("dpp_logics", "s", args[i]);
 
                         dpp_formatarg(args[i]);
                     }
@@ -1810,6 +1820,7 @@ stock dpp_process(line[])
                 CallLocalFunction("dpp_arginstruct", "s", thisargs[i]);
                 CallLocalFunction("dpp_argenumcheck", "s", thisargs[i]);
                 CallLocalFunction("dpp_argtagcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_logics", "s", thisargs[i]);
 
                 dpp_formatarg(thisargs[i]);
 
@@ -1830,6 +1841,7 @@ stock dpp_process(line[])
                 CallLocalFunction("dpp_arginstruct", "s", thisargs[i]);
                 CallLocalFunction("dpp_argenumcheck", "s", thisargs[i]);
                 CallLocalFunction("dpp_argtagcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_logics", "s", thisargs[i]);
 
                 dpp_formatarg(thisargs[i]);
 
@@ -1973,6 +1985,7 @@ stock dpp_process(line[])
             CallLocalFunction("dpp_arginstruct", "s", args[i]);
             CallLocalFunction("dpp_argenumcheck", "s", args_form[i]);
             CallLocalFunction("dpp_argtagcheck", "s", args[i]);
+            CallLocalFunction("dpp_logics", "s", args[i]);
 
             dpp_formatarg(args[i]);
         }
@@ -2164,6 +2177,7 @@ stock dpp_process(line[])
         CallLocalFunction("dpp_arginstruct", "s", templategroup2[0]);
         CallLocalFunction("dpp_argenumcheck", "s", templategroup2[0]);
         CallLocalFunction("dpp_argtagcheck", "s", templategroup2[0]);
+        CallLocalFunction("dpp_logics", "s", templategroup2[0]);
 
         dpp_formatarg(templategroup2[0]);
 
@@ -2186,6 +2200,7 @@ stock dpp_process(line[])
         CallLocalFunction("dpp_arginstruct", "s", templategroup2[0]);
         CallLocalFunction("dpp_argenumcheck", "s", templategroup2[0]);
         CallLocalFunction("dpp_argtagcheck", "s", templategroup2[0]);
+        CallLocalFunction("dpp_logics", "s", templategroup2[0]);
 
         dpp_formatarg(templategroup2[0]);
 

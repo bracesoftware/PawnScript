@@ -197,7 +197,7 @@ stock dpp_parseline(const code[], destln[][], delimiter)
 
     while(i <= strlen(code))
     {
-        if((code[i+1] != delimiter && code[i-1] != dpp_option_escapechar && code[i] == delimiter) || i == strlen(code))
+        if((dpp_islogicop(code[i-1]) == 0 && dpp_islogicop(code[i+1]) == 0 && code[i-1] != delimiter && code[i+1] != delimiter && code[i-1] != dpp_option_escapechar && code[i] == delimiter) || i == strlen(code))
         {
             len = strmid(destln[index], code, start, i, 128);
             destln[index][len] = 0;

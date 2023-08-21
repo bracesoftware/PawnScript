@@ -156,6 +156,54 @@ Output:
 0
 ```
 
+### Operator: `==`
+
+- Is equal to.
+
+```cpp
+new.int,testvar=1==1;
+console.println.log("1==1: {testvar}");
+```
+### Operator: `!=`
+
+- Not equal to.
+
+```cpp
+testvar=1!=1;
+console.println.log("1!=1: {testvar}");
+```
+### Operator: `>=`
+
+- Greater equal to.
+
+```cpp
+testvar=1>=1;
+console.println.log("1>=1: {testvar}");
+```
+### Operator: `<=`
+
+- Less or equal to.
+
+```cpp
+testvar=1<=2;
+console.println.log("1<=2: {testvar}");
+```
+### Operator: `<`
+
+- Less than.
+
+```cpp
+testvar=1<2;
+console.println.log("1<2: {testvar}");
+```
+### Operator: `>`
+
+- Greater than.
+
+```cpp
+testvar=1>2;
+console.println.log("1>2: {testvar}");
+```
 ---------------------------------------------------------------------------------------------------------
 
 ## More info
