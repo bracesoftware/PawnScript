@@ -3,11 +3,11 @@
 
 Let's assume you've got an empty open.mp/SA:MP server ready to use. You can get one [here](https://github.com/openmultiplayer/open.mp/releases).
 
-<img height="300" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142888793645535343/image.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142888793645535343/image.png">
 
 Create `scriptfiles` and `gamemodes` folders.
 
-<img height="300" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142889338523357264/image.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142889338523357264/image.png">
 
 Go to the releases page and select the latest release.
 
@@ -16,7 +16,7 @@ Go to the releases page and select the latest release.
 Download the `pawnscript` archive that suits your OS; `.zip` for Microsoft Windows and `.tar.gz` for Linux. Open the archive and extract `pawnscript.amx` into your `gamemodes` folder.
 
 
-<img height="400" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142896842737197087/image.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142896842737197087/image.png">
 
 Open `config.json` in an editor of your choice and paste this code (just change `main_scripts` to `pawnscript` and change your RCON password):
 
@@ -120,7 +120,7 @@ If you are using a SA:MP server, then you just need to change the `gamemodes` to
 
 Now, open your `scriptfiles` folder and create 2 files; `index.ps` (PawnScript code entry) and `config.psproj` (project settings).
 
-<img height="400" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142898851519410216/image.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142898851519410216/image.png">
 
 Afterwards, open `config.psproj` in an editor of your choice and paste this:
 
@@ -131,10 +131,10 @@ stack_output=true
 
 And then, lastly, open your `index.ps` and start writing code!
 
-<img height="100" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142899985675989073/image.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142899985675989073/image.png">
 
 Then run your server.
 
-<img height="400" align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142901174417231953/image.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142901174417231953/image.png">
 
 And that's it!
