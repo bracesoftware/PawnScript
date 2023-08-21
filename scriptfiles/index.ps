@@ -126,6 +126,17 @@ console.println.log("1<2: {testvar}");
 testvar=1>2;
 console.println.log("1>2: {testvar}");
 
+testvar=5+5==11-1;
+std::writeln("{testvar}");
+testvar=5>4.9;
+std::writeln("{testvar}");
+testvar=5<5.1;
+std::writeln("{testvar}");
+testvar=3.14>3.15;
+std::writeln("{testvar}");
+testvar=234.4-200<=89+0.9;
+std::writeln("{testvar}");
+
 #undef:testvar;
 
 #include:vars;

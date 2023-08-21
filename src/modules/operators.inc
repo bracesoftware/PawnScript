@@ -30,6 +30,8 @@ stock dpp_argmathcheck(arg[])
         return 1;
     }
 
+    CallLocalFunction("dpp_logics", "s", arg);
+
     dpp_sub(arg);
     dpp_add(arg);
 
