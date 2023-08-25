@@ -13,7 +13,7 @@ console.println("========================== struct.dpp =========================
 extern&struct*samp_command.testcmd?playerid&params;
 {
 	samp.SendClientMessage,playerid,0,"Your command works!";
-	return.int,1;
+	return int 1
 }
 
 console.println("Struct test included!");
@@ -42,7 +42,7 @@ int ElseTest() public;
 	if.equ,1,1->console.println("1 and 1 are indeed equal");
 	else->console.println("This should not be printed");
 
-	return,1;
+	return 1
 }
 
 system.rem("idk why");
@@ -66,7 +66,7 @@ console.println("{misctest1} and {misctest2}");
 int ForTest2(numarg) public;
 {
 	console.println("Damn for loop test {numarg@ForTest2}");
-	return,1;
+	return 1
 }
 
 forlooptestvar=0;

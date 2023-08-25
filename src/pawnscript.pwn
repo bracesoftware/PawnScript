@@ -66,6 +66,7 @@ native fcreatedir(const filename[]);
 #include "core/sys_utils.inc"
 #include "core/component_impl.inc"
 #include "ps_asm.pwn"
+#include "ps_sdk.pwn"
 //-----------------------------------------------------------
 // component impl
 #include "components/system.inc"
@@ -79,6 +80,7 @@ native fcreatedir(const filename[]);
 #include "components/iter.inc"
 #include "components/vector.inc"
 //-----------------------------------------------------------
+
 
 dpp_main(); public dpp_main()
 {
@@ -104,7 +106,7 @@ public main_again()
     CallLocalFunction("DPP_GAMEMODEINIT", "");
     CallRemoteFunction("dppcord_init", "");
     CallLocalFunction("dpp_taskinit", "");
-    //PS_CallRemoteFunction("TestFuncForAPI","1923,\"some text\"");
+    CallRemoteFunction("__ps_sdktest", "");
     return 1;
 }
 

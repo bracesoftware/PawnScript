@@ -54,7 +54,10 @@ system.rem("===================FUNCS===================");
 str testFunc() public;
 {
 	console.println("testFunc was called.");
-	return,"testFunc returned this.";
+	// We CANNOT return strings as literals if they contain spaces
+	// Return a static variable instead.
+	static*new.str,returnstr="testFunc returned this."
+	return returnstr
 }
 
 const*new.str,LMAO="Lmao";
@@ -62,7 +65,7 @@ const*new.str,LMAO="Lmao";
 str disableDebug() public;
 {
 	console.println("Debug disabled");
-	return,LMAO;
+	return LMAO
 }
 
 console.println(testFunc);
@@ -74,13 +77,13 @@ system.rem("===================CALLBACKS===================");
 extern&struct*public.main;
 {
 	console.println("Hello World from main");
-	return.int,1;
+	return int 1
 }
 
 extern&struct*public.OnGameModeInit;
 {
 	console.println("OnGameModeInit works");
-	return.int,1;
+	return int 1
 	console.println("RETURN FAILED");
 	console.println("OMG LOL HAHAHAH RETURN DOES NOT WORK");
 }
@@ -89,13 +92,13 @@ extern&struct*public.OnGameModeInit;
 int OnGameModeInit() public;
 {
 	console.println("OnGameModeInit works twice!!!");
-	return,1;
+	return 1
 }
 
 extern&struct*public.OnGameModeExit;
 {
 	console.println("OnGameModeExit works");
-	return.bool,true;
+	return bool true
 }
 
 void syntaxtextfunc(text, num) public;{
@@ -105,12 +108,12 @@ void syntaxtextfunc(text, num) public;{
 
 user.syntaxtextfunc("Hey", 'c');
 
-@task;
-	this->interval=10000;
-	this->repeat=false;
-void nonrepeatingtimer() public;
+@task
+	this->interval=10000
+	this->repeat=false
+void nonrepeatingtimer() public
 {
-	std::writeln("nonrepeatingtimer works!");
+	std::writeln("nonrepeatingtimer works!")
 }
 
 new.int,testvar=1==1;

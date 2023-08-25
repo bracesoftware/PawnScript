@@ -18,7 +18,7 @@ Hi.
 - Also possible.
 
 ```cpp
-namespace,nm;
+namespace nm;
 {
 	template<console.println.log>cpl;
 }

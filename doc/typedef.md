@@ -22,7 +22,7 @@ Output:
 - You can also create a type definition within a namespace.
 
 ```cpp
-namespace,mytestnamespace;
+namespace mytestnamespace;
 {
 	typedef,new.int.short,shortint;
 }

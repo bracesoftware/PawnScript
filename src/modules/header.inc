@@ -677,7 +677,13 @@ stock dpp_subexecute(const code[], funcid = -1)
     {
         if(funcid != -1)
         {
-            if(dpp_returned[funcid] == 1) return 1;
+            if(dpp_returned[funcid] == 1)
+            {
+                dpp_clearformstack(funcid); 
+                dpp_deletestaticvars();
+                dpp_processfunc = DPP_INVALID_FORM_ID;
+                return 1;
+            }
         }
         dpp_codetrim(__codelines[i]);
         dpp_subprocess(__codelines[i]);

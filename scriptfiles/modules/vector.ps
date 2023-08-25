@@ -77,11 +77,21 @@ std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is 
 
 void TestFuncForAPI(num, text) public
 {
-	console.println("num: {num@TestFuncForAPI} | text: {text@TestFuncForAPI}");
+	console.println("num: {num@TestFuncForAPI} | text: {text@TestFuncForAPI}")
 }
 
 @hook
 void TestFuncForAPI() public
 {
-	std::writeln("Hey uh omg");
+	std::writeln("Hey uh omg")
+}
+
+std::writeln("Test?")
+
+@task
+	this->interval=1000
+	this->repeat=false
+void NoSemicolonTimer() public
+{
+	std::writeln("Hi")
 }

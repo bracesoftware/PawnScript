@@ -19,6 +19,8 @@
 
 > :paperclip: It is made purely for fun and with an intention to learn more about Pawn itself, thus PawnScript should not be taken as a serious language. However, the language itself is still impressive considering it is written in Pawn.
 
+<p><b>NOTE</b>: Semicolons are completely optional, you can use them according to your preference.</p>
+
 ## Documentation
 
 - [How to setup PawnScript?](doc/setup.md)

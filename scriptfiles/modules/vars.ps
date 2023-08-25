@@ -29,21 +29,21 @@ if.equ,false,true->console.println("false is equal to true");
 int functobehooked(arg1, arg2, arg3) public;
 {
 	console.println("HOOKED");
-	return,1;
+	return 1
 }
 
 @hook;
-int functobehooked() public;
+double functobehooked() public;
 {
 	console.println("HOOKED 1");
-	return.int,1;
+	return int 1
 }
 
 @hook;
-int functobehooked() public;
+char functobehooked() public;
 {
 	console.println("HOOKED 2");
-	return.int,1;
+	return int 1
 }
 
 user.functobehooked("oh lol",1,false);
