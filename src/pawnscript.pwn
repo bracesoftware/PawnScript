@@ -104,6 +104,7 @@ public main_again()
     CallLocalFunction("DPP_GAMEMODEINIT", "");
     CallRemoteFunction("dppcord_init", "");
     CallLocalFunction("dpp_taskinit", "");
+    //PS_CallRemoteFunction("TestFuncForAPI","1923,\"some text\"");
     return 1;
 }
 

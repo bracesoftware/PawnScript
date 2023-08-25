@@ -10,7 +10,7 @@
 
 console.println("========================== class.dpp ==========================");
 
-namespace,dogInfo;
+namespace dogInfo;
 {
 	new.str,name="Alexander";
 
@@ -31,12 +31,12 @@ user.dogInfo::dogRace;
 
 console.rawout(dogInfo::age);
 
-namespace,manInfo;
+namespace manInfo;
 {
 	new.str,name="Alex";
 }
 
-using*namespace,dogInfo;
+using namespace dogInfo;
 {
 	new.str,owner="Tommy";
 }
@@ -47,7 +47,7 @@ console.println(dogInfo::owner);
 
 	console.println(dogInfo::owner);
 
-using*namespace,manInfo;
+using namespace manInfo;
 {
 	new.int,age=86;
 }

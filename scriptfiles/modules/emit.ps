@@ -116,7 +116,7 @@ if.equ,3,2->console.println.log("Lmao what, no!!1");
 else->if.equ,1,1->console.println.log("This was again expected!");
 else->console.println.log("Just no!");
 
-constexpr*namespace,TestConstNamespace;
+constexpr namespace TestConstNamespace;
 {
 	void MyForm() public;
 	{
@@ -128,7 +128,7 @@ user.TestConstNamespace::MyForm;
 
 if.equ,1,2->do;
 {
-	using*namespace,TestConstNamespace;
+	using namespace TestConstNamespace;
 	{
 		// Oops! Fatal error!
 		// Process will be terminated at this point!

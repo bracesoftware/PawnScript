@@ -77,7 +77,7 @@ stock dpp_process(line[])
         args_const[dpp_maxargsc][dpp_argcharsize],
         structgroup[2][512],
         dirgroup[2][256],
-        tokengroup[2][256],
+        tokengroup[3][256],
         tokengroup2[2][256];
 
     new 
@@ -196,7 +196,7 @@ stock dpp_process(line[])
         }
     }
     dpp_parseline(line,tokengroup, '\32');
-    for(new i; i < 2; i++)
+    for(new i; i < 3; i++)
     {
         dpp_codetrim(tokengroup[i]);
         //printf("tokengroup[%i] : '%s'",i,tokengroup[i]);
@@ -1168,28 +1168,19 @@ stock dpp_process(line[])
     ////
     ///////////////////////////////////////////////////////
 
-    if(!strcmp(funcgroup[0], "namespace"))
+    if(!strcmp(tokengroup[0], "namespace"))
     {
-        dpp_createclass(args[1]);
+        dpp_createclass(tokengroup[1]);
 
         dpp_event = dpp_event_namespace;
         return 1;
     }
-    if(!strcmp(structgroup[0], "using"))
-    {
-        if(!strcmp(structgroup[1], "namespace"))
-        {
-            dpp_hookclass(args[1]);
-            dpp_event = dpp_event_namespace;
-        }
-        return 1;
-    }
 
-    if(!strcmp(structgroup[0], "constexpr"))
+    if(!strcmp(tokengroup[0], "constexpr"))
     {
-        if(!strcmp(structgroup[1], "namespace"))
+        if(!strcmp(tokengroup[1], "namespace"))
         {
-            dpp_createclass(args[1], .constexpr = 1);
+            dpp_createclass(tokengroup[2], .constexpr = 1);
             dpp_event = dpp_event_namespace;
         }
         return 1;
@@ -2852,6 +2843,12 @@ stock dpp_process(line[])
 
     if(!strcmp(tokengroup[0], "using"))
     {
+        if(!strcmp(tokengroup[1], "namespace"))
+        {
+            dpp_hookclass(tokengroup[2]);
+            dpp_event = dpp_event_namespace;
+            return 1;
+        }
         if(!strcmp(tokengroup[1], "console"))
         {
             dpp_config[console_comp] = 1;

@@ -5,7 +5,7 @@
 ## Namespaces
 
 ```cpp
-constexpr*namespace,TestConstNamespace;
+constexpr namespace TestConstNamespace;
 {
 	void MyForm() public;
 	{
@@ -15,7 +15,7 @@ constexpr*namespace,TestConstNamespace;
 
 user.TestConstNamespace::MyForm;
 
-using*namespace,TestConstNamespace;
+using namespace TestConstNamespace;
 {
 	// Oops! Fatal error!
 	// Process will be terminated at this point!

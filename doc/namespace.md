@@ -7,7 +7,7 @@
 - A normal class with a normal purpose.
 
 ```cpp
-namespace,customer;
+namespace customer;
 {
 }
 ```
@@ -15,7 +15,7 @@ namespace,customer;
 Within the class code block, we can create a variable.
 
 ```cpp
-namespace,customer;
+namespace customer;
 {
 	new.str,name="Alex";
 }
@@ -33,7 +33,7 @@ console.println(customer::name);
 - You can also hook a namespace. To hook a namespace means to extend a namespace and add more elements to an existing namespace instead of creating a new one. For example, this is our code right now:
 
 ```cpp
-namespace,customer;
+namespace customer;
 {
 	new.str,name="Alex";
 }
@@ -45,14 +45,14 @@ console.println(customer::name);
 We can hook the `customer` namespace:
 
 ```cpp
-namespace,customer;
+namespace customer;
 {
 	new.str,name="Alex";
 }
 
 console.println(customer::name);
 
-using*namespace,customer;
+using namespace customer;
 {
 	new.int,age=12;
 }

@@ -28,7 +28,7 @@ console.rawout(sizeof?vectorname); // Size is changed from 3 to 2.
 foreach.int,vectortest,vectorname->std::writeln("vector test #2 {vectortest}");
 
 
-namespace,vectors;
+namespace vectors;
 {
 	vector<324>myvec;
 	new.int,vectortest2=0;
@@ -73,3 +73,15 @@ std::writeln("temporaryvar is {temporaryvar}"); // Print the value
 #emit:zero.pri;
 #emit:zero.alt;
 std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is null"
+
+
+void TestFuncForAPI(num, text) public
+{
+	console.println("num: {num@TestFuncForAPI} | text: {text@TestFuncForAPI}");
+}
+
+@hook
+void TestFuncForAPI() public
+{
+	std::writeln("Hey uh omg");
+}

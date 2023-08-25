@@ -30,7 +30,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 //-----------------------------------------------------------
 #define DPP_VERSION_MAJOR 1
 #define DPP_VERSION_MINOR 0
-#define DPP_VERSION_PATCH 6
+#define DPP_VERSION_PATCH 7
 #define DPP_VERSION_RELEASE 1
 #define DPP_CELLMAX 8
 
@@ -50,7 +50,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxcodelines 2048
 #define dpp_maxformatlen 2048
 //-----------------------------------------------------------
-#define dpp_maxformargs 10
+#define dpp_maxformargs 15
 //-----------------------------------------------------------
 // Constant values (used for initial memory allocation)
 #define dpp_entities__ 14
