@@ -131,7 +131,7 @@ stack_output=true
 
 And then, lastly, open your `index.ps` and start writing code!
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142899985675989073/image.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1146081438974877736/image.png">
 
 Then run your server.
 
