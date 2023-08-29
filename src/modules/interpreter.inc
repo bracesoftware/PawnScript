@@ -1194,10 +1194,10 @@ stock dpp_process(line[])
         return 1;
     }
 
-    if(!strcmp(funcgroup[0], "object"))
+    if(!strcmp(tokengroup[0], "object"))
     {
         new address[2][dpp_maxsymbolchar];
-        dpp_parseline(args[1], address, '=');
+        dpp_parseline(tokengroup[1], address, '=');
         dpp_createobject(address[0],address[1]);
         return 1;
     }
@@ -1930,14 +1930,9 @@ stock dpp_process(line[])
     ////
     ///////////////////////////////////////////////////////
 
-    if(!strcmp(funcgroup[0], "tag"))
+    if(!strcmp(tokengroup[0], "tag"))
     {
-        if(isnull(args[1]))
-        {
-            dpp_error("Invalid expression.",);
-            return 1;
-        }
-        dpp_createtag(args[1]);
+        dpp_createtag(tokengroup[1]);
         return 1;
     }
 
@@ -2910,7 +2905,7 @@ stock dpp_process(line[])
             dpp_config[iter_comp] = 1;
             return 1;
         }
-        if(!strcmp(tokengroup[1], "vector"))
+        if(!strcmp(tokengroup[1], "vec"))
         {
             dpp_config[vector_comp] = 1;
             return 1;

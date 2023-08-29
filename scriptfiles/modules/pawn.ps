@@ -19,12 +19,12 @@ class TestClass;
 	new.double,TestClassDouble=364.234;
 }
 
-object,TestObj=TestClass;
+object TestObj=TestClass;
 console.rawout.log(TestObj.ClassTestVar);
 console.rawout.log(TestObj.TestClassDouble);
 console.println.log("#1 {TestObj.ClassTestVar} & {TestObj.TestClassDouble}");
 
-object,TestObj2=TestClass;
+object TestObj2=TestClass;
 TestObj2.ClassTestVar=9376216;
 TestObj2.TestClassDouble=314.159267243;
 console.rawout.log(TestObj2.ClassTestVar);
@@ -38,15 +38,15 @@ class TestClass2;
 	new.bool,TestClassBool=false;
 }
 
-object,TestObj3=TestClass2;
+object TestObj3=TestClass2;
 console.rawout.log(TestObj3.ClassTestVar);
 console.rawout.log(TestObj3.TestClassDouble);
 console.println.log("#3 {TestObj3.ClassTestVar} & {TestObj3.TestClassDouble} & {TestObj3.TestClassBool}");
 
 
-tag,MyNewTag;
+tag MyNewTag;
 MyNewTag<-new.int,tagtestinteger=1;
 if.equ,tagof?tagtestinteger,MyNewTag->console.println.log("tagtestinteger has the MyNewTag!");
 
-tag,AnotherTag;
+tag AnotherTag;
 if.equ,tagof?tagtestinteger,AnotherTag->console.println.log("tagtestinteger has the AnotherTag!");

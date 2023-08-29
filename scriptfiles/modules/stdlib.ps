@@ -15,9 +15,11 @@ using math
 using pawn
 using misc
 using iter
-using vector
+using vec
 
 using samp; // Deprecated.
+
+console.println.log("[PawnScript] Standard library loaded.")
 
 constexpr namespace std
 {
@@ -49,4 +51,10 @@ constexpr namespace std
 
 	template<console.println.log>writeln
 	template<console.cout.log>writec
+
+	// Some default class
+	class default__
+	{
+		new.int,test=1
+	}
 }

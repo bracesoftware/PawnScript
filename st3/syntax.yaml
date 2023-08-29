@@ -1,0 +1,103 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - .ps
+scope: source.example-c
+contexts:
+  main:
+    # Strings begin and end with quotes, and use backslashes as an escape
+    # character
+    - match: '"'
+      scope: punctuation.definition.string.begin.example-c
+      push: double_quoted_string
+
+    - match: "'"
+      scope: punctuation.definition.string.begin.example-c
+      push: single_quoted_string
+
+    # Comments begin with a '//' and finish at the end of the line
+    - match: '//'
+      scope: punctuation.definition.comment.example-c
+      push: line_comment
+    # Keywords are if, else for and while.
+    # Note that blackslashes don't need to be escaped within single quoted
+    # strings in YAML. When using single quoted strings, only single quotes
+    # need to be escaped: this is done by using two single quotes next to each
+    # other.
+    - match: '\b(enum|class|public|inline|namespace|constexpr|const|static|new|int|bool|str|double|char|void|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|user|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|this|interval|repeat)\b'
+      scope: keyword.control.example-c
+
+    # Numbers
+    - match: '\b(-)?[0-9.@#]+\b'
+      scope: constant.numeric.example-c
+
+    - match: '\b(true|false|default)\b'
+      scope: constant.numeric.example-c
+
+    - match: '[@#]'
+      scope: constant.numeric.example-c
+
+    - match: '::'
+      scope: constant.numeric.example-c
+
+    - match: '->'
+      scope: keyword.control.example-c
+
+    - match: '<-'
+      scope: keyword.control.example-c
+
+    - match: '\?'
+      scope: keyword.control.example-c
+
+    - match: '\b(console|system|pawn|data|vec|iter|files|math|misc)\b'
+      scope: constant.numeric.example-c
+
+    - match: '[\w]+\('
+      scope: entity.name.impl.example-c
+    - match: '\)'
+      scope: entity.name.impl.example-c
+
+    - match: '\b(void|int|bool|str|double|char)\b'
+      scope: keyword.control.example-c
+      push:
+        - function
+        - function-name
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.example-c
+    - match: '\\.'
+      scope: constant.character.escape.example-c
+    - match: '"'
+      scope: punctuation.definition.string.end.example-c
+      pop: true
+
+  single_quoted_string:
+    - meta_scope: string.quoted.double.example-c
+    - match: '\\.'
+      scope: constant.character.escape.example-c
+    - match: "'"
+      scope: punctuation.definition.string.end.example-c
+      pop: true
+
+  line_comment:
+    - meta_scope: comment.line.example-c
+    - match: $
+      pop: true
+
+  function:
+    - meta_scope: meta.function
+
+  function-name:
+    - match: '[a-zA-Z0-9_]+'
+      scope: variable.function
+    - match: \(
+      scope: punctuation.section.group.begin
+      set: function-params
+
+  function-params:
+    - meta_scope: meta.function.params
+    - clear_scopes: 1
+    - match: \)
+      scope: punctuation.section.group.end
+      pop: 2

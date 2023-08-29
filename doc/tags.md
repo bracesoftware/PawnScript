@@ -7,7 +7,7 @@
 - Assigning a `MyTag` tag to a variable.
 
 ```cpp
-tag,MyTag;
+tag MyTag
 MyTag<-new.int,testvar=10;
 ```
 
@@ -16,9 +16,9 @@ MyTag<-new.int,testvar=10;
 - Tags inside namespaces.
 
 ```cpp
-namespace,TagTestNameSpace;
+namespace TagTestNameSpace
 {
-	tag,MyTag;
+	tag MyTag
 }
 
 TagTestNameSpace::MyTag<-new.int,testvar=1;
@@ -29,7 +29,7 @@ TagTestNameSpace::MyTag<-new.int,testvar=1;
 - Since tags serve as little marks you can mark your special variables with, `tagof` instruction can be used to check if specific data is marked with a specific tag.
 
 ```cpp
-tag,MyNewTag;
+tag MyNewTag;
 MyNewTag<-new.int,tagtestinteger=1;
 if.equ,tagof?tagtestinteger,MyNewTag->console.println.log("tagtestinteger has the MyNewTag!");
 ```

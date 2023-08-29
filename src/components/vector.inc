@@ -21,11 +21,11 @@ the Initial Developer. All Rights Reserved.
 forward dpp_processvector(funcgroup[][],args[][],args_const[][]);
 public dpp_processvector(funcgroup[][],args[][],args_const[][])
 {
-    if(!strcmp(funcgroup[0], "vector"))
+    if(!strcmp(funcgroup[0], "vec"))
     {
         if(dpp_config[vector_comp] == 0)
         {
-            dpp_error("Component \"vector\" is not imported.",);
+            dpp_error("Component \"vec\" is not imported.",);
             dpp_internal<return>(0);
         }
         // If the function used it "print"
@@ -41,7 +41,7 @@ public dpp_processvector(funcgroup[][],args[][],args_const[][])
         }
         else
         {
-            dpp_error("Unknown form in the component \"vector\".",);
+            dpp_error("Unknown form in the component \"vec\".",);
             dpp_internal<return>(0);
         }
     }
