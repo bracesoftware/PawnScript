@@ -7,46 +7,46 @@
 
 #pragma:reqref,true; // We should embrace return references.
 
-using system;
-using console;
-using files;
-using data;
-using math;
-using pawn;
-using misc;
-using iter;
-using vector;
+using system
+using console
+using files
+using data
+using math
+using pawn
+using misc
+using iter
+using vector
 
 using samp; // Deprecated.
 
-constexpr namespace std;
+constexpr namespace std
 {
 	// Some PAWNSCRIPT constants:
-	const*new.str,nullstr=" ";
-	const*new.char,nullchar=' ';
+	const*new.str,nullstr=" "
+	const*new.char,nullchar=' '
 
 	// Simpler keywords to create variables with:
-	typedef,new.int,int;
-	typedef,new.bool,bool;
-	typedef,new.str,string;
-	typedef,new.double,double;
-	typedef,new.double,float;
-	typedef,new.char,char;
-	typedef,new.int.unsigned,uint;
-	typedef,new.int.short,sint;
+	typedef,new.int,int
+	typedef,new.bool,bool
+	typedef,new.str,string
+	typedef,new.double,double
+	typedef,new.double,float
+	typedef,new.char,char
+	typedef,new.int.unsigned,uint
+	typedef,new.int.short,sint
 
 	// Default return references:
-	new.int,intretref=0;
-	new.bool,boolretref=false;
-	new.str,strretref="null";
-	new.char,charretref='0';
-	new.double,doubleretref=0.0;
+	new.int,intretref=0
+	new.bool,boolretref=false
+	new.str,strretref="null"
+	new.char,charretref='0'
+	new.double,doubleretref=0.0
 
 	// Some constants:
-	const*new.double,pi=3.14;
-	const*new.double,euler=2.71;
-	const*new.double,gravacc=9.81;
+	const*new.double,pi=3.14
+	const*new.double,euler=2.71
+	const*new.double,gravacc=9.81
 
-	template<console.println.log>writeln;
-	template<console.cout.log>writec;
+	template<console.println.log>writeln
+	template<console.cout.log>writec
 }

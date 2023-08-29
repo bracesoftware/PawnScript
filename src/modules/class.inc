@@ -60,7 +60,7 @@ stock dpp_argoclasscheck(arg[])
 
 //////////UTIL//////////
 
-stock dpp_createoclass(const name[])
+stock dpp_createoclass(name[])
 {
     dpp_symbolcheck__(name);
     for(new i; i < dpp_maxoclass; i++)
@@ -68,6 +68,12 @@ stock dpp_createoclass(const name[])
         if(dpp_validoclass[i] == 0)
         {
             dpp_validoclass[i] = 1;
+            if(dpp_workingclassid != dpp_invalidclass)
+            {
+                new newvalue[dpp_argcharsize];
+                format(newvalue,sizeof(newvalue),"DPPCoc@%s_%s",dpp_classname[dpp_workingclassid],name);
+                strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            }
             strmid(dpp_oclassname[i], name, 0, dpp_maxsymbolchar, dpp_maxsymbolchar);
             dpp_usedclassid = i;
             return 1;
@@ -77,8 +83,9 @@ stock dpp_createoclass(const name[])
 }
 
 
-stock dpp_createobject(const name[], const classname[])
+stock dpp_createobject(const name[], classname[])
 {
+    dpp_argclasscheck(classname);
     dpp_symbolcheck__(name);
     new classid = -1;
     for(new i; i < dpp_maxoclass; i++)

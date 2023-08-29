@@ -46,3 +46,25 @@ Output:
 21.763
 #3 100000 & 21.763 & false
 ```
+
+## Classes within namespaces
+
+```cpp
+namespace testnamespace
+{
+	class testclass
+	{
+		new.int,testinteger=1
+	}
+}
+
+object,Obj=testnamespace::testclass
+Obj.testinteger=13
+std::writeln("{Obj.testinteger}")
+```
+
+Output:
+
+```
+13
+```
