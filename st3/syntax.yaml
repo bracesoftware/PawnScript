@@ -25,7 +25,7 @@ contexts:
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
     # other.
-    - match: '\b(enum|class|public|inline|namespace|constexpr|const|static|new|int|bool|str|double|char|void|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|user|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|this|interval|repeat)\b'
+    - match: '\b(yield|enum|class|public|inline|namespace|constexpr|const|static|new|int|bool|str|double|char|void|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|user|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|this|interval|repeat)\b'
       scope: keyword.control.example-c
 
     # Numbers
@@ -42,6 +42,9 @@ contexts:
       scope: constant.numeric.example-c
 
     - match: '->'
+      scope: keyword.control.example-c
+
+    - match: '='
       scope: keyword.control.example-c
 
     - match: '<-'

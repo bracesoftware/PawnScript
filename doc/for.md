@@ -5,8 +5,8 @@
 ## Example
 
 ```cpp
-new.int,forlooptestvar=0;
-if.equ,1,1->for.int,forlooptestvar,10->console.println("For loop id {forlooptestvar}");
+new.int,forlooptestvar=0
+if.equ,1,1->for.int,forlooptestvar,10->console.println("For loop id {forlooptestvar}")
 ```
 
 Output:
@@ -27,14 +27,14 @@ For loop id 10
 ## Example *#2*
 
 ```cpp
-int*form.ForTest2?num;
+int ForTest2(num) public
 {
-	console.println("'num' is {num@ForTest2}");
-	return,1;
+	console.println("'num' is {num@ForTest2}")
+	return,1
 }
 
-forlooptestvar=0;
-for.int,forlooptestvar,5->user.ForTest2(forlooptestvar);
+forlooptestvar=0
+for.int,forlooptestvar,5->user.ForTest2(forlooptestvar)
 ```
 
 Output:

@@ -7,27 +7,27 @@
 - Used to include a file:
 
 ```cpp
-#include:file;
+#include:file
 ```
 
 ## `#undef`
 
-- Used to undefine a symbol; that can be an iterator, variable, constant or whatever.
+- Used to undefine a symbol that can be an iterator, variable, constant or whatever.
 
 ```cpp
-#undef:var;
+#undef:var
 ```
 
 Example:
 
 ```cpp
-new.int,undeftest=1;
+new.int,undeftest=1
 
-if.equ,defined?undeftest,1->console.println.log("undeftest is defined");
+if.equ,defined?undeftest,1->console.println.log("undeftest is defined")
 
-#undef:undeftest;
+#undef:undeftest
 
-if.equ,defined?undeftest,1->console.println.log("undeftest is defined *(again!*)");
+if.equ,defined?undeftest,1->console.println.log("undeftest is defined *(again!*)")
 ```
 
 Output:
@@ -47,7 +47,7 @@ Read more about it [here](options.md).
 ### `addrset`
 
 ```cpp
-#emit:addrset,addressof?varname;
+#emit:addrset,addressof?varname
 ```
 
 - This sets an address in the memory you will operate with.
@@ -57,35 +57,35 @@ Read more about it [here](options.md).
 - Changes a return value.
 
 ```cpp
-new.int,ADDRESSOFTEST=0;
-#emit:addrset,addressof?ADDRESSOFTEST;
-#emit:vlset,23746;
+new.int,ADDRESSOFTEST=0
+#emit:addrset,addressof?ADDRESSOFTEST
+#emit:vlset,23746
 
-console.cout.log(ADDRESSOFTEST);
+console.cout.log(ADDRESSOFTEST)
 
-new.bool,ADDRESSOFTEST2=false;
-#emit:addrset,addressof?ADDRESSOFTEST2;
-#emit:vlset,true;
+new.bool,ADDRESSOFTEST2=false
+#emit:addrset,addressof?ADDRESSOFTEST2
+#emit:vlset,true
 
-console.cout.log(ADDRESSOFTEST2);
+console.cout.log(ADDRESSOFTEST2)
 
-new.str,ADDRESSOFTEST3="000";
-#emit:addrset,addressof?ADDRESSOFTEST3;
-#emit:vlset,"#emit works!";
+new.str,ADDRESSOFTEST3="000"
+#emit:addrset,addressof?ADDRESSOFTEST3
+#emit:vlset,"#emit works!"
 
-console.println.log(ADDRESSOFTEST3);
+console.println.log(ADDRESSOFTEST3)
 
-new.double,ADDRESSOFTEST4=0.0;
-#emit:addrset,addressof?ADDRESSOFTEST4;
-#emit:vlset,23.746;
+new.double,ADDRESSOFTEST4=0.0
+#emit:addrset,addressof?ADDRESSOFTEST4
+#emit:vlset,23.746
 
-console.cout.log(ADDRESSOFTEST4);
+console.cout.log(ADDRESSOFTEST4)
 
-new.char,ADDRESSOFTEST5='0';
-#emit:addrset,addressof?ADDRESSOFTEST5;
-#emit:vlset,'K';
+new.char,ADDRESSOFTEST5='0'
+#emit:addrset,addressof?ADDRESSOFTEST5
+#emit:vlset,'K'
 
-console.cout.log(ADDRESSOFTEST5);
+console.cout.log(ADDRESSOFTEST5)
 ```
 
 Output:
@@ -102,8 +102,8 @@ true
 - Used to change the return type.
 
 ```cpp
-#emit:addrset,addressof?varname;
-#emit:dtyp,4;
+#emit:addrset,addressof?varname
+#emit:dtyp,4
 ```
 
 - `1` = `int`
@@ -118,12 +118,12 @@ true
 - Create an integer variable, change its data type to `char`, set a value, and then print the value.
 
 ```cpp
-new.int,ADDRESSOFTEST6=1;
-#emit:addrset,addressof?ADDRESSOFTEST6;
-#emit:dtyp,5;
-#emit:vlset,'Z';
+new.int,ADDRESSOFTEST6=1
+#emit:addrset,addressof?ADDRESSOFTEST6
+#emit:dtyp,5
+#emit:vlset,'Z'
 
-console.cout.log(ADDRESSOFTEST6);
+console.cout.log(ADDRESSOFTEST6)
 ```
 
 Output:
@@ -137,11 +137,11 @@ Output:
 - Change the symbol name.
 
 ```cpp
-new.int,ADDRESSOFTEST7=364;
-#emit:addrset,addressof?ADDRESSOFTEST7;
-#emit:csnm,__ADDRESSOFTEST7;
+new.int,ADDRESSOFTEST7=364
+#emit:addrset,addressof?ADDRESSOFTEST7
+#emit:csnm,__ADDRESSOFTEST7
 
-console.cout.log(__ADDRESSOFTEST7);
+console.cout.log(__ADDRESSOFTEST7)
 ```
 
 Output:
@@ -155,9 +155,9 @@ Output:
 - Set the value of the primary register to the value stored inside the loaded address.
 
 ```cpp
-new.int,var=1;
-#emit:addrset,addressof?var;
-#emit:load.pri;
+new.int,var=1
+#emit:addrset,addressof?var
+#emit:load.pri
 ```
 
 `PRI` is now 1.
@@ -167,9 +167,9 @@ new.int,var=1;
 - Set the value of the alternate register to the value stored inside the loaded address.
 
 ```cpp
-new.int,var=1;
-#emit:addrset,addressof?var;
-#emit:load.alt;
+new.int,var=1
+#emit:addrset,addressof?var
+#emit:load.alt
 ```
 
 `ALT` is now 1.
@@ -179,7 +179,7 @@ new.int,var=1;
 - Set the value of the primary register to a constant value not loaded with `addrset`.
 
 ```cpp
-#emit:const.pri,1;
+#emit:const.pri,1
 ```
 
 `PRI` is now 1.
@@ -190,7 +190,7 @@ new.int,var=1;
 - Set the value of the alternate register to a constant value not loaded with `addrset`.
 
 ```cpp
-#emit:const.alt,1;
+#emit:const.alt,1
 ```
 
 `ALT` is now 1.
@@ -201,10 +201,10 @@ new.int,var=1;
 - Set the value of the primary register to a constant value not loaded with `addrset`.
 
 ```cpp
-new.int,var=1;
-#emit:addrset,addressof?var;
-#emit:const.pri,6;
-#emit:stor.pri;
+new.int,var=1
+#emit:addrset,addressof?var
+#emit:const.pri,6
+#emit:stor.pri
 ```
 
 `var` is now 6.
@@ -216,10 +216,10 @@ new.int,var=1;
 - Store the value of the alternate register into a loaded address.
 
 ```cpp
-new.int,var=1;
-#emit:addrset,addressof?var;
-#emit:const.alt,6;
-#emit:stor.alt;
+new.int,var=1
+#emit:addrset,addressof?var
+#emit:const.alt,6
+#emit:stor.alt
 ```
 
 `var` is now 6.
@@ -230,7 +230,7 @@ new.int,var=1;
 
 ```cpp
 #emit:add; //pri = pri+alt
-#emit:sub; //pri = pri-alt<0?pri-alt*(-1):pri-alt;
+#emit:sub; //pri = pri-alt<0?pri-alt*(-1):pri-alt
 #emit:mul; //pri = pri*alt
 #emit:div; //pri = alt==0?0:pri/alt
 ```
@@ -250,7 +250,7 @@ new.int,var=1;
 - Changes the value of the primary register to 0.
 
 ```cpp
-#emit:zero.pri; //pri=0
+#emit:zero.pri //pri=0
 ```
 
 
@@ -259,7 +259,7 @@ new.int,var=1;
 - Changes the value of the alternate register to 0.
 
 ```cpp
-#emit:zero.alt; //alt=0
+#emit:zero.alt //alt=0
 ```
 
 ### `lctrl`
@@ -298,20 +298,31 @@ new.int,var=1;
 - Pop the current address contained within the `CUR` and `SEC` from the stack (delete a symbol).
 
 ```cpp
-#emit:const.pri,1; // Set the value of PRI to 1 (which is var memory sector id)
-#emit:sctrl,2; // Set the sector to 1
-#emit:lctrl,4; // Get the next free cell id
-#emit:sctrl,1; // Set that cell id.
-#emit:push; // Push that address to the stack.
-#emit:csnm,temporaryvar; // Name it that because it's name is not in the stack, so we will pop it later.
-#emit:dtyp,1; // Make it an integer.
-#emit:vlset,300; // Give it a value of 300.
-std::writeln("temporaryvar is {temporaryvar}"); // Print the value
-#emit:pop; // Invalidate the current address.
+#emit:const.pri,1 
+// Set the value of PRI to 1 (which is var memory sector id)
+#emit:sctrl,2 
+// Set the sector to 1
+#emit:lctrl,4 
+// Get the next free cell id
+#emit:sctrl,1 
+// Set that cell id.
+#emit:push 
+// Push that address to the stack.
+#emit:csnm,temporaryvar 
+// Name it that because it's name is not in the stack, so we will pop it later.
+#emit:dtyp,1 
+// Make it an integer.
+#emit:vlset,300 
+// Give it a value of 300.
+std::writeln("temporaryvar is {temporaryvar}") 
+// Print the value
+#emit:pop 
+// Invalidate the current address.
 // Optional: Reset the registers.
-#emit:zero.pri;
-#emit:zero.alt;
-std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is null"
+#emit:zero.pri
+#emit:zero.alt
+std::writeln("temporaryvar is {temporaryvar}") 
+// We will see "temporaryvar is null"
 ```
 
 ### `inc.alt`
@@ -319,7 +330,8 @@ std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is 
 - Increase the value stored inside the alternate register by 1.
 
 ```cpp
-#emit:inc.alt; //alt++
+#emit:inc.alt 
+//alt++
 ```
 
 ### `inc.pri`
@@ -327,7 +339,8 @@ std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is 
 - Increase the value stored inside the primary register by 1.
 
 ```cpp
-#emit:inc.pri; //pri++
+#emit:inc.pri 
+//pri++
 ```
 
 ### `dec.alt`
@@ -335,7 +348,8 @@ std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is 
 - Decrease the value stored inside the alternate register by 1.
 
 ```cpp
-#emit:dec.alt; //alt--
+#emit:dec.alt 
+//alt--
 ```
 
 ### `dec.pri`
@@ -343,5 +357,6 @@ std::writeln("temporaryvar is {temporaryvar}"); // We will see "temporaryvar is 
 - Decrease the value stored inside the primary register by 1.
 
 ```cpp
-#emit:dec.pri; //pri--
+#emit:dec.pri 
+//pri--
 ```

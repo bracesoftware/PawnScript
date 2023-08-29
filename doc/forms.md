@@ -8,9 +8,9 @@
 - Native functions are those whose are defined in an interpreter component and are useable only if the component is imported. You may call native functions by specifying the component name.
 
 ```cpp
-using console;
+using console
 
-console.println("Hello World");
+console.println("Hello World")
 ```
 
 
@@ -21,9 +21,9 @@ console.println("Hello World");
 - User functions are functions whose are defined by the person who wrote the code. You may declare an user functions using:
 
 ```cpp
-void formname() public;
+void formname() public
 {
-	console.println("my first user functions");
+	console.println("my first user functions")
 }
 ```
 
@@ -32,29 +32,29 @@ So now you've made an user functions. Code between the curly braces is called a 
 You also may return values.
 
 ```cpp
-str funcname() public;
+str funcname() public
 {
-	console.println("my first user functions");
-	return,"this was returned";
+	console.println("my first user functions")
+	return,"this was returned"
 }
 ```
 
 Then you can use this user function as an argument in a native function.
 
 ```cpp
-str funcname() public;
+str funcname() public
 {
-	console.println("my first user functions");
-	return,"this was returned";
+	console.println("my first user functions")
+	return,"this was returned"
 }
 
-console.println(funcname);
+console.println(funcname)
 ```
 
 To call an user function, use:
 
 ```cpp
-user.funcname();
+user.funcname()
 ```
 
 
@@ -63,9 +63,9 @@ user.funcname();
 - You may also use variables and constants as arguments in native functions.
 
 ```cpp
-const*new.str,CONST_NAME="constant worked";
+const*new.str,CONST_NAME="constant worked"
 
-console.println(CONST_NAME);
+console.println(CONST_NAME)
 ```
 
 ---------------------------------------------------------------------------------------------------------
@@ -74,25 +74,25 @@ console.println(CONST_NAME);
 - You can hook already existing functions using **hook functions**.
 
 ```cpp
-int functobehooked() public;
+int functobehooked() public
 {
-	console.println("HOOKED");
-	return,1;
+	console.println("HOOKED")
+	return,1
 }
 
-@hook;
-int functobehooked() public;
+@hook
+int functobehooked() public
 {
-	console.println("HOOKED 1");
-	return.int,1;
+	console.println("HOOKED 1")
+	return.int,1
 }
 
-@hook;
-int functobehooked() public;
+@hook
+int functobehooked() public
 {
-	console.println("HOOKED 2");
-	return.int,1;
+	console.println("HOOKED 2")
+	return.int,1
 }
 
-user.functobehooked();
+user.functobehooked()
 ```

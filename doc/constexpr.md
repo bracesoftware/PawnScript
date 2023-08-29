@@ -5,17 +5,17 @@
 ## Namespaces
 
 ```cpp
-constexpr namespace TestConstNamespace;
+constexpr namespace TestConstNamespace
 {
-	void MyForm() public;
+	void MyForm() public
 	{
-		console.println.log("My namespace function works!");
+		console.println.log("My namespace function works!")
 	}
 }
 
-user.TestConstNamespace::MyForm;
+user.TestConstNamespace::MyForm()
 
-using namespace TestConstNamespace;
+using namespace TestConstNamespace
 {
 	// Oops! Fatal error!
 	// Process will be terminated at this point!

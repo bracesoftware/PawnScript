@@ -14,7 +14,7 @@
 
 `index.ps`:
 ```cpp
-using console;
+using console
 ```
 
 - This line will enable the use of an integrated component called "console". Console component provides forms and functions you can use for character output. If we did not enable the component, we'd run into an error.
@@ -23,14 +23,26 @@ using console;
 
 `index.ps`:
 ```cpp
-using console;
+using console
 
-console.println("Hello World!");
+console.println("Hello World!")
 ```
 
 - What we did here is basically call the `console` component and provided a function name next to the component call. That function is `println` which literally stands for "print line". Group of words separated by a semicolon (`;`) is called a **statement**. Adding a comma, we started an **argument part** of the statement. Argument part of a statement consists of some kind of resources we have use of when it comes to executing code.
 
 - As you can see, our first argument is `"Hello World"` - which is a string, and since we provided this argument to the `console.println` function, contents of that argument will be displayed in the console.
+
+**NOTE**: Semicolons are optional ONLY if you are writing 1 statement per line, which means that this is not possible:
+
+```cpp
+component.func() // comment
+```
+
+You need to separate the comment with a semicolon:
+
+```cpp
+component.func(); // comment
+```
 
 ### Running code 
 
@@ -62,15 +74,15 @@ Hello World!
 
 `index.ps`:
 ```cpp
-using.console;
+using.console
 
-console.println("Hello World!");
+console.println("Hello World!")
 ```
 
 - Interpreter is firstly going to read the first line. Afterwards, the semicolon will be removed and the internal process-function will be called:
 
 ```cpp
-main() dpp_process("using.console");
+main() dpp_process("using.console")
 ```
 
 - Of course this is a simplified depiction. The thing that `process` does is that it calls `parseline` which breaks down the line into so-called groups, so internally it will look like this after the break-down.
@@ -87,14 +99,14 @@ funcgroup[1] = "console"
 ```cpp
 process(line)
 {
-	parseline(line,funcgroup,'.');
+	parseline(line,funcgroup,'.')
 
 	if(funcgroup[0] == "using")
 	{
 		if(funcgroup[1] == "console")
 		{
-			enablesamp();
-			return 1;
+			enablesamp()
+			return 1
 		}
 	}
 }
@@ -105,8 +117,8 @@ process(line)
 ```cpp
 process(line)
 {
-	parseline(line,funcgroup,'.');
-	parseline(funcgroup,args,',');
+	parseline(line,funcgroup,'.')
+	parseline(funcgroup,args,',')
 
 	if(funcgroup[0] == "console")
 	{
@@ -114,9 +126,9 @@ process(line)
 		{
 			if(isstring(arg[1]))
 			{
-				processconsole(funcgroup,args);
+				processconsole(funcgroup,args)
 			}
-			return 1;
+			return 1
 		}
 	}
 }

@@ -5,26 +5,26 @@
 ## Example
 
 ```cpp
-int InlineTestFunc() public;
+int InlineTestFunc() public
 {
-	new.int,formid=__proccessed_form_id;
-	console.println("'InlineTestFunc' is {formid}");
+	new.int,formid=__proccessed_form_id
+	console.println("'InlineTestFunc' is {formid}")
 	
-	void inlineformtest() inline;
+	void inlineformtest() inline
 	<
-		console.println("Inline works.");
-		console.println.log("The inline finally works!");
+		console.println("Inline works.")
+		console.println.log("The inline finally works!")
 	>
 	
-	user.inlineformtest;
-	user.inlineformtest;
-	user.inlineformtest;
-	user.inlineformtest;
-	yield&return,1;
+	user.inlineformtest
+	user.inlineformtest
+	user.inlineformtest
+	user.inlineformtest
+	yield&return,1
 }
 
-user.InlineTestFunc;
-user.InlineTestFunc;
+user.InlineTestFunc
+user.InlineTestFunc
 ```
 
 Output:

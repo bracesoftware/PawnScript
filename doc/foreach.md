@@ -8,23 +8,23 @@
 ### Example
 
 ```cpp
-using iter; // Use iter. functions.
+using iter // Use iter. functions.
 
-iterator<100>testiter; // Declare a `testiter` with size of 100 which means it can hold up to 100 integers.
-new.int,foreachtestvar=0;
+iterator<100>testiter // Declare a `testiter` with size of 100 which means it can hold up to 100 integers.
+new.int,foreachtestvar=0
 
 // We use functions from the `iter` component to manipulate with them.
-iter.add(testiter,1);
-iter.add(testiter,10);
-iter.remove(testiter,1);
+iter.add(testiter,1)
+iter.add(testiter,10)
+iter.remove(testiter,1)
 
-foreach.int,foreachtestvar,testiter->console.println("foreach test {foreachtestvar}");
+foreach.int,foreachtestvar,testiter->console.println("foreach test {foreachtestvar}")
 
-iter.add(testiter,1);
+iter.add(testiter,1)
 
-foreach.int,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}");
+foreach.int,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}")
 
-#undef:testiter;
+#undef:testiter
 ```
 
 Output:
@@ -40,13 +40,13 @@ foreach test #2 10
 - Iterators inside namespaces.
 
 ```cpp
-namespace,IterClass;
+namespace IterClass
 {
-	iterator<10>iter;
+	iterator<10>iter
 }
 
-iter.add(IterClass::iter,364);
-foreach.int,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}");
+iter.add(IterClass::iter,364)
+foreach.int,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}")
 ```
 
 Output:
@@ -62,22 +62,24 @@ foreach test #3 364
 
 ```cpp
 
-vector<324>vectorname; // 	An initial size can be a completely random number,
+vector<324>vectorname // 	An initial size can be a completely random number,
 // 							because the size updates dynamically during the runtime.
 
-// `using vector` is already in stdlib.ps
-vector.add(vectorname,1);
-vector.add(vectorname,312);
-vector.add(vectorname,2);
-new.int,vectortest=0;
+// `using vec` is already in stdlib.ps
+using vec
 
-console.rawout(sizeof?vectorname); // Size is changed from 324 to 3.
-foreach.int,vectortest,vectorname->std::writeln("vector test #1 {vectortest}");
+vec.add(vectorname,1)
+vec.add(vectorname,312)
+vec.add(vectorname,2)
+new.int,vectortest=0
 
-vector.remove(vectorname,312);
+console.rawout(sizeof?vectorname) // Size is changed from 324 to 3.
+foreach.int,vectortest,vectorname->std::writeln("vector test #1 {vectortest}")
 
-console.rawout(sizeof?vectorname); // Size is changed from 3 to 2.
-foreach.int,vectortest,vectorname->std::writeln("vector test #2 {vectortest}");
+vec.remove(vectorname,312)
+
+console.rawout(sizeof?vectorname) // Size is changed from 3 to 2.
+foreach.int,vectortest,vectorname->std::writeln("vector test #2 {vectortest}")
 
 ```
 
@@ -99,23 +101,25 @@ vector test #2 2
 - Vectors inside namespaces.
 
 ```cpp
-namespace,vectors;
+namespace vectors
 {
-	vector<324>myvec;
-	new.int,vectortest2=0;
+	vector<324>myvec
+	new.int,vectortest2=0
 }
 
-vector.add(vectors::myvec,24);
-vector.add(vectors::myvec,31);
-vector.add(vectors::myvec,29);
+vec.add(vectors::myvec,24)
+vec.add(vectors::myvec,31)
+vec.add(vectors::myvec,29)
 
-console.rawout(sizeof?vectors::myvec); // Size is changed from 324 to 3.
-foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #3 {vectors::vectortest2}");
+console.rawout(sizeof?vectors::myvec)
+ // Size is changed from 324 to 3.
+foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #3 {vectors::vectortest2}")
 
-vector.remove(vectors::myvec,24);
+vec.remove(vectors::myvec,24)
 
-console.rawout(sizeof?vectors::myvec); // Size is changed from 3 to 2.
-foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #4 {vectors::vectortest2}");
+console.rawout(sizeof?vectors::myvec)
+ // Size is changed from 3 to 2.
+foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #4 {vectors::vectortest2}")
 ```
 
 Output:
@@ -136,7 +140,7 @@ vector test #4 29
 
 
 ```cpp
-console.cout(sizeof?testiter);
+console.cout(sizeof?testiter)
 ```
 
 Output:

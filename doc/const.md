@@ -4,16 +4,16 @@
 - You also may make constants in PawnScript:
 
 ```cpp
-const*new.int,MY_FIRST_CONST=1;
+const*new.int,MY_FIRST_CONST=1
 ```
 
 
 You also may create boolean and string constants:
 
 ```cpp
-const*new.bool,MY_FIRST_CONST=true;
+const*new.bool,MY_FIRST_CONST=true
 
-const*new.str,MY_FIRST_CONST="string";
+const*new.str,MY_FIRST_CONST="string"
 ```
 
 ## Data types
@@ -23,7 +23,7 @@ const*new.str,MY_FIRST_CONST="string";
 - Integers are whole numbers.
 
 ```cpp
-const*new.int,integer=1;
+const*new.int,integer=1
 ```
 
 ### `bool`
@@ -31,7 +31,7 @@ const*new.int,integer=1;
 - Booleans are variables that can either be true or false.
 
 ```cpp
-const*new.bool,boolean=true;
+const*new.bool,boolean=true
 ```
 
 ### `str`
@@ -39,7 +39,7 @@ const*new.bool,boolean=true;
 - Strings are words or sequences of characters.
 
 ```cpp
-const*new.str,string="test";
+const*new.str,string="test"
 ```
 
 ### `double`
@@ -47,7 +47,7 @@ const*new.str,string="test";
 - Doubles are numbers with decimal points.
 
 ```cpp
-const*new.double,decimal_point=3.14;
+const*new.double,decimal_point=3.14
 ```
 
 ### `char`
@@ -55,5 +55,5 @@ const*new.double,decimal_point=3.14;
 - Single characters.
 
 ```cpp
-const*new.char,character='6';
+const*new.char,character='6'
 ```

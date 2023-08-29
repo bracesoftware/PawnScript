@@ -18,35 +18,35 @@
 
 Import the component using:
 ```cpp
-using console;
+using console
 ```
 
 ### Form: `cout`
 - Character output.
 
 ```pawn
-console.cout('c');
+console.cout('c')
 ```
 
 ### Form: `cin`
 - Character input. Code execution will not be stopped, only a destination variable in which the RCON input will be stored is set.
 
 ```pawn
-console.cin(destvar); 
+console.cin(destvar)
 ```
 
 ### Form: `println`
 - Text line output.
 
 ```pawn
-console.println("Hello World!");
+console.println("Hello World!")
 ```
 
 ### Form: `inputln`
 - Text line input. Code execution will not be stopped, only a destination variable in which the RCON input will be stored is set.
 
 ```pawn
-console.inputln(destvar);
+console.inputln(destvar)
 ```
 
 ### Form: `rawout`
@@ -54,7 +54,7 @@ console.inputln(destvar);
 - Raw text output.
 
 ```cpp
-console.rawout(RandomTextIg??);
+console.rawout(RandomTextIg??)
 ```
 
 ---------------------------------------------------------------------------------------------------------
@@ -64,25 +64,25 @@ console.rawout(RandomTextIg??);
 
 Import the component using:
 ```cpp
-using system;
+using system
 ```
 
 ### Form: `rem`
 - Comments.
 ```pawn
-system.rem("SOME TEXT");
+system.rem("SOME TEXT")
 ```
 
 ### Form: `arginit`
 - Used to initialize the arguments.
 
 ```cpp
-int*form.arginit_test?playerid&string;
+int arginit_test(num,string) public
 {
-	return,1;
+	return 1
 }
 
-system.arginit(arginit_test,1,"Hello!");
+system.arginit(arginit_test,1,"Hello!")
 ```
 
 ---------------------------------------------------------------------------------------------------------
@@ -108,50 +108,50 @@ extern&struct*public.main;
 
 Import the component using:
 ```cpp
-using files;
+using files
 ```
 
 ### Form: `open_for_write`
 - Opens a file with an intention to write data into it. File is created if it does not exist.
 
 ```cpp
-files.open_for_write("file_name.txt");
+files.open_for_write("file_name.txt")
 ```
 
 ### Form: `open_for_read`
 - Opens a file with an intention to read data from it. File is created if it does not exist.
 
 ```cpp
-files.open_for_read("file_name.txt");
+files.open_for_read("file_name.txt")
 ```
 
 ### Form: `open_for_append`
 - Opens a file with an intention to append data into it. File is created if it does not exist.
 
 ```cpp
-files.open_for_append("file_name.txt");
+files.open_for_append("file_name.txt")
 ```
 
 ### Form: `read`
 - Reads data from the opened file and stores it into a variable.
 
 ```cpp
-new.str,dest_string="something that should change";
-files.read(dest_string);
+new.str,dest_string="something that should change"
+files.read(dest_string)
 ```
 
 ### Form: `write`
 - Writes data into the opened file.
 
 ```cpp
-files.write("wrote this into file_name.txt");
+files.write("wrote this into file_name.txt")
 ```
 
 ### Form: `close`
 - Closes the opened file.
 
 ```cpp
-files.close;
+files.close
 ```
 
 ### Form: `delete`
@@ -159,7 +159,7 @@ files.close;
 - Deletes a certain file.
 
 ```cpp
-files.delete("newfile.omg");
+files.delete("newfile.omg")
 ```
 
 ### Form: `createdir`
@@ -167,7 +167,7 @@ files.delete("newfile.omg");
 - Creates a directory.
 
 ```cpp
-files.createdir("mydir");
+files.createdir("mydir")
 ```
 
 ---------------------------------------------------------------------------------------------------------
@@ -178,14 +178,14 @@ files.createdir("mydir");
 
 Import the component using:
 ```cpp
-using misc;
+using misc
 ```
 
 ### Form: `swap`
 - Swaps two's variable values.
 
 ```pawn
-misc.swap(var1,var2);
+misc.swap(var1,var2)
 ```
 
 **NOTE**: Now variable `var1` will have the value `var2` had, and `var2` will have the value `var1` had.
@@ -198,32 +198,32 @@ misc.swap(var1,var2);
 
 Import the component using:
 ```cpp
-using data;
+using data
 ```
 
 ### Form: `sscanf`
 - Parses and splits a string.
 
 ```cpp
-using data;
+using data
 
-new.str,scanftest1="ok";
-new.str,scanftest2="ok";
-new.str,scanftest3="ok";
-new.str,scanftest4="ok";
-new.int,scanftest5=2453;
-new.int,scanftest6=2453;
+new.str,scanftest1="ok"
+new.str,scanftest2="ok"
+new.str,scanftest3="ok"
+new.str,scanftest4="ok"
+new.int,scanftest5=2453
+new.int,scanftest6=2453
 
-new.str,scanftest="sscanf-is-so-cool-1-2";
+new.str,scanftest="sscanf-is-so-cool-1-2"
 
-data.sscanf(scanftest,scanftest1,scanftest2,scanftest3,scanftest4,scanftest5,scanftest6);
+data.sscanf(scanftest,scanftest1,scanftest2,scanftest3,scanftest4,scanftest5,scanftest6)
 
-console.println.log(scanftest1);
-console.println.log(scanftest2);
-console.println.log(scanftest3);
-console.println.log(scanftest4);
-console.cout(scanftest5);
-console.cout(scanftest6);
+console.println.log(scanftest1)
+console.println.log(scanftest2)
+console.println.log(scanftest3)
+console.println.log(scanftest4)
+console.cout(scanftest5)
+console.cout(scanftest6)
 ```
 
 Output:
@@ -243,8 +243,8 @@ cool
 - Returns a distance between 2 strings.
 
 ```cpp
-data.strdist("hi", "hi") myretref;
-console.println.log("myretref is {myretref}");
+data.strdist("hi", "hi") myretref
+console.println.log("myretref is {myretref}")
 ```
 
 Output:
@@ -264,14 +264,14 @@ Unlike most of the functions, whose return 0 for failed operation and 1 for succ
 
 Import the component using:
 ```cpp
-using pawn;
+using pawn
 ```
 
 ### Form: `callfunction`
 - Calls a public function declared in the running Pawn code.
 
 ```cpp
-pawn.callfunction("public_name");
+pawn.callfunction("public_name")
 ```
 
 ---------------------------------------------------------------------------------
@@ -281,7 +281,7 @@ pawn.callfunction("public_name");
 
 Import the component using:
 ```cpp
-using math;
+using math
 ```
 
 ### Form: `vectorsize`
@@ -289,7 +289,7 @@ using math;
 
 ```cpp
 math.vectorsize(234.1,4211.3,43.3,-43.33,-0.1,-823) myretref; // Pretty random coordinates.
-console.rawout.log(myretref);
+console.rawout.log(myretref)
 ```
 
 Output:

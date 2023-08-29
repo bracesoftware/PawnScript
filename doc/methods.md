@@ -6,22 +6,22 @@
 
 ```cpp
 @method;
-int TestMethod() public;
+int TestMethod() public
 {
-	console.println("Printed: {text@TestMethod}");
-	return.int,1;
+	console.println("Printed: {text@TestMethod}")
+	return int 1
 }
 
-console.println.TestMethod("Method test #1");
+console.println.TestMethod("Method test #1")
 
 
-namespace,MyNameSpace;
+namespace MyNameSpace
 {
-	@method;
-	int TestMethod(text) public;
+	@method
+	int TestMethod(text) public
 	{
-		console.println.log("Printed: {text@MyNameSpace::TestMethod}");
-		return.int,1;
+		console.println.log("Printed: {text@MyNameSpace::TestMethod}")
+		return int 1
 	}
 }
 

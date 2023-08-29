@@ -6,37 +6,37 @@
 
 ```cpp
 
-if.equ,1,1->do;
+if.equ,1,1->do
 {
-	if.notequ,1,2->do;
+	if.notequ,1,2->do
 	{
-		if.equ,1+1,3->console.println.log("Oh my God!");
+		if.equ,1+1,3->console.println.log("Oh my God!")
 	}
 }
-else->if.equ,1,1->do;
+else->if.equ,1,1->do
 {
-	console.println.log("No way this worked!");
-	if.equ,1,1->do;
+	console.println.log("No way this worked!")
+	if.equ,1,1->do
 	{
-		console.println.log("This has also worked...");
-		if.equ,3,7->do;
+		console.println.log("This has also worked...")
+		if.equ,3,7->do
 		{
-			console.println("NOO");
+			console.println("NOO")
 		}
-		else->if.equ,1,1->do;
+		else->if.equ,1,1->do
 		{
-			console.println.log("Oh yeah!");
+			console.println.log("Oh yeah!")
 		}
-		else->do;
+		else->do
 		{
-			console.println.log("So yeah!");
+			console.println.log("So yeah!")
 		}
 	}
 }
-else->if.equ,3,4->console.println.log("How does this even work?");
-else->do;
+else->if.equ,3,4->console.println.log("How does this even work?")
+else->do
 {
-	console.println.log("You should always return a value!");
+	console.println.log("You should always return a value!")
 }
 
 ```
@@ -54,9 +54,9 @@ You should always return a value!
 ## Example `#2`
 
 ```cpp
-do;
+do
 {
-	console.cout(1+1);
+	console.cout(1+1)
 }
 ```
 

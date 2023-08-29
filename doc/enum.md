@@ -5,53 +5,53 @@
 ## Example `#1`
 
 ```cpp
-enum WeekDays;
+enum WeekDays
 {
-	monday;
-	tuesday;
-	thursday;
-	saturday;
+	monday
+	tuesday
+	thursday
+	saturday
 }
 
-console.cout.log(WeekDays.monday);
-console.cout.log(WeekDays.tuesday);
-console.cout.log(WeekDays.thursday);
-console.cout.log(WeekDays.saturday);
+console.cout.log(WeekDays.monday)
+console.cout.log(WeekDays.tuesday)
+console.cout.log(WeekDays.thursday)
+console.cout.log(WeekDays.saturday)
 
-console.println.log("enum test included");
-console.cout.log(WeekDays.saturday+WeekDays.monday);
+console.println.log("enum test included")
+console.cout.log(WeekDays.saturday+WeekDays.monday)
 ```
 
 ## Example `#2`
 
 ```cpp
-enum WeekDays;
+enum WeekDays
 {
-	monday=1;
-	tuesday=2;
-	thursday=3;
-	saturday=4;
+	monday=1
+	tuesday=2
+	thursday=3
+	saturday=4
 }
 
-console.cout.log(WeekDays.monday);
-console.cout.log(WeekDays.tuesday);
-console.cout.log(WeekDays.thursday);
-console.cout.log(WeekDays.saturday);
+console.cout.log(WeekDays.monday)
+console.cout.log(WeekDays.tuesday)
+console.cout.log(WeekDays.thursday)
+console.cout.log(WeekDays.saturday)
 
-console.println.log("enum test included");
-console.cout.log(WeekDays.saturday+WeekDays.monday);
+console.println.log("enum test included")
+console.cout.log(WeekDays.saturday+WeekDays.monday)
 
 
-enum Months;
+enum Months
 {
-	january=5;
-	february=6;
-	december=7;
+	january=5
+	february=6
+	december=7
 }
 
-console.cout.log(Months.january);
-console.cout.log(Months.february-Months.december);
-console.cout.log(Months.january%WeekDays.monday);
+console.cout.log(Months.january)
+console.cout.log(Months.february-Months.december)
+console.cout.log(Months.january%WeekDays.monday)
 
-console.println("Test?");
+console.println("Test?")
 ```

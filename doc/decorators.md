@@ -7,8 +7,8 @@
 - Used to make a hook function.
 
 ```cpp
-@hook;
-void MyTestFunc() public;
+@hook
+void MyTestFunc() public
 {
 }
 ```
@@ -18,12 +18,12 @@ void MyTestFunc() public;
 - Used to make a function method.
 
 ```cpp
-@method;
-void MyTestFunc() public;
+@method
+void MyTestFunc() public
 {
 }
 
-console.println.MyTestFunc(...);
+console.println.MyTestFunc(...)
 ```
 
 ## `@task`
@@ -31,10 +31,10 @@ console.println.MyTestFunc(...);
 - Used to make a timer.
 
 ```cpp
-@task;
-void mytask() public;
+@task
+void mytask() public
 {
-	console.println("Task works!");
+	console.println("Task works!")
 }
 ```
 
@@ -43,11 +43,11 @@ void mytask() public;
 - This keyword is used for modifying decorator parameter values, without a specific order.
 
 ```cpp
-@task;
-	this->interval=1000;
-void mytask() public;
+@task
+	this->interval=1000
+void mytask() public
 {
-	console.println("Task works!");
+	console.println("Task works!")
 }
 ```
 
@@ -56,10 +56,10 @@ Note that this is NOT possible:
 
 ```cpp
 this->interval=1000; // `this` is modifying the arguments of last used decorator
-@task;
-void mytask() public;
+@task
+void mytask() public
 {
-	console.println("Task works!");
+	console.println("Task works!")
 }
 ```
 
@@ -70,11 +70,11 @@ void mytask() public;
 - How much does it take till the timer is (re)called.
 
 ```cpp
-@task;
-	this->interval=1000;
-void mytask() public;
+@task
+	this->interval=1000
+void mytask() public
 {
-	console.println("Task works!");
+	console.println("Task works!")
 }
 ```
 
@@ -85,12 +85,12 @@ void mytask() public;
 - Will the timer recall after being called once?
 
 ```cpp
-@task;
-	this->interval=1000;
-	this->repeat=false;
-void mytask() public;
+@task
+	this->interval=1000
+	this->repeat=false
+void mytask() public
 {
-	console.println("Task works!");
+	console.println("Task works!")
 }
 ```
 
