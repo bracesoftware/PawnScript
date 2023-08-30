@@ -20,12 +20,13 @@ contexts:
     - match: '//'
       scope: punctuation.definition.comment.example-c
       push: line_comment
+
     # Keywords are if, else for and while.
     # Note that blackslashes don't need to be escaped within single quoted
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
     # other.
-    - match: '\b(yield|enum|class|public|inline|namespace|constexpr|const|static|new|int|bool|str|double|char|void|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|user|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|this|interval|repeat)\b'
+    - match: '\b(yield|enum|class|public|inline|namespace|constexpr|const|static|new|int|bool|str|double|char|void|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|interval|repeat)\b'
       scope: keyword.control.example-c
 
     # Numbers
@@ -47,6 +48,12 @@ contexts:
     - match: '='
       scope: keyword.control.example-c
 
+    - match: '>'
+      scope: keyword.control.example-c
+
+    - match: '<'
+      scope: keyword.control.example-c
+
     - match: '<-'
       scope: keyword.control.example-c
 
@@ -55,6 +62,12 @@ contexts:
 
     - match: '\b(console|system|pawn|data|vec|iter|files|math|misc)\b'
       scope: constant.numeric.example-c
+
+    - match: '\b(equ|notequ)\b'
+      scope: variable.annotation.example-c
+
+    - match: '\b(this|user)\b'
+      scope: variable.annotation.example-c
 
     - match: '[\w]+\('
       scope: entity.name.impl.example-c

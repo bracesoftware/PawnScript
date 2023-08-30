@@ -154,6 +154,26 @@ object Obj=testnamespace::testclass
 Obj.testinteger=13
 std::writeln("{Obj.testinteger}")
 
+int MyTaskFuncTest() public 
+{
+	void myinlinefunc() inline
+	<
+		console.println.log("1 is equal to 1")
+	>
+
+	if.equ,1,1->user.myinlinefunc()
+	return bool true
+}
+
+@task
+	this->interval=1000
+void MyTestTask() public
+{
+	user.MyTaskFuncTest()
+}
+
+std::writeln("data.ps still works?")
+
 #include:vars;
 #include:math;
 #include:class;

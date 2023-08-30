@@ -61,12 +61,12 @@ int TestMethod(text) public;
 console.println.TestMethod("Method test #1");
 
 
-namespace MethodClass;
+namespace MethodClass
 {
-	@method;
-	int TestMethod(text) public;
+	@method
+	int TestMethod(text) public
 	{
-		console.println.log("Printed: {text@MethodClass::TestMethod}");
+		console.println.log("Printed: {text@MethodClass::TestMethod}")
 		return int 1
 	}
 }
@@ -98,11 +98,10 @@ void OnPlayerDisconnect(playerid) public;
 	iter.remove(SAMP::Player,playerid@OnPlayerConnect);
 }
 
-@task;
-	this->interval=1000;
-void PrintPlayers() public;
+@task
+	this->interval=1000
+void PrintPlayers() public
 {
-	foreach.int,foreachtestvar,SAMP::Player->console.println("foreach test #4 {foreachtestvar}");
-
+	foreach.int,foreachtestvar,SAMP::Player->console.println("foreach test #4 {foreachtestvar}")
 }
 

@@ -10,10 +10,10 @@
 
 console.println("========================== inline.dpp ==========================");
 
-int InlineTestFunc() public;
+int InlineTestFunc() public
 {
-	static*new.int,formid=__proccessed_form_id;
-	console.println("'InlineTestFunc' is {formid}");
+	static*new.int,formid=__proccessed_form_id
+	console.println("'InlineTestFunc' is {formid}")
 	
 	void inlineformtest() inline
 	<
@@ -21,10 +21,10 @@ int InlineTestFunc() public;
 		console.println.log("The inline finally works!")	
 	>
 
-	user.inlineformtest;
-	user.inlineformtest;
-	user.inlineformtest;
-	user.inlineformtest;
+	user.inlineformtest()
+	user.inlineformtest()
+	user.inlineformtest()
+	user.inlineformtest()
 	return 1
 }
 

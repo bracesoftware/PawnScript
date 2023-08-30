@@ -3746,14 +3746,35 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
                     dpp_clearformstack(dpp_processfunc); 
                     dpp_deletestaticvars();
                     dpp_processfunc = DPP_INVALID_FORM_ID;
-                    return 1;
+
+                    if(dpp_returntype[i] == dpp_rtn_type_int)
+                    {
+                        dpp_internal<return>(dpp_funcreturn_int[i]);
+                    }
+                    if(dpp_returntype[i] == dpp_rtn_type_bool)
+                    {
+                        dpp_internal<bool:return>(dpp_funcreturn_bool[i]);
+                    }
+                    if(dpp_returntype[i] == dpp_rtn_type_str)
+                    {
+                        dpp_internal<string:return>(dpp_funcreturn_str[i]<dpp_buffersize/2>);
+                    }
+                    if(dpp_returntype[i] == dpp_rtn_type_double)
+                    {
+                        dpp_internal<Float:return>(dpp_funcreturn_double[i]);
+                    }
+                    if(dpp_returntype[i] == dpp_rtn_type_char)
+                    {
+                        dpp_internal<char return>(dpp_funcreturn_char[i]);
+                    }
+                    dpp_internal<return>(1);
                 }
             }
         }
         if(dpp_processfunc == DPP_INVALID_FORM_ID)
         {
             dpp_error("Inline forms are meant to be used inside forms.",);
-            return 1;
+            dpp_internal<return>(0);
         }
         for(new i; i < dpp_maxinline; i++)
         {
@@ -3763,13 +3784,12 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
                 {
                     //dpp_warning("#1 Inline: '%s' | Code: '%s'",funcgroup[1],dpp_inlinecodeblock[i]);
                     dpp_subexecute(dpp_inlinecodeblock[i]);
-                    //dpp_warning("#2 Inline: '%s' | Code: '%s'",funcgroup[1],dpp_inlinecodeblock[i]);
-                    return 1;
+                    dpp_internal<return>(1);
                 }
             }
         }
         dpp_error("Form \"%s\" isn't registered.", funcgroup[1]);
-        return 0;
+        dpp_internal<return>(0);
     }
     return 0;
 }
