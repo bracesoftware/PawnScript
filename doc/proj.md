@@ -19,3 +19,11 @@ stack_output=true
 ```ini
 stack_output=false
 ```
+
+## `proj_vers`
+
+Using this option, you can specify the version of your project.
+For example:
+```ini
+proj_vers=1.0
+```

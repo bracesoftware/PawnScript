@@ -569,6 +569,7 @@ stock dpp_execute(const script[])
 {
     dpp_prepareproject("config.psproj");
     dpp_print("Executing project: '%s'",dpp_projname);
+    dpp_print("Project version: '%s'",dpp_projvers);
     new content[16000];
     format(content,sizeof content, "\t");
     /*print("                                        ");

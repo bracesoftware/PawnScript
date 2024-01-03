@@ -363,6 +363,7 @@ new dpp_fhandleused = 0;
 
 new dpp_projname[128];
 new dpp_stackoutput = 0;
+new dpp_projvers[128];
 //-----------------------------------------------------------
 // process cache
 
