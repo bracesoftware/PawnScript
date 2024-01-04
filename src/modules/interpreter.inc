@@ -24,6 +24,7 @@ new varsetgroup[2][64];
 
 stock dpp_process(line[])
 {
+    dpp_speedhz = dpp_speedhz + 1;
     #if DPP_LOGPROCESSES == 1
     if(dpp_processfunc != dpp_lastvalueprcfunc)
     {

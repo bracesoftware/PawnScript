@@ -776,7 +776,12 @@ stock dpp_argsystemval(arg[])
     {
         format(newvalue, sizeof newvalue, "%i", DPP_VERSION_BETA);
         strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
-    }    
+    }
+    if(!strcmp(arg, "__procspeed"))
+    {
+        format(newvalue, sizeof newvalue, "%i", dpp_speedhz);
+        strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
+    }
     return 1;
 }
 ////////////////

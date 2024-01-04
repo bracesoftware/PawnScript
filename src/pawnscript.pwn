@@ -81,6 +81,11 @@ native fcreatedir(const filename[]);
 #include "components/vector.inc"
 //-----------------------------------------------------------
 
+dpp_resspeedhz(); public dpp_resspeedhz()
+{
+    dpp_speedhz = 0;
+    return 1;
+}
 
 dpp_main(); public dpp_main()
 {
@@ -89,6 +94,8 @@ dpp_main(); public dpp_main()
     dpp_nullcomment();
     dpp_compile("index"SCRIPT_EXT);
     SetTimer("main_again", 3000, false);
+    SetTimer("dpp_resspeedhz",1000,true);
+    
     return 1;   
 }
 

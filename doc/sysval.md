@@ -42,3 +42,22 @@ Return type: `int`
 Return type: `int`
 
 - Returns 1 if the build is beta and 0 if the build is stable.
+
+
+## `__procspeed`
+
+Return type: `int`
+
+- Returns the current process execution speed (how many times was the interpreter core function called in this second) in hertz.
+
+
+```cpp
+@task
+	this->interval=1000
+void supercooltask() public
+{
+	new.int,process_speed=__procspeed
+	console.println.log("Process execution speed: {process_speed} Hz")
+	#undef:process_speed
+}
+```
