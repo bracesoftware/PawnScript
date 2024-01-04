@@ -26,6 +26,15 @@ void anothersexytask() public;
 	samp.SendClientMessage(0,0,"Test client message");
 }
 
+@task
+	this->interval=1000
+void supercooltask() public
+{
+	new.int,process_speed=__procspeed
+	console.println.log("Process execution speed: {process_speed} Hz")
+	#undef:process_speed
+}
+
 extern&struct*public.OnPlayerConnect?playerid;
 {
 	samp.SendClientMessage(playerid@OnPlayerConnect,0,"Welcome to the D++ server");
