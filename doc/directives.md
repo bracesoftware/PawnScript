@@ -307,7 +307,7 @@ new.int,var=1
 #emit:sctrl,1 
 // Set that cell id.
 #emit:push 
-// Push that address to the stack.
+// Push that address to the stack (kind of manual 'addrset').
 #emit:csnm,temporaryvar 
 // Name it that because it's name is not in the stack, so we will pop it later.
 #emit:dtyp,1 
@@ -317,13 +317,15 @@ new.int,var=1
 std::writeln("temporaryvar is {temporaryvar}") 
 // Print the value
 #emit:pop 
-// Invalidate the current address.
+// Invalidate the current address (free up the cell id we occupied).
 // Optional: Reset the registers.
 #emit:zero.pri
 #emit:zero.alt
 std::writeln("temporaryvar is {temporaryvar}") 
 // We will see "temporaryvar is null"
 ```
+
+NOTE:	We have to use the `pop` at the end to free up the cell we occupied, and to avoid some memory collisions because the name we set using `csnm` is not pushed to the variable name stack which controls all the symbol names registered in the memory. Without having the name in the name stack, we could just do `new.int,temporaryvar=0` even before the `pop` and not receive any errors - but then we would not know which value would we be using, the one set with `vlset` or `new.int,...`? It all depends on the stack order!
 
 ### `inc.alt`
 
