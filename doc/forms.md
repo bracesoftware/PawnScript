@@ -35,7 +35,8 @@ You also may return values.
 str funcname() public
 {
 	console.println("my first user functions")
-	return,"this was returned"
+	static*new.str,return_str="this was returned"
+	return return_str
 }
 ```
 
@@ -45,7 +46,8 @@ Then you can use this user function as an argument in a native function.
 str funcname() public
 {
 	console.println("my first user functions")
-	return,"this was returned"
+	static*new.str,return_str="this was returned"
+	return return_str
 }
 
 console.println(funcname)

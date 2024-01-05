@@ -299,3 +299,17 @@ Output:
 
 #### Returns
 This function is also one of those which have a specific return value, 0.0 is returned if the operation has failed or if the distance is REALLY just zero, and a specific `double` number will be returned if the operation is executed successfully.
+
+---------------------------------------------------------------------------------------------------------
+
+## Component: `iter`
+- Iterator-related functions.
+
+For further information, check the data structure and `foreach` documentation.
+
+---------------------------------------------------------------------------------------------------------
+
+## Component: `vec`
+- Vector-related functions.
+
+For further information, check the data structure and `foreach` documentation.
