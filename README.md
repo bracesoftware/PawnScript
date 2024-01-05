@@ -47,7 +47,7 @@
 - [Namespaces](doc/namespace.md)
 - [Passing arguments to user functions](doc/userargs.md)
 - [Persistent data management](doc/persistent.md)
-- [`return` and `yield&return`](doc/return.md)
+- [`return`](doc/return.md)
 - [System values](doc/sysval.md)
 - [Tasks](doc/tasks.md)
 - [Function structure types](doc/struct.md)

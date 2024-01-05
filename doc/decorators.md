@@ -38,6 +38,10 @@ void mytask() public
 }
 ```
 
+## `@yield`
+
+Check the return documentation.
+
 # `this` keyword
 
 - This keyword is used for modifying decorator parameter values, without a specific order.

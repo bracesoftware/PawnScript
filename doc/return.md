@@ -19,22 +19,30 @@ system.rem("Thing above will print 1")
 ```
 
 
-### `yield&return`
+### `@yield` decorator
 
-- `yield` return will do the same thing as a normal return, the difference is that the code block won't stop being executed until `};` or `return..,..;`.
+- Using the `@yield` decorator before the return statement does not stop the code block from executing after returning a specific value. Example:
 
 ```cpp
-int MyForm() public
+str func() public
 {
-	console.println("Hello World")
-	yield&return,1
-	console.println("This code will be executed too")
+	console.println("Print 1")
+	static*new.str,returnstr="Print 2"
+	@yield
+	return returnstr
+	if.notequ,1,1->return "Print OOPS"
+	console.println("Print 3")
 }
 
-console.cout(MyForm);
-system.rem("Thing above will print 1")
+console.println(func)
 ```
 
+Output:
+```
+Print 1
+Print 3
+Print 2
+```
 
 ## Return types
 
