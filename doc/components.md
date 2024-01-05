@@ -85,6 +85,20 @@ int arginit_test(num,string) public
 system.arginit(arginit_test,1,"Hello!")
 ```
 
+### Form: `ver`
+- Prints out the system version information.
+
+```cpp
+system.ver()
+```
+
+Output:
+
+```
+ 	PawnScript   1.0.8-R2	Brace Inc.
+ 	Pawn         3.10.11	ITB CompuPhase
+```
+
 ---------------------------------------------------------------------------------------------------------
 
 ### Automated user form: `main`
