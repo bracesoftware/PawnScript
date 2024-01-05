@@ -665,6 +665,11 @@ stock dpp_process(line[])
         dpp_lastdeco = dpp_deco_task;
         return 1;
     }
+    if(!strcmp(funcgroup[0], "@yield"))
+    {
+        dpp_lastdeco = dpp_deco_yield;
+        return 1;
+    }
 
     ///////////////////////////////////////////////////////
     ////
@@ -3003,6 +3008,15 @@ stock dpp_process(line[])
 
             new int_return = strval(tokengroup[2]);
 
+            if(dpp_lastdeco == dpp_deco_yield)
+            {
+                dpp_returntype[dpp_processfunc] = dpp_rtn_type_int;
+                dpp_funcreturn_int[dpp_processfunc] = int_return;
+
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
+
             dpp_returned[dpp_processfunc] = 1;
             dpp_returntype[dpp_processfunc] = dpp_rtn_type_int;
             dpp_funcreturn_int[dpp_processfunc] = int_return;
@@ -3016,6 +3030,14 @@ stock dpp_process(line[])
             CallLocalFunction("dpp_parsearg", "si", tokengroup[2], 0);
             if(!strcmp(tokengroup[2], "true"))
             {
+                if(dpp_lastdeco == dpp_deco_yield)
+                {
+                    dpp_returntype[dpp_processfunc] = dpp_rtn_type_bool;
+                    dpp_funcreturn_bool[dpp_processfunc] = 1;
+                    
+                    dpp_lastdeco = dpp_deco_invalid;
+                    return 1;
+                }
                 dpp_returned[dpp_processfunc] = 1;
                 dpp_returntype[dpp_processfunc] = dpp_rtn_type_bool;
                 dpp_funcreturn_bool[dpp_processfunc] = 1;
@@ -3026,6 +3048,14 @@ stock dpp_process(line[])
             }
             if(!strcmp(tokengroup[2], "false"))
             {
+                if(dpp_lastdeco == dpp_deco_yield)
+                {
+                    dpp_returntype[dpp_processfunc] = dpp_rtn_type_bool;
+                    dpp_funcreturn_bool[dpp_processfunc] = 0;
+                    
+                    dpp_lastdeco = dpp_deco_invalid;
+                    return 1;
+                }
                 dpp_returned[dpp_processfunc] = 1;
                 dpp_returntype[dpp_processfunc] = dpp_rtn_type_bool;
                 dpp_funcreturn_bool[dpp_processfunc] = 0;
@@ -3060,6 +3090,16 @@ stock dpp_process(line[])
                 return 0;
             }
 
+            if(dpp_lastdeco == dpp_deco_yield)
+            {
+                dpp_returntype[dpp_processfunc] = dpp_rtn_type_str;
+                strmid(dpp_funcreturn_str[dpp_processfunc],tokengroup[2],0,
+                dpp_argcharsize,dpp_argcharsize);
+                
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
+
             dpp_returned[dpp_processfunc] = 1;
             dpp_returntype[dpp_processfunc] = dpp_rtn_type_str;
             strmid(dpp_funcreturn_str[dpp_processfunc],tokengroup[2],0,
@@ -3081,6 +3121,15 @@ stock dpp_process(line[])
             }
 
             new Float:double_return = floatstr(tokengroup[2]);
+
+            if(dpp_lastdeco == dpp_deco_yield)
+            {
+                dpp_returntype[dpp_processfunc] = dpp_rtn_type_double;
+                dpp_funcreturn_double[dpp_processfunc] = double_return;
+                
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
 
             dpp_returned[dpp_processfunc] = 1;
             dpp_returntype[dpp_processfunc] = dpp_rtn_type_double;
@@ -3109,11 +3158,20 @@ stock dpp_process(line[])
                 return 0;
             }
 
-            new double_return = tokengroup[2][0];
+            new char_return = tokengroup[2][0];
+
+            if(dpp_lastdeco == dpp_deco_yield)
+            {
+                dpp_returntype[dpp_processfunc] = dpp_rtn_type_char;
+                dpp_funcreturn_char[dpp_processfunc] = char_return;
+                
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
 
             dpp_returned[dpp_processfunc] = 1;
             dpp_returntype[dpp_processfunc] = dpp_rtn_type_char;
-            dpp_funcreturn_char[dpp_processfunc] = double_return;
+            dpp_funcreturn_char[dpp_processfunc] = char_return;
 
             dpp_processfunc = DPP_INVALID_FORM_ID;
             dpp_sysreturned = 1;
@@ -3136,6 +3194,15 @@ stock dpp_process(line[])
 
             new int_return = strval(tokengroup[1]);
 
+            if(dpp_lastdeco == dpp_deco_yield)
+            {
+                dpp_returntype[dpp_processfunc] = dpp_rtn_type_int;
+                dpp_funcreturn_int[dpp_processfunc] = int_return;
+                
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
+
             dpp_returned[dpp_processfunc] = 1;
             dpp_returntype[dpp_processfunc] = dpp_rtn_type_int;
             dpp_funcreturn_int[dpp_processfunc] = int_return;
@@ -3148,6 +3215,14 @@ stock dpp_process(line[])
         {
             if(!strcmp(tokengroup[1], "true"))
             {
+                if(dpp_lastdeco == dpp_deco_yield)
+                {
+                    dpp_returntype[dpp_processfunc] = dpp_rtn_type_bool;
+                    dpp_funcreturn_bool[dpp_processfunc] = 1;
+                    
+                    dpp_lastdeco = dpp_deco_invalid;
+                    return 1;
+                }
                 dpp_returned[dpp_processfunc] = 1;
                 dpp_returntype[dpp_processfunc] = dpp_rtn_type_bool;
                 dpp_funcreturn_bool[dpp_processfunc] = 1;
@@ -3158,6 +3233,14 @@ stock dpp_process(line[])
             }
             if(!strcmp(tokengroup[1], "false"))
             {
+                if(dpp_lastdeco == dpp_deco_yield)
+                {
+                    dpp_returntype[dpp_processfunc] = dpp_rtn_type_bool;
+                    dpp_funcreturn_bool[dpp_processfunc] = 0;
+                    
+                    dpp_lastdeco = dpp_deco_invalid;
+                    return 1;
+                }
                 dpp_returned[dpp_processfunc] = 1;
                 dpp_returntype[dpp_processfunc] = dpp_rtn_type_bool;
                 dpp_funcreturn_bool[dpp_processfunc] = 0;
@@ -3191,6 +3274,16 @@ stock dpp_process(line[])
                 return 0;
             }
 
+            if(dpp_lastdeco == dpp_deco_yield)
+            {
+                dpp_returntype[dpp_processfunc] = dpp_rtn_type_str;
+                strmid(dpp_funcreturn_str[dpp_processfunc],tokengroup[1],0,
+                dpp_argcharsize,dpp_argcharsize);
+                
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
+
             dpp_returned[dpp_processfunc] = 1;
             dpp_returntype[dpp_processfunc] = dpp_rtn_type_str;
             strmid(dpp_funcreturn_str[dpp_processfunc],tokengroup[1],0,
@@ -3205,6 +3298,15 @@ stock dpp_process(line[])
         if(dpp_returntype[dpp_processfunc] == dpp_rtn_type_double)
         {
             new Float:double_return = floatstr(tokengroup[1]);
+
+            if(dpp_lastdeco == dpp_deco_yield)
+            {
+                dpp_returntype[dpp_processfunc] = dpp_rtn_type_double;
+                dpp_funcreturn_double[dpp_processfunc] = double_return;
+                
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
 
             dpp_returned[dpp_processfunc] = 1;
             dpp_returntype[dpp_processfunc] = dpp_rtn_type_double;
@@ -3232,11 +3334,20 @@ stock dpp_process(line[])
                 return 0;
             }
 
-            new double_return = tokengroup[1][0];
+            new char_return = tokengroup[1][0];
+
+            if(dpp_lastdeco == dpp_deco_yield)
+            {
+                dpp_returntype[dpp_processfunc] = dpp_rtn_type_char;
+                dpp_funcreturn_char[dpp_processfunc] = char_return;
+                
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
 
             dpp_returned[dpp_processfunc] = 1;
             dpp_returntype[dpp_processfunc] = dpp_rtn_type_char;
-            dpp_funcreturn_char[dpp_processfunc] = double_return;
+            dpp_funcreturn_char[dpp_processfunc] = char_return;
 
             dpp_processfunc = DPP_INVALID_FORM_ID;
             dpp_sysreturned = 1;
@@ -3268,7 +3379,7 @@ stock dpp_process(line[])
     ////
     ///////////////////////////////////////////////////////
 
-    if(!strcmp(funcgroup[0], "yield&return"))
+    /*if(!strcmp(funcgroup[0], "yield&return"))
     {
         if(dpp_processfunc == DPP_INVALID_FORM_ID)
         {
@@ -3522,7 +3633,7 @@ stock dpp_process(line[])
             dpp_error("Unknown return type \"%s\".", funcgroup[1]);
         }
         return 1;
-    }
+    }*/
 
     ///////////////////////////////////////////////////////
     ////

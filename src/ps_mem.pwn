@@ -31,7 +31,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define DPP_VERSION_MAJOR 1
 #define DPP_VERSION_MINOR 0
 #define DPP_VERSION_PATCH 8
-#define DPP_VERSION_RELEASE 1
+#define DPP_VERSION_RELEASE 2
 #define DPP_CELLMAX 8
 
 #define DPP_VERSION_BETA 0
@@ -158,6 +158,7 @@ new dpp_switchedvar;
 #define dpp_deco_hook 1
 #define dpp_deco_method 2
 #define dpp_deco_task 3
+#define dpp_deco_yield 4
 new dpp_lastdeco = dpp_deco_invalid;
 //-----------------------------------------------------------
 // PREDEFINES

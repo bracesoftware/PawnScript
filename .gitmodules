@@ -1,6 +1,3 @@
-[submodule "samp-stdlib"]
-	path = samp-stdlib
-	url = https://github.com/pawn-lang/samp-stdlib
-[submodule "pawn-stdlib"]
-	path = pawn-stdlib
-	url = https://github.com/pawn-lang/pawn-stdlib
+[submodule "omp-stdlib"]
+	path = omp-stdlib
+	url = https://github.com/openmultiplayer/omp-stdlib
