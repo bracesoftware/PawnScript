@@ -14436,4 +14436,728 @@
  4:1:2024 | 13:29:42 @ >> [PawnScript] | LOG: 1 is equal to 1
  4:1:2024 | 13:29:42 @ >> [PawnScript] | LOG: 4
  4:1:2024 | 13:29:42 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 4:1:2024 | 16:22:42 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 4:1:2024 | 16:22:43 @ >> [PawnScript] | LOG: OMG actually works
+ 4:1:2024 | 16:22:43 @ >> [PawnScript] | LOG: ==========================================
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: Hey
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 'c'
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 1==1: 1
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 1!=1: 0
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 1>=1: 1
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 1<=2: 1
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 1<2: 1
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 1>2: 0
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 1
+ 4:1:2024 | 16:22:44 @ >> [PawnScript] | LOG: 1
+ 4:1:2024 | 16:22:45 @ >> [PawnScript] | LOG: 1
+ 4:1:2024 | 16:22:45 @ >> [PawnScript] | LOG: 0
+ 4:1:2024 | 16:22:45 @ >> [PawnScript] | LOG: 1
+ 4:1:2024 | 16:22:45 @ >> [PawnScript] | LOG: 13
+ 4:1:2024 | 16:22:45 @ >> [PawnScript] | LOG: data.ps still works?
+ 4:1:2024 | 16:22:47 @ >> [PawnScript] | LOG: Stack Works!
+ 4:1:2024 | 16:22:52 @ >> [PawnScript] | LOG: 2 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:52 @ >> [PawnScript] | LOG: 3 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:53 @ >> [PawnScript] | LOG: 4 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:53 @ >> [PawnScript] | LOG: 5 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:53 @ >> [PawnScript] | LOG: 6 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:53 @ >> [PawnScript] | LOG: 7 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:53 @ >> [PawnScript] | LOG: 8 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:54 @ >> [PawnScript] | LOG: 9 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:54 @ >> [PawnScript] | LOG: 10 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:54 @ >> [PawnScript] | LOG: 11 eeeeeeeeeeeeeeeeee
+ 4:1:2024 | 16:22:54 @ >> [PawnScript] | LOG: This is still runnin right? 11
+ 4:1:2024 | 16:22:55 @ >> [PawnScript] | LOG: The inline finally works!
+ 4:1:2024 | 16:22:55 @ >> [PawnScript] | LOG: The inline finally works!
+ 4:1:2024 | 16:22:55 @ >> [PawnScript] | LOG: The inline finally works!
+ 4:1:2024 | 16:22:55 @ >> [PawnScript] | LOG: The inline finally works!
+ 4:1:2024 | 16:22:55 @ >> [PawnScript] | LOG: LMAO WHAT IS THIS 
+ 4:1:2024 | 16:22:55 @ >> [PawnScript] | LOG: The inline finally works!
+ 4:1:2024 | 16:22:55 @ >> [PawnScript] | LOG: The inline finally works!
+ 4:1:2024 | 16:22:56 @ >> [PawnScript] | LOG: The inline finally works!
+ 4:1:2024 | 16:22:56 @ >> [PawnScript] | LOG: The inline finally works!
+ 4:1:2024 | 16:22:56 @ >> [PawnScript] | LOG: Tasks are working ig
+ 4:1:2024 | 16:23:1 @ >> [PawnScript] | LOG: 100
+ 4:1:2024 | 16:23:1 @ >> [PawnScript] | LOG: This should be in dpp.log in scriptfiles/
+ 4:1:2024 | 16:23:2 @ >> [PawnScript] | LOG: Printed: Method test #2
+ 4:1:2024 | 16:23:2 @ >> [PawnScript] | LOG: 1
+ 4:1:2024 | 16:23:2 @ >> [PawnScript] | LOG: 2
+ 4:1:2024 | 16:23:2 @ >> [PawnScript] | LOG: 3
+ 4:1:2024 | 16:23:2 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:2 @ >> [PawnScript] | LOG: enum test included
+ 4:1:2024 | 16:23:2 @ >> [PawnScript] | LOG: 5
+ 4:1:2024 | 16:23:2 @ >> [PawnScript] | LOG: 5
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: -1
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: 0
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: LOCAL DEBUG: Tried to print the static var
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: Static works here
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static var
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: LOCAL DEBUG: Called statictest for the first time
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static again
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: Static works here
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static var
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: LOCAL DEBUG: Called statictest for the second time
+ 4:1:2024 | 16:23:3 @ >> [PawnScript] | LOG: Imported 364
+ 4:1:2024 | 16:23:4 @ >> [PawnScript] | LOG: Imported true
+ 4:1:2024 | 16:23:4 @ >> [PawnScript] | LOG: Imported Hello World
+ 4:1:2024 | 16:23:4 @ >> [PawnScript] | LOG: Imported 0.363999
+ 4:1:2024 | 16:23:4 @ >> [PawnScript] | LOG: Imported 'D'
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: 827346
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: 364.234008
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: #1 827346 & 364.234008
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: 9376216
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: 314.159271
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: #2 9376216 & 314.159271
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: 100000
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: 21.763599
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: #3 100000 & 21.763599 & false
+ 4:1:2024 | 16:23:5 @ >> [PawnScript] | LOG: tagtestinteger has the MyNewTag!
+ 4:1:2024 | 16:23:6 @ >> [PawnScript] | LOG: 23746
+ 4:1:2024 | 16:23:6 @ >> [PawnScript] | LOG: true
+ 4:1:2024 | 16:23:6 @ >> [PawnScript] | LOG: #emit works!
+ 4:1:2024 | 16:23:6 @ >> [PawnScript] | LOG: 23.746000
+ 4:1:2024 | 16:23:6 @ >> [PawnScript] | LOG: 'K'
+ 4:1:2024 | 16:23:6 @ >> [PawnScript] | LOG: 'Z'
+ 4:1:2024 | 16:23:6 @ >> [PawnScript] | LOG: 364
+ 4:1:2024 | 16:23:7 @ >> [PawnScript] | LOG: No way this worked!
+ 4:1:2024 | 16:23:8 @ >> [PawnScript] | LOG: This has also worked...
+ 4:1:2024 | 16:23:8 @ >> [PawnScript] | LOG: Oh yeah!
+ 4:1:2024 | 16:23:8 @ >> [PawnScript] | LOG: So yeah!
+ 4:1:2024 | 16:23:8 @ >> [PawnScript] | LOG: You should always return a value!
+ 4:1:2024 | 16:23:8 @ >> [PawnScript] | LOG: This was again expected!
+ 4:1:2024 | 16:23:8 @ >> [PawnScript] | LOG: My namespace function works!
+ 4:1:2024 | 16:23:9 @ >> [PawnScript] | LOG: Hello World!
+ 4:1:2024 | 16:23:9 @ >> [PawnScript] | LOG: Try works!
+ 4:1:2024 | 16:23:14 @ >> [PawnScript] | LOG: Hello World again
+ 4:1:2024 | 16:23:14 @ >> [PawnScript] | LOG: 'j'
+ 4:1:2024 | 16:23:14 @ >> [PawnScript] | LOG: Hey
+ 4:1:2024 | 16:23:14 @ >> [PawnScript] | LOG: Lmao
+ 4:1:2024 | 16:23:14 @ >> [PawnScript] | LOG: 23
+ 4:1:2024 | 16:23:14 @ >> [PawnScript] | LOG: 0
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: 23243
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: true
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: std::string works
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: 23.243000
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: 4323.243164
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: 's'
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: 74
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: mytesttypedefint is 0
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: 4308.519042
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: LMAO
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: This actually works!
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: vector.ps loaded
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: vector test #1 1
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: vector test #1 312
+ 4:1:2024 | 16:23:15 @ >> [PawnScript] | LOG: vector test #1 2
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: vector test #2 1
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: vector test #2 2
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: vector test #3 24
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: vector test #3 31
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: vector test #3 29
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: vector test #4 31
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: vector test #4 29
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: 11
+ 4:1:2024 | 16:23:16 @ >> [PawnScript] | LOG: temporaryvar is 300
+ 4:1:2024 | 16:23:17 @ >> [PawnScript] | LOG: temporaryvar is null
+ 4:1:2024 | 16:23:17 @ >> [PawnScript] | LOG: Test?
+ 4:1:2024 | 16:23:18 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:18 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:18 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 4:1:2024 | 16:23:18 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:18 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:18 @ >> [PawnScript] | LOG: Hi
+ 4:1:2024 | 16:23:19 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:19 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:19 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 4:1:2024 | 16:23:19 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:19 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:20 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:20 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:20 @ >> [PawnScript] | LOG: Process execution speed: 5127 Hz
+ 4:1:2024 | 16:23:20 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:20 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:21 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:21 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:21 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 4:1:2024 | 16:23:21 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:21 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:22 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:22 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:22 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 4:1:2024 | 16:23:22 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:22 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:23 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:23 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:23 @ >> [PawnScript] | LOG: Process execution speed: 5127 Hz
+ 4:1:2024 | 16:23:23 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:23 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:24 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:24 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:24 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 4:1:2024 | 16:23:24 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:24 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:25 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:25 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:25 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 4:1:2024 | 16:23:25 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:25 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:26 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:26 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:26 @ >> [PawnScript] | LOG: Process execution speed: 5127 Hz
+ 4:1:2024 | 16:23:26 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:26 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:27 @ >> [PawnScript] | LOG: nonrepeatingtimer works!
+ 4:1:2024 | 16:23:27 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:27 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:27 @ >> [PawnScript] | LOG: Process execution speed: 5127 Hz
+ 4:1:2024 | 16:23:27 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:27 @ >> [PawnScript] | LOG: My value is null
+ 4:1:2024 | 16:23:28 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 4:1:2024 | 16:23:28 @ >> [PawnScript] | LOG: 4
+ 4:1:2024 | 16:23:28 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 4:1:2024 | 16:23:28 @ >> [PawnScript] | LOG: My value is 3493
+ 4:1:2024 | 16:23:28 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:5:21 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 18:5:22 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 18:5:22 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 18:5:23 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 18:5:23 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 18:5:23 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 18:5:23 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 18:5:23 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 18:5:23 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 18:5:24 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 18:5:26 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 18:5:32 @ >> [PawnScript] | LOG: 2 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:32 @ >> [PawnScript] | LOG: 3 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:32 @ >> [PawnScript] | LOG: 4 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:32 @ >> [PawnScript] | LOG: 5 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:32 @ >> [PawnScript] | LOG: 6 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:33 @ >> [PawnScript] | LOG: 7 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:33 @ >> [PawnScript] | LOG: 8 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:33 @ >> [PawnScript] | LOG: 9 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:33 @ >> [PawnScript] | LOG: 10 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:33 @ >> [PawnScript] | LOG: 11 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:5:34 @ >> [PawnScript] | LOG: This is still runnin right? 11
+ 5:1:2024 | 18:5:34 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:5:34 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:5:34 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:5:34 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:5:34 @ >> [PawnScript] | LOG: LMAO WHAT IS THIS 
+ 5:1:2024 | 18:5:35 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:5:35 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:5:35 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:5:35 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:5:36 @ >> [PawnScript] | LOG: Tasks are working ig
+ 5:1:2024 | 18:5:40 @ >> [PawnScript] | LOG: 100
+ 5:1:2024 | 18:5:41 @ >> [PawnScript] | LOG: This should be in dpp.log in scriptfiles/
+ 5:1:2024 | 18:5:41 @ >> [PawnScript] | LOG: Printed: Method test #2
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: 2
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: 3
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: enum test included
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: 5
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: 5
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: -1
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: LOCAL DEBUG: Tried to print the static var
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: Static works here
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static var
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: LOCAL DEBUG: Called statictest for the first time
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static again
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: Static works here
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static var
+ 5:1:2024 | 18:5:42 @ >> [PawnScript] | LOG: LOCAL DEBUG: Called statictest for the second time
+ 5:1:2024 | 18:5:43 @ >> [PawnScript] | LOG: Imported 364
+ 5:1:2024 | 18:5:43 @ >> [PawnScript] | LOG: Imported true
+ 5:1:2024 | 18:5:43 @ >> [PawnScript] | LOG: Imported Hello World
+ 5:1:2024 | 18:5:43 @ >> [PawnScript] | LOG: Imported 0.363999
+ 5:1:2024 | 18:5:43 @ >> [PawnScript] | LOG: Imported 'D'
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: 827346
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: 364.234008
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: #1 827346 & 364.234008
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: 9376216
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: 314.159271
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: #2 9376216 & 314.159271
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: 100000
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: 21.763599
+ 5:1:2024 | 18:5:44 @ >> [PawnScript] | LOG: #3 100000 & 21.763599 & false
+ 5:1:2024 | 18:5:45 @ >> [PawnScript] | LOG: tagtestinteger has the MyNewTag!
+ 5:1:2024 | 18:5:45 @ >> [PawnScript] | LOG: 23746
+ 5:1:2024 | 18:5:45 @ >> [PawnScript] | LOG: true
+ 5:1:2024 | 18:5:45 @ >> [PawnScript] | LOG: #emit works!
+ 5:1:2024 | 18:5:45 @ >> [PawnScript] | LOG: 23.746000
+ 5:1:2024 | 18:5:45 @ >> [PawnScript] | LOG: 'K'
+ 5:1:2024 | 18:5:46 @ >> [PawnScript] | LOG: 'Z'
+ 5:1:2024 | 18:5:46 @ >> [PawnScript] | LOG: 364
+ 5:1:2024 | 18:5:47 @ >> [PawnScript] | LOG: No way this worked!
+ 5:1:2024 | 18:5:47 @ >> [PawnScript] | LOG: This has also worked...
+ 5:1:2024 | 18:5:47 @ >> [PawnScript] | LOG: Oh yeah!
+ 5:1:2024 | 18:5:47 @ >> [PawnScript] | LOG: So yeah!
+ 5:1:2024 | 18:5:47 @ >> [PawnScript] | LOG: You should always return a value!
+ 5:1:2024 | 18:5:47 @ >> [PawnScript] | LOG: This was again expected!
+ 5:1:2024 | 18:5:48 @ >> [PawnScript] | LOG: My namespace function works!
+ 5:1:2024 | 18:5:48 @ >> [PawnScript] | LOG: Hello World!
+ 5:1:2024 | 18:5:48 @ >> [PawnScript] | LOG: Try works!
+ 5:1:2024 | 18:5:53 @ >> [PawnScript] | LOG: Hello World again
+ 5:1:2024 | 18:5:53 @ >> [PawnScript] | LOG: 'j'
+ 5:1:2024 | 18:5:53 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 18:5:53 @ >> [PawnScript] | LOG: Lmao
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: 23
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: 23243
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: true
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: std::string works
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: 23.243000
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: 4323.243164
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: 's'
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: 74
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: mytesttypedefint is 0
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: 4308.519042
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: LMAO
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: This actually works!
+ 5:1:2024 | 18:5:54 @ >> [PawnScript] | LOG: vector.ps loaded
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #1 1
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #1 312
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #1 2
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #2 1
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #2 2
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #3 24
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #3 31
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #3 29
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #4 31
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: vector test #4 29
+ 5:1:2024 | 18:5:55 @ >> [PawnScript] | LOG: 11
+ 5:1:2024 | 18:5:56 @ >> [PawnScript] | LOG: temporaryvar is 300
+ 5:1:2024 | 18:5:56 @ >> [PawnScript] | LOG: temporaryvar is null
+ 5:1:2024 | 18:5:56 @ >> [PawnScript] | LOG: Test?
+ 5:1:2024 | 18:5:57 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:5:57 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:5:57 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:5:57 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:5:57 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:5:58 @ >> [PawnScript] | LOG: Hi
+ 5:1:2024 | 18:5:58 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:5:58 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:5:58 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:5:58 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:5:58 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:5:59 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:5:59 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:5:59 @ >> [PawnScript] | LOG: Process execution speed: 5127 Hz
+ 5:1:2024 | 18:5:59 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:5:59 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:6:0 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:6:0 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:6:0 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:6:0 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:6:0 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:6:1 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:6:1 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:6:1 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:6:1 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:6:1 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:6:2 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:6:2 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:6:2 @ >> [PawnScript] | LOG: Process execution speed: 5127 Hz
+ 5:1:2024 | 18:6:2 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:6:2 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:6:3 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:6:3 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:6:3 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:6:3 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:6:3 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:7:54 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 18:7:55 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 18:7:55 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 18:7:56 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 18:7:56 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 18:7:57 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:7:58 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 18:7:58 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 18:8:0 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 18:8:5 @ >> [PawnScript] | LOG: 2 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:5 @ >> [PawnScript] | LOG: 3 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:5 @ >> [PawnScript] | LOG: 4 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:5 @ >> [PawnScript] | LOG: 5 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:6 @ >> [PawnScript] | LOG: 6 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:6 @ >> [PawnScript] | LOG: 7 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:6 @ >> [PawnScript] | LOG: 8 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:6 @ >> [PawnScript] | LOG: 9 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:6 @ >> [PawnScript] | LOG: 10 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:7 @ >> [PawnScript] | LOG: 11 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 18:8:7 @ >> [PawnScript] | LOG: This is still runnin right? 11
+ 5:1:2024 | 18:8:7 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:8:7 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:8:8 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:8:8 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:8:8 @ >> [PawnScript] | LOG: LMAO WHAT IS THIS 
+ 5:1:2024 | 18:8:8 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:8:8 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:8:8 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:8:8 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 18:8:9 @ >> [PawnScript] | LOG: Tasks are working ig
+ 5:1:2024 | 18:8:13 @ >> [PawnScript] | LOG: 100
+ 5:1:2024 | 18:8:14 @ >> [PawnScript] | LOG: This should be in dpp.log in scriptfiles/
+ 5:1:2024 | 18:8:14 @ >> [PawnScript] | LOG: Printed: Method test #2
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: 2
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: 3
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: enum test included
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: 5
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: 5
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: -1
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: LOCAL DEBUG: Tried to print the static var
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: Static works here
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static var
+ 5:1:2024 | 18:8:15 @ >> [PawnScript] | LOG: LOCAL DEBUG: Called statictest for the first time
+ 5:1:2024 | 18:8:16 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static again
+ 5:1:2024 | 18:8:16 @ >> [PawnScript] | LOG: Static works here
+ 5:1:2024 | 18:8:16 @ >> [PawnScript] | LOG: LOCAL DEBUG: Printed static var
+ 5:1:2024 | 18:8:16 @ >> [PawnScript] | LOG: LOCAL DEBUG: Called statictest for the second time
+ 5:1:2024 | 18:8:16 @ >> [PawnScript] | LOG: Imported 364
+ 5:1:2024 | 18:8:16 @ >> [PawnScript] | LOG: Imported true
+ 5:1:2024 | 18:8:16 @ >> [PawnScript] | LOG: Imported Hello World
+ 5:1:2024 | 18:8:16 @ >> [PawnScript] | LOG: Imported 0.363999
+ 5:1:2024 | 18:8:17 @ >> [PawnScript] | LOG: Imported 'D'
+ 5:1:2024 | 18:8:17 @ >> [PawnScript] | LOG: 827346
+ 5:1:2024 | 18:8:17 @ >> [PawnScript] | LOG: 364.234008
+ 5:1:2024 | 18:8:17 @ >> [PawnScript] | LOG: #1 827346 & 364.234008
+ 5:1:2024 | 18:8:17 @ >> [PawnScript] | LOG: 9376216
+ 5:1:2024 | 18:8:17 @ >> [PawnScript] | LOG: 314.159271
+ 5:1:2024 | 18:8:17 @ >> [PawnScript] | LOG: #2 9376216 & 314.159271
+ 5:1:2024 | 18:8:18 @ >> [PawnScript] | LOG: 100000
+ 5:1:2024 | 18:8:18 @ >> [PawnScript] | LOG: 21.763599
+ 5:1:2024 | 18:8:18 @ >> [PawnScript] | LOG: #3 100000 & 21.763599 & false
+ 5:1:2024 | 18:8:18 @ >> [PawnScript] | LOG: tagtestinteger has the MyNewTag!
+ 5:1:2024 | 18:8:18 @ >> [PawnScript] | LOG: 23746
+ 5:1:2024 | 18:8:18 @ >> [PawnScript] | LOG: true
+ 5:1:2024 | 18:8:18 @ >> [PawnScript] | LOG: #emit works!
+ 5:1:2024 | 18:8:19 @ >> [PawnScript] | LOG: 23.746000
+ 5:1:2024 | 18:8:19 @ >> [PawnScript] | LOG: 'K'
+ 5:1:2024 | 18:8:19 @ >> [PawnScript] | LOG: 'Z'
+ 5:1:2024 | 18:8:19 @ >> [PawnScript] | LOG: 364
+ 5:1:2024 | 18:8:20 @ >> [PawnScript] | LOG: No way this worked!
+ 5:1:2024 | 18:8:20 @ >> [PawnScript] | LOG: This has also worked...
+ 5:1:2024 | 18:8:20 @ >> [PawnScript] | LOG: Oh yeah!
+ 5:1:2024 | 18:8:20 @ >> [PawnScript] | LOG: So yeah!
+ 5:1:2024 | 18:8:20 @ >> [PawnScript] | LOG: You should always return a value!
+ 5:1:2024 | 18:8:21 @ >> [PawnScript] | LOG: This was again expected!
+ 5:1:2024 | 18:8:21 @ >> [PawnScript] | LOG: My namespace function works!
+ 5:1:2024 | 18:8:21 @ >> [PawnScript] | LOG: Hello World!
+ 5:1:2024 | 18:8:21 @ >> [PawnScript] | LOG: Try works!
+ 5:1:2024 | 18:8:26 @ >> [PawnScript] | LOG: Hello World again
+ 5:1:2024 | 18:8:26 @ >> [PawnScript] | LOG: 'j'
+ 5:1:2024 | 18:8:26 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: Lmao
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: 23
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: 23243
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: true
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: std::string works
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: 23.243000
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: 4323.243164
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: 's'
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: 74
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: mytesttypedefint is 0
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: 4308.519042
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: LMAO
+ 5:1:2024 | 18:8:27 @ >> [PawnScript] | LOG: This actually works!
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector.ps loaded
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #1 1
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #1 312
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #1 2
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #2 1
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #2 2
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #3 24
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #3 31
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #3 29
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #4 31
+ 5:1:2024 | 18:8:28 @ >> [PawnScript] | LOG: vector test #4 29
+ 5:1:2024 | 18:8:29 @ >> [PawnScript] | LOG: 11
+ 5:1:2024 | 18:8:29 @ >> [PawnScript] | LOG: temporaryvar is 300
+ 5:1:2024 | 18:8:29 @ >> [PawnScript] | LOG: temporaryvar is null
+ 5:1:2024 | 18:8:29 @ >> [PawnScript] | LOG: Test?
+ 5:1:2024 | 18:8:30 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:8:30 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:8:30 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:8:31 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:8:31 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:8:31 @ >> [PawnScript] | LOG: Hi
+ 5:1:2024 | 18:8:31 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:8:31 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:8:31 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:8:31 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:8:32 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:8:32 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:8:32 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:8:32 @ >> [PawnScript] | LOG: Process execution speed: 5127 Hz
+ 5:1:2024 | 18:8:33 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:8:33 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:8:33 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:8:33 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:8:33 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:8:33 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:8:34 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:8:34 @ >> [PawnScript] | LOG: 1 is equal to 1
+ 5:1:2024 | 18:8:34 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 18:8:34 @ >> [PawnScript] | LOG: Process execution speed: 4103 Hz
+ 5:1:2024 | 18:8:35 @ >> [PawnScript] | LOG: My value is 3493
+ 5:1:2024 | 18:8:35 @ >> [PawnScript] | LOG: My value is null
+ 5:1:2024 | 18:11:33 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 18:11:34 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 18:11:34 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 18:11:35 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 18:11:36 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:11:37 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 18:11:37 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 18:11:39 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 18:12:25 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 18:12:26 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 18:12:26 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:12:28 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:12:29 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 18:12:29 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 18:12:29 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 18:12:29 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 18:12:31 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 19:21:47 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 19:21:48 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 19:21:48 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 19:21:49 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 19:21:49 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:21:50 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 19:21:51 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 19:21:52 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 19:33:13 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 19:33:14 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 19:33:14 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 19:33:15 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 19:33:15 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 19:33:15 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 19:33:15 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:33:16 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 19:33:17 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 19:33:18 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 19:33:23 @ >> [PawnScript] | LOG: 2 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:24 @ >> [PawnScript] | LOG: 3 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:24 @ >> [PawnScript] | LOG: 4 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:24 @ >> [PawnScript] | LOG: 5 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:24 @ >> [PawnScript] | LOG: 6 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:25 @ >> [PawnScript] | LOG: 7 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:25 @ >> [PawnScript] | LOG: 8 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:25 @ >> [PawnScript] | LOG: 9 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:25 @ >> [PawnScript] | LOG: 10 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:25 @ >> [PawnScript] | LOG: 11 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:33:26 @ >> [PawnScript] | LOG: This is still runnin right? 11
+ 5:1:2024 | 19:33:26 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:33:26 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:33:26 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:33:26 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:33:26 @ >> [PawnScript] | LOG: LMAO WHAT IS THIS 
+ 5:1:2024 | 19:33:27 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:33:27 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:33:27 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:33:27 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:33:28 @ >> [PawnScript] | LOG: Tasks are working ig
+ 5:1:2024 | 19:33:32 @ >> [PawnScript] | LOG: 100
+ 5:1:2024 | 19:33:33 @ >> [PawnScript] | LOG: This should be in dpp.log in scriptfiles/
+ 5:1:2024 | 19:33:33 @ >> [PawnScript] | LOG: Printed: Method test #2
+ 5:1:2024 | 19:33:34 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:33:34 @ >> [PawnScript] | LOG: 2
+ 5:1:2024 | 19:33:34 @ >> [PawnScript] | LOG: 3
+ 5:1:2024 | 19:33:34 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 19:33:34 @ >> [PawnScript] | LOG: enum test included
+ 5:1:2024 | 19:33:34 @ >> [PawnScript] | LOG: 5
+ 5:1:2024 | 19:33:34 @ >> [PawnScript] | LOG: 5
+ 5:1:2024 | 19:33:34 @ >> [PawnScript] | LOG: -1
+ 5:1:2024 | 19:34:6 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 19:34:7 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 19:34:7 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 19:34:8 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 19:34:8 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 19:34:8 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 19:34:8 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:34:9 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 19:34:10 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 19:34:11 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 19:35:11 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 19:35:12 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 19:35:12 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 19:35:13 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:35:14 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:35:14 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:35:14 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 19:35:14 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:35:14 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 19:35:14 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 19:35:16 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 19:36:33 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 19:36:34 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 19:36:34 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 19:36:36 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:36:37 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 19:36:37 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 19:36:39 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 19:36:44 @ >> [PawnScript] | LOG: 2 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:44 @ >> [PawnScript] | LOG: 3 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:44 @ >> [PawnScript] | LOG: 4 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:45 @ >> [PawnScript] | LOG: 5 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:45 @ >> [PawnScript] | LOG: 6 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:45 @ >> [PawnScript] | LOG: 7 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:45 @ >> [PawnScript] | LOG: 8 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:45 @ >> [PawnScript] | LOG: 9 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:46 @ >> [PawnScript] | LOG: 10 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:46 @ >> [PawnScript] | LOG: 11 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:36:46 @ >> [PawnScript] | LOG: This is still runnin right? 11
+ 5:1:2024 | 19:36:46 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:36:47 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:36:47 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:36:47 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:36:47 @ >> [PawnScript] | LOG: LMAO WHAT IS THIS 
+ 5:1:2024 | 19:36:47 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:36:47 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:36:47 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:36:47 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:36:48 @ >> [PawnScript] | LOG: Tasks are working ig
+ 5:1:2024 | 19:36:53 @ >> [PawnScript] | LOG: 100
+ 5:1:2024 | 19:39:52 @ >> [PawnScript] | LOG: [PawnScript] Standard library loaded.
+ 5:1:2024 | 19:39:52 @ >> [PawnScript] | LOG: OMG actually works
+ 5:1:2024 | 19:39:53 @ >> [PawnScript] | LOG: ==========================================
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: Hey
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 'c'
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 1==1: 1
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 1!=1: 0
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 1>=1: 1
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 1<=2: 1
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 1<2: 1
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 1>2: 0
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:39:54 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:39:55 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:39:55 @ >> [PawnScript] | LOG: 0
+ 5:1:2024 | 19:39:55 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:39:55 @ >> [PawnScript] | LOG: 13
+ 5:1:2024 | 19:39:55 @ >> [PawnScript] | LOG: data.ps still works?
+ 5:1:2024 | 19:39:57 @ >> [PawnScript] | LOG: Stack Works!
+ 5:1:2024 | 19:40:2 @ >> [PawnScript] | LOG: 2 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:2 @ >> [PawnScript] | LOG: 3 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:3 @ >> [PawnScript] | LOG: 4 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:3 @ >> [PawnScript] | LOG: 5 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:3 @ >> [PawnScript] | LOG: 6 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:3 @ >> [PawnScript] | LOG: 7 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:3 @ >> [PawnScript] | LOG: 8 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:4 @ >> [PawnScript] | LOG: 9 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:4 @ >> [PawnScript] | LOG: 10 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:4 @ >> [PawnScript] | LOG: 11 eeeeeeeeeeeeeeeeee
+ 5:1:2024 | 19:40:4 @ >> [PawnScript] | LOG: This is still runnin right? 11
+ 5:1:2024 | 19:40:5 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:40:5 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:40:5 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:40:5 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:40:5 @ >> [PawnScript] | LOG: LMAO WHAT IS THIS 
+ 5:1:2024 | 19:40:5 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:40:5 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:40:6 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:40:6 @ >> [PawnScript] | LOG: The inline finally works!
+ 5:1:2024 | 19:40:6 @ >> [PawnScript] | LOG: Tasks are working ig
+ 5:1:2024 | 19:40:11 @ >> [PawnScript] | LOG: 100
+ 5:1:2024 | 19:40:11 @ >> [PawnScript] | LOG: This should be in dpp.log in scriptfiles/
+ 5:1:2024 | 19:40:12 @ >> [PawnScript] | LOG: Printed: Method test #2
+ 5:1:2024 | 19:40:12 @ >> [PawnScript] | LOG: 1
+ 5:1:2024 | 19:40:12 @ >> [PawnScript] | LOG: 2
+ 5:1:2024 | 19:40:12 @ >> [PawnScript] | LOG: 3
+ 5:1:2024 | 19:40:12 @ >> [PawnScript] | LOG: 4
+ 5:1:2024 | 19:40:12 @ >> [PawnScript] | LOG: enum test included
+ 5:1:2024 | 19:40:12 @ >> [PawnScript] | LOG: 5
  

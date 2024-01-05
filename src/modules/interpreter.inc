@@ -3074,7 +3074,7 @@ stock dpp_process(line[])
         if(!strcmp(tokengroup[1], "str"))
         {
             CallLocalFunction("dpp_parsearg", "si", tokengroup[2], 0);
-            new mul;
+            /*new mul;
             for(new i; i < strlen(tokengroup[2]); i++)
             {
                 if(tokengroup[2][i] == '\"') mul++, strdel(tokengroup[2], i, i+1);
@@ -3088,7 +3088,7 @@ stock dpp_process(line[])
             {
                 dpp_error("Argument error; [%i] \"%s\"", mul, tokengroup[2]);
                 return 0;
-            }
+            }*/
 
             if(dpp_lastdeco == dpp_deco_yield)
             {

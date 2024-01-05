@@ -33,6 +33,25 @@ void supercooltask() public
 	new.int,process_speed=__procspeed
 	console.println.log("Process execution speed: {process_speed} Hz")
 	#undef:process_speed
+
+	// pri=1
+	#emit:const.pri,1
+	// sec=pri
+	#emit:sctrl,2
+	// pri=nxt
+	#emit:lctrl,4
+	// cur=pri
+	#emit:sctrl,1
+	//Validate this memory address:
+	#emit:push
+	#emit:dtyp,1
+	#emit:csnm,AfterLongTime
+	#emit:vlset,3493
+	console.println.log("My value is {AfterLongTime}")
+	#emit:pop
+	#emit:zero.pri
+	#emit:zero.alt
+	console.println.log("My value is {AfterLongTime}")
 }
 
 extern&struct*public.OnPlayerConnect?playerid;
