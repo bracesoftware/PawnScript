@@ -20,7 +20,8 @@ int InlineTestFunc() public
 	user.inlineformtest
 	user.inlineformtest
 	user.inlineformtest
-	yield&return,1
+	@yield
+	return 1
 }
 
 user.InlineTestFunc
