@@ -31,7 +31,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define DPP_VERSION_MAJOR 1
 #define DPP_VERSION_MINOR 0
 #define DPP_VERSION_PATCH 8
-#define DPP_VERSION_RELEASE 2
+#define DPP_VERSION_RELEASE 3
 #define DPP_CELLMAX 8
 
 #define DPP_VERSION_BETA 0
@@ -49,6 +49,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 //-----------------------------------------------------------
 #define dpp_maxcodelines 2048
 #define dpp_maxformatlen 2048
+#define dpp_maxpathsize 256
 //-----------------------------------------------------------
 #define dpp_maxformargs 15
 //-----------------------------------------------------------
@@ -528,3 +529,5 @@ new dpp_repeat__=1;
 new dpp_deprecated__=1;
 //-----------------------------------------------------------
 new dpp_speedhz=0;
+//-----------------------------------------------------------
+new dpp_curpath[dpp_maxpathsize];

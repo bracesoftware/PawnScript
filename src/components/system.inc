@@ -28,6 +28,7 @@ public dpp_processsystem(funcgroup[][],args[][],args_const[][])
             dpp_error("Component \"system\" is not imported.",);
             dpp_internal<return>(0);
         }
+        //ver
         if(!strcmp(funcgroup[1], "ver"))
         {
             printf("\tPawnScript   %i.%i.%i-R%i\tBrace Inc.", DPP_VERSION_MAJOR,DPP_VERSION_MINOR,DPP_VERSION_PATCH,DPP_VERSION_RELEASE);
@@ -110,6 +111,29 @@ public dpp_processsystem(funcgroup[][],args[][],args_const[][])
             }
             dpp_error("Form \"%s\" is not registered.",args_const[0]);
             dpp_internal<return>(0);
+        }
+        // current dir
+        if(!strcmp(funcgroup[1], "cd"))
+        {
+            new mul, str[dpp_argcharsize];
+            strmid(str, args[0], 0, dpp_argcharsize);
+            for(new i; i < strlen(args[0]); i++)
+            {
+                if(args[0][i] == '\"') mul++, strdel(args[0], i, i+1);
+            }
+            if(mul == 0)
+            {
+                dpp_error("You need to use '\"' to start a string.",);
+                dpp_internal<return>(0);
+            }
+            if(mul != 2)
+            {
+                dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
+                dpp_internal<return>(0);
+            }
+
+            strmid(dpp_curpath, args[0], 0, dpp_maxpathsize, dpp_maxpathsize);
+            dpp_internal<return>(1);
         }
         else
         {

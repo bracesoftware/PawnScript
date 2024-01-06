@@ -35,7 +35,7 @@ stock dpp_importint(const name[], varid)
 {
 	new file_name[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new exporteddata[128];
 
@@ -62,7 +62,7 @@ stock dpp_exportint(const name[], value)
 {
 	new file_name[150], datatowrite[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new File:file = fopen(file_name, io_write);
 
@@ -93,7 +93,7 @@ stock dpp_importbool(const name[], varid)
 {
 	new file_name[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new exporteddata[128];
 
@@ -120,7 +120,7 @@ stock dpp_exportbool(const name[], value)
 {
 	new file_name[150], datatowrite[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new File:file = fopen(file_name, io_write);
 
@@ -152,7 +152,7 @@ stock dpp_importstr(const name[], varid)
 {
 	new file_name[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new exporteddata[128];
 
@@ -179,7 +179,7 @@ stock dpp_exportstr(const name[], const value[])
 {
 	new file_name[150], datatowrite[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new File:file = fopen(file_name, io_write);
 
@@ -211,7 +211,7 @@ stock dpp_importdouble(const name[], varid)
 {
 	new file_name[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new exporteddata[128];
 
@@ -238,7 +238,7 @@ stock dpp_exportdouble(const name[], Float:value)
 {
 	new file_name[150], datatowrite[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new File:file = fopen(file_name, io_write);
 
@@ -269,7 +269,7 @@ stock dpp_importchar(const name[], varid)
 {
 	new file_name[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new exporteddata[128];
 
@@ -296,7 +296,7 @@ stock dpp_exportchar(const name[], value)
 {
 	new file_name[150], datatowrite[150];
 	format(file_name, sizeof file_name,
-		"data/var_%s.pspdmf", name);
+		"__psdata/var_%s.pspdmf", name);
 
 	new File:file = fopen(file_name, io_write);
 

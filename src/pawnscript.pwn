@@ -95,6 +95,8 @@ dpp_main(); public dpp_main()
     dpp_compile("index"SCRIPT_EXT);
     SetTimer("main_again", 3000, false);
     SetTimer("dpp_resspeedhz",1000,true);
+
+    fcreatedir("__psdata"); // Data folder
     
     return 1;   
 }

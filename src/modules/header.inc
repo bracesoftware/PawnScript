@@ -657,7 +657,7 @@ stock dpp_executefile(const script[])
                 dpp_process(codelines[i]);
             }
         }
-        CallLocalFunction("DPP_ENTRYPOINT", "");
+        //CallLocalFunction("DPP_ENTRYPOINT", "");
     }
 
     else if(!file)
