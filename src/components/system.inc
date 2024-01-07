@@ -138,6 +138,11 @@ public dpp_processsystem(funcgroup[][],args[][],args_const[][])
                 strdel(dpp_curpath, 0, dpp_maxpathsize);
                 dpp_internal<return>(1);
             }
+            if(!strcmp(args[0], PSDATA_DIRNAME))
+            {
+                dpp_print("Access to this directory is denied.");
+                dpp_internal<return>(0);
+            }
             format(dpp_curpath, dpp_maxpathsize, "%s%s",dpp_curpath,args[0]);
             dpp_internal<return>(1);
         }
