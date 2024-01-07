@@ -10,6 +10,8 @@
 - [`data`](#component-data)
 - [`pawn`](#component-pawn)
 - [`math`](#component-math)
+- [`iter`](#component-iter)
+- [`vec`](#component-vec)
 
 ---------------------------------------------------------------------------------------------------------
 
@@ -97,6 +99,27 @@ Output:
 ```
  	PawnScript   1.0.8-R2	Brace Inc.
  	Pawn         3.10.11	ITB CompuPhase
+```
+
+### Form: `cd`
+- Sets the current working directory. Example:
+
+```cpp
+// Create a directory named 'MyNewDir' in scriptfiles
+files.createdir("MyNewDir")
+// Set that as a working directory
+system.cd("MyNewDir/")
+// Create 'SubMyNewDir' inside
+files.createdir("SubMyNewDir")
+// Set MyNewDir/SubMyNewDir/ as working dir
+system.cd("SubMyNewDir/")
+// Create a file inside 'MyNewDir/SubMyNewDir/'
+files.open_for_write("test.txt")
+files.write("wrote this.")
+files.close
+system.cd(".."); // Reset back to scriptfiles
+// Create a new folder in scriptfiles named 'MyNewDirAgain'
+files.createdir("MyNewDirAgain")
 ```
 
 ---------------------------------------------------------------------------------------------------------
