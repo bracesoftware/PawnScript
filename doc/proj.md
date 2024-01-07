@@ -27,3 +27,12 @@ For example:
 ```ini
 proj_vers=1.0
 ```
+
+## `module_dir`
+
+Change the module directory.
+Example:
+
+```ini
+module_dir=myscripts/
+```

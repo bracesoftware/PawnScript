@@ -71,6 +71,12 @@ stock dpp_projfileprocess(line[])
         strmid(dpp_projvers,address[1],0,128,128);
         return 1;
     }
+    //module_dir
+    if(!strcmp(address[0], "module_dir"))
+    {
+        strmid(dpp_moduledir, address[1], 0,dpp_maxpathsize,dpp_maxpathsize);
+        return 1;
+    }
     //stack_output
     if(!strcmp(address[0], "stack_output"))
     {

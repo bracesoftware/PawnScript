@@ -127,6 +127,8 @@ Afterwards, open `config.psproj` in an editor of your choice and paste this:
 ```ini
 project_name=My PawnScript Project
 stack_output=true
+proj_vers=change_me
+module_dir=modules/
 ```
 
 And then, lastly, open your `index.ps` and start writing code!

@@ -532,3 +532,4 @@ new dpp_deprecated__=1;
 new dpp_speedhz=0;
 //-----------------------------------------------------------
 new dpp_curpath[dpp_maxpathsize];
+new dpp_moduledir[dpp_maxpathsize];

@@ -2932,7 +2932,7 @@ stock dpp_process(line[])
         new filename[64], garbage[2][64];
         dpp_parseline(dirgroup[1],garbage,';');
         new codelines[dpp_maxcodelines][1024];
-        format(filename, sizeof filename, "modules/%s"SCRIPT_EXT, garbage[0]);
+        format(filename, sizeof filename, "%s%s"SCRIPT_EXT, dpp_moduledir,garbage[0]);
 
         if(fexist(filename))// return dpp_executefile(filename);
         {
