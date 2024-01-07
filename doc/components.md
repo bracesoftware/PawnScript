@@ -122,6 +122,8 @@ system.cd(".."); // Reset back to scriptfiles
 files.createdir("MyNewDirAgain")
 ```
 
+**NOTE**: Always put `/` after the directory name when using `system.cd`; or `/` before a file name when using `files.open_...` - either one of those, never both or noone.
+
 ---------------------------------------------------------------------------------------------------------
 
 ### Automated user form: `main`
