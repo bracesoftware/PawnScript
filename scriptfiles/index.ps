@@ -191,3 +191,17 @@ std::writeln("data.ps still works?")
 #include:trytest;
 #include:consoletest;
 #include:vector;
+
+system.ver()
+
+files.createdir("MyNewDir")
+system.cd("MyNewDir/")
+files.createdir("lmao")
+system.cd("lmao/")
+
+files.open_for_write("testfile.omg")
+files.write("wrote this nigga")
+files.close
+
+system.cd(".."); // Reset back to scriptfiles
+files.createdir("MyNewDirAgain")
