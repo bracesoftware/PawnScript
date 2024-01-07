@@ -24,6 +24,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define LOG_EXT ".pslog"
 #define STACKOUTPUT_FILE "stackoutput"LOG_EXT
 #define PROJECT_NAME "PawnScript"
+#define PSDATA_DIRNAME "$ps_data"
 
 //-----------------------------------------------------------
 #define dpp_invalidclass 100

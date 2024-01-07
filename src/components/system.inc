@@ -132,7 +132,13 @@ public dpp_processsystem(funcgroup[][],args[][],args_const[][])
                 dpp_internal<return>(0);
             }
 
-            strmid(dpp_curpath, args[0], 0, dpp_maxpathsize, dpp_maxpathsize);
+            //strmid(dpp_curpath, args[0], 0, dpp_maxpathsize, dpp_maxpathsize);
+            if(!strcmp(args[0], ".."))
+            {
+                strdel(dpp_curpath, 0, dpp_maxpathsize);
+                dpp_internal<return>(1);
+            }
+            format(dpp_curpath, dpp_maxpathsize, "%s%s",dpp_curpath,args[0]);
             dpp_internal<return>(1);
         }
         else

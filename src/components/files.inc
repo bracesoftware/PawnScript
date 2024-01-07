@@ -47,6 +47,7 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_internal<return>(0);
             }
 
+            format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
             //fcreatedir(args[0]);
             @emit__ tempaddr        ,.str=args[0]
             #emit push.c            dpp_tempaddr__
@@ -76,6 +77,7 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
             }
 
             //fremove(args[0]);
+            format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
             @emit__ tempaddr        ,.str=args[0]
             #emit push.c            dpp_tempaddr__
             #emit push.c            4
@@ -107,6 +109,7 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
                 dpp_internal<return>(0);
             }
+            format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
 
             dpp_filehandle = fopen(args[0], io_append);
             dpp_fhandleused = 1;
@@ -135,6 +138,7 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
                 dpp_internal<return>(0);
             }
+            format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
 
             dpp_filehandle = fopen(args[0], io_read);
             dpp_fhandleused = 1;
@@ -163,6 +167,7 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
                 dpp_internal<return>(0);
             }
+            format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
 
             dpp_filehandle = fopen(args[0], io_write);
             dpp_fhandleused = 1;
@@ -197,6 +202,7 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
                 dpp_internal<return>(0);
             }
+            format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
 
             fwrite(dpp_filehandle, args[0]);
             dpp_internal<return>(1);

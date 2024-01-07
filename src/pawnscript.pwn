@@ -96,7 +96,7 @@ dpp_main(); public dpp_main()
     SetTimer("main_again", 3000, false);
     SetTimer("dpp_resspeedhz",1000,true);
 
-    fcreatedir("__psdata"); // Data folder
+    fcreatedir(PSDATA_DIRNAME); // Data folder
     
     return 1;   
 }
