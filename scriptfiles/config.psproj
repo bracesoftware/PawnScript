@@ -1,3 +1,4 @@
 project_name=My PawnScript Project
 stack_output=true
 proj_vers=1.0
+module_dir=modules/

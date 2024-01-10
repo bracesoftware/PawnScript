@@ -123,7 +123,7 @@ stock dpp_printmem__()
     printf("\tAll entity cells:\t\t%i cells (reserved)",dpp_entities__*dpp_rescells__*4);
     printf("\tEntity cells (each):\t\t%i cells (modified)", dpp_maxconst*4);
     printf("\tAll entity cells:\t\t%i cells (modified)",dpp_entities__*dpp_maxconst*4);
-    printf("\tUnused memory:\t\t%i cells",dpp_entities__*dpp_rescells__*4-dpp_entities__*dpp_maxconst*4);
+    printf("\tUnused memory:\t\t\t%i cells",dpp_entities__*dpp_rescells__*4-dpp_entities__*dpp_maxconst*4);
     dpp_nullcomment();
     printf("\tTotal usage est.\t\t%i bytes", dpp_stackspace() + dpp_entities__*dpp_rescells__*64); // Estimation
     dpp_nullcomment();

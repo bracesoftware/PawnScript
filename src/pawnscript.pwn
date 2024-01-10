@@ -450,3 +450,19 @@ public dpp_asmtest()
     return 1; // Make compiler happy.
 }
 //-----------------------------------------------------------
+stock dpp_genver__() 
+{
+    new buf[256];
+    format(buf, sizeof buf, "%s-%s",__date,__time);
+    new length=strlen(buf);
+    new 
+        s1 = 1,
+        s2 = 0,
+        n;
+    for (n=0; n<length; n++)
+    {
+       s1 = (s1 + buf[n]) % 65521;
+       s2 = (s2 + s1)     % 65521;
+    }
+    return floatround(((s2 << 16) + s1)/10000);
+}

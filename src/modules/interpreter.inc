@@ -670,6 +670,11 @@ stock dpp_process(line[])
         dpp_lastdeco = dpp_deco_yield;
         return 1;
     }
+    if(!strcmp(funcgroup[0], "@extern"))
+    {
+        dpp_lastdeco = dpp_deco_extern;
+        return 1;
+    }
 
     ///////////////////////////////////////////////////////
     ////
@@ -827,10 +832,92 @@ stock dpp_process(line[])
                 dpp_repeat__=1;
             }
         }
+        if(dpp_lastdeco == dpp_deco_extern)//task
+        {
+            if(!strcmp(tokengroup2[0], "void"))
+            {
+                dpp_createfunc(arguments[0],arguments[1],1,.ret = dpp_rtn_type_void);
+                dpp_event = dpp_event_form;
+                dpp_structtype__ = dpp_formstruct_local;
+            }
+            if(!strcmp(tokengroup2[0], "int"))
+            {
+                dpp_createfunc(arguments[0],arguments[1],1,.ret = dpp_rtn_type_int);
+                dpp_event = dpp_event_form;
+                dpp_structtype__ = dpp_formstruct_local;
+            }
+            if(!strcmp(tokengroup2[0], "bool"))
+            {
+                dpp_createfunc(arguments[0],arguments[1],1,.ret = dpp_rtn_type_bool);
+                dpp_event = dpp_event_form;
+                dpp_structtype__ = dpp_formstruct_local;
+            }
+            if(!strcmp(tokengroup2[0], "str"))
+            {
+                dpp_createfunc(arguments[0],arguments[1],1,.ret = dpp_rtn_type_str);
+                dpp_event = dpp_event_form;
+                dpp_structtype__ = dpp_formstruct_local;
+            }
+            if(!strcmp(tokengroup2[0], "double"))
+            {
+                dpp_createfunc(arguments[0],arguments[1],1,.ret = dpp_rtn_type_double);
+                dpp_event = dpp_event_form;
+                dpp_structtype__ = dpp_formstruct_local;
+            }
+            if(!strcmp(tokengroup2[0], "char"))
+            {
+                dpp_createfunc(arguments[0],arguments[1],1,.ret = dpp_rtn_type_char);
+                dpp_event = dpp_event_form;
+                dpp_structtype__ = dpp_formstruct_local;
+            }
+        }
         dpp_lastdeco = dpp_deco_invalid;
         return 1;
     }
+/*
+    if(!strcmp(structgroup[0], "extern&struct"))
+    {
+        if(!strcmp(structgroup[1], "public"))
+        {
+            if(dpp_processfunc != DPP_INVALID_FORM_ID)
+            {
+                dpp_error("You can't create a form [\"%s\"] inside a form.",funcgroup[1]);
+                return 1;
+            }
+            new arguments[2][1024];
+            dpp_parseline(funcgroup[1],arguments,'?');
+            dpp_createfunc(arguments[0],arguments[1],1);
 
+            dpp_event = dpp_event_form;
+            return 1;
+        }
+        // Other shit
+        if(!strcmp(structgroup[1], "samp_command"))
+        {
+            if(dpp_config[samp_comp] == 0)
+            {
+                dpp_error("Component \"samp\" is not imported.",);
+                return 1;
+            }
+            if(dpp_processfunc != DPP_INVALID_FORM_ID)
+            {
+                dpp_error("You can't create a structured form [\"%s\"] inside a form.",funcgroup[1]);
+                return 1;
+            }
+            new arguments[2][1024];
+            dpp_parseline(funcgroup[1],arguments,'?');
+            //dpp_error("samp_command struct created: \"%s\"",arguments[0]);
+            dpp_createfunc(arguments[0],arguments[1], .struct = dpp_formstruct_sampcmd);
+
+            dpp_event = dpp_event_form;
+            return 1;
+        }
+        dpp_error("Unknown form structure type [\"%s\"].",structgroup[1]);
+        return 1;
+    }
+
+*/
+    dpp_dummy();
 
     /*if(!strcmp(funcgroup[0], "hook&form"))
     {
@@ -893,46 +980,7 @@ stock dpp_process(line[])
     ///////////////////////////////////////////////////////
 
 
-    if(!strcmp(structgroup[0], "extern&struct"))
-    {
-        if(!strcmp(structgroup[1], "public"))
-        {
-            if(dpp_processfunc != DPP_INVALID_FORM_ID)
-            {
-                dpp_error("You can't create a form [\"%s\"] inside a form.",funcgroup[1]);
-                return 1;
-            }
-            new arguments[2][1024];
-            dpp_parseline(funcgroup[1],arguments,'?');
-            dpp_createfunc(arguments[0],arguments[1],1);
-
-            dpp_event = dpp_event_form;
-            return 1;
-        }
-        // Other shit
-        if(!strcmp(structgroup[1], "samp_command"))
-        {
-            if(dpp_config[samp_comp] == 0)
-            {
-                dpp_error("Component \"samp\" is not imported.",);
-                return 1;
-            }
-            if(dpp_processfunc != DPP_INVALID_FORM_ID)
-            {
-                dpp_error("You can't create a structured form [\"%s\"] inside a form.",funcgroup[1]);
-                return 1;
-            }
-            new arguments[2][1024];
-            dpp_parseline(funcgroup[1],arguments,'?');
-            //dpp_error("samp_command struct created: \"%s\"",arguments[0]);
-            dpp_createfunc(arguments[0],arguments[1], .struct = dpp_formstruct_sampcmd);
-
-            dpp_event = dpp_event_form;
-            return 1;
-        }
-        dpp_error("Unknown form structure type [\"%s\"].",structgroup[1]);
-        return 1;
-    }
+    //moved to decorators
 
     ///////////////////////////////////////////////////////
     ////
@@ -1869,6 +1917,30 @@ stock dpp_process(line[])
                 }
 
                 dpp_repeat__ = value;
+            }
+            if(!strcmp(thisargs[0],"struct")) // for @extern
+            {
+                new i = 1;
+                dpp_removeslashes(thisargs[i]);
+                dpp_argclasscheck(thisargs[i]);
+                dpp_argoclasscheck(thisargs[i]);
+                dpp_argarraycheck(thisargs[i]);
+                dpp_argfunccheck(thisargs[i]);
+                dpp_argvarcheck(thisargs[i]);
+                dpp_argmathcheck(thisargs[i]);
+                dpp_argformargcheck(thisargs[i]);
+                dpp_argsystemval(thisargs[i]);
+                CallLocalFunction("dpp_arginstruct", "s", thisargs[i]);
+                CallLocalFunction("dpp_argenumcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_argtagcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_logics", "s", thisargs[i]);
+
+                dpp_formatarg(thisargs[i]);
+
+                if(!strcmp(thisargs[1],"default"))
+                {
+                    dpp_structtype__ = dpp_defaultstruct;
+                }
             }
             return 1;
         }

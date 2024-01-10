@@ -389,7 +389,7 @@ stock dpp_deletefunc(const name[])
     return 1;
 }
 
-stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, struct = dpp_formstruct_local, method = 0, ret = dpp_rtn_type_void)
+stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, method = 0, ret = dpp_rtn_type_void)
 {
     if(hookform == 1)
     {
@@ -418,7 +418,7 @@ stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, struc
 
             dpp_currentfuncid = i;
             dpp_validfunc[i] = 1;
-            dpp_structtype[i] = struct;
+            dpp_structtype[i] = dpp_structtype__;
             dpp_methodform[i] = method;
 
             dpp_returntype[i] = ret;
@@ -1114,6 +1114,7 @@ public DPP_ENTRYPOINT()
         if(!strcmp(dpp_funcname[i], "main"))
         {
             if(dpp_autoform[i] == 0) return 1;
+            if(dpp_structtype[i] != dpp_defaultstruct) return 1;
             if(dpp_hookform[i] == 0)
             {
                 dpp_processfunc = i;

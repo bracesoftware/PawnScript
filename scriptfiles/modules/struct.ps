@@ -10,7 +10,8 @@
 
 console.println("========================== struct.dpp ==========================");
 
-extern&struct*samp_command.testcmd?playerid&params;
+@extern
+int testcmd(playerid, params) public
 {
 	samp.SendClientMessage,playerid,0,"Your command works!";
 	return int 1

@@ -74,13 +74,17 @@ console.println(disableDebug);
 system.rem("===================CALLBACKS===================");
 
 
-extern&struct*public.main;
+@extern
+	this->struct=default
+int main() public
 {
 	console.println("Hello World from main");
 	return int 1
 }
 
-extern&struct*public.OnGameModeInit;
+@extern
+	this->struct=default
+int OnGameModeInit() public
 {
 	console.println("OnGameModeInit works");
 	return int 1
@@ -95,7 +99,10 @@ int OnGameModeInit() public;
 	return 1
 }
 
-extern&struct*public.OnGameModeExit;
+
+@extern
+	this->struct=default
+int OnGameModeExit() public
 {
 	console.println("OnGameModeExit works");
 	return bool true

@@ -30,9 +30,9 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_invalidclass 100
 //-----------------------------------------------------------
 #define DPP_VERSION_MAJOR 1
-#define DPP_VERSION_MINOR 0
-#define DPP_VERSION_PATCH 8
-#define DPP_VERSION_RELEASE 3
+#define DPP_VERSION_MINOR 1
+#define DPP_VERSION_PATCH dpp_genver__()
+#define DPP_VERSION_RELEASE dpp_genver__()*2
 #define DPP_CELLMAX 8
 
 #define DPP_VERSION_BETA 0
@@ -119,9 +119,6 @@ dpp_maxvector           = dyn;
 #define dpp_invaliditerval -1
 #define dpp_invalidvectorval -1
 //-----------------------------------------------------------
-#define dpp_formstruct_local 0
-#define dpp_formstruct_sampcmd 1
-//-----------------------------------------------------------
 #define dpp_argcharsize 100
 //-----------------------------------------------------------
 #define dpp_const_type_int 1
@@ -161,6 +158,7 @@ new dpp_switchedvar;
 #define dpp_deco_method 2
 #define dpp_deco_task 3
 #define dpp_deco_yield 4
+#define dpp_deco_extern 5
 new dpp_lastdeco = dpp_deco_invalid;
 //-----------------------------------------------------------
 // PREDEFINES
@@ -533,3 +531,7 @@ new dpp_speedhz=0;
 //-----------------------------------------------------------
 new dpp_curpath[dpp_maxpathsize];
 new dpp_moduledir[dpp_maxpathsize];
+//-----------------------------------------------------------
+#define dpp_formstruct_local 0
+#define dpp_defaultstruct 1
+new dpp_structtype__;

@@ -54,12 +54,14 @@ void supercooltask() public
 	console.println.log("My value is {AfterLongTime}")
 }
 
-extern&struct*public.OnPlayerConnect?playerid;
+@extern
+int OnPlayerConnect(playerid) public
 {
 	samp.SendClientMessage(playerid@OnPlayerConnect,0,"Welcome to the D++ server");
 }
 
-extern&struct*public.OnPlayerDisconnect?playerid&reason;
+@extern
+int OnPlayerDisconnect(playerid, reason) public
 {
 	console.println("Player {playerid@OnPlayerDisconnect} disconnected | Reason: {reason@OnPlayerDisconnect}");
 	return int 1

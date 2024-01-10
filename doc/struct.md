@@ -9,9 +9,9 @@
 Example:
 
 ```cpp
-void Announce() public;
+void Announce() public
 {
-	console.println("Script is loading");
+	console.println("Script is loading")
 }
 ```
 
@@ -26,9 +26,11 @@ void Announce() public;
 #### External struct name: `public`
 
 ```cpp
-extern&struct*public.main;
+@extern
+	this->struct=default
+void main() public
 {
-	console.println.log("Program begins here!");
+	console.println.log("Program begins here!")
 }
 ```
 

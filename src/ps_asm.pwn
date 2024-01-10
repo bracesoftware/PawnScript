@@ -64,6 +64,10 @@ new dpp_currentid; // cur reg
 new dpp_currentsector; // sec reg
 new dpp_nextid;
 
+stock dpp_dummy()
+{
+    return 1;
+}
 
 stock dpp_parseaddr(addr[])
 {
