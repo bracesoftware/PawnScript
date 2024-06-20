@@ -3,20 +3,20 @@
 
 Let's assume you've got an empty open.mp/SA:MP server ready to use. You can get one [here](https://github.com/openmultiplayer/open.mp/releases).
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142888793645535343/image.png">
+<img align="center" src="resources/setup_1.png">
 
 Create `scriptfiles` and `gamemodes` folders.
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142889338523357264/image.png">
+<img align="center" src="resources/setup_2.png">
 
 Go to the releases page and select the latest release.
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142896097212248214/image.png">
+<img align="center" src="resources/setup_3.png">
 
 Download the `pawnscript` archive that suits your OS; `.zip` for Microsoft Windows and `.tar.gz` for Linux. Open the archive and extract `pawnscript.amx` into your `gamemodes` folder.
 
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142896842737197087/image.png">
+<img align="center" src="resources/setup_4.png">
 
 Open `config.json` in an editor of your choice and paste this code (just change `main_scripts` to `pawnscript` and change your RCON password):
 
@@ -120,7 +120,7 @@ If you are using a SA:MP server, then you just need to change the `gamemodes` to
 
 Now, open your `scriptfiles` folder and create 2 files; `index.ps` (PawnScript code entry) and `config.psproj` (project settings).
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142898851519410216/image.png">
+<img align="center" src="resources/setup_5.png">
 
 Afterwards, open `config.psproj` in an editor of your choice and paste this:
 
@@ -133,10 +133,10 @@ module_dir=modules/
 
 And then, lastly, open your `index.ps` and start writing code!
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1146081438974877736/image.png">
+<img align="center" src="resources/setup_7.png">
 
 Then run your server.
 
-<img align="center" src="https://cdn.discordapp.com/attachments/1130879376423145522/1142901174417231953/image.png">
+<img align="center" src="resources/setup_6.png">
 
 And that's it!
