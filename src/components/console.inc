@@ -30,7 +30,7 @@ public OnRconCommand(cmd[])
         dpp_inputtype = DPP_INPUT_TYPE_NONE;
         return 1;
     }
-    if(dpp_inputtype == DPP_INPUT_TYPE_NONE)
+    if(dpp_inputtype == DPP_INPUT_TYPE_CHAR)
     {
         dpp_vardata[dpp_inputdest][charvalue] = cmd[0];
         dpp_inputtype = DPP_INPUT_TYPE_NONE;

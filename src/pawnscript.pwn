@@ -98,6 +98,7 @@ dpp_main(); public dpp_main()
 
     fcreatedir(PSDATA_DIRNAME); // Data folder
     
+    //print("-");
     return 1;   
 }
 
@@ -464,5 +465,5 @@ stock dpp_genver__()
        s1 = (s1 + buf[n]) % 65521;
        s2 = (s2 + s1)     % 65521;
     }
-    return floatround(((s2 << 16) + s1)/10000);
+    return floatround(((s2 << 16) + s1)/100000);
 }

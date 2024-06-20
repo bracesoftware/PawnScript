@@ -35,7 +35,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define DPP_VERSION_RELEASE dpp_genver__()*2
 #define DPP_CELLMAX 8
 
-#define DPP_VERSION_BETA 0
+#define DPP_VERSION_BETA 1
 
 #define DPP_LOG_FILE "pawnscript"LOG_EXT
 //-----------------------------------------------------------
