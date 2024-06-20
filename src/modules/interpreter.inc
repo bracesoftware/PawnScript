@@ -2988,6 +2988,11 @@ stock dpp_process(line[])
             dpp_config[vector_comp] = 1;
             return 1;
         }
+        if(!strcmp(tokengroup[1], "graphics"))
+        {
+            dpp_config[graphics_comp] = 1;
+            return 1;
+        }
     }
 
     ///////////////////////////////////////////////////////
@@ -3837,6 +3842,19 @@ stock dpp_process(line[])
     {
         dpp_funcfound = CallLocalFunction("dpp_processvector", "sss", funcgroup_form,args_form,args_fconst);
     }    
+
+    ///////////////////////////////////////////////////////
+    ////
+    ////
+    ////            GRAPHICS comp FUNC SYS
+    ////
+    ////
+    ///////////////////////////////////////////////////////
+
+    if(dpp_funcfound == 0)
+    {
+        dpp_funcfound = CallLocalFunction("dpp_processgraphics", "sss", funcgroup_form,args_form,args_fconst);
+    }
 
 
 

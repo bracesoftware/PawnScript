@@ -26,6 +26,10 @@ the Initial Developer. All Rights Reserved.
 #define dpp_comment%0(%1) print("|==============================================|")
 #define dpp_nullcomment%1(%1) print("                                               ")
 #define dpp_print%0(%1) printf("[PawnScript] SERVER THREAD - Info: "%1)
+
+#define dpp_gprint%0(%1) printf("[PawnScript] GRAPHICS SYSTEM @ Info: "%1)
+#define dpp_gerror%0(%1) printf("[PawnScript] GRAPHICS SYSTEM @ Error: "%1)
+
 #define dpp_compilerprint%0(%1) printf("[PawnScript] COMPILER: "%1)
 #if DPP_DEBUG == 1
 #define dpp_debug%0(%1) if(dpp_option_debug==1)printf("[PawnScript] | DEBUG: "%1)
@@ -592,6 +596,7 @@ stock dpp_execute(const script[])
     dpp_execheader("index.dppc");
     dpp_nullcomment();*/
 
+    CallLocalFunction("dpp_graphics__init", "");
     dpp_indexhandle = fopen(script, io_read);
     new codelines[dpp_maxcodelines][1024];
     if(dpp_indexhandle)

@@ -235,7 +235,8 @@ enum dpp_enumset
     data_comp,
     pawn_comp,
     iter_comp,
-    vector_comp
+    vector_comp,
+    graphics_comp
 }
 
 new dpp_config[dpp_enumset];

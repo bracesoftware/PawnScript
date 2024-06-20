@@ -28,7 +28,7 @@ the Initial Developer. All Rights Reserved.
 
 //-----------------------------------------------------------
 
-#include "ps_mem.pwn"
+#include "ps_setup.pwn"
 
 //-----------------------------------------------------------
 // REQUIRED.
@@ -67,6 +67,7 @@ native fcreatedir(const filename[]);
 #include "core/component_impl.inc"
 #include "ps_asm.pwn"
 #include "ps_sdk.pwn"
+#include "ps_graphics.pwn"
 //-----------------------------------------------------------
 // component impl
 #include "components/system.inc"
@@ -79,6 +80,7 @@ native fcreatedir(const filename[]);
 #include "components/pawn.inc"
 #include "components/iter.inc"
 #include "components/vector.inc"
+#include "components/graphics.inc"
 //-----------------------------------------------------------
 
 dpp_resspeedhz(); public dpp_resspeedhz()

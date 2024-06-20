@@ -12,6 +12,7 @@
 - [`math`](#component-math)
 - [`iter`](#component-iter)
 - [`vec`](#component-vec)
+- [`graphics`](#component-graphics)
 
 ---------------------------------------------------------------------------------------------------------
 
@@ -352,3 +353,39 @@ For further information, check the data structure and `foreach` documentation.
 - Vector-related functions.
 
 For further information, check the data structure and `foreach` documentation.
+
+---------------------------------------------------------------------------------------------------------
+
+## Component: `graphics`
+- Graphics-related functions.
+
+Import the component using:
+```cpp
+using graphics
+```
+
+### Form: `cls`
+- Clean up the graphics grid.
+
+```cpp
+graphics.cls
+```
+
+### Form: `show`
+- Show the graphics grid in your console.
+
+```cpp
+graphics.show
+```
+
+### Form: `showpixel` - COMING SOON!
+- "Activate" a specific pixel on the graphics grid.
+
+```cpp
+graphics.showpixel(row, column)
+```
+
+Example:
+```cpp
+graphics.showpixel(2,3)
+```
