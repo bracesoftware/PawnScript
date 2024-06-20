@@ -50,10 +50,11 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
             format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
             //fcreatedir(args[0]);
             @emit__ tempaddr        ,.str=args[0]
-            #emit push.c            dpp_tempaddr__
+            /*#emit push.c            dpp_tempaddr__
             #emit push.c            4
             #emit sysreq.c          fcreatedir
-            #emit stack             8
+            #emit stack             8*/
+            fcreatedir(args[0]);
             //#emit retn
             dpp_internal<return>(1);
         }
@@ -76,13 +77,13 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_internal<return>(0);
             }
 
-            //fremove(args[0]);
             format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
             @emit__ tempaddr        ,.str=args[0]
-            #emit push.c            dpp_tempaddr__
+            /*#emit push.c            dpp_tempaddr__
             #emit push.c            4
             #emit sysreq.c          fremove
-            #emit stack             8
+            #emit stack             8*/
+            fremove(args[0]);
             //#emit retn
             dpp_internal<return>(1);
         }

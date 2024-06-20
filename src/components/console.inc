@@ -71,13 +71,16 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
             }
 
             //dpp_debug("Line \"%s\" successfully executed.", line);
-            //print(args[0]);
+            print(args[0]);
             //strmid(dpp_tempaddr__, args[0], 0, sizeof dpp_tempaddr__);
-            @emit__ tempaddr    ,.str=args[0]
+
+            dpp_dummy();
+
+            /*@emit__ tempaddr    ,.str=args[0]
             #emit push.c        dpp_tempaddr__
             #emit push.c        4
             #emit sysreq.c      print
-            #emit stack         8
+            #emit stack         8*/
 
             if(!strcmp(funcgroup[2], "log"))
             {
@@ -107,9 +110,9 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
                 }
             }
 
-            //dpp_inputtype = DPP_INPUT_TYPE_LINE;
-            #emit const.alt         1
-            #emit stor.alt          dpp_inputtype
+            dpp_inputtype = DPP_INPUT_TYPE_LINE;
+            /*#emit const.alt         1
+            #emit stor.alt          dpp_inputtype*/
             //printf("dpp_inputtype is %sDPP_INPUT_TYPE_LINE", dpp_inputtype==DPP_INPUT_TYPE_LINE?"":"not ");
             dpp_internal<return>(1);
         }
@@ -135,9 +138,9 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
                 }
             }
 
-            //dpp_inputtype = DPP_INPUT_TYPE_CHAR;
-            #emit const.alt         2
-            #emit stor.alt          dpp_inputtype
+            dpp_inputtype = DPP_INPUT_TYPE_CHAR;
+            /*#emit const.alt         2
+            #emit stor.alt          dpp_inputtype*/
             //printf("dpp_inputtype is %sDPP_INPUT_TYPE_LINE", dpp_inputtype==DPP_INPUT_TYPE_CHAR?"":"not ");
             dpp_internal<return>(1);
         }
@@ -163,11 +166,13 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
             }
 
             //strmid(dpp_tempaddr__, args[0], 0, sizeof dpp_tempaddr__);
+            print(args[0]);
+
             @emit__ tempaddr    ,.str=args[0]
-            #emit push.c        dpp_tempaddr__
+            /*#emit push.c        dpp_tempaddr__
             #emit push.c        4
             #emit sysreq.c      print
-            #emit stack         8
+            #emit stack         8*/
 
             if(!strcmp(funcgroup[2], "log"))
             {
@@ -180,10 +185,11 @@ public dpp_processconsole(funcgroup[][],args[][],args_const[][])
         {
             //strmid(dpp_tempaddr__, args[0], 0, sizeof dpp_tempaddr__);
             @emit__ tempaddr    ,.str=args[0]
-            #emit push.c        dpp_tempaddr__
+            /*#emit push.c        dpp_tempaddr__
             #emit push.c        4
             #emit sysreq.c      print
-            #emit stack         8
+            #emit stack         8*/
+            print(args[0]);
 
             if(!strcmp(funcgroup[2], "log"))
             {
