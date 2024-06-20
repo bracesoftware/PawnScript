@@ -23,7 +23,7 @@ void Announce() public
 
 ### External structs integrated into the language
 
-#### External struct name: `public`
+#### External struct name: `default`
 
 ```cpp
 @extern
@@ -34,14 +34,16 @@ void main() public
 }
 ```
 
-### Component: `samp`
+### Component: `samp` - COMING SOON!
 
 #### External struct name: `samp_command`
 
 Example:
 
 ```cpp
-extern&struct*samp_command.testcmd?playerid&params;
+@extern
+	this->struct=samp_command
+int testcmd(playerid,params) public
 {
 	samp.SendClientMessage(playerid@testcmd,0,"Your command works!");
 	return.int,1;
