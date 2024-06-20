@@ -6,10 +6,10 @@
   Complex but Easy-to-Use Extentsion to Pawn
 </h3>
 
-<img height="30" align="left" src="https://cdn.discordapp.com/attachments/1130879376423145522/1137384085271093308/Pawn_logo.png">
-<img height="30" align="left" src="https://cdn.discordapp.com/attachments/1130879376423145522/1137382717672136767/BraceTeamProduct.png">
-<img height="30" align="left" href="https://sa-mp.com" src="https://cdn.discordapp.com/attachments/1130879376423145522/1134843694487441438/brace_samp.png">
-<img height="30" align="left" src="https://cdn.discordapp.com/attachments/1130879376423145522/1137381948529070131/logo-dark-trans.png">
+<img height="30" align="left" src="readme_resources/pawn_logo.png">
+<img height="30" align="left" src="readme_resources/bracetm_product.png">
+<img height="30" align="left" href="https://sa-mp.com" src="readme_resources/samp_logo.png">
+<img height="30" align="left" src="readme_resources/omp_compatible.png">
 
 <br></br>
 
