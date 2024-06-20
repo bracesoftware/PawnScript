@@ -3,7 +3,7 @@
 *
 *  PawnScript Plugin
 *
-*  (c) DEntisT
+*  (c) DEntisT, Brace Inc.
 *
 *
 */

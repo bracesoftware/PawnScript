@@ -11,6 +11,6 @@
 
 cell AMX_NATIVE_CALL IsPawnScriptLoaded(AMX* amx, cell* params)
 {
-    logprintf("Loaded!");
+    pawnscriptprint("System is ready to use.");
     return 1;
 }

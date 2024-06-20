@@ -89,6 +89,7 @@ dpp_resspeedhz(); public dpp_resspeedhz()
 
 dpp_main(); public dpp_main()
 {
+    fcreatedir(PS_LOGDIR); // Log folder
     strmid(dpp_projname,"Unnamed project",0,128,128);
     dpp_nullcomment();
     dpp_nullcomment();
@@ -99,7 +100,7 @@ dpp_main(); public dpp_main()
     fcreatedir(PSDATA_DIRNAME); // Data folder
     
     //print("-");
-    return 1;   
+    return 1;
 }
 
 main_again();

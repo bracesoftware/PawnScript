@@ -20,9 +20,10 @@ the Initial Developer. All Rights Reserved.
 
 new dpp_ignoreline=0,File:dpp_indexhandle;
 //@_
+#define PS_LOGDIR "$ps_log"
 #define SCRIPT_EXT ".ps"
 #define LOG_EXT ".pslog"
-#define STACKOUTPUT_FILE "stackoutput"LOG_EXT
+#define STACKOUTPUT_FILE PS_LOGDIR"/stackoutput"LOG_EXT
 #define PROJECT_NAME "PawnScript"
 #define PSDATA_DIRNAME "$ps_data"
 
@@ -37,7 +38,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 
 #define DPP_VERSION_BETA 1
 
-#define DPP_LOG_FILE "pawnscript"LOG_EXT
+#define DPP_LOG_FILE PS_LOGDIR"/pawnscript"LOG_EXT
 //-----------------------------------------------------------
 #define DPP_INVALID_INLINE_ID 0
 #define DPP_INVALID_FORM_ID -1

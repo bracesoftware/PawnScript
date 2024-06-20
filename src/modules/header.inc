@@ -1148,6 +1148,7 @@ public DPP_ENTRYPOINT()
 
 // stack output
 
+
 stock void:dpp_savelog(const file[],const message[]) 
 {
     new formatted_message[ 256 ], 
@@ -1164,7 +1165,7 @@ stock void:dpp_savelog(const file[],const message[])
     
     format(formatted_message, 
         sizeof formatted_message, 
-        "%d:%d:%d | %d:%d:%d @ >> [PawnScript] | LOG: %s\r\n ", 
+        "%d/%d/%d | %d:%d:%d @ >> [PawnScript] | LOG: %s\r\n ", 
         day, month, year, 
         second, minutes, day2, message);
 
