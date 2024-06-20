@@ -203,7 +203,7 @@ public dpp_processfiles(funcgroup[][],args[][],args_const[][])
                 dpp_error("Argument error; [%i] \"%s\"", mul, args[0]);
                 dpp_internal<return>(0);
             }
-            format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
+            //format(args[0],dpp_maxpathsize,"%s%s",dpp_curpath,args[0]);
 
             fwrite(dpp_filehandle, args[0]);
             dpp_internal<return>(1);
