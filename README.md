@@ -1,5 +1,5 @@
 <p align="left">
-  <img height="200" align="left" src="https://cdn.discordapp.com/attachments/1130879376423145522/1134837198336819240/chess-game-piece-clipart-design-illustration-free-png.png">
+  <img height="200" align="left" src="readme_resources/pawnscript_logo.png">
 </p>
 <h1 align = "left">Welcome to the <i><b>PawnScript</b></i> Wiki</h1>
 <h3 align = "left">
