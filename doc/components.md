@@ -378,7 +378,7 @@ graphics.cls
 graphics.show
 ```
 
-### Form: `showpixel` - COMING SOON!
+### Form: `showpixel`
 - "Activate" a specific pixel on the graphics grid.
 
 ```cpp
@@ -387,5 +387,32 @@ graphics.showpixel(row, column)
 
 Example:
 ```cpp
-graphics.showpixel(2,3)
+graphics.showpixel(9,50)
+```
+
+Output:
+```
+[Info] 	PawnScript: Graphics Mode			Version: [Gs2]
+[Info] 	[Rows: 20		Columns: 100]
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info]                                                                                                    
+[Info] 	Powered by: Pawn				Release: 3.10.11
 ```

@@ -28,7 +28,7 @@ the Initial Developer. All Rights Reserved.
 //dpp_genver__()
 #define DPP_VERSION_RELEASE 	"u"
 //dpp_genver__()*2
-#define DPP_VERSION_GS			1
+#define DPP_VERSION_GS			2
 
 new dpp_vers_string__[100];
 

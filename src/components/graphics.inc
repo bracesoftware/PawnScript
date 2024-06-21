@@ -37,7 +37,7 @@ public dpp_processgraphics(funcgroup[][],args[][],args_const[][])
         //cls
         if(!strcmp(funcgroup[1], "cls"))
         {
-            CallLocalFunction("dpp_graphics__cls", "");
+            CallLocalFunction("dpp_graphics__cls", "i", 1);
             dpp_internal<return>(1);
         }
         //showpicel
@@ -54,7 +54,7 @@ public dpp_processgraphics(funcgroup[][],args[][],args_const[][])
                 return 1;
             }
 
-            printf("showpixel\t\targs[0] : '%i'\targs[1] : '%i'", strval(args[0]),strval(args[1]));
+            //printf("showpixel\t\targs[0] : '%i'\targs[1] : '%i'", strval(args[0]),strval(args[1]));
 
             CallLocalFunction("dpp_graphics__showpixel", "ii", strval(args[0]),strval(args[1]));
             dpp_internal<return>(1);

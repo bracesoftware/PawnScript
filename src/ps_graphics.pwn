@@ -17,42 +17,35 @@ the Initial Developer. All Rights Reserved.
 
 */
 
-#define dpp_graphics_major 0
-#define dpp_graphics_minor 0
-#define dpp_graphics_patch 1
+#define dpp_emptychar 		'\32'
+#define dpp_fullchar 		'¤'
 
-#define GRAPHICS_ROWS 5
-#define GRAPHICS_COLUMNS 5
+#define GRAPHICS_ROWS 20
+#define GRAPHICS_COLUMNS 100
 
 new dpp_graphics_grid__[GRAPHICS_ROWS][GRAPHICS_COLUMNS];
+new dpp_gtemp__[10];
 
 // Setup
 
 dpp_graphics__init(); // Initialize the screen.
 dpp_graphics__show(); // Show the screen.
 dpp_graphics__showpixel(row, column); // Show pixel.
-dpp_graphics__cls(); // Clean the screen.
+dpp_graphics__cls(mode); // Clean the screen.
 
 // Functions
 public dpp_graphics__init() //Internal
 {
-	for(new i; i < GRAPHICS_ROWS; i++)
-	{
-		format(dpp_graphics_grid__[i], GRAPHICS_COLUMNS, "\n");
-	}
-	for(new i; i < GRAPHICS_ROWS; i++)
-	{
-		for(new j; j < GRAPHICS_COLUMNS; j++)
-		{
-			dpp_graphics_grid__[i][j] = '-';
-		}
-	}
-	dpp_gprint("Graphics grid has been initialized.");
+	CallLocalFunction("dpp_graphics__cls", "i", 0);
 	return 1;
 }
 
 public dpp_graphics__show()
 {
+	for(new i; i < GRAPHICS_COLUMNS; i++)
+	{
+		print("\t");
+	}
 	printf("\tPawnScript: Graphics Mode\t\t\tVersion: [Gs%i]",
 		DPP_VERSION_GS);
 	printf("\t[Rows: %i\t\tColumns: %i]",GRAPHICS_ROWS,GRAPHICS_COLUMNS);
@@ -88,20 +81,23 @@ public dpp_graphics__showpixel(row, column)
 		dpp_gerror("System encountered an error.");
 		return 1;
 	}
-	printf("__showpixel\t\targs[0] : '%i'\targs[1] : '%i'", row,column);
-	dpp_graphics_grid__[row-1][column-1] = '+';
+	//printf("__showpixel\t\targs[0] : '%i'\targs[1] : '%i'", row,column);
+	dpp_graphics_grid__[row-1][column-1] = dpp_fullchar;
 	return 1;
 }
 
-public dpp_graphics__cls()
+public dpp_graphics__cls(mode)
 {
 	for(new i; i < GRAPHICS_ROWS; i++)
 	{
+		format(dpp_graphics_grid__[i], GRAPHICS_COLUMNS, "");
 		for(new j; j < GRAPHICS_COLUMNS; j++)
 		{
-			dpp_graphics_grid__[i][j] = '-';
+			format(dpp_gtemp__,sizeof dpp_gtemp__,"%c",dpp_emptychar);
+			strcat(dpp_graphics_grid__[i], dpp_gtemp__);
 		}
 	}
-	dpp_gprint("Graphics grid is clean.");
+	if(mode == 0) dpp_gprint("Graphics grid has been initialized.");
+	if(mode == 1) dpp_gprint("Graphics grid is clean.");
 	return 1;
 }
