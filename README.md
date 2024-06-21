@@ -7,7 +7,7 @@
 </h3>
 
 <img height="30" align="left" src="readme_resources/pawn_logo.png">
-<img height="30" align="left" src="readme_resources/bracetm_product.png">
+<img height="30" align="left" src="readme_resources/brace_product.png">
 <img height="30" align="left" href="https://sa-mp.com" src="readme_resources/samp_logo.png">
 <img height="30" align="left" src="readme_resources/omp_compatible.png">
 
