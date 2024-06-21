@@ -31,8 +31,8 @@ public dpp_processsystem(funcgroup[][],args[][],args_const[][])
         //ver
         if(!strcmp(funcgroup[1], "ver"))
         {
-            printf("\tPawnScript   %i.%i.%i-R%i\tBrace Inc.", DPP_VERSION_MAJOR,DPP_VERSION_MINOR,DPP_VERSION_PATCH,DPP_VERSION_RELEASE);
-            printf("\tPawn         %d.%02d.%02d\tITB CompuPhase", __Pawn >>> 8, __Pawn & 0xFF, __PawnBuild/*__pawn_build*/); // from YSI
+            dpp_genvers__();
+            dpp_verinfo__();
             dpp_internal<return>(1);
         }
         // If the function used it "print"

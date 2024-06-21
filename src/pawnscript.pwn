@@ -33,6 +33,7 @@ the Initial Developer. All Rights Reserved.
 //-----------------------------------------------------------
 // REQUIRED.
 #include <open.mp>
+#include "core/ver.inc"
 #if !defined fcreatedir
 native fcreatedir(const filename[]);
 #endif
@@ -65,6 +66,7 @@ native fcreatedir(const filename[]);
 #include "core/index.inc"
 #include "core/sys_utils.inc"
 #include "core/component_impl.inc"
+
 #include "ps_asm.pwn"
 #include "ps_sdk.pwn"
 #include "ps_graphics.pwn"

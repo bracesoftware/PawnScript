@@ -30,10 +30,6 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 //-----------------------------------------------------------
 #define dpp_invalidclass 100
 //-----------------------------------------------------------
-#define DPP_VERSION_MAJOR 1
-#define DPP_VERSION_MINOR 1
-#define DPP_VERSION_PATCH dpp_genver__()
-#define DPP_VERSION_RELEASE dpp_genver__()*2
 #define DPP_CELLMAX 8
 
 #define DPP_VERSION_BETA 1

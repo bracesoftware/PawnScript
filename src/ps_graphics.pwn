@@ -53,10 +53,8 @@ public dpp_graphics__init() //Internal
 
 public dpp_graphics__show()
 {
-	printf("\tPawnScript: Graphics Mode\t\t\tVersion: [%i.%i.%i]",
-		dpp_graphics_major,
-		dpp_graphics_minor,
-		dpp_graphics_patch);
+	printf("\tPawnScript: Graphics Mode\t\t\tVersion: [Gs%i]",
+		DPP_VERSION_GS);
 	printf("\t[Rows: %i\t\tColumns: %i]",GRAPHICS_ROWS,GRAPHICS_COLUMNS);
 
 	for(new i; i < GRAPHICS_ROWS; i++)
