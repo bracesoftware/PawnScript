@@ -21,6 +21,11 @@ the Initial Developer. All Rights Reserved.
 new process_backtrace[2048];
 new process_bcktrc[1024];
 new varsetgroup[2][64];
+/*
+COMING SOON
+new[int]name=1
+
+*/
 
 stock dpp_process(line[])
 {
