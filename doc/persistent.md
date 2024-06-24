@@ -38,6 +38,8 @@ console.println.log("Imported {pdmtest5}");
 
 ```
 
+**NOTE**: Semicolons are optional.
+
 Output:
 
 ```

@@ -30,7 +30,7 @@ For loop id 10
 int ForTest2(num) public
 {
 	console.println("'num' is {num@ForTest2}")
-	return,1
+	return 1
 }
 
 forlooptestvar=0

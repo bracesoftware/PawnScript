@@ -7,8 +7,6 @@
 */
 
 
-
-
 #include:stdlib;
 
 #pragma:reqref,false; // Disable for good.
@@ -16,7 +14,7 @@
 #pragma:allspc,true;
 #pragma:warnings,default;
 
-const*new.bool,DEBUG_OPTION=false;
+const[bool]DEBUG_OPTION=false
 
 #pragma:debug,DEBUG_OPTION;
 #pragma:ctrlchar,'§';
@@ -44,9 +42,9 @@ system.rem("=================== NATIVES ===================");
 
 system.rem("a_samp for D++");
 
-const*new.int,MAX_PLAYERS=1000;
-const*new.int,MAX_ACTORS=1000;
-const*new.int,MAX_VEHICLES=2000;
+const[int]MAX_PLAYERS=1000;
+const[int]MAX_ACTORS=1000;
+const[int]MAX_VEHICLES=2000;
 
 samp.SetGameModeText("d++ test");
 samp.SetMaxPlayers(MAX_PLAYERS);
@@ -58,11 +56,11 @@ str testFunc() public;
 	console.println("testFunc was called.");
 	// We CANNOT return strings as literals if they contain spaces
 	// Return a static variable instead.
-	static*new.str,returnstr="testFunc returned this."
+	static[str]returnstr="testFunc returned this."
 	return returnstr
 }
 
-const*new.str,LMAO="Lmao";
+const[str] LMAO = "Lmao"
 
 str disableDebug() public;
 {

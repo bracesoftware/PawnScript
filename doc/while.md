@@ -4,8 +4,8 @@
 - While loops are also possible in PawnScript:
 
 ```cpp
-new.int,testvar=0;
-while.notequ,testvar,10->testvar=testvar+1&console.println("{testvar}");
+new.int,testvar=0
+while.notequ,testvar,10->testvar=testvar+1&console.println("{testvar}")
 ```
 
 Code above is going to count from 1 to 10.
@@ -13,7 +13,7 @@ Code above is going to count from 1 to 10.
 You may also combine other statements; such as if-expressions; with while-loops.
 
 ```cpp
-if.equ,1,1->while.equ,testvar,11->testvar=testvar+1&console.println("This should be printed again!");
+if.equ,1,1->while.equ,testvar,11->testvar=testvar+1&console.println("This should be printed again!")
 ```
 
 ---------------------------------------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 
 Afterwards you may import your module:
 ```cpp
-#include:module_name;
+#include:module_name
 ```
 
 Make sure not to add the `*.ps` extension to the `module_name`.

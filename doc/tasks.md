@@ -4,11 +4,11 @@
 
 
 ```cpp
-@task;
-	this->interval=1000;
-void mytask() public;
+@task
+	this->interval=1000
+void mytask() public
 {
-	console.println("Task works!");
+	console.println("Task works!")
 }
 ```
 

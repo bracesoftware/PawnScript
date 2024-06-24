@@ -7,8 +7,8 @@ You can modify some interpreter options using `#pragma`. You may use `default` i
 You can toggle PawnScript debugging on or off.
 
 ```cpp
-#pragma:debug,false;
-#pragma:debug,true;
+#pragma:debug,false
+#pragma:debug,true
 ```
 
 ## `warnings`
@@ -17,8 +17,8 @@ You can toggle PawnScript debugging on or off.
 You can toggle PawnScript warning system on or off.
 
 ```cpp
-#pragma:warnings,false;
-#pragma:warnings,true;
+#pragma:warnings,false
+#pragma:warnings,true
 ```
 
 ## `hooking`
@@ -27,8 +27,8 @@ You can toggle PawnScript warning system on or off.
 You can toggle PawnScript hooking system on or off.
 
 ```cpp
-#pragma:hooking,false;
-#pragma:hooking,true;
+#pragma:hooking,false
+#pragma:hooking,true
 ```
 
 ## `ctrlchar`
@@ -37,7 +37,7 @@ You can toggle PawnScript hooking system on or off.
 Change the parsing escape character.
 
 ```cpp
-#pragma:ctrlchar,'*';
+#pragma:ctrlchar,'*'
 ```
 
 ## `reqref`
@@ -46,7 +46,7 @@ Change the parsing escape character.
 Enable warnings when return reference isn't provided.
 
 ```cpp
-#pragma:reqref,true;
+#pragma:reqref,true
 ```
 
 ## `dynamic`
@@ -55,7 +55,7 @@ Enable warnings when return reference isn't provided.
 Sets the amount of usable cells in which entity data will be stored. Each entity in PawnScript symbolises one cell, for example, a variable occupies 1 cell and stores all its data inside.
 
 ```cpp
-#pragma:dynamic,default;
+#pragma:dynamic,default
 //or
 #pragma:dynamic,100; // Must be lower than the default value.
 ```

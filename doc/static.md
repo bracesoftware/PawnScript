@@ -5,7 +5,7 @@
 ```cpp
 int StaticTest() public
 {
-	static*new.str,statictest="Static works here"
+	static[str]statictest="Static works here"
 	console.println.log(statictest)
 	return 1
 }

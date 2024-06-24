@@ -5,10 +5,10 @@
 Example:
 
 ```cpp
-typedef,const*new.int,constint;
+typedef,const*new.int,constint
 
-constint,typedeftest=1234234;
-console.println.log("{typedeftest}");
+constint,typedeftest=1234234
+console.println.log("{typedeftest}")
 ```
 
 Output:
@@ -22,10 +22,10 @@ Output:
 - You can also create a type definition within a namespace.
 
 ```cpp
-namespace mytestnamespace;
+namespace mytestnamespace
 {
-	typedef,new.int.short,shortint;
+	typedef,new.int.short,shortint
 }
 
-mytestnamespace::shortint,myvar=0;
+mytestnamespace::shortint,myvar=0
 ```

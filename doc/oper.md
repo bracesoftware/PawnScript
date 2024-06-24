@@ -5,7 +5,7 @@
 ### Operator: `+`
 - Addition.
 ```pawn
-console.cout(1+1);
+console.cout(1+1)
 ```
 
 Output:
@@ -17,7 +17,7 @@ Output:
 ### Operator: `-`
 - Subtraction.
 ```pawn
-console.cout(1-1);
+console.cout(1-1)
 ```
 
 Output:
@@ -29,7 +29,7 @@ Output:
 ### Operator: `*`
 - Multiplication.
 ```pawn
-console.cout(1*1);
+console.cout(1*1)
 ```
 
 Output:
@@ -41,7 +41,7 @@ Output:
 ### Operator: `/`
 - Division.
 ```pawn
-console.cout(4/2);
+console.cout(4/2)
 ```
 
 Output:
@@ -53,7 +53,7 @@ Output:
 ### Operator: `^`
 - Exponentiation.
 ```pawn
-console.cout(3^2);
+console.cout(3^2)
 ```
 
 Output:
@@ -65,7 +65,7 @@ Output:
 ### Operator: `%`
 - Division remainder.
 ```pawn
-console.cout(10%3);
+console.cout(10%3)
 ```
 
 Output:
@@ -77,31 +77,31 @@ Output:
 ### Operator: `::`
 - Namespace access operator.
 ```cpp
-namespace,MyNameSpace;
+namespace MyNameSpace
 {
-	void MyFunc() public;
+	void MyFunc() public
 	{
-		console.println.log("I'm here!");
+		console.println.log("I'm here!")
 	}
 }
 
-user.MyNameSpace::MyFunc;
+user.MyNameSpace::MyFunc
 ```
 
 ### Operator: `.`
 - Code block access operator.
 
 ```cpp
-console.println.log("Hi!");
+console.println.log("Hi!")
 ```
 
 ### Operator: `@`
 - Memory access operator.
 
 ```cpp
-void MyFunc(argument) public;
+void MyFunc(argument) public
 {
-	console.cout.log(argument@MyFunc);
+	console.cout.log(argument@MyFunc)
 }
 ```
 
@@ -110,7 +110,7 @@ void MyFunc(argument) public;
 - Conditional operator.
 
 ```cpp
-if.equ,1,1->console.println.log("1 and 1 are equal");
+if.equ,1,1->console.println.log("1 and 1 are equal")
 ```
 
 ### Operator: `<-`
@@ -118,7 +118,7 @@ if.equ,1,1->console.println.log("1 and 1 are equal");
 - Attribute assignment operator.
 
 ```cpp
-MyTag<-new.int,myvar=1;
+MyTag<-new.int,myvar=1
 ```
 
 ### Operator: `=`
@@ -126,7 +126,7 @@ MyTag<-new.int,myvar=1;
 - Data assignment operator.
 
 ```cpp
-new.int,myvar=1;
+new.int,myvar=1
 ```
 
 ### Operator: `|`
@@ -134,7 +134,7 @@ new.int,myvar=1;
 - Bitwise OR.
 
 ```cpp
-console.cout.log(1|0);
+console.cout.log(1|0)
 ```
 
 Output:
@@ -147,7 +147,7 @@ Output:
 - Bitwise AND.
 
 ```cpp
-console.cout.log(1&0);
+console.cout.log(1&0)
 ```
 
 Output:
@@ -161,48 +161,48 @@ Output:
 - Is equal to.
 
 ```cpp
-new.int,testvar=1==1;
-console.println.log("1==1: {testvar}");
+new.int,testvar=1==1
+console.println.log("1==1: {testvar}")
 ```
 ### Operator: `!=`
 
 - Not equal to.
 
 ```cpp
-testvar=1!=1;
-console.println.log("1!=1: {testvar}");
+testvar=1!=1
+console.println.log("1!=1: {testvar}")
 ```
 ### Operator: `>=`
 
 - Greater equal to.
 
 ```cpp
-testvar=1>=1;
-console.println.log("1>=1: {testvar}");
+testvar=1>=1
+console.println.log("1>=1: {testvar}")
 ```
 ### Operator: `<=`
 
 - Less or equal to.
 
 ```cpp
-testvar=1<=2;
-console.println.log("1<=2: {testvar}");
+testvar=1<=2
+console.println.log("1<=2: {testvar}")
 ```
 ### Operator: `<`
 
 - Less than.
 
 ```cpp
-testvar=1<2;
-console.println.log("1<2: {testvar}");
+testvar=1<2
+console.println.log("1<2: {testvar}")
 ```
 ### Operator: `>`
 
 - Greater than.
 
 ```cpp
-testvar=1>2;
-console.println.log("1>2: {testvar}");
+testvar=1>2
+console.println.log("1>2: {testvar}")
 ```
 ---------------------------------------------------------------------------------------------------------
 
@@ -211,17 +211,17 @@ console.println.log("1>2: {testvar}");
 Little example:
 
 ```cpp
-if.equ,5/5,1+0->console.println,"Math test passed!";
+if.equ,5/5,1+0->console.println,"Math test passed!"
 ```
 
 You may also use constants, variables and user functions as an operator arguments:
 
 ```cpp
-new.int,MATHVAR=1+1;
-console.cout(MATHVAR);
+new.int,MATHVAR=1+1
+console.cout(MATHVAR)
 
-new.int,MATHVAR22=6+MATHVAR;
-console.cout(MATHVAR22);
+new.int,MATHVAR22=6+MATHVAR
+console.cout(MATHVAR22)
 ```
 
 Output:

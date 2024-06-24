@@ -3,18 +3,18 @@
 - Return reference in PawnScript is a certain variable a return value of a native function will be stored in. 
 
 ```cpp
-#pragma:reqref,true;
+#pragma:reqref,true
 
-new.int.unsigned,ReturnReference__=9283;
+new.int.unsigned,ReturnReference__=9283
 
 console.println("Heyy"); // This will give a warning.
 
-console.println.log("Hello World again") ReturnReference__;
+console.println.log("Hello World again") ReturnReference__
 
 
-#pragma:reqref,false;
+#pragma:reqref,false
 
-console.cout(ReturnReference__);
+console.cout(ReturnReference__)
 ```
 
 Output:

@@ -35,7 +35,7 @@ You also may return values.
 str funcname() public
 {
 	console.println("my first user functions")
-	static*new.str,return_str="this was returned"
+	static[str]return_str="this was returned"
 	return return_str
 }
 ```
@@ -46,7 +46,7 @@ Then you can use this user function as an argument in a native function.
 str funcname() public
 {
 	console.println("my first user functions")
-	static*new.str,return_str="this was returned"
+	static[str]return_str="this was returned"
 	return return_str
 }
 
@@ -65,7 +65,7 @@ user.funcname()
 - You may also use variables and constants as arguments in native functions.
 
 ```cpp
-const*new.str,CONST_NAME="constant worked"
+const[str]CONST_NAME="constant worked"
 
 console.println(CONST_NAME)
 ```
@@ -79,21 +79,21 @@ console.println(CONST_NAME)
 int functobehooked() public
 {
 	console.println("HOOKED")
-	return,1
+	return 1
 }
 
 @hook
 int functobehooked() public
 {
 	console.println("HOOKED 1")
-	return.int,1
+	return int 1
 }
 
 @hook
 int functobehooked() public
 {
 	console.println("HOOKED 2")
-	return.int,1
+	return int 1
 }
 
 user.functobehooked()

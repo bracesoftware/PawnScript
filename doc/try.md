@@ -3,34 +3,34 @@
 - `try` keyword is a `do` version made for loops, allowing you to execute more code at once. `break` and `continue` are 2 famous concepts of **break**ing the loop, and skipping the **continu**ous iteration.
 
 ```cpp
-try;
+try
 {
-	console.println.log("Try works!");
-	break;
+	console.println.log("Try works!")
+	break
 }
-if.equ,1,1->while.equ,1,1->;
+if.equ,1,1->while.equ,1,1->
 
 
-new.int,fortestagainomg=0;
+new.int,fortestagainomg=0
 
-try;
+try
 {
-	if.equ,fortestagainomg,5->continue;
-	else->if.equ,fortestagainomg,8->break;
-	else->do;
+	if.equ,fortestagainomg,5->continue
+	else->if.equ,fortestagainomg,8->break
+	else->do
 	{
-		console.cout(fortestagainomg);
+		console.cout(fortestagainomg)
 	}
 }
-for.int,fortestagainomg,10->;
+for.int,fortestagainomg,10->
 
-try;
+try
 {
-	if.equ,fortestagainomg,15->break;
-	console.cout(fortestagainomg);
-	fortestagainomg=fortestagainomg+1;
+	if.equ,fortestagainomg,15->break
+	console.cout(fortestagainomg)
+	fortestagainomg=fortestagainomg+1
 }
-while.notequ,fortestagainomg,20->;
+while.notequ,fortestagainomg,20->
 ```
 
 Output:

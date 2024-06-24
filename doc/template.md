@@ -3,8 +3,8 @@
 - Templates are used to substitute long function calls with shorter keywords.
 
 ```cpp
-template<console.println.log>cpl;
-cpl("Hi.");
+template<console.println.log>cpl
+cpl("Hi.")
 ```
 
 Output:
@@ -18,11 +18,11 @@ Hi.
 - Also possible.
 
 ```cpp
-namespace nm;
+namespace nm
 {
-	template<console.println.log>cpl;
+	template<console.println.log>cpl
 }
-nm::cpl("Hi.");
+nm::cpl("Hi.")
 ```
 
 Output:

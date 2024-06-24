@@ -89,7 +89,7 @@ dpp_resspeedhz(); public dpp_resspeedhz()
     dpp_speedhz = 0;
     return 1;
 }
-
+//-----------------------------------------------------------
 dpp_main(); public dpp_main()
 {
     fcreatedir(PS_LOGDIR); // Log folder
@@ -105,7 +105,7 @@ dpp_main(); public dpp_main()
     //print("-");
     return 1;
 }
-
+//-----------------------------------------------------------
 main_again();
 public main_again()
 {
@@ -123,7 +123,7 @@ public main_again()
     CallRemoteFunction("__ps_sdktest", "");
     return 1;
 }
-
+//-----------------------------------------------------------
 dpp_dostackoutput();
 public dpp_dostackoutput()
 {
@@ -213,13 +213,13 @@ public dpp_dostackoutput()
 
     return 1;
 }
-
+//-----------------------------------------------------------
 pawnscriptcall(line[]); public pawnscriptcall(line[])
 {
     dpp_process(line);
     return 1;
 }
-
+//-----------------------------------------------------------
 public OnGameModeExit()
 {
     CallLocalFunction("dpp_sampexitcall", "");

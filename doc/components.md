@@ -132,10 +132,12 @@ files.createdir("MyNewDirAgain")
 - Called when the code gets executed.
 
 ```cpp
-extern&struct*public.main;
+@extern
+	this->struct=default
+int main() public
 {
 	console.println("Hello World from main");
-	return.int,1;
+	return int 1
 }
 ```
 

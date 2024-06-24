@@ -9,8 +9,8 @@ Return type: `int`
 - Returns a processed form id.
 
 ```cpp
-new.int,formid=__proccessed_form_id;
-console.println("'inlinetest' is {formid}");
+new.int,formid=__proccessed_form_id
+console.println("'inlinetest' is {formid}")
 ```
 
 ## `__majorver`

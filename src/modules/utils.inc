@@ -23,7 +23,7 @@ the Initial Developer. All Rights Reserved.
 #define dpp_isinrange(%0,%1,%2) (((%0)-((%1)+cellmin))<((%2)-((%1)+cellmin))) 
 // creds Y_Less
 
-
+stock dpp_hzinc() dpp_speedhz = dpp_speedhz + 1;
 
 stock levenstein(const a[], const b[]) { //southclaws
     new
@@ -204,6 +204,18 @@ stock bool:dpp_isfloat(const str[])
     if(dpp_isnumeric(numerals[0]) && dpp_isnumeric(numerals[1]))
     {
         return true;
+    }
+    return false;
+}
+
+stock bool:dpp_ischar(const str[])
+{
+    if(strlen(str) == 3)
+    {
+        if(str[0] == '\'' && str[2] == '\'')
+        {
+            return true;
+        }
     }
     return false;
 }
