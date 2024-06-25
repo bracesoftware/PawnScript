@@ -2546,11 +2546,28 @@ stock dpp_process(line[])
 
             /*if(!strcmp(var_group_2[0], "unsigned"))
             {
-                dpp_createintvar(vargroup[0],strval(vargroup[1]) < 0 ? strval(vargroup[1])*(-1) : strval(vargroup[1]), .unsigned = 1);
+                dpp_createintvar(var_group_3[0],strval(var_group_3[1]) < 0 ? strval(var_group_3[1])*(-1) : strval(var_group_3[1]), .unsigned = 1);
                 return 1;
             }*/
 
             dpp_createintvar(var_group_3[0],strval(var_group_3[1]), .staticvar = 1, .baseform = dpp_processfunc);
+            return 1;
+        }
+        //static[int.unsigned]name=1
+        //typedef<int.unsigned>uint
+        //static[uint]name=1
+        if(!strcmp(var_group_2[0], "int.unsigned"))
+        {
+            if(!dpp_isnumeric(var_group_3[1]))
+            {
+                dpp_error("Argument error; value must be an integer.",);
+                return 0;
+            }
+
+            dpp_createintvar(var_group_3[0],
+                strval(var_group_3[1]) < 0 ? strval(var_group_3[1])*(-1) : strval(var_group_3[1]), 
+                .staticvar = 1, .baseform = dpp_processfunc,.unsigned = 1);
+
             return 1;
         }
         if(!strcmp(var_group_2[0], "bool"))
