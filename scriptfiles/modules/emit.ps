@@ -8,44 +8,44 @@
 *
 */
 
-new.int,ADDRESSOFTEST=0;
+new[int]ADDRESSOFTEST=0;
 #emit:addrset,addressof?ADDRESSOFTEST;
 #emit:vlset,23746;
 
 console.rawout.log(ADDRESSOFTEST);
 
-new.bool,ADDRESSOFTEST2=false;
+new[bool]ADDRESSOFTEST2=false;
 #emit:addrset,addressof?ADDRESSOFTEST2;
 #emit:vlset,true;
 
 console.rawout.log(ADDRESSOFTEST2);
 
-new.str,ADDRESSOFTEST3="000";
+new[str]ADDRESSOFTEST3="000";
 #emit:addrset,addressof?ADDRESSOFTEST3;
 #emit:vlset,"#emit works!";
 
 console.println.log(ADDRESSOFTEST3);
 
-new.double,ADDRESSOFTEST4=0.0;
+new[double]ADDRESSOFTEST4=0.0;
 #emit:addrset,addressof?ADDRESSOFTEST4;
 #emit:vlset,23.746;
 
 console.rawout.log(ADDRESSOFTEST4);
 
-new.char,ADDRESSOFTEST5='0';
+new[char]ADDRESSOFTEST5='0';
 #emit:addrset,addressof?ADDRESSOFTEST5;
 #emit:vlset,'K';
 
 console.cout.log(ADDRESSOFTEST5);
 
-new.int,ADDRESSOFTEST6=1;
+new[int]ADDRESSOFTEST6=1;
 #emit:addrset,addressof?ADDRESSOFTEST6;
 #emit:dtyp,5;
 #emit:vlset,'Z';
 
 console.cout.log(ADDRESSOFTEST6);
 
-new.int,ADDRESSOFTEST7=364;
+new[int]ADDRESSOFTEST7=364;
 #emit:addrset,addressof?ADDRESSOFTEST7;
 #emit:csnm,__ADDRESSOFTEST7;
 
@@ -53,7 +53,7 @@ console.rawout.log(__ADDRESSOFTEST7);
 
 // This is also a comment.
 
-new.int,SyntaxCheck=1;
+new[int]SyntaxCheck=1;
 console.println("Look! SyntaxCheck is {SyntaxCheck}");
 
 console.println("oh my God {random?!?1stupid symbol__ bruh}");

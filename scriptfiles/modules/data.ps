@@ -12,14 +12,14 @@ console.println("========================== data.dpp =========================="
 
 console.println.log("data.dpp is imported");
 
-new.str,scanftest1="ok";
-new.str,scanftest2="ok";
-new.str,scanftest3="ok";
-new.str,scanftest4="ok";
-new.int,scanftest5=2453;
-new.int,scanftest6=2453;
+new[str]scanftest1="ok";
+new[str]scanftest2="ok";
+new[str]scanftest3="ok";
+new[str]scanftest4="ok";
+new[int]scanftest5=2453;
+new[int]scanftest6=2453;
 
-new.str,scanftest="sscanf-is-so-cool-1-2";
+new[str]scanftest="sscanf-is-so-cool-1-2";
 
 data.sscanf(scanftest,scanftest1,scanftest2,scanftest3,scanftest4,scanftest5,scanftest6);
 
@@ -31,18 +31,18 @@ console.rawout(scanftest5);
 console.rawout(scanftest6);
 
 tag TestObj
-TestObj<-new.int,testvar=101
+TestObj<-new[int]testvar=101
 
 namespace ObjectTest
 {
 	tag TestObj
 }
 
-ObjectTest::TestObj<-new.int,testvar=1;
+ObjectTest::TestObj<-new[int]testvar=1;
 
 
 
-new.int,undeftest=1;
+new[int]undeftest=1;
 
 if.equ,defined?undeftest,1->console.println.log("undeftest is defined");
 
@@ -60,7 +60,7 @@ const[double]pi=3.14159;
 
 console.rawout(pi);
 
-new.double,doubletestvar=723.42;
+new[double]doubletestvar=723.42;
 
 int DoubleTest(arg) public;
 {
@@ -79,8 +79,8 @@ console.rawout.log(doubletestvar/pi);
 if.equ,3.4+3.2,6.6->console.println.log("3.4+3.2 and 6.6 are equal");
 
 const[char]character='a';
-new.char,charvar='B';
-new.str,charstrtest="Oh my god";
+new[char]charvar='B';
+new[str]charstrtest="Oh my god";
 
 console.println.log("{pi} {doubletestvar} {character} {charvar} {charstrtest}");
 
@@ -96,10 +96,3 @@ char CharTestFunction() public;
 
 console.rawout.log(DoubleTestFunction);
 console.rawout.log(CharTestFunction);
-/*
-typedef,const*new.int,constint;
-
-constint,typedeftest=1234234;
-console.println.log("{typedeftest}");
-
-*/

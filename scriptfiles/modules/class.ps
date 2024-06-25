@@ -12,7 +12,7 @@ console.println("========================== class.dpp ==========================
 
 namespace dogInfo;
 {
-	new.str,name="Alexander";
+	new[str]name="Alexander";
 
 	const[int]age=15;
 
@@ -22,7 +22,7 @@ namespace dogInfo;
 		return 1
 	}
 
-	new.str,stacktest="Stack Works!";
+	new[str]stacktest="Stack Works!";
 }
 
 console.println.log(dogInfo::stacktest);
@@ -33,12 +33,12 @@ console.rawout(dogInfo::age);
 
 namespace manInfo;
 {
-	new.str,name="Alex";
+	new[str]name="Alex";
 }
 
 using namespace dogInfo;
 {
-	new.str,owner="Tommy";
+	new[str]owner="Tommy";
 }
 
 console.println(dogInfo::owner);
@@ -49,7 +49,7 @@ console.println(dogInfo::owner);
 
 using namespace manInfo;
 {
-	new.int,age=86;
+	new[int]age=67
 }
 
 console.println(manInfo::name);

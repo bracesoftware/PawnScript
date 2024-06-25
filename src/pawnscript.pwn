@@ -83,7 +83,6 @@ native fcreatedir(const filename[]);
 #include "components/vector.inc"
 #include "components/graphics.inc"
 //-----------------------------------------------------------
-
 dpp_resspeedhz(); public dpp_resspeedhz()
 {
     dpp_speedhz = 0;

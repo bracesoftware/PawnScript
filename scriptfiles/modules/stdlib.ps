@@ -28,21 +28,15 @@ constexpr namespace std
 	const[char]nullchar=' '
 
 	// Simpler keywords to create variables with:
-	typedef,new.int,int
-	typedef,new.bool,bool
-	typedef,new.str,string
-	typedef,new.double,double
-	typedef,new.double,float
-	typedef,new.char,char
-	typedef,new.int.unsigned,uint
-	typedef,new.int.short,sint
+	typedef{int.short}sint
+	typedef{int.unsigned}uint
 
 	// Default return references:
-	new.int,intretref=0
-	new.bool,boolretref=false
-	new.str,strretref="null"
-	new.char,charretref='0'
-	new.double,doubleretref=0.0
+	new[int]intretref=0
+	new[bool]boolretref=false
+	new[str]strretref="null"
+	new[char]charretref='0'
+	new[double]doubleretref=0.0
 
 	// Some constants:
 	const[double]pi=3.14
@@ -55,6 +49,6 @@ constexpr namespace std
 	// Some default class
 	class default__
 	{
-		new.int,test=1
+		new[int]test=1
 	}
 }

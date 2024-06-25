@@ -115,8 +115,12 @@ stock dpp_process(line[])
         args_fconst[dpp_maxargsc][dpp_argcharsize];
 
     new 
-        templategroup[2][1024],
-        templategroup2[2][1024];
+        templategroup[2][512],
+        templategroup2[2][512];
+
+    new 
+        typedefgroup2[2][512],
+        typedefgroup[2][512];
 
     new 
         funcdeclgroup[2][1024],
@@ -176,11 +180,18 @@ stock dpp_process(line[])
 
     dpp_parseline(line,templategroup, '<');
     dpp_parseline(templategroup[1],templategroup2,'>');
+    dpp_parseline(line,typedefgroup, '{');
+    dpp_parseline(typedefgroup[1],typedefgroup2,'}');
 
     dpp_codetrim(templategroup[0]);
     dpp_codetrim(templategroup[1]);
     dpp_codetrim(templategroup2[0]);
     dpp_codetrim(templategroup2[1]);
+
+    dpp_codetrim(typedefgroup[0]);
+    dpp_codetrim(typedefgroup[1]);
+    dpp_codetrim(typedefgroup2[0]);
+    dpp_codetrim(typedefgroup2[1]);
 
     new dpp_isretrefkw = 0;
     for(new i; i < dpp_maxkwords; i++)
@@ -232,6 +243,20 @@ stock dpp_process(line[])
     //std::uint,myvar=1;
     dpp_parseline(line, args, ',');
     dpp_codetrim(args[0]);
+
+    dpp_codetrim(args[0]);
+    dpp_parseline(args[0], funcgroup, '.');
+
+    dpp_codetrim(funcgroup[0]);
+    dpp_codetrim(funcgroup[1]);
+    dpp_codetrim(funcgroup[2]);
+
+    dpp_2split(args[1], vargroup[0],vargroup[1], '=');
+
+    dpp_parseline(line,var_group,'[');
+    dpp_parseline(var_group[1],var_group_2,']');
+    dpp_parseline(var_group_2[1],var_group_3,'=');
+
     for(new i; i < dpp_maxtypedef; i++)
     {
         if(dpp_validtypedef[i] == 1)
@@ -246,22 +271,9 @@ stock dpp_process(line[])
                 format(toreplace, sizeof toreplace, "%s::%s",typegroup2[0],typegroup2[1]);
             }
             
-            dpp_strreplace(args[0], toreplace, dpp_typedefrepl[i], .maxlength = dpp_maxstrsize);
+            dpp_strreplace(var_group_2[0], toreplace, dpp_typedefrepl[i], .maxlength = dpp_maxstrsize);
         }
     }
-
-    dpp_codetrim(args[0]);
-    dpp_parseline(args[0], funcgroup, '.');
-
-    dpp_codetrim(funcgroup[0]);
-    dpp_codetrim(funcgroup[1]);
-    dpp_codetrim(funcgroup[2]);
-
-    dpp_2split(args[1], vargroup[0],vargroup[1], '=');
-
-    dpp_parseline(line,var_group,'[');
-    dpp_parseline(var_group[1],var_group_2,']');
-    dpp_parseline(var_group_2[1],var_group_3,'=');
 
     for(new i; i < dpp_maxtemplate; i++)
     {
@@ -1020,7 +1032,7 @@ stock dpp_process(line[])
     ///////////////////////////////////////////////////////
 
 
-    if(!strcmp(funcgroup[0], "typedef"))
+    /*if(!strcmp(funcgroup[0], "typedef"))
     {
         if(isnull(args_const[1]) || isnull(args_const[2]))
         {
@@ -1029,6 +1041,11 @@ stock dpp_process(line[])
         }
         //typedef,const*new.int,newintconst;
         dpp_createtypedef(args_const[2],args_const[1]);
+        return 1;
+    }*/
+    if(!strcmp(typedefgroup[0], "typedef"))
+    {
+        dpp_createtypedef(typedefgroup2[1],typedefgroup2[0]);
         return 1;
     }
 
@@ -2419,33 +2436,44 @@ stock dpp_process(line[])
 
     //new.int,var=1;
     //new[int]var=1
-    if(!strcmp(funcgroup[0], "new"))
+    if(!strcmp(var_group[0], "new"))
     {
-        if(!strcmp(funcgroup[1], "int"))
+        if(!strcmp(var_group_2[0], "int"))
         {
-            if(!dpp_isnumeric(vargroup[1]))
+            if(!dpp_isnumeric(var_group_3[1]))
             {
-                dpp_error("Argument error [%s]; value must be an integer.",vargroup[1]);
+                dpp_error("Argument error [%s]; value must be an integer.",var_group_3[1]);
                 return 0;
             }
-            if(!strcmp(funcgroup[2], "unsigned"))
-            {
-                dpp_createintvar(vargroup[0],strval(vargroup[1]) < 0 ? strval(vargroup[1])*(-1) : strval(vargroup[1]), .unsigned = 1);
-                return 1;
-            }
 
-            if(!strcmp(funcgroup[2], "short"))
-            {
-                dpp_createintvar(vargroup[0],0 <= strval(vargroup[1]) <= dpp_shortlim ? strval(vargroup[1]) : 0, .short = 1);
-                return 1;
-            }
-
-            dpp_createintvar(vargroup[0],strval(vargroup[1]));
+            dpp_createintvar(var_group_3[0],strval(var_group_3[1]));
             return 1;
         }
-        if(!strcmp(funcgroup[1], "bool"))
+        if(!strcmp(var_group_2[0], "int.unsigned"))
         {
-            if(strcmp(vargroup[1],"true") && strcmp(vargroup[1],"false"))
+            if(!dpp_isnumeric(var_group_3[1]))
+            {
+                dpp_error("Argument error [%s]; value must be an integer.",var_group_3[1]);
+                return 0;
+            }
+            dpp_createintvar(var_group_3[0],
+                strval(var_group_3[1]) < 0 ? strval(var_group_3[1])*(-1) : strval(var_group_3[1]), .unsigned = 1);
+            return 1;
+        }
+        if(!strcmp(var_group_2[0], "int.short"))
+        {
+            if(!dpp_isnumeric(var_group_3[1]))
+            {
+                dpp_error("Argument error [%s]; value must be an integer.",var_group_3[1]);
+                return 0;
+            }
+
+            dpp_createintvar(var_group_3[0],0 <= strval(var_group_3[1]) <= dpp_shortlim ? strval(var_group_3[1]) : 0, .short = 1);
+            return 1;
+        }
+        if(!strcmp(var_group_2[0], "bool"))
+        {
+            if(strcmp(var_group_3[1],"true") && strcmp(var_group_3[1],"false"))
             {
                 dpp_error("Argument error; value must be either 'true' or 'false'.",);
                 return 0;
@@ -2453,27 +2481,25 @@ stock dpp_process(line[])
 
             new dpp_boolval;
 
-
-
-            if(!strcmp(vargroup[1], "false"))
+            if(!strcmp(var_group_3[1], "false"))
             {
                 dpp_boolval = 0;
             }
-            if(!strcmp(vargroup[1], "true"))
+            if(!strcmp(var_group_3[1], "true"))
             {
                 dpp_boolval = 1;
             }
 
-            dpp_createboolvar(vargroup[0],dpp_boolval);
+            dpp_createboolvar(var_group_3[0],dpp_boolval);
             return 1;
         }
-        if(!strcmp(funcgroup[1], "str"))
+        if(!strcmp(var_group_2[0], "str"))
         {
             new mul2, str2[dpp_argcharsize];
-            strmid(str2, vargroup[1], 0, dpp_argcharsize);
-            for(new i; i < strlen(vargroup[1]); i++)
+            strmid(str2, var_group_3[1], 0, dpp_argcharsize);
+            for(new i; i < strlen(var_group_3[1]); i++)
             {
-                if(vargroup[1][i] == '\"') mul2++, strdel(vargroup[1], i, i+1);
+                if(var_group_3[1][i] == '\"') mul2++, strdel(var_group_3[1], i, i+1);
             }
             if(mul2 == 0)
             {
@@ -2482,48 +2508,42 @@ stock dpp_process(line[])
             }
             if(mul2 != 2)
             {
-                dpp_error("Argument error; [%i] \"%s\"", mul2, vargroup[1]);
+                dpp_error("Argument error; [%i] \"%s\"", mul2, var_group_3[1]);
                 return 0;
             }
 
-            dpp_createstrvar(vargroup[0],vargroup[1]);
+            dpp_createstrvar(var_group_3[0],var_group_3[1]);
             return 1;
         }
-        if(!strcmp(funcgroup[1], "double"))
+        if(!strcmp(var_group_2[0], "double"))
         {
-            if(!dpp_isfloat(vargroup[1]))
+            if(!dpp_isfloat(var_group_3[1]))
             {
                 dpp_error("Argument error; argument must be a double.",);
                 return 1;
             }
-            dpp_createdoublevar(vargroup[0],floatstr(vargroup[1]));
+            dpp_createdoublevar(var_group_3[0],floatstr(var_group_3[1]));
             return 1;
         }
-        if(!strcmp(funcgroup[1], "char"))
+        if(!strcmp(var_group_2[0], "char"))
         {
-            new mul2, str2[dpp_argcharsize];
-            strmid(str2, vargroup[1], 0, dpp_argcharsize);
-            for(new i; i < strlen(vargroup[1]); i++)
+            if(!dpp_ischar(var_group_3[1]))
             {
-                if(vargroup[1][i] == '\'') mul2++, strdel(vargroup[1], i, i+1);
+                dpp_error("Argument error; argument must be a char.",);
+                return 1;
             }
-            if(mul2 == 0)
+            for(new i; i < strlen(var_group_3[1]); i++)
             {
-                dpp_error("You need to use \"'\" to start a char.",);
-                return 0;
-            }
-            if(mul2 != 2)
-            {
-                dpp_error("Argument error; [%i] \"%s\"", mul2, vargroup[1]);
-                return 0;
+                if(var_group_3[1][i] == '\'')
+                    strdel(var_group_3[1], i, i+1);
             }
 
-            dpp_createcharvar(vargroup[0],vargroup[1][0]);
+            dpp_createcharvar(var_group_3[0],var_group_3[1][0]);
             return 1;
         }
         
 
-        dpp_error("Unknown symbol type \"%s\".", funcgroup[1]);
+        dpp_error("Unknown symbol type \"%s\".", var_group_2[0]);
           
     
         return 1;
@@ -2567,6 +2587,21 @@ stock dpp_process(line[])
             dpp_createintvar(var_group_3[0],
                 strval(var_group_3[1]) < 0 ? strval(var_group_3[1])*(-1) : strval(var_group_3[1]), 
                 .staticvar = 1, .baseform = dpp_processfunc,.unsigned = 1);
+
+            return 1;
+        }
+        //dpp_createintvar(var_group_3[0],0 <= strval(var_group_3[1]) <= dpp_shortlim ? strval(var_group_3[1]) : 0, .short = 1);
+        if(!strcmp(var_group_2[0], "int.short"))
+        {
+            if(!dpp_isnumeric(var_group_3[1]))
+            {
+                dpp_error("Argument error; value must be an integer.",);
+                return 0;
+            }
+
+            dpp_createintvar(var_group_3[0],
+                0 <= strval(var_group_3[1]) <= dpp_shortlim ? strval(var_group_3[1]) : 0, 
+                .staticvar = 1, .baseform = dpp_processfunc,.short = 1);
 
             return 1;
         }

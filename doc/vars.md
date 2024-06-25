@@ -4,7 +4,7 @@
 - Like constants, variables may be integers, booleans and strings.
 
 ```cpp
-new.str,myvar="myvar worked.";
+new[str]myvar="myvar worked."
 ```
 
 To change its value, use:
@@ -21,7 +21,7 @@ myvar="myvar worked again.";
 - Integers are whole numbers.
 
 ```cpp
-new.int,integer=1;
+new[int]integer=1
 ```
 
 ### `bool`
@@ -29,7 +29,7 @@ new.int,integer=1;
 - Booleans are variables that can either be true or false.
 
 ```cpp
-new.bool,boolean=true;
+new[bool]boolean=true
 ```
 
 ### `str`
@@ -37,7 +37,7 @@ new.bool,boolean=true;
 - Strings are words or sequences of characters.
 
 ```cpp
-new.str,string="test";
+new[str]string="test"
 ```
 
 ### `double`
@@ -45,7 +45,7 @@ new.str,string="test";
 - Doubles are numbers with decimal points.
 
 ```cpp
-new.double,decimal_point=3.14;
+new[double]decimal_point=3.14
 ```
 
 ### `char`
@@ -53,7 +53,7 @@ new.double,decimal_point=3.14;
 - Single characters.
 
 ```cpp
-new.char,character='b';
+new[char]character='b'
 ```
 
 ### `int.unsigned`
@@ -61,7 +61,7 @@ new.char,character='b';
 - Integers that can't have a negative value.
 
 ```cpp
-new.int.unsigned,positivealways=-1;
+new[int.unsigned]positivealways=-1
 ```
 
 **NOTE**: If you assign a negative value, it'll be replaced with a positive value; in this case - the variable will have a value of 1 instead.
@@ -72,8 +72,8 @@ new.int.unsigned,positivealways=-1;
 - Integers that can't have a negative value or a value bigger than 65535.
 
 ```cpp
-new.int.short,positivealways=-1; // Value will be set to 0.
-new.int.short,theresalimit=65576; // Value will be set to 0.
+new[int.short]positivealways=-1; // Value will be set to 0.
+new[int.short]theresalimit=65576; // Value will be set to 0.
 ```
 
 **NOTE**: If you set a value that is smaller than 0 or bigger than 65535, value of the variable will be 0.
@@ -85,7 +85,7 @@ new.int.short,theresalimit=65576; // Value will be set to 0.
 - This is a built-in instruction which returns an address of a symbol, most frequently a variable.
 
 ```cpp
-console.cout(addressof?myvar);
+console.cout(addressof?myvar)
 ```
 
 Output:

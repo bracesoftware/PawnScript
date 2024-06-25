@@ -17,7 +17,7 @@ vector<324>vectorname; // 	An initial size can be a completely random number,
 vec.add(vectorname,1);
 vec.add(vectorname,312);
 vec.add(vectorname,2);
-new.int,vectortest=0;
+new[int]vectortest=0;
 
 console.rawout(sizeof?vectorname); // Size is changed from 324 to 3.
 foreach.int,vectortest,vectorname->std::writeln("vector test #1 {vectortest}");
@@ -31,7 +31,7 @@ foreach.int,vectortest,vectorname->std::writeln("vector test #2 {vectortest}");
 namespace vectors;
 {
 	vector<324>myvec;
-	new.int,vectortest2=0;
+	new[int]vectortest2=0;
 }
 
 vec.add(vectors::myvec,24);
@@ -46,10 +46,10 @@ vec.remove(vectors::myvec,24);
 console.rawout(sizeof?vectors::myvec); // Size is changed from 3 to 2.
 foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #4 {vectors::vectortest2}");
 
-//new.int,t?stvar$=0;
+//new[int]t?stvar$=0;
 //#emit:lol,1;
 //#emit:addrset,NINJAGOOOO@@j;
-new.int,hey=9;
+new[int]hey=9;
 #emit:addrset,addressof?hey; // Store the ADDRESS of 'hey' into cur and sec registers
 #emit:const.alt,2; // Store 2 into alternate register
 #emit:load.pri; // Store the VALUE of 'hey' into primary register

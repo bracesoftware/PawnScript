@@ -5,16 +5,16 @@
 Example:
 
 ```cpp
-typedef,const*new.int,constint
+typedef{double}decimal
 
-constint,typedeftest=1234234
+new[decimal]typedeftest=123.4234
 console.println.log("{typedeftest}")
 ```
 
 Output:
 
 ```
-1234234
+123.4234
 ```
 
 ## `typedef`s inside namespaces
@@ -24,8 +24,8 @@ Output:
 ```cpp
 namespace mytestnamespace
 {
-	typedef,new.int.short,shortint
+	typedef{int.short}shortint
 }
 
-mytestnamespace::shortint,myvar=0
+new[shortint]myvar=0
 ```
