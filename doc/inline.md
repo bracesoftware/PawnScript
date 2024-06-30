@@ -7,7 +7,7 @@
 ```cpp
 int InlineTestFunc() public
 {
-	new.int,formid=__proccessed_form_id
+	new[int]formid=__proccessed_form_id
 	console.println("'InlineTestFunc' is {formid}")
 	
 	void inlineformtest() inline
