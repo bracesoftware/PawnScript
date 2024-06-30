@@ -126,6 +126,12 @@ public dpp_processdata(funcgroup[][],args[][],args_const[][])
 
             dpp_internal<return>(dist);
         }
+        //dpp_data__testfunc
+        if(!strcmp(funcgroup[1], "testfunc"))
+        {
+            dpp_data__testfunc();
+            dpp_internal<return>(1);
+        }
 
         else
         {

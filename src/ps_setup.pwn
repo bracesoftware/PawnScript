@@ -156,6 +156,8 @@ new dpp_switchedvar;
 #define dpp_deco_task 3
 #define dpp_deco_yield 4
 #define dpp_deco_extern 5
+#define dpp_deco_export 6
+#define dpp_deco_import 7
 new dpp_lastdeco = dpp_deco_invalid;
 //-----------------------------------------------------------
 // PREDEFINES
@@ -173,6 +175,8 @@ new dpp_lastdeco = dpp_deco_invalid;
 #define dpp_event_do 10
 #define dpp_event_if 11
 #define dpp_event_try 12
+
+#define dpp_event_using 15
 //-----------------------------------------------------------
 #define DPP_INPUT_TYPE_NONE 0
 #define DPP_INPUT_TYPE_LINE 1
@@ -511,8 +515,8 @@ new dpp_kwords[dpp_maxkwords][256] = {
     "defined",
     "iterator",
     "vector",
-    "export",
-    "import",
+    "@export",
+    "@import",
     "true",
     "false",
     "this",
@@ -522,6 +526,24 @@ new dpp_kwords[dpp_maxkwords][256] = {
 //-----------------------------------------------------------
 new dpp_interval__;
 new dpp_repeat__=1;
+//-----------------------------------------------------------
+#define dpp_persdatasize 32
+new dpp_typename__[dpp_persdatasize];
+new dpp_from__[dpp_persdatasize];
+new dpp_to__[dpp_persdatasize];
+//-----------------------------------------------------------
+new dpp_usingfor__ = 0;
+#define dpp_comp_console 1
+#define dpp_comp_system 2
+#define dpp_comp_math 3
+#define dpp_comp_files 4
+#define dpp_comp_misc 5
+#define dpp_comp_data 6
+#define dpp_comp_pawn 7
+#define dpp_comp_iter 8
+#define dpp_comp_vec 9
+#define dpp_comp_graphics 10
+new dpp_compusedfor__ = 0;
 //-----------------------------------------------------------
 new dpp_deprecated__=1;
 //-----------------------------------------------------------

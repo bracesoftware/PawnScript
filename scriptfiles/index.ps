@@ -6,6 +6,62 @@
 * (c) Brace Inc.
 */
 
+using console
+
+int myfunc() public
+{
+	console.println.log("test")
+	return int 238
+}
+
+new[int]myretref=456
+
+console.println.log("myretref is {myretref}")
+
+user.myfunc() myretref
+
+console.println.log("myretref is {myretref}")
+
+using console for
+{
+	console.println.log("lol")
+}
+console.println.log("lol again")
+
+void myfunc2() public
+{
+	using console for
+	{
+		console.println.log("myfunc2 called")
+	}
+	console.println("SHOULD NOT BE SHOWN RN")
+}
+
+user.myfunc2
+
+////////////////////////////
+using data
+new[int]myretref2=327
+console.println.log("myretref2 is {myretref2}")
+
+@export
+	this->typename=int
+	this->from=myretref2
+	this->to="pspdmftest"
+data.testfunc
+
+myretref2=0
+console.println.log("myretref2 is {myretref2}")
+
+@import
+	this->typename=int
+	this->from="pspdmftest"
+	this->to=myretref2
+data.testfunc
+
+console.println.log("myretref2 is {myretref2}")
+
+exit
 
 #include:stdlib;
 

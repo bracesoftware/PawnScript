@@ -32,7 +32,9 @@ the Initial Developer. All Rights Reserved.
 //-----------------------------------------------------------
 // REQUIRED.
 #include <open.mp>
+
 #include "core/ver.inc"
+
 #if !defined fcreatedir
 native fcreatedir(const filename[]);
 #endif

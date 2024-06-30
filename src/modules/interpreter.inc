@@ -526,6 +526,49 @@ stock dpp_process(line[])
         {
             dpp_tryinterpreter = 1;
         }
+        if(dpp_event == dpp_event_using)
+        {
+            if(dpp_compusedfor__ == dpp_comp_console)
+            {
+                dpp_config[console_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_system)
+            {
+                dpp_config[system_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_math)
+            {
+                dpp_config[math_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_files)
+            {
+                dpp_config[files_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_misc)
+            {
+                dpp_config[misc_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_data)
+            {
+                dpp_config[data_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_pawn)
+            {
+                dpp_config[pawn_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_iter)
+            {
+                dpp_config[iter_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_vec)
+            {
+                dpp_config[vector_comp] = 0;
+            }
+            if(dpp_compusedfor__ == dpp_comp_graphics)
+            {
+                dpp_config[graphics_comp] = 0;
+            }
+        }
 
         if(strlen(line) >= 2)
         {
@@ -566,6 +609,10 @@ stock dpp_process(line[])
         if(dpp_event == dpp_event_try)
         {
             dpp_tryinterpreter = 0;
+        }
+        if(dpp_event == dpp_event_using)
+        {
+            //do absolutely nothing
         }
 
         if(strlen(line) >= 2)
@@ -714,6 +761,16 @@ stock dpp_process(line[])
     if(!strcmp(funcgroup[0], "@extern"))
     {
         dpp_lastdeco = dpp_deco_extern;
+        return 1;
+    }
+    if(!strcmp(funcgroup[0], "@export"))
+    {
+        dpp_lastdeco = dpp_deco_export;
+        return 1;
+    }
+    if(!strcmp(funcgroup[0], "@import"))
+    {
+        dpp_lastdeco = dpp_deco_import;
         return 1;
     }
 
@@ -1984,7 +2041,7 @@ stock dpp_process(line[])
             }
             new thisargs[2][64];
             dpp_parseline(extracode,thisargs,'=');
-            if(!strcmp(thisargs[0],"interval"))
+            if(dpp_lastdeco == dpp_deco_task) if(!strcmp(thisargs[0],"interval"))
             {
                 new i = 1;
                 dpp_removeslashes(thisargs[i]);
@@ -2005,7 +2062,7 @@ stock dpp_process(line[])
 
                 dpp_interval__ = strval(thisargs[1]);
             }
-            if(!strcmp(thisargs[0],"repeat"))
+            if(dpp_lastdeco == dpp_deco_task) if(!strcmp(thisargs[0],"repeat"))
             {
                 new i = 1;
                 dpp_removeslashes(thisargs[i]);
@@ -2036,7 +2093,7 @@ stock dpp_process(line[])
 
                 dpp_repeat__ = value;
             }
-            if(!strcmp(thisargs[0],"struct")) // for @extern
+            if(dpp_lastdeco == dpp_deco_extern) if(!strcmp(thisargs[0],"struct")) // for @extern
             {
                 new i = 1;
                 dpp_removeslashes(thisargs[i]);
@@ -2059,6 +2116,69 @@ stock dpp_process(line[])
                 {
                     dpp_structtype__ = dpp_defaultstruct;
                 }
+            }
+            if(dpp_lastdeco == dpp_deco_export || dpp_lastdeco == dpp_deco_import) if(!strcmp(thisargs[0],"typename"))
+            {
+                new i = 1;
+                dpp_removeslashes(thisargs[i]);
+                dpp_argclasscheck(thisargs[i]);
+                dpp_argoclasscheck(thisargs[i]);
+                dpp_argarraycheck(thisargs[i]);
+                dpp_argfunccheck(thisargs[i]);
+                dpp_argvarcheck(thisargs[i]);
+                dpp_argmathcheck(thisargs[i]);
+                dpp_argformargcheck(thisargs[i]);
+                dpp_argsystemval(thisargs[i]);
+                CallLocalFunction("dpp_arginstruct", "s", thisargs[i]);
+                CallLocalFunction("dpp_argenumcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_argtagcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_logics", "s", thisargs[i]);
+
+                dpp_formatarg(thisargs[i]);
+
+                strmid(dpp_typename__, thisargs[1], 0, sizeof dpp_typename__);
+            }
+            if(dpp_lastdeco == dpp_deco_export || dpp_lastdeco == dpp_deco_import) if(!strcmp(thisargs[0],"to"))
+            {
+                new i = 1;
+                /*dpp_removeslashes(thisargs[i]);
+                dpp_argclasscheck(thisargs[i]);
+                dpp_argoclasscheck(thisargs[i]);
+                dpp_argarraycheck(thisargs[i]);
+                dpp_argfunccheck(thisargs[i]);
+                dpp_argvarcheck(thisargs[i]);
+                dpp_argmathcheck(thisargs[i]);
+                dpp_argformargcheck(thisargs[i]);
+                dpp_argsystemval(thisargs[i]);
+                CallLocalFunction("dpp_arginstruct", "s", thisargs[i]);
+                CallLocalFunction("dpp_argenumcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_argtagcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_logics", "s", thisargs[i]);*/
+
+                dpp_formatarg(thisargs[i]);
+
+                strmid(dpp_to__, thisargs[1], 0, sizeof dpp_to__);
+            }
+            if(dpp_lastdeco == dpp_deco_export || dpp_lastdeco == dpp_deco_import) if(!strcmp(thisargs[0],"from"))
+            {
+                new i = 1;
+                /*dpp_removeslashes(thisargs[i]);
+                dpp_argclasscheck(thisargs[i]);
+                dpp_argoclasscheck(thisargs[i]);
+                dpp_argarraycheck(thisargs[i]);
+                dpp_argfunccheck(thisargs[i]);
+                dpp_argvarcheck(thisargs[i]);
+                dpp_argmathcheck(thisargs[i]);
+                dpp_argformargcheck(thisargs[i]);
+                dpp_argsystemval(thisargs[i]);
+                CallLocalFunction("dpp_arginstruct", "s", thisargs[i]);
+                CallLocalFunction("dpp_argenumcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_argtagcheck", "s", thisargs[i]);
+                CallLocalFunction("dpp_logics", "s", thisargs[i]);*/
+
+                dpp_formatarg(thisargs[i]);
+
+                strmid(dpp_from__, thisargs[1], 0, sizeof dpp_from__);
             }
             return 1;
         }
@@ -2892,7 +3012,7 @@ stock dpp_process(line[])
     ////
     ////
     ///////////////////////////////////////////////////////
-
+    #if defined BIMBIMBAMBAM_OLD_PERSISTENT
     if(!strcmp(structgroup[0], "import"))
     {
         new varid = -1;
@@ -3030,7 +3150,7 @@ stock dpp_process(line[])
         dpp_error("Invalid data type specified.",);
         return 1;
     }
-
+    #endif
     ///////////////////////////////////////////////////////
     ////
     ////
@@ -3065,64 +3185,116 @@ stock dpp_process(line[])
 
     if(!strcmp(tokengroup[0], "using"))
     {
+        dpp_usingfor__ = 0;
+        if(!strcmp(tokengroup[2], "for"))
+        {
+            dpp_usingfor__ = 1;
+            dpp_event = dpp_event_using;
+        }
+        ////////////////////////////
         if(!strcmp(tokengroup[1], "namespace"))
         {
             dpp_hookclass(tokengroup[2]);
             dpp_event = dpp_event_namespace;
             return 1;
         }
+        ////////////////////////////
         if(!strcmp(tokengroup[1], "console"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_console;
+            }
             dpp_config[console_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "system"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_system;
+            }
             dpp_config[system_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "samp"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+               // dpp_compusedfor__ = dpp_comp_samp;
+            }
             dpp_config[samp_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "math"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_math;
+            }
             dpp_config[math_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "files"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_files;
+            }
             dpp_config[files_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "misc"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_misc;
+            }
             dpp_config[misc_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "data"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_data;
+            }
             dpp_config[data_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "pawn"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_pawn;
+            }
             dpp_config[pawn_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "iter"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_iter;
+            }
             dpp_config[iter_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "vec"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_vec;
+            }
             dpp_config[vector_comp] = 1;
             return 1;
         }
         if(!strcmp(tokengroup[1], "graphics"))
         {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_graphics;
+            }
             dpp_config[graphics_comp] = 1;
             return 1;
         }

@@ -49,7 +49,7 @@ stock dpp_importint(const name[], varid)
 		fclose(file);
 
 		dpp_vardata[varid][integervalue] = strval(exporteddata);
-		//dpp_warning("Imported [varid: '%i'] '%s' [val: '%i']: '%s'",varid,name,strval(exporteddata),exporteddata);
+		dpp_warning("Imported [varid: '%i'] '%s' [val: '%i']: '%s'",varid,name,strval(exporteddata),exporteddata);
 
 		return 1;
 	}
@@ -72,7 +72,7 @@ stock dpp_exportint(const name[], value)
 	fwrite(file, datatowrite);
 	fclose(file);
 
-	//dpp_warning("Exported '%s' [val: '%i']: '%s'",name,value,datatowrite);
+	dpp_warning("Exported '%s' [val: '%i']: '%s'",name,value,datatowrite);
 	return 1;
 }
 
