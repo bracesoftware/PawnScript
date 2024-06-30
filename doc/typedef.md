@@ -27,5 +27,5 @@ namespace mytestnamespace
 	typedef{int.short}shortint
 }
 
-new[shortint]myvar=0
+new[mytestnamespace::shortint]myvar=0
 ```
