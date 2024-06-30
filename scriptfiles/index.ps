@@ -40,26 +40,27 @@ void myfunc2() public
 user.myfunc2
 
 ////////////////////////////
+#restemp
 using data
-new[int]myretref2=327
-console.println.log("myretref2 is {myretref2}")
+myretref=327
+console.println.log("myretref is {myretref}")
 
 @export
 	this->typename=int
-	this->from=myretref2
+	this->from=myretref
 	this->to="pspdmftest"
 data.testfunc
 
-myretref2=0
-console.println.log("myretref2 is {myretref2}")
+myretref=0
+console.println.log("myretref is {myretref}")
 
 @import
 	this->typename=int
 	this->from="pspdmftest"
-	this->to=myretref2
+	this->to=myretref
 data.testfunc
 
-console.println.log("myretref2 is {myretref2}")
+console.println.log("myretref is {myretref}")
 
 exit
 

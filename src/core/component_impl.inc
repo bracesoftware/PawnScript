@@ -59,7 +59,7 @@ stock dpp_data__testfunc()
 {
     if(dpp_lastdeco == dpp_deco_import)
     {
-        dpp_info("dpp_data__testfunc IMPORT | typename : '%s' | to : '%s' | from : '%s'", dpp_typename__,dpp_to__,dpp_from__);
+        //dpp_info("dpp_data__testfunc IMPORT | typename : '%s' | to : '%s' | from : '%s'", dpp_typename__,dpp_to__,dpp_from__);
         new mul2;
         for(new i; i < strlen(dpp_from__); i++)
         {
@@ -128,7 +128,7 @@ stock dpp_data__testfunc()
 
     if(dpp_lastdeco == dpp_deco_export)
     {
-        dpp_info("dpp_data__testfunc EXPORT | typename : '%s' | to : '%s' | from : '%s'", dpp_typename__,dpp_to__,dpp_from__);
+        //dpp_info("dpp_data__testfunc EXPORT | typename : '%s' | to : '%s' | from : '%s'", dpp_typename__,dpp_to__,dpp_from__);
         new mul2;
         for(new i; i < strlen(dpp_to__); i++)
         {

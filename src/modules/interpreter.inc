@@ -1388,6 +1388,11 @@ stock dpp_process(line[])
         @emit__     stk@pop        ,.str=dirgroup[1]
         return 1;
     }
+    if(!strcmp(dirgroup[0], "#restemp"))
+    {
+        dpp_retvar__ = dpp_defaultretvar;
+        return 1;
+    }
 
     ///////////////////////////////////////////////////////
     ////

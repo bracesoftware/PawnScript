@@ -192,7 +192,8 @@ new dpp_lastdeco = dpp_deco_invalid;
 new dpp_bracestack[DPP_BRACE_STACK_SIZE];
 new dpp_bracestack__2[DPP_BRACE_STACK_SIZE];
 //-----------------------------------------------------------
-new dpp_retvar__ = 0;
+#define dpp_defaultretvar (dpp_rescells__-1)
+new dpp_retvar__ = dpp_defaultretvar;
 //-----------------------------------------------------------
 //new content[16000];
 //new subcontent[16000];

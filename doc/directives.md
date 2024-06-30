@@ -40,6 +40,19 @@ undeftest is defined
 
 Read more about it [here](options.md).
 
+## `#restemp`
+
+A directive telling the interpreter to *res*et the *temp*orary data used by the interpreter itself such as:
+
+- variable ID used to store return values (this is why you must use this directive if you want to use a variable right after it was previously used as an return reference):
+
+```cpp
+new[int]var=1
+console.println.log("boom") var
+#restemp
+var=73
+```
+
 ## `#emit`
 
 - The most interesting one so far, it lets you to operate with the language elements such as variables on a higher level using completely different instructions and operations, also known as assembly, but my version of it. Below is a list of operations you can do:
