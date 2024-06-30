@@ -9,7 +9,7 @@ Return type: `int`
 - Returns a processed form id.
 
 ```cpp
-new.int,formid=__proccessed_form_id
+new[int]formid=__proccessed_form_id
 console.println("'inlinetest' is {formid}")
 ```
 
@@ -56,7 +56,7 @@ Return type: `int`
 	this->interval=1000
 void supercooltask() public
 {
-	new.int,process_speed=__procspeed
+	new[int]process_speed=__procspeed
 	console.println.log("Process execution speed: {process_speed} Hz")
 	#undef:process_speed
 }

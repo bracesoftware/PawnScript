@@ -6,46 +6,34 @@
 
 ```cpp
 
-new.int.unsigned,pdmtest=364;
-export*int,"test1",pdmtest;
-pdmtest=0;
-import*int,"test1",pdmtest;
-console.println.log("Imported {pdmtest}");
+using data
+new[int]myvariable=327
+console.println.log("myvariable is {myvariable}")
 
-new.bool,pdmtest2=true;
-export*bool,"test2",pdmtest2;
-pdmtest2=false;
-import*bool,"test2",pdmtest2;
-console.println.log("Imported {pdmtest2}");
+@export
+	this->typename=int
+	this->from=myvariable
+	this->to="pspdmftest"
+data.testfunc
 
-new.str,pdmtest3="Hello World";
-export*str,"test3",pdmtest3;
-pdmtest3="stfu";
-import*str,"test3",pdmtest3;
-console.println.log("Imported {pdmtest3}");
+myvariable=0
+console.println.log("myvariable is {myvariable}")
 
-new.double,pdmtest4=0.364;
-export*double,"test4",pdmtest4;
-pdmtest4=0.0;
-import*double,"test4",pdmtest4;
-console.println.log("Imported {pdmtest4}");
+@import
+	this->typename=int
+	this->from="pspdmftest"
+	this->to=myvariable
+data.testfunc
 
-new.char,pdmtest5='D';
-export*char,"test5",pdmtest5;
-pdmtest5='0';
-import*char,"test5",pdmtest5;
-console.println.log("Imported {pdmtest5}");
+console.println.log("myvariable is {myvariable}")
 
 ```
 
-**NOTE**: Semicolons are optional.
 
 Output:
 
 ```
-364
-true
-Hello World
-0.363990
-'D'
+myvariable is 327
+myvariable is 0
+myvariable is 327
 ```

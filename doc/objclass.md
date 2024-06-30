@@ -5,8 +5,8 @@
 ```cpp
 class TestClass
 {
-	new.int,ClassTestVar=827346
-	new.double,TestClassDouble=364.234
+	new[int]ClassTestVar=827346
+	new[double]TestClassDouble=364.234
 }
 
 object TestObj=TestClass
@@ -23,9 +23,9 @@ console.println.log("#2 {TestObj2.ClassTestVar} & {TestObj2.TestClassDouble}")
 
 class TestClass2
 {
-	new.int,ClassTestVar=100000
-	new.double,TestClassDouble=21.7636
-	new.bool,TestClassBool=false
+	new[int]ClassTestVar=100000
+	new[double]TestClassDouble=21.7636
+	new[bool]TestClassBool=false
 }
 
 object TestObj3=TestClass2
@@ -54,7 +54,7 @@ namespace testnamespace
 {
 	class testclass
 	{
-		new.int,testinteger=1
+		new[int]testinteger=1
 	}
 }
 

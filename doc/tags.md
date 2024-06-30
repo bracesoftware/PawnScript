@@ -8,7 +8,7 @@
 
 ```cpp
 tag MyTag
-MyTag<-new.int,testvar=10
+MyTag<-new[int]testvar=10
 ```
 
 ## Example `#2`
@@ -21,7 +21,7 @@ namespace TagTestNameSpace
 	tag MyTag
 }
 
-TagTestNameSpace::MyTag<-new.int,testvar=1
+TagTestNameSpace::MyTag<-new[int]testvar=1
 ```
 
 ## `tagof` instruction
@@ -30,7 +30,7 @@ TagTestNameSpace::MyTag<-new.int,testvar=1
 
 ```cpp
 tag MyNewTag
-MyNewTag<-new.int,tagtestinteger=1
+MyNewTag<-new[int]tagtestinteger=1
 if.equ,tagof?tagtestinteger,MyNewTag->console.println.log("tagtestinteger has the MyNewTag!")
 ```
 

@@ -4,7 +4,7 @@
 - While loops are also possible in PawnScript:
 
 ```cpp
-new.int,testvar=0
+new[int]testvar=0
 while.notequ,testvar,10->testvar=testvar+1&console.println("{testvar}")
 ```
 

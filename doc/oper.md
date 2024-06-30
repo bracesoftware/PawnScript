@@ -118,7 +118,7 @@ if.equ,1,1->console.println.log("1 and 1 are equal")
 - Attribute assignment operator.
 
 ```cpp
-MyTag<-new.int,myvar=1
+MyTag<-new[int]myvar=1
 ```
 
 ### Operator: `=`
@@ -126,7 +126,7 @@ MyTag<-new.int,myvar=1
 - Data assignment operator.
 
 ```cpp
-new.int,myvar=1
+new[int]myvar=1
 ```
 
 ### Operator: `|`
@@ -161,7 +161,7 @@ Output:
 - Is equal to.
 
 ```cpp
-new.int,testvar=1==1
+new[int]testvar=1==1
 console.println.log("1==1: {testvar}")
 ```
 ### Operator: `!=`

@@ -68,6 +68,7 @@
 - [Return reference](doc/retref.md)
 - [Call templates](doc/template.md)
 - [Miscellaneous](doc/misc.md)
+- [TCI](doc/usingfor.md)
 
 ### Other info
 

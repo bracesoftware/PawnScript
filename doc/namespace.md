@@ -17,7 +17,7 @@ Within the class code block, we can create a variable.
 ```cpp
 namespace customer
 {
-	new.str,name="Alex"
+	new[str]name="Alex"
 }
 ```
 
@@ -35,7 +35,7 @@ console.println(customer::name)
 ```cpp
 namespace customer
 {
-	new.str,name="Alex"
+	new[str]name="Alex"
 }
 
 console.println(customer::name)
@@ -47,14 +47,14 @@ We can hook the `customer` namespace:
 ```cpp
 namespace customer
 {
-	new.str,name="Alex"
+	new[str]name="Alex"
 }
 
 console.println(customer::name)
 
 using namespace customer
 {
-	new.int,age=12
+	new[int]age=12
 }
 
 console.cout(customer::age)
