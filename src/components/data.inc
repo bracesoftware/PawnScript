@@ -127,9 +127,18 @@ public dpp_processdata(funcgroup[][],args[][],args_const[][])
             dpp_internal<return>(dist);
         }
         //dpp_data__testfunc
-        if(!strcmp(funcgroup[1], "testfunc"))
+        if(!strcmp(funcgroup[1], "persistent"))
         {
-            dpp_data__testfunc();
+            dpp_data__persistent(.methodused = 0);
+
+            if(!strcmp(funcgroup[2], "import"))
+            {
+                dpp_data__persistent(.methodused = 1, .methodid = 0);
+            }
+            if(!strcmp(funcgroup[2], "export"))
+            {
+                dpp_data__persistent(.methodused = 1, .methodid = 1);
+            }
             dpp_internal<return>(1);
         }
 

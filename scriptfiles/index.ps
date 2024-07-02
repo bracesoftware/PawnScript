@@ -49,18 +49,41 @@ console.println.log("myretref is {myretref}")
 	this->typename=int
 	this->from=myretref
 	this->to="pspdmftest"
-data.testfunc
+data.persistent
 
 myretref=0
 console.println.log("myretref is {myretref}")
 
 @import
 	this->typename=int
-	this->from="pspdmftest"
+	this->from=pspdmftest
 	this->to=myretref
-data.testfunc
+data.persistent
 
 console.println.log("myretref is {myretref}")
+
+////////////////////////////
+new[str]mystring="str1"
+console.println.log("mystring is {mystring}")
+
+@export
+	this->typename=str
+	this->from=mystring
+	this->to=pspdmftest2
+data.persistent.export
+
+mystring="str2"
+console.println.log("mystring is {mystring}")
+
+@import
+	this->typename=str
+	this->from=pspdmftest2
+	this->to=mystring
+data.persistent.import
+
+console.println.log("mystring is {mystring}")
+
+
 
 exit
 

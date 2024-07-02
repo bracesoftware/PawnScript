@@ -49,7 +49,7 @@ dpp_genvers__()
 
 void:dpp_verinfo__()
 {
-	printf("\tPawnScript   %s\tBrace Inc.", dpp_vers_string__);
+	printf("\tPawnScript   %s\tBrace Software Co.", dpp_vers_string__);
     printf("\tPawn         %d.%02d.%02d\t\tITB CompuPhase", __Pawn >>> 8, __Pawn & 0xFF, __PawnBuild/*__pawn_build*/); // from YSI
 }
 
