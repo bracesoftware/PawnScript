@@ -88,3 +88,17 @@ pawn.callfunction.remote("funcname");
 ```pawn
 system.rem.log("Test");
 ```
+
+### Function: `data.persistent`
+
+#### Method: `export`
+
+```pawn
+data.persistent.export
+```
+
+#### Method: `import`
+
+```pawn
+data.persistent.import
+```

@@ -299,6 +299,21 @@ myretref is 0
 
 Unlike most of the functions, whose return 0 for failed operation and 1 for successful operation, this one returns 65535 for failed operation and integer distance (difference) between 2 strings. In example above, `myretref` is 0 because the 2 strings are the same.
 
+
+### Form: `persistent`
+- Exports or imports a variable depending on lastly used persistent data management decorator.
+
+```cpp
+@export
+	this->typename=int
+	this->from=var
+	this->to=newvar
+data.persistent
+```
+
+#### Returns
+Just returns 1.
+
 ---------------------------------------------------------------------------------
 
 ## Component: `pawn`

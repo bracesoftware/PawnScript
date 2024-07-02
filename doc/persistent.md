@@ -5,28 +5,27 @@
 ## Example
 
 ```cpp
-
+#restemp
 using data
-new[int]myvariable=327
-console.println.log("myvariable is {myvariable}")
+myretref=327
+console.println.log("myretref is {myretref}")
 
 @export
 	this->typename=int
-	this->from=myvariable
-	this->to="pspdmftest"
-data.testfunc
+	this->from=myretref
+	this->to=pspdmftest
+data.persistent
 
-myvariable=0
-console.println.log("myvariable is {myvariable}")
+myretref=0
+console.println.log("myretref is {myretref}")
 
 @import
 	this->typename=int
-	this->from="pspdmftest"
-	this->to=myvariable
-data.testfunc
+	this->from=pspdmftest
+	this->to=myretref
+data.persistent
 
-console.println.log("myvariable is {myvariable}")
-
+console.println.log("myretref is {myretref}")
 ```
 
 
