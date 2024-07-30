@@ -3,4 +3,4 @@
 
 List of official and supported API libraries:
 
-- [`samp`][samp.md]
+- [`samp`](samp.md)
