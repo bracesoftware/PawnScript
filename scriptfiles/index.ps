@@ -83,7 +83,17 @@ data.persistent.import
 
 console.println.log("mystring is {mystring}")
 
+requires samp
+{
+	using @global for
+	{
+		@global.setserverattrib
+		@global.setserverattrib.hostname("My Server")
+	}
+	@global.setserverattrib
+}
 
+@global.setserverattrib
 
 exit
 

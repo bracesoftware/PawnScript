@@ -1,8 +1,5 @@
 /*
 
-The ORIGINAL CODE is the `PawnScript SDK` Source Code.
-The INITIAL DEVELOPER is Brace Inc., DEntisT.
-
 Version: MPL 1.1
 
 The contents of this file are subject to the Mozilla Public License Version 
@@ -20,16 +17,4 @@ the Initial Developer. All Rights Reserved.
 
 */
 
-#pragma semicolon 1
-#include <open.mp>
-
-#define ps_args<%0> %0
-#define CallPawnScriptFunction(%0) 	CallRemoteFunction("PS_CallRemoteFunction","ss",%0)
-
-__ps_sdktest();
-public __ps_sdktest()
-{
-	print("[PawnScript] SDK LOADED");
-	CallPawnScriptFunction("TestFuncForAPI","1923,\"some text\"");
-	return 1;
-}
+#include "api_modules/samp/@global.inc"

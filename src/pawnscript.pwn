@@ -472,3 +472,5 @@ stock dpp_genver__()
     }
     return floatround(((s2 << 16) + s1)/100000);
 }
+
+#include "ps_api_modules.pwn"

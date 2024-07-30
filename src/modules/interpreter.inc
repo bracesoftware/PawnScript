@@ -568,6 +568,15 @@ stock dpp_process(line[])
             {
                 dpp_config[graphics_comp] = 0;
             }
+            if(dpp_compusedfor__ == dpp_comp_@global)
+            {
+                dpp_config[@global_comp] = 0;
+            }
+        }
+        //MODULES/APIS
+        if(dpp_event == dpp_event_REQUIRES@samp)
+        {
+            dpp_config__[samp@api_module] = 0;
         }
 
         if(strlen(line) >= 2)
@@ -613,6 +622,11 @@ stock dpp_process(line[])
         if(dpp_event == dpp_event_using)
         {
             //do absolutely nothing
+        }
+        //MODULES/APIS
+        if(dpp_event == dpp_event_REQUIRES@samp)
+        {
+            dpp_config__[samp@api_module] = 1;
         }
 
         if(strlen(line) >= 2)
@@ -807,13 +821,19 @@ stock dpp_process(line[])
         return 1;
     }
 
-    if(!strcmp(funcdeclgroup2[1], "public"))
+    if((!strcmp(funcdeclgroup2[1], "public")) || (!strcmp(funcdeclgroup2[1], "private")))
     {
         if(dpp_processfunc != DPP_INVALID_FORM_ID)
         {
             //dpp_error("You can't create a form [\"%s\"] inside a form.",funcgroup[1]);
             dpp_fatalerror(2);
             return 1;
+        }
+
+        dpp_setprivate__ = 0;
+        if(!strcmp(funcdeclgroup2[1], "private"))
+        {
+            dpp_setprivate__ = 1;
         }
 
         new arguments[2][1024];
@@ -3187,7 +3207,14 @@ stock dpp_process(line[])
     ////
     ////
     ///////////////////////////////////////////////////////
-
+    if(!strcmp(tokengroup[0], "requires"))
+    {
+        if(!strcmp(tokengroup[1], "samp"))
+        {
+            dpp_event = dpp_event_REQUIRES@samp;
+            return 1;
+        }
+    }
     if(!strcmp(tokengroup[0], "using"))
     {
         dpp_usingfor__ = 0;
@@ -3301,6 +3328,20 @@ stock dpp_process(line[])
                 dpp_compusedfor__ = dpp_comp_graphics;
             }
             dpp_config[graphics_comp] = 1;
+            return 1;
+        }
+        //samp@api_module
+        if(!strcmp(tokengroup[1], "@global"))
+        {
+            if(dpp_config__[samp@api_module] == 0)
+            {
+                return 1;
+            }
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_@global;
+            }
+            dpp_config[@global_comp] = 1;
             return 1;
         }
     }
@@ -4164,6 +4205,17 @@ stock dpp_process(line[])
     if(dpp_funcfound == 0)
     {
         dpp_funcfound = CallLocalFunction("dpp_processgraphics", "sss", funcgroup_form,args_form,args_fconst);
+    }
+    ///////////////////////////////////////////////////////
+    ////
+    ////
+    ////            SAMP API MODULE comp FUNC SYS
+    ////
+    ////
+    ///////////////////////////////////////////////////////
+    if(dpp_funcfound == 0)
+    {
+        dpp_funcfound = CallLocalFunction("dpp_processSAMP@GLOBAL", "sss", funcgroup_form,args_form,args_fconst);
     }
 
 

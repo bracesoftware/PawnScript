@@ -177,6 +177,7 @@ new dpp_lastdeco = dpp_deco_invalid;
 #define dpp_event_try 12
 
 #define dpp_event_using 15
+#define dpp_event_REQUIRES@samp 16
 //-----------------------------------------------------------
 #define DPP_INPUT_TYPE_NONE 0
 #define DPP_INPUT_TYPE_LINE 1
@@ -237,10 +238,17 @@ enum dpp_enumset
     pawn_comp,
     iter_comp,
     vector_comp,
-    graphics_comp
+    graphics_comp,
+    //samp,
+    @global_comp
 }
 
 new dpp_config[dpp_enumset];
+enum dpp_enumset2
+{
+    samp@api_module
+}
+new dpp_config__[dpp_enumset2];
 //-----------------------------------------------------------
 //const
 enum __dpp_const_val
@@ -328,6 +336,8 @@ new dpp_autoform[dpp_maxfuncs__];
 new dpp_hookform[dpp_maxfuncs__];
 new dpp_structtype[dpp_maxfuncs__];
 new dpp_methodform[dpp_maxfuncs__];
+new dpp_privatefunc[dpp_maxfuncs__];
+new dpp_setprivate__ = 0;
 enum __dpp_argcache
 {
     dpp_argname[dpp_maxsymbolchar/2],
@@ -544,6 +554,8 @@ new dpp_usingfor__ = 0;
 #define dpp_comp_iter 8
 #define dpp_comp_vec 9
 #define dpp_comp_graphics 10
+//samp
+#define dpp_comp_@global 100
 new dpp_compusedfor__ = 0;
 //-----------------------------------------------------------
 new dpp_deprecated__=1;

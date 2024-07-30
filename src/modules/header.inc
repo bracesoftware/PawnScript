@@ -427,6 +427,8 @@ stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, metho
 
             dpp_returntype[i] = ret;
 
+            dpp_privatefunc[i] = dpp_setprivate__;
+
             for(new y; y < dpp_maxfuncs; y++)
             {
                 if(!strcmp(dpp_funcname[y], funcname))

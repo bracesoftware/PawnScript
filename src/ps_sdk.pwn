@@ -36,6 +36,10 @@ public PS_CallRemoteFunction(funcname[],args__[])
     {
         if(!strcmp(dpp_funcname[i], funcname))
         {
+            if(dpp_privatefunc[i] == 1)
+            {
+                return 1;
+            }
             if(dpp_hookform[i] == 0)
             {
                 for(new argid; argid < dpp_maxformargs; argid++)
