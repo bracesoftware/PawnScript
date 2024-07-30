@@ -69,6 +69,7 @@
 - [Call templates](doc/template.md)
 - [Miscellaneous](doc/misc.md)
 - [TCI](doc/usingfor.md)
+- [Private functions](doc/private.md)
 
 ### Other info
 
