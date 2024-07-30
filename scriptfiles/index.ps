@@ -95,6 +95,13 @@ requires samp
 
 @global.setserverattrib
 
+void myPrivateFunc() private
+{
+	console.println("my private func works")
+}
+
+user.myPrivateFunc()
+
 exit
 
 #include:stdlib;

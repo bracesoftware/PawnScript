@@ -26,9 +26,10 @@ contexts:
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
     # other.
-    - match: '\b(extern|struct|yield|enum|class|public|inline|namespace|constexpr|const|static|new|int|bool|str|double|char|void|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|interval|repeat)\b'
+    - match: '\b(private|requires|restemp|typename|from|to|extern|struct|yield|enum|class|public|inline|namespace|constexpr|const|static|new|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|interval|repeat)\b'
       scope: keyword.control.example-c
-
+    - match: '\b(int|bool|str|double|char|void|byte)\b'
+      scope: variable.annotation.example-c
     # Numbers
     - match: '\b(-)?[0-9.@#]+\b'
       scope: constant.numeric.example-c
@@ -60,14 +61,19 @@ contexts:
     - match: '\?'
       scope: keyword.control.example-c
 
-    - match: '\b(console|system|pawn|data|vec|iter|files|math|misc)\b'
+    - match: '\b(graphics|console|system|pawn|data|vec|iter|files|math|misc)\b'
       scope: constant.numeric.example-c
+
+    - match: '\b(samp)\b'
+      scope: variable.parameter.c++
+    - match: '\b(global)\b'
+      scope: constant.character.escape.c
 
     - match: '\b(equ|notequ)\b'
       scope: variable.annotation.example-c
 
     - match: '\b(this|user)\b'
-      scope: variable.annotation.example-c
+      scope: variable.parameter.c++
 
     - match: '[\w]+\('
       scope: entity.name.impl.example-c
