@@ -52,7 +52,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxformargs 15
 //-----------------------------------------------------------
 // Constant values (used for initial memory allocation)
-#define dpp_entities__ 14
+#define dpp_entities__ 15
 #define dpp_rescells__ 255
 
 #define dpp_maxconst__ dpp_rescells__

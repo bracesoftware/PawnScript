@@ -208,3 +208,21 @@ myFirstPointer=56
 myFirstPointer=addressof?myNewbyte2
 myFirstPointer=-53
 console.println.log("myNewByte1 is {myNewByte1} and myNewbyte2 is {myNewbyte2}")
+
+using namespace test
+{
+	new[ptr]myPtr=addressof?myNewByte1
+}
+
+test::myPtr=-9
+test::myPtr=addressof?myNewbyte2
+test::myPtr=457
+console.println.log("myNewByte1 is {myNewByte1} and myNewbyte2 is {myNewbyte2}")
+///////////
+void ChangeVarTo38(address) private
+{
+	test::myPtr=address@ChangeVarTo38
+	test::myPtr=38
+}
+user.ChangeVarTo38(addressof?myNewbyte2)
+console.println.log("myNewbyte2 is now {myNewbyte2}")

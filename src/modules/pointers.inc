@@ -18,12 +18,18 @@ the Initial Developer. All Rights Reserved.
 */
 
 
-stock dpp_createptr(const name[], const addr[])
+stock dpp_createptr(name[], const addr[])
 {
 	for(new i; i < dpp_maxptr; i++)
 	{
 		if(dpp_ptrdata[i][ptr_valid] == 0)
 		{
+			if(dpp_workingclassid != dpp_invalidclass)
+            {
+                new newvalue[dpp_argcharsize];
+                format(newvalue,sizeof(newvalue),"dppptrn@%s_%s",dpp_classname[dpp_workingclassid],name);
+                strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            }
 			new ptr_addr[2][dpp_maxsymbolchar];
 
 			dpp_parseline(addr,ptr_addr,'@');
@@ -37,6 +43,7 @@ stock dpp_createptr(const name[], const addr[])
 			strmid(dpp_ptrdata[i][ptr_name],name,0,dpp_maxsymbolchar,dpp_maxsymbolchar);
 			dpp_ptrdata[i][ptr_cell] = strval(ptr_addr[0]);
 			dpp_ptrdata[i][ptr_memsec] = strval(ptr_addr[1]);
+			//dpp_error("POINTER DEBUG :: Created ptr '%s'",name);
 			return 1;
 		}
 	}
@@ -69,13 +76,8 @@ stock dpp_updatepointer(const name[], const addr[])
 forward dpp_argptrtosym(arg[]);
 public dpp_argptrtosym(arg[])
 {
-    new newvalue[dpp_argcharsize];/*
-        enumdata[2][dpp_maxsymbolchar];
-
-    dpp_parseline(arg,enumdata,'.');
-
-    dpp_argclasscheck(enumdata[0]);*/
-
+    new newvalue[dpp_argcharsize];
+    dpp_argclasscheck(arg);
     new ptrid = -1;
     for(new i; i < dpp_maxptr; i++)
     {
@@ -103,12 +105,8 @@ public dpp_argptrtosym(arg[])
 forward dpp_argptrcheck(arg[]);
 public dpp_argptrcheck(arg[])
 {
-    new newvalue[dpp_argcharsize];/*
-        enumdata[2][dpp_maxsymbolchar];
-
-    dpp_parseline(arg,enumdata,'.');
-
-    dpp_argclasscheck(enumdata[0]);*/
+    new newvalue[dpp_argcharsize];
+    dpp_argclasscheck(arg);
 
     new ptrid = -1;
     for(new i; i < dpp_maxptr; i++)

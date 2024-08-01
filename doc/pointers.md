@@ -37,3 +37,39 @@ Output:
 ```
 myNewByte1 is 56 and myNewbyte2 is -53
 ```
+
+## Example `#2`
+
+- You can also create pointers within namespaces.
+
+```cpp
+using namespace test
+{
+	new[ptr]myPtr=addressof?myNewByte1
+}
+
+test::myPtr=-9
+test::myPtr=addressof?myNewbyte2
+test::myPtr=457
+console.println.log("myNewByte1 is {myNewByte1} and myNewbyte2 is {myNewbyte2}")
+```
+
+- **WARNING**: It is really important to mention that you CANNOT include a pointer within a class.
+
+## Example `#2`
+- This example is literally the point of pointers themselves - modify variables passed by reference.
+
+```cpp
+void ChangeVarTo38(address) private
+{
+	test::myPtr=address@ChangeVarTo38
+	test::myPtr=38
+}
+user.ChangeVarTo38(addressof?myNewbyte2)
+console.println.log("myNewbyte2 is now {myNewbyte2}")
+```
+
+Output:
+```
+myNewbyte2 is now 38
+```

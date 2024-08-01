@@ -2898,21 +2898,27 @@ stock dpp_process(line[])
     if(!isnull(varsetgroup[0]) && !isnull(varsetgroup[1]))
     {
         new ptrid=-1;
-        for(new i; i < dpp_maxvar; i++)
+        for(new i; i < dpp_maxptr; i++)
         {
             if(dpp_ptrdata[i][ptr_valid] == 1)
             {
                 if(!strcmp(varsetgroup[0], dpp_ptrdata[i][ptr_name]))
                 {
                     ptrid = i;
+                    //dpp_error("POINTER DEBUG :: ptrid is '%i'",ptrid);
+                    //dpp_error("POINTER DEBUG :: <>[...][ptr_name] is '%s'",dpp_ptrdata[i][ptr_name]);
                     break;
                 }
             }
         }
+        //dpp_error("POINTER DEBUG :: ptrid outside if{} is '%i'",ptrid);
+        //dpp_error("POINTER DEBUG :: varsetgroup[0] : '%s'",varsetgroup[0]);
+        //dpp_error("POINTER DEBUG :: varsetgroup[1] : '%s'",varsetgroup[1]);
         if(ptrid != -1)
         {
             new ptr_addr__[2][dpp_argcharsize];
             dpp_parseline(varsetgroup[1],ptr_addr__,'@');
+
             if(isnull(ptr_addr__[0]) || isnull(ptr_addr__[1]))
             {
                 dpp_argptrtosym(varsetgroup[0]);
