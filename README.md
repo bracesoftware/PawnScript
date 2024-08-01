@@ -70,6 +70,7 @@
 - [Miscellaneous](doc/misc.md)
 - [TCI](doc/usingfor.md)
 - [Private functions](doc/private.md)
+- [Pointers](doc/pointers.md)
 
 ### Other info
 

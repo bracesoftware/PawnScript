@@ -69,6 +69,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxoclass__ dpp_rescells__
 #define dpp_maxtemplate__ dpp_rescells__
 #define dpp_maxvector__ dpp_rescells__
+#define dpp_maxptr__ dpp_rescells__
 // Variables with max values of constants above.
 // Used in #pragma to select amount of memory used for each entity.
 new dpp_maxconst        = dpp_maxconst__;
@@ -85,6 +86,7 @@ new dpp_maxobj          = dpp_maxobj__;
 new dpp_maxoclass       = dpp_maxoclass__;
 new dpp_maxtemplate     = dpp_maxtemplate__;
 new dpp_maxvector       = dpp_maxvector__;
+new dpp_maxptr          = dpp_maxptr__;
 dpp_memory__dyn(dyn)
 {
 if(dyn>dpp_rescells__)
@@ -105,6 +107,7 @@ dpp_maxobj              = dyn;
 dpp_maxoclass           = dyn;
 dpp_maxtemplate         = dyn;
 dpp_maxvector           = dyn;
+dpp_maxptr              = dyn;
 #emit const.pri 1
 #emit retn
 }
@@ -285,6 +288,16 @@ enum __dpp_var_val
 }
 
 new dpp_vardata[dpp_maxvar__][__dpp_var_val];
+//pointers >:)
+enum __dpp_ptr_E
+{
+    ptr_valid,
+    ptr_name[dpp_maxsymbolchar],
+    ptr_cell,
+    ptr_memsec
+}
+
+new dpp_ptrdata[dpp_maxptr__][__dpp_ptr_E];
 //-----------------------------------------------------------
 //inline
 new dpp_inlineinterpreter = 1;

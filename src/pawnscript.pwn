@@ -60,6 +60,7 @@ native fcreatedir(const filename[]);
 #include "modules/template.inc"
 #include "modules/vectors.inc"
 #include "modules/logics.inc"
+#include "modules/pointers.inc"
 
 #include "modules/interpreter.inc"
 //-----------------------------------------------------------

@@ -92,6 +92,10 @@ foobyte=127; // we will see 127
 console.println("{foobyte}")
 ```
 
+### `ptr`
+
+Check pointer documentation for more...
+
 ## `addressof` instruction
 
 - This is a built-in instruction which returns an address of a symbol, most frequently a variable.

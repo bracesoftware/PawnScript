@@ -198,3 +198,13 @@ void myTask() private
 	console.println("Process speed: {process_speed} Hz")
 	#undef:process_speed
 }
+
+
+////////////
+new[byte]myNewByte1=0
+new[byte]myNewbyte2=0
+new[ptr]myFirstPointer=addressof?myNewByte1
+myFirstPointer=56
+myFirstPointer=addressof?myNewbyte2
+myFirstPointer=-53
+console.println.log("myNewByte1 is {myNewByte1} and myNewbyte2 is {myNewbyte2}")
