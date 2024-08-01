@@ -150,7 +150,7 @@ dpp_maxptr              = dyn;
 //-----------------------------------------------------------
 new dpp_skipelse = 0;
 //-----------------------------------------------------------
-new dpp_skipcase = 0;
+//new dpp_skipcase = 0;
 new dpp_switchedvar;
 //-----------------------------------------------------------
 #define dpp_deco_invalid 0
@@ -174,6 +174,7 @@ new dpp_lastdeco = dpp_deco_invalid;
 #define dpp_event_inline 3
 #define dpp_event_enum 4
 #define dpp_event_namespace 5
+#define dpp_event_case 6
 
 #define dpp_event_do 10
 #define dpp_event_if 11
@@ -418,6 +419,7 @@ new dpp_lastclass;
 new dpp_event = 0;
 
 new dpp_failedif = 0;
+new dpp_failedcase = 0;
 //-----------------------------------------------------------
 new 
     dpp_break=0, 

@@ -579,6 +579,12 @@ stock dpp_process(line[])
             dpp_config__[samp@api_module] = 0;
         }
 
+
+        if(dpp_event == dpp_event_case)
+        {
+            dpp_failedcase = 0;
+        }
+
         if(strlen(line) >= 2)
         {
             line[0] = '\32';
@@ -623,6 +629,10 @@ stock dpp_process(line[])
         {
             //do absolutely nothing
         }
+        if(dpp_event == dpp_event_case)
+        {
+            //do absolutely nothing
+        }
         //MODULES/APIS
         if(dpp_event == dpp_event_REQUIRES@samp)
         {
@@ -637,7 +647,7 @@ stock dpp_process(line[])
         return 1;
     }
 
-    if(dpp_failedif == 1)
+    if(dpp_failedif == 1 || dpp_failedcase == 1)
     {
         return 1;
     }
@@ -2057,19 +2067,6 @@ stock dpp_process(line[])
             }
             dpp_error("Unknown foreach-loop subject.",);
         }
-        //case
-        if(!strcmp(funcgroup[0], "case"))
-        {
-            if(dpp_skipcase == 1)
-            {
-                return 1;
-            }
-            if(dpp_vardata[dpp_switchedvar][integervalue] == strval(args[1]))
-            {
-                dpp_skipcase = 1;
-                dpp_subexecute2(extracode);
-            }
-        }
         //do
         if(!strcmp(funcgroup[0], "this"))
         {
@@ -2264,6 +2261,21 @@ stock dpp_process(line[])
         }
 
         dpp_switchedvar = dpp_varid;
+
+        return 1;
+    }
+    if(!strcmp(tokengroup[0], "case"))
+    {
+        if(!dpp_isnumeric(tokengroup[1]))
+        {
+            dpp_error("Data type mismatch; case failed.",);
+            return 1;
+        }
+        dpp_event = dpp_event_case;
+        if(strval(tokengroup[1]) != dpp_vardata[dpp_switchedvar][integervalue])
+        {
+            dpp_failedcase = 1;
+        }
 
         return 1;
     }

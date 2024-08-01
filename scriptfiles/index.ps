@@ -239,4 +239,20 @@ test::myPtr="poop"
 console.println.log("myText is now {myText}")
 /////////////
 switch myNewbyte2
-	case,38->console.println.log("crap's 38")
+case 43
+{
+	console.println.log("crap's 43")
+}
+case 38
+{
+	console.println.log("crap's 38")
+	namespace nestedNSpace
+	{
+		new[int]LOL=83
+	}
+	console.println.log("nestedNSpace::LOL is {nestedNSpace::LOL}")
+}
+case 3
+{
+	console.println.log("crap's 43")
+}
