@@ -5,7 +5,7 @@
 ## User methods
 
 ```cpp
-@method;
+@method
 int TestMethod() public
 {
 	console.println("Printed: {text@TestMethod}")
@@ -25,7 +25,7 @@ namespace MyNameSpace
 	}
 }
 
-console.println.MyNameSpace::TestMethod("Method test #2");
+console.println.MyNameSpace::TestMethod("Method test #2")
 ```
 
 Output:

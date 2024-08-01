@@ -44,3 +44,24 @@ requires samp
 
 @global.setserverattrib.hostname("My Server")
 ```
+
+# Callbacks
+- This component module contains following callbacks:
+## `@onserverinit`
+- This callback gets called once the server starts.
+```cpp
+@extern
+	this->struct=callback
+int @onserverinit() public
+{
+	console.println.log("@onserverinit called!")
+	void inlinefunc() inline
+	<
+		console.println.log("INLINE WORKS!")
+	>
+	user.inlinefunc
+
+	console.println.log("end")
+	return int 1
+}
+```

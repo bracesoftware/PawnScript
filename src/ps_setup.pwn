@@ -567,4 +567,5 @@ new dpp_moduledir[dpp_maxpathsize];
 //-----------------------------------------------------------
 #define dpp_formstruct_local 0
 #define dpp_defaultstruct 1
+#define dpp_callbackstruct 2
 new dpp_structtype__;

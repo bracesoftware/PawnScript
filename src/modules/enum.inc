@@ -19,13 +19,19 @@ the Initial Developer. All Rights Reserved.
 
 
 
-stock dpp_createenum(const name[])
+stock dpp_createenum(name[])
 {
     dpp_symbolcheck__(name);
     for(new i; i < dpp_maxenum; i++)
     {
         if(dpp_validenum[i] == 0)
         {
+            if(dpp_workingclassid != dpp_invalidclass)
+            {
+                new newvalue[dpp_argcharsize];
+                format(newvalue,sizeof(newvalue),"DPPCe@%s_%s",dpp_classname[dpp_workingclassid],name);
+                strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            }
             dpp_validenum[i] = 1;
             dpp_currentenumid = i;
             strmid(dpp_enumname[i], name, 0, dpp_maxsymbolchar, dpp_maxsymbolchar);
@@ -57,6 +63,8 @@ public dpp_argenumcheck(arg[])
         enumdata[2][dpp_maxsymbolchar];
 
     dpp_parseline(arg,enumdata,'.');
+
+    dpp_argclasscheck(enumdata[0]);
 
     new enumid = -1;
     for(new i; i < dpp_maxenum; i++)

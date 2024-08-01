@@ -17,35 +17,30 @@ void Announce() public
 
 ## External functions
 
-- External functions are functions that are called when a certain event happens in third-party API or outside local PawnScript scope (not called by the user); for example, SA-MP commands are external structures or functions that are called when a player uses a command. In short, externally structured functions are and are not functions at the same time. Because external function types are so special, they're only available after including a certain third-party API system or an interpreter component.
+- External functions are functions that are called when a certain event happens in third-party API or outside local PawnScript scope (not called by the user). For example, a callback is a type of external function which automatically gets called when a certain event occurs. There are following types of external functions:
 
------------------------------------------------------------------
-
-### External structs integrated into the language
-
-#### External struct name: `default`
+### `default`
+Default events that happen in PawnScript, there's currently only one available and that's `main`:
 
 ```cpp
 @extern
 	this->struct=default
 void main() public
 {
-	console.println.log("Program begins here!")
+	// foo
 }
 ```
 
-### Component: `samp` - COMING SOON!
+### `callback`
+Event functions or, callbacks, are functions that are called by the component module such as `samp` when a certain event related to it occurs. Callbacks are usually prefixed with `@`.
 
-#### External struct name: `samp_command`
-
-Example:
+- **NOTE**: A list of available callbacks that are called by a specific module should be available in the component module documentation.
 
 ```cpp
 @extern
-	this->struct=samp_command
-int testcmd(playerid,params) public
+	this->struct=callback
+void @onserverinit() public
 {
-	samp.SendClientMessage(playerid@testcmd,0,"Your command works!");
-	return.int,1;
+	// foo
 }
 ```

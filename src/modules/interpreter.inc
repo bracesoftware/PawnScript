@@ -2141,6 +2141,10 @@ stock dpp_process(line[])
                 {
                     dpp_structtype__ = dpp_defaultstruct;
                 }
+                if(!strcmp(thisargs[1],"callback"))
+                {
+                    dpp_structtype__ = dpp_callbackstruct;
+                }
             }
             if(dpp_lastdeco == dpp_deco_export || dpp_lastdeco == dpp_deco_import) if(!strcmp(thisargs[0],"typename"))
             {
@@ -4265,6 +4269,10 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
         {
             if(!strcmp(dpp_funcname[i], funcgroup[1]))
             {
+                if(dpp_structtype[i] == dpp_callbackstruct)
+                {
+                    return 1;
+                }
                 if(dpp_hookform[i] == 0)
                 {
                     for(new argid; argid < dpp_maxformargs; argid++)
@@ -4335,17 +4343,17 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
                 }
             }
         }
-        if(dpp_processfunc == DPP_INVALID_FORM_ID)
-        {
-            dpp_error("Inline forms are meant to be used inside forms.",);
-            dpp_internal<return>(0);
-        }
         for(new i; i < dpp_maxinline; i++)
         {
             if(!strcmp(dpp_inlinename[i], funcgroup[1]))
             {
                 if(dpp_validinline[i] == 1)
                 {
+                    if(dpp_processfunc == DPP_INVALID_FORM_ID)
+                    {
+                        dpp_error("Inline forms are meant to be used inside forms.",);
+                        dpp_internal<return>(0);
+                    }
                     //dpp_warning("#1 Inline: '%s' | Code: '%s'",funcgroup[1],dpp_inlinecodeblock[i]);
                     dpp_subexecute(dpp_inlinecodeblock[i]);
                     dpp_internal<return>(1);

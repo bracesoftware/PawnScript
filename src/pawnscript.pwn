@@ -122,6 +122,8 @@ public main_again()
     CallRemoteFunction("dppcord_init", "");
     CallLocalFunction("dpp_taskinit", "");
     CallRemoteFunction("__ps_sdktest", "");
+
+    CallLocalFunction("PS_Callback", "ss", "@onserverinit","");
     return 1;
 }
 //-----------------------------------------------------------

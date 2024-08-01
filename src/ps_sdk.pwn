@@ -20,8 +20,20 @@ the Initial Developer. All Rights Reserved.
 
 //////////////////////// == API == ////////////////////////
 
-forward PS_CallRemoteFunction(funcname[],args__[]);
+PS_CallRemoteFunction(funcname[],args__[]);
 public PS_CallRemoteFunction(funcname[],args__[])
+{
+    return CallLocalFunction("__PS_CallRemoteFunction__","ssi",funcname,args__,0);
+}
+
+PS_Callback(funcname[],args__[]);
+public PS_Callback(funcname[],args__[])
+{
+    return CallLocalFunction("__PS_CallRemoteFunction__","ssi",funcname,args__,1);
+}
+
+forward __PS_CallRemoteFunction__(funcname[],args__[],callback);
+public __PS_CallRemoteFunction__(funcname[],args__[],callback)
 {
     dpp_print("PS_CallRemoteFunction called: funcname - '%s', args__ - '%s'",funcname,args__);
     new args[dpp_maxformargs][dpp_maxsymbolchar/2];
@@ -37,6 +49,10 @@ public PS_CallRemoteFunction(funcname[],args__[])
         if(!strcmp(dpp_funcname[i], funcname))
         {
             if(dpp_privatefunc[i] == 1)
+            {
+                return 1;
+            }
+            if(callback == 1) if(dpp_structtype[i] != dpp_callbackstruct)
             {
                 return 1;
             }

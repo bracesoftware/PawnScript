@@ -55,3 +55,26 @@ console.cout.log(Months.january%WeekDays.monday)
 
 console.println("Test?")
 ```
+
+### Enums within namespaces
+- You can create enums within namespaces as well.
+
+```cpp
+namespace Me
+{
+	enum Family
+	{
+		Mom
+		Dad
+		Sister
+	}
+
+	enum Friends
+	{
+		Bob
+		Dave
+	}
+}
+
+console.rawout(Me::Family.Mom+Me::Family.Dad)
+```
