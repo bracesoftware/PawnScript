@@ -2620,6 +2620,17 @@ stock dpp_process(line[])
             dpp_createintvar(var_group_3[0],0 <= strval(var_group_3[1]) <= dpp_shortlim ? strval(var_group_3[1]) : 0, .short = 1);
             return 1;
         }
+        if(!strcmp(var_group_2[0], "byte"))
+        {
+            if(!dpp_isnumeric(var_group_3[1]))
+            {
+                dpp_error("Argument error [%s]; value must be an integer.",var_group_3[1]);
+                return 0;
+            }
+
+            dpp_createintvar(var_group_3[0],-128 <= strval(var_group_3[1]) <= 127 ? strval(var_group_3[1]) : 0, .byte = 1);
+            return 1;
+        }
         if(!strcmp(var_group_2[0], "bool"))
         {
             if(strcmp(var_group_3[1],"true") && strcmp(var_group_3[1],"false"))

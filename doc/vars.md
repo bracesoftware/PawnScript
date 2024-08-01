@@ -78,7 +78,19 @@ new[int.short]theresalimit=65576; // Value will be set to 0.
 
 **NOTE**: If you set a value that is smaller than 0 or bigger than 65535, value of the variable will be 0.
 
+### `byte`
+- Integers that take up to a mere byte of memory to store information (store values from -128 to 127).
 
+```cpp
+new[byte]foobyte=743; // we will see 0
+console.println("{foobyte}")
+foobyte=-4847; // we will see 0
+console.println("{foobyte}")
+foobyte=128; // we will see 0
+console.println("{foobyte}")
+foobyte=127; // we will see 127
+console.println("{foobyte}")
+```
 
 ## `addressof` instruction
 

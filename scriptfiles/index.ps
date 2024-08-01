@@ -179,3 +179,12 @@ console.rawout.log(test::MyEnum.ting2)
 console.rawout.log(test::MyEnum.ting3)
 
 console.rawout.log(test::MyEnum2.r-test::MyEnum.ting1); //we should see 82
+
+new[byte]foobyte=743; // we will see 0
+console.println("{foobyte}")
+foobyte=-4847; // we will see 0
+console.println("{foobyte}")
+foobyte=128; // we will see 0
+console.println("{foobyte}")
+foobyte=127; // we will see 127
+console.println("{foobyte}")

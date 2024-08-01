@@ -273,6 +273,7 @@ enum __dpp_var_val
     var_object,
     var_unsigned,
     var_short,
+    var_byte,
     integervalue,
     /*bool:*/boolvalue,
     Float:floatvalue,
