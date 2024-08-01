@@ -2238,15 +2238,16 @@ stock dpp_process(line[])
     ////
     ///////////////////////////////////////////////////////
 
-    if(!strcmp(funcgroup[0], "switch"))
+    if(!strcmp(tokengroup[0], "switch"))
     {
         new dpp_varid = -1;
-        dpp_argclasscheck(args_const[1]);
-        dpp_argoclasscheck(args_const[1]);
+        dpp_codetrim(tokengroup[1]);
+        dpp_argclasscheck(tokengroup[1]);
+        dpp_argoclasscheck(tokengroup[1]);
 
         for(new i; i < dpp_maxvar; i++)
         {
-            if(!strcmp(args_const[1], dpp_vardata[i][var_name]))
+            if(!strcmp(tokengroup[1], dpp_vardata[i][var_name]))
             {
                 if(dpp_vardata[i][var_valid] == 1)
                 {

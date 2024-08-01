@@ -56,7 +56,7 @@ console.println.log("myNewByte1 is {myNewByte1} and myNewbyte2 is {myNewbyte2}")
 
 - **WARNING**: It is really important to mention that you CANNOT include a pointer within a class.
 
-## Example `#2`
+## Example `#3`
 - This example is literally the point of pointers themselves - modify variables passed by reference.
 
 ```cpp
