@@ -755,6 +755,13 @@ stock dpp_createtask(const name[], interval, repeat)
 stock dpp_argsystemval(arg[])
 {
     new newvalue[dpp_argcharsize];
+    
+    if(!strcmp(arg, "__procspeed") || !strcmp(arg, "$system.speed"))
+    {
+        format(newvalue, sizeof newvalue, "%i", dpp_speedhz);
+        strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
+    }
+    //keeping these for backwards compatibility
     if(!strcmp(arg, "__proccessed_form_id"))
     {
         format(newvalue, sizeof newvalue, "%i", dpp_processfunc);
@@ -783,11 +790,6 @@ stock dpp_argsystemval(arg[])
     if(!strcmp(arg, "__beta"))
     {
         format(newvalue, sizeof newvalue, "%i", DPP_VERSION_BETA);
-        strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
-    }
-    if(!strcmp(arg, "__procspeed"))
-    {
-        format(newvalue, sizeof newvalue, "%i", dpp_speedhz);
         strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
     }
     return 1;

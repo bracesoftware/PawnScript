@@ -188,3 +188,13 @@ foobyte=128; // we will see 0
 console.println("{foobyte}")
 foobyte=127; // we will see 127
 console.println("{foobyte}")
+
+@task
+	this->interval=4000
+	this->repeat=true
+void myTask() private
+{
+	new[int]process_speed=$system.speed
+	console.println("Process speed: {process_speed} Hz")
+	#undef:process_speed
+}

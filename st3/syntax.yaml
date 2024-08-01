@@ -34,7 +34,7 @@ contexts:
     - match: '\b(-)?[0-9.@#]+\b'
       scope: constant.numeric.example-c
 
-    - match: '\b(true|false|default)\b'
+    - match: '\b(true|false|default|callback)\b'
       scope: constant.numeric.example-c
 
     - match: '[@#]'
@@ -73,6 +73,9 @@ contexts:
       scope: variable.annotation.example-c
 
     - match: '\b(this|user)\b'
+      scope: variable.parameter.c++
+
+    - match: '\b($system)\b'
       scope: variable.parameter.c++
 
     - match: '[\w]+\('
