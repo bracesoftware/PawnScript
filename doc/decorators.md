@@ -1,8 +1,10 @@
 # Decorators
 
-- Decoratos are some special kinds of declarations whose change the structure of a function. The list of available decorators is below.
+- Decoratos are some special kinds of declarations whose change the structure of a function. The list of available decorators is below. There are 2 types of decorators - *code block modifiers* and *statement modifiers*.
 
-## `@hook`
+## Code block modifiers
+- Code block modifiers are decorators that decorate a certain code block. They're prefixed with `@`.
+### `@hook`
 
 - Used to make a hook function.
 
@@ -13,7 +15,7 @@ void MyTestFunc() public
 }
 ```
 
-## `@method`
+### `@method`
 
 - Used to make a function method.
 
@@ -26,7 +28,7 @@ void MyTestFunc() public
 console.println.MyTestFunc(...)
 ```
 
-## `@task`
+### `@task`
 
 - Used to make a timer.
 
@@ -38,9 +40,16 @@ void mytask() public
 }
 ```
 
-## `@yield`
+## Statement modifiers
+- Statement modifiers are decorators that decorate a certain line of code - or a statement. They're contained within square brackets.
+
+## `[yield]`
 
 Check the return documentation.
+
+## `[quiet]`
+
+Check the quiet function call documentation.
 
 # `this` keyword
 

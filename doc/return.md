@@ -19,18 +19,17 @@ system.rem("Thing above will print 1")
 ```
 
 
-### `@yield` decorator
+### `[yield]` decorator
 
-- Using the `@yield` decorator before the return statement does not stop the code block from executing after returning a specific value. Example:
+- Using the `[yield]` decorator before the return statement does not stop the code block from executing after returning a specific value. Example:
 
 ```cpp
 str func() public
 {
 	console.println("Print 1")
-	static*new.str,returnstr="Print 2"
-	@yield
+	static[str]returnstr="Print 2"
+	[yield]
 	return returnstr
-	if.notequ,1,1->return "Print OOPS"
 	console.println("Print 3")
 }
 

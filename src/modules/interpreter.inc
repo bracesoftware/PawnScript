@@ -4389,7 +4389,7 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
                             0,
                             dpp_argcharsize/2,
                             dpp_argcharsize/2);
-                        dpp_error("ARG BACKTRACE :: dpp_args[i][argid][dpp_argvalue] : '%s'",dpp_args[i][argid][dpp_argvalue]);
+                        //dpp_error("ARG BACKTRACE :: dpp_args[i][argid][dpp_argvalue] : '%s'",dpp_args[i][argid][dpp_argvalue]);
                     }
                     if(dpp_lastdeco == dpp_deco_quiet)
                     {

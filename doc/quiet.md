@@ -37,4 +37,8 @@ console.println.log("StaticByteTest is now {StaticByteTest}")
 console.println.log("PortableStatic is now {PortableStatic}")
 ```
 
+AND we'd get an error saying that return can be used only within a function, which is actually the case, but we're overwriting the temporary interpreter data when calling a function inside a function. So in order to avoid overwriting interpreter data, we use the mentioned decorator.
+
+### More
+
 - **WARNING**: If we used return in `myQuietFunc`, that return would actually return in `MyInterestingFunc`.
