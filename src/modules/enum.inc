@@ -19,7 +19,7 @@ the Initial Developer. All Rights Reserved.
 
 
 
-stock dpp_createenum(name[])
+stock dpp_createenum(name[],constexpr=0)
 {
     dpp_symbolcheck__(name);
     for(new i; i < dpp_maxenum; i++)
@@ -33,6 +33,7 @@ stock dpp_createenum(name[])
                 strmid(name, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
             dpp_validenum[i] = 1;
+            dpp_enumconstexpr[i] = constexpr;
             dpp_currentenumid = i;
             strmid(dpp_enumname[i], name, 0, dpp_maxsymbolchar, dpp_maxsymbolchar);
             return 1;
@@ -93,5 +94,25 @@ public dpp_argenumcheck(arg[])
         }
     }
     strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
+    return 1;
+}
+
+stock dpp_hookenum(name[])
+{
+    dpp_argclasscheck(name);
+    for(new i; i < dpp_maxenum; i++)
+    {
+        if(!strcmp(dpp_enumname[i],name) && dpp_validenum[i] == 1)
+        {
+            if(dpp_enumconstexpr[i] == 1)
+            {
+                dpp_fatalerror(1);
+                return 1;
+            }
+            dpp_currentenumid = i;
+            return 1;
+        }
+    }
+    dpp_error("Enum \"%s\" does not exist.",name);
     return 1;
 }

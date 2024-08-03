@@ -78,3 +78,61 @@ namespace Me
 
 console.rawout(Me::Family.Mom+Me::Family.Dad)
 ```
+
+### `constexpr enum` and `using enum`
+
+```cpp
+console.println("Const expr enum test:")
+
+namespace ConstexprTest
+{
+	enum MyNonConstEnum
+	{
+		q=1
+		w
+		e
+	}
+	constexpr enum MyConstEnum
+	{
+		q
+		w
+		e
+	}
+}
+
+console.rawout.log(ConstexprTest::MyNonConstEnum.q)
+console.rawout.log(ConstexprTest::MyNonConstEnum.w)
+console.rawout.log(ConstexprTest::MyNonConstEnum.e)
+
+console.rawout.log(ConstexprTest::MyConstEnum.q)
+console.rawout.log(ConstexprTest::MyConstEnum.w)
+console.rawout.log(ConstexprTest::MyConstEnum.e)
+
+using enum ConstexprTest::MyNonConstEnum
+{
+	r
+	t
+}
+console.rawout.log(ConstexprTest::MyNonConstEnum.r)
+console.rawout.log(ConstexprTest::MyNonConstEnum.t)
+
+using enum ConstexprTest::MyConstEnum
+{
+	// boom error 9/11
+}
+```
+
+Output:
+```
+[Info] Const expr enum test:
+[Info] 1
+[Info] 2
+[Info] 3
+[Info] 4
+[Info] 5
+[Info] 6
+[Info] 7
+[Info] 8
+[Info] *** [PawnScript] FATAL ERROR - Info: Attempted to modify a constexpr code block.
+[Info] [PawnScript] SERVER THREAD - Info: Process has been terminated to prevent further complication.
+```

@@ -314,3 +314,42 @@ int myYieldFunc2() private
 }
 
 user.myYieldFunc2
+
+console.println("Const expr enum test:")
+
+namespace ConstexprTest
+{
+	enum MyNonConstEnum
+	{
+		q=1
+		w
+		e
+	}
+	constexpr enum MyConstEnum
+	{
+		q
+		w
+		e
+	}
+}
+
+console.rawout.log(ConstexprTest::MyNonConstEnum.q)
+console.rawout.log(ConstexprTest::MyNonConstEnum.w)
+console.rawout.log(ConstexprTest::MyNonConstEnum.e)
+
+console.rawout.log(ConstexprTest::MyConstEnum.q)
+console.rawout.log(ConstexprTest::MyConstEnum.w)
+console.rawout.log(ConstexprTest::MyConstEnum.e)
+
+using enum ConstexprTest::MyNonConstEnum
+{
+	r
+	t
+}
+console.rawout.log(ConstexprTest::MyNonConstEnum.r)
+console.rawout.log(ConstexprTest::MyNonConstEnum.t)
+
+using enum ConstexprTest::MyConstEnum
+{
+	// boom error 9/11
+}

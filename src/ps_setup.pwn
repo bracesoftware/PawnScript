@@ -222,6 +222,7 @@ enum __dpp_valcache
     e_value
 }
 new dpp_enumvalues[dpp_maxenum__][dpp_maxenumvals][__dpp_valcache];
+new dpp_enumconstexpr[dpp_maxenum__];
 //-----------------------------------------------------------
 new dpp_validtypedef[dpp_maxtypedef__];
 new dpp_typedefname[dpp_maxtypedef__][dpp_maxstrsize];

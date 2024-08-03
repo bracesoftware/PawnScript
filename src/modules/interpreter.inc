@@ -1463,6 +1463,11 @@ stock dpp_process(line[])
             dpp_createclass(tokengroup[2], .constexpr = 1);
             dpp_event = dpp_event_namespace;
         }
+        if(!strcmp(tokengroup[1], "enum"))
+        {
+            dpp_createenum(tokengroup[2], .constexpr = 1);
+            dpp_event = dpp_event_enum;
+        }
         return 1;
     }
 
@@ -3339,6 +3344,12 @@ stock dpp_process(line[])
         {
             dpp_hookclass(tokengroup[2]);
             dpp_event = dpp_event_namespace;
+            return 1;
+        }
+        if(!strcmp(tokengroup[1], "enum"))
+        {
+            dpp_hookenum(tokengroup[2]);
+            dpp_event = dpp_event_enum;
             return 1;
         }
         ////////////////////////////
