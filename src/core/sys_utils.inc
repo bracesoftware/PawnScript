@@ -63,5 +63,12 @@ stock dpp_fatalerror(errorid, const fmat[] = "")
         dpp_info("Process has been terminated to prevent further complication.");
         return 1;
     }
+    if(errorid == 7)
+    {
+        dpp_fatalerror__("Format system failed.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
     return 0;
 }

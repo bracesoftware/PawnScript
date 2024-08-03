@@ -354,7 +354,9 @@ new dpp_hookform[dpp_maxfuncs__];
 new dpp_structtype[dpp_maxfuncs__];
 new dpp_methodform[dpp_maxfuncs__];
 new dpp_privatefunc[dpp_maxfuncs__];
+new dpp_virtualfunc[dpp_maxfuncs__];
 new dpp_setprivate__ = 0;
+new dpp_setvirtual__ = 0;
 enum __dpp_argcache
 {
     dpp_argname[dpp_maxsymbolchar/2],

@@ -398,6 +398,63 @@ stock dpp_deletefunc(const name[])
     return 1;
 }
 
+stock dpp_inheritfunc(funcname[],fromfunc[],private=0)
+{
+    dpp_argclasscheck(fromfunc);
+    dpp_symbolcheck__(funcname);
+    if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
+    {
+        new newvalue[dpp_argcharsize];
+        format(newvalue,sizeof(newvalue),"DPPOf@%s_%s",dpp_objectname[dpp_currentobject],funcname);
+        strmid(funcname, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+    }
+    new _fromfunc__ = -1;
+    for(new i; i < dpp_maxfuncs; i++)
+    {
+        if(!strcmp(dpp_funcname[i], fromfunc))
+        {
+            if(dpp_validfunc[i] == 1 && dpp_hookform[i] == 0)
+            {
+                if(dpp_virtualfunc[i] == 1)
+                {
+                    _fromfunc__ = i;
+                }
+            }
+        }
+    }
+    if(_fromfunc__ == -1)
+    {
+        return 1;
+    }
+
+    for(new i; i < dpp_maxfuncs; i++)
+    {
+        if(dpp_validfunc[i] == 0)
+        {
+            dpp_validfunc[i] = 1;
+            //dpp_structtype[i] = dpp_structtype__;
+            //dpp_methodform[i] = method;
+
+            dpp_returntype[i] = dpp_returntype[_fromfunc__];
+
+            dpp_privatefunc[i] = private;
+
+
+            for(new argid; argid < dpp_maxformargs; argid++)
+            {
+                strmid(dpp_args[i][argid][dpp_argname],dpp_args[_fromfunc__][argid][dpp_argname],0,100,100);
+            }
+
+            strmid(dpp_funcname[i], funcname, 0, 64);
+
+            strmid(dpp_funccodeblock[i], dpp_funccodeblock[_fromfunc__], 0,dpp_buffersize,dpp_buffersize);
+
+            return 1;
+        }
+    }
+    return 1;
+}
+
 stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, method = 0, ret = dpp_rtn_type_void)
 {
     if(hookform == 1)
@@ -411,7 +468,7 @@ stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, metho
         strmid(funcname, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
     }
     dpp_symbolcheck__(funcname);
-    new dpp_formcount;
+    //new dpp_formcount;
     for(new i; i < dpp_maxfuncs; i++)
     {
         if(dpp_validfunc[i] == 0)
@@ -433,8 +490,9 @@ stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, metho
             dpp_returntype[i] = ret;
 
             dpp_privatefunc[i] = dpp_setprivate__;
+            dpp_virtualfunc[i] = dpp_setvirtual__;
 
-            for(new y; y < dpp_maxfuncs; y++)
+            /*for(new y; y < dpp_maxfuncs; y++)
             {
                 if(!strcmp(dpp_funcname[y], funcname))
                 {
@@ -448,7 +506,7 @@ stock dpp_createfunc(funcname[], const args[], autoform = 0, hookform = 0, metho
             if(dpp_formcount > 1)
             {
                 dpp_warning("There are multiple forms with name \"%s\" created.",funcname);
-            }
+            }*/
 
             new formargs[dpp_maxformargs][100];
             dpp_parseline(args,formargs,',');

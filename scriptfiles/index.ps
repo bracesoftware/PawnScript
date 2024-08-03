@@ -348,8 +348,45 @@ using enum ConstexprTest::MyNonConstEnum
 }
 console.rawout.log(ConstexprTest::MyNonConstEnum.r)
 console.rawout.log(ConstexprTest::MyNonConstEnum.t)
-
+/*
 using enum ConstexprTest::MyConstEnum
 {
 	// boom error 9/11
 }
+*/
+// Virtual func test
+console.println.log("Virtual func test")
+
+using namespace test
+{
+	void __eat() virtual
+	{
+		static[byte]StaticByte=9
+		console.println.log("This human is eating")
+	}
+}
+
+class HumanBeing
+{
+	public eat->test::__eat
+}
+
+object MeAgain=HumanBeing
+
+MeAgain.eat()
+
+//new[byte]HumansAge=MeAgain.age
+
+//console.rawout.log(MeAgain.age)
+//console.rawout.log(HumansAge)
+
+void testfunc() private
+{
+	static[byte]StaticByte2=10
+	[quiet]
+	MeAgain.eat()
+	console.println.log("StaticByte is {StaticByte}")
+	console.println.log("StaticByte2 is {StaticByte2}")
+}
+
+user.testfunc

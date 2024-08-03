@@ -267,6 +267,12 @@ stock dpp_formatarg(argument[]) // creds DEntisT
         if(argument[i] == '}') end = i;
     }
 
+    if((start != -1 && end == -1) || (start == -1 && end != -1))
+    {
+        dpp_fatalerror(7);
+        return 1;
+    }
+
     strmid(symbolname, argument, start+1, end);
     strmid(replacementname, argument, start, end+1);
 

@@ -840,7 +840,7 @@ stock dpp_process(line[])
         return 1;
     }
 
-    if((!strcmp(funcdeclgroup2[1], "public")) || (!strcmp(funcdeclgroup2[1], "private")))
+    if((!strcmp(funcdeclgroup2[1], "public")) || (!strcmp(funcdeclgroup2[1], "private")) || (!strcmp(funcdeclgroup2[1], "virtual")))
     {
         if(dpp_processfunc != DPP_INVALID_FORM_ID)
         {
@@ -850,9 +850,14 @@ stock dpp_process(line[])
         }
 
         dpp_setprivate__ = 0;
+        dpp_setvirtual__ = 0;
         if(!strcmp(funcdeclgroup2[1], "private"))
         {
             dpp_setprivate__ = 1;
+        }
+        if(!strcmp(funcdeclgroup2[1], "virtual"))
+        {
+            dpp_setvirtual__ = 1;
         }
 
         new arguments[2][1024];
@@ -1443,7 +1448,7 @@ stock dpp_process(line[])
     ///////////////////////////////////////////////////////
     ////
     ////
-    ////            NAMESPACE, OBJECT & CLASS SYS
+    ////            NAMESPACE, CONSTEXPR, OBJECT & CLASS SYS
     ////
     ////
     ///////////////////////////////////////////////////////
@@ -1453,6 +1458,28 @@ stock dpp_process(line[])
         dpp_createclass(tokengroup[1]);
 
         dpp_event = dpp_event_namespace;
+        return 1;
+    }
+
+    //dpp_parseline_2
+    if(!strcmp(tokengroup[0], "public"))
+    {
+        new funcgroup_inherit[2][64];
+        dpp_parseline_2(tokengroup[1],funcgroup_inherit,"->");
+        if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
+        {
+            dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1]);
+        }
+        return 1;
+    }
+    if(!strcmp(tokengroup[0], "private"))
+    {
+        new funcgroup_inherit[2][64];
+        dpp_parseline_2(tokengroup[1],funcgroup_inherit,"->");
+        if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
+        {
+            dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1],.private=1);
+        }
         return 1;
     }
 
@@ -3522,7 +3549,7 @@ stock dpp_process(line[])
     ///////////////////////////////////////////////////////
     ////
     ////
-    ////            USER/INLINE FUNC SYS
+    ////            USER/OBJECT/INLINE FUNC SYS
     ////
     ////
     ///////////////////////////////////////////////////////
@@ -4340,6 +4367,11 @@ stock dpp_process(line[])
         dpp_funcfound = CallLocalFunction("dpp_processSAMP@GLOBAL", "sss", funcgroup_form,args_form,args_fconst);
     }
 
+    if(dpp_funcfound == 0)
+    {
+        dpp_funcfound = CallLocalFunction("dpp_processobj", "sss", funcgroup_form,args_form,args_fconst);
+    }
+
 
 
     ///////////////////////////////////////////////////////
@@ -4351,7 +4383,7 @@ stock dpp_process(line[])
     ///////////////////////////////////////////////////////
 
     
-    CallRemoteFunction("dppcord_process", "ssssss", funcgroup_form,args_form,args_fconst,funcgroup,args,args_const);
+    //CallRemoteFunction("dppcord_process", "ssssss", funcgroup_form,args_form,args_fconst,funcgroup,args,args_const);
 
     ////////////////////
     if(dpp_funcfound == 0)
@@ -4388,6 +4420,10 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
             if(!strcmp(dpp_funcname[i], funcgroup[1]))
             {
                 if(dpp_structtype[i] == dpp_callbackstruct)
+                {
+                    return 1;
+                }
+                if(dpp_virtualfunc[i] == 1)
                 {
                     return 1;
                 }
@@ -4490,6 +4526,82 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
         }
         dpp_error("Form \"%s\" isn't registered.", funcgroup[1]);
         dpp_internal<return>(0);
+    }
+    return 0;
+}
+
+dpp_processobj(funcgroup[][],args[][],args_const[][]);
+public dpp_processobj(funcgroup[][],args[][],args_const[][])
+{
+    new dpp_object_ID__ = -1;
+    for(new i; i < dpp_maxobj; i++)
+    {
+        if(!strcmp(dpp_objectname[i],funcgroup[0]) && dpp_validobject[i] == 1)
+        {
+            dpp_object_ID__ = i;
+            break;
+        }
+    }
+    if(dpp_object_ID__ == -1) return 0;
+
+    new object_func_name[64];
+    format(object_func_name,sizeof object_func_name,"DPPOf@%s_%s",funcgroup[0],funcgroup[1]);
+
+    for(new i; i < dpp_maxfuncs; i++)
+    {
+        if(!strcmp(dpp_funcname[i], object_func_name) && dpp_validfunc[i] == 1)
+        {
+            for(new argid; argid < dpp_maxformargs; argid++)
+            {
+                strmid(dpp_args[i][argid][dpp_argvalue],
+                    args[argid],
+                    0,
+                    dpp_argcharsize/2,
+                    dpp_argcharsize/2);
+                //dpp_error("ARG BACKTRACE :: dpp_args[i][argid][dpp_argvalue] : '%s'",dpp_args[i][argid][dpp_argvalue]);
+            }
+            if(dpp_lastdeco == dpp_deco_quiet)
+            {
+                dpp_subexecute(dpp_funccodeblock[i], i);
+                dpp_lastdeco = dpp_deco_invalid;
+                return 1;
+            }
+            dpp_returned[i] = 0;
+            dpp_processfunc = i;
+            //dpp_warning("#1 Func: '%s' | Code: '%s'",dpp_funcname[i],dpp_funccodeblock[i]);
+            dpp_subexecute(dpp_funccodeblock[i], i);
+            //dpp_warning("#2 Func: '%s' | Code: '%s'",dpp_funcname[i],dpp_funccodeblock[i]);
+            dpp_debug("dpp_funccodeblock[i]:%s",dpp_funccodeblock[i]);
+
+            dpp_clearformstack(dpp_processfunc);
+
+            dpp_deletestaticvars();
+            
+
+            dpp_processfunc = DPP_INVALID_FORM_ID;
+
+            if(dpp_returntype[i] == dpp_rtn_type_int)
+            {
+                dpp_internal<return>(dpp_funcreturn_int[i]);
+            }
+            if(dpp_returntype[i] == dpp_rtn_type_bool)
+            {
+                dpp_internal<bool:return>(dpp_funcreturn_bool[i]);
+            }
+            if(dpp_returntype[i] == dpp_rtn_type_str)
+            {
+                dpp_internal<string:return>(dpp_funcreturn_str[i]<dpp_buffersize/2>);
+            }
+            if(dpp_returntype[i] == dpp_rtn_type_double)
+            {
+                dpp_internal<Float:return>(dpp_funcreturn_double[i]);
+            }
+            if(dpp_returntype[i] == dpp_rtn_type_char)
+            {
+                dpp_internal<char return>(dpp_funcreturn_char[i]);
+            }
+            dpp_internal<return>(1);
+        }
     }
     return 0;
 }
