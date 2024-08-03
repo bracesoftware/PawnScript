@@ -43,13 +43,13 @@ void mytask() public
 ## Statement modifiers
 - Statement modifiers are decorators that decorate a certain line of code - or a statement. They're contained within square brackets.
 
-## `[yield]`
+### `[yield]`
 
-Check the return documentation.
+- Check the return documentation.
 
-## `[quiet]`
+### `[quiet]`
 
-Check the quiet function call documentation.
+- Check the quiet function call documentation.
 
 # `this` keyword
 
