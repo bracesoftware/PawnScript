@@ -71,6 +71,7 @@
 - [TCI](doc/usingfor.md)
 - [Private functions](doc/private.md)
 - [Pointers](doc/pointers.md)
+- [Quiet function call](doc/quiet.md)
 
 ### Other info
 

@@ -26,9 +26,9 @@ contexts:
     # strings in YAML. When using single quoted strings, only single quotes
     # need to be escaped: this is done by using two single quotes next to each
     # other.
-    - match: '\b(private|requires|restemp|typename|from|to|extern|struct|yield|enum|class|public|inline|namespace|constexpr|const|static|new|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|interval|repeat)\b'
+    - match: '\b(quiet|switch|private|requires|restemp|typename|from|to|extern|struct|yield|enum|class|public|inline|namespace|constexpr|const|static|new|using|return|hook|method|task|for|foreach|while|do|try|object|tag|break|continue|template|typedef|exit|if|else|tagof|sizeof|addressof|short|unsigned|include|undef|pragma|emit|defined|iterator|vector|export|import|interval|repeat)\b'
       scope: keyword.control.example-c
-    - match: '\b(int|bool|str|double|char|void|byte)\b'
+    - match: '\b(int|bool|str|double|char|void|byte|ptr)\b'
       scope: variable.annotation.example-c
     # Numbers
     - match: '\b(-)?[0-9.@#]+\b'
@@ -60,7 +60,10 @@ contexts:
 
     - match: '\?'
       scope: keyword.control.example-c
-
+    - match: '\$'
+      scope: variable.parameter.c++
+    - match: '\b(this|user|case)\b'
+      scope: variable.parameter.c++
     - match: '\b(graphics|console|system|pawn|data|vec|iter|files|math|misc)\b'
       scope: constant.numeric.example-c
 
@@ -71,12 +74,6 @@ contexts:
 
     - match: '\b(equ|notequ)\b'
       scope: variable.annotation.example-c
-
-    - match: '\b(this|user)\b'
-      scope: variable.parameter.c++
-
-    - match: '\b($system)\b'
-      scope: variable.parameter.c++
 
     - match: '[\w]+\('
       scope: entity.name.impl.example-c

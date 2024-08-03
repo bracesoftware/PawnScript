@@ -51,13 +51,18 @@ undefined symbol error.
 This is widely used by the components!
 DO NOT CHANGE THEM!
 */
+dpp_retvar_debug()
+{
+    //printf("RETVAR DEBUG :: dpp_retvar__ : '%i'",dpp_retvar__);
+    return 1;
+}
 #define @PAWNSCRIPT_INTERNAL__@%0\32; @PAWNSCRIPT_INTERNAL__@
 #define dpp_internal%0< @PAWNSCRIPT_INTERNAL__@
-#define @PAWNSCRIPT_INTERNAL__@return>%1(%2)            dpp_vardata[dpp_retvar__][integervalue]=%2;return 1
-#define @PAWNSCRIPT_INTERNAL__@Float:return>%1(%2)      dpp_vardata[dpp_retvar__][floatvalue]=%2;return 1
-#define @PAWNSCRIPT_INTERNAL__@bool:return>%1(%2)       dpp_vardata[dpp_retvar__][boolvalue]=%2;return 1
-#define @PAWNSCRIPT_INTERNAL__@string:return>%1(%2<%3>) strmid(dpp_vardata[dpp_retvar__][stringvalue],%2,0,%3,%3);return 1
-#define @PAWNSCRIPT_INTERNAL__@char%0return>%1(%2)  dpp_vardata[dpp_retvar__][charvalue]=%2;return 1
+#define @PAWNSCRIPT_INTERNAL__@return>%1(%2)            dpp_vardata[dpp_retvar__][integervalue]=%2;dpp_retvar_debug();return 1
+#define @PAWNSCRIPT_INTERNAL__@Float:return>%1(%2)      dpp_vardata[dpp_retvar__][floatvalue]=%2;dpp_retvar_debug();return 1
+#define @PAWNSCRIPT_INTERNAL__@bool:return>%1(%2)       dpp_vardata[dpp_retvar__][boolvalue]=%2;dpp_retvar_debug();return 1
+#define @PAWNSCRIPT_INTERNAL__@string:return>%1(%2<%3>) strmid(dpp_vardata[dpp_retvar__][stringvalue],%2,0,%3,%3);dpp_retvar_debug();return 1
+#define @PAWNSCRIPT_INTERNAL__@char%0return>%1(%2)      dpp_vardata[dpp_retvar__][charvalue]=%2;dpp_retvar_debug();return 1
 
 #define @PAWNSCRIPT_INTERNAL__@pri> dpp_pri__
 #define @PAWNSCRIPT_INTERNAL__@alt> dpp_alt__

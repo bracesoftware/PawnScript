@@ -256,3 +256,60 @@ case 3
 {
 	console.println.log("crap's 43")
 }
+////
+
+
+int myYieldFunc() private
+{
+	return int 3
+}
+
+
+user.myYieldFunc() nestedNSpace::LOL
+console.println.log("nestedNSpace::LOL is now {nestedNSpace::LOL}") nestedNSpace::LOL
+
+
+console.println.log("nestedNSpace::LOL is now {nestedNSpace::LOL}")
+
+#restemp
+
+
+class Human
+{
+	new[int]age=8
+}
+
+object me=Human
+console.println.log("me.age is now {me.age}")
+user.myYieldFunc() me.age
+console.println.log("me.age is now {me.age}") me.age
+
+
+console.println.log("me.age is now {me.age}")
+#restemp
+
+void myQuietFunc(num,text) private
+{
+	static[int]PortableStatic=763
+	console.println(text@myQuietFunc)
+	console.println("num@myQuietFunc is {num@myQuietFunc}")
+}
+
+int myYieldFunc2() private
+{
+	static[byte]StaticByteTest=873
+	console.println.log("StaticByteTest is now {StaticByteTest}")
+	StaticByteTest=-333
+	console.println.log("StaticByteTest is now {StaticByteTest}")
+	StaticByteTest=7
+	console.println.log("StaticByteTest is now {StaticByteTest}")
+
+	[quiet]
+	user.myQuietFunc(2,"test print yo wtf")
+
+	console.println.log("StaticByteTest is now {StaticByteTest}")
+	console.println.log("PortableStatic is now {PortableStatic}")
+	return int 1
+}
+
+user.myYieldFunc2

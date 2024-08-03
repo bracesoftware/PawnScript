@@ -205,6 +205,8 @@ stock dpp_process(line[])
     if(!isnull(retvar[1]) && dpp_isretrefkw == 0)
     {
         dpp_codetrim(retvar[1]);
+        dpp_argclasscheck(retvar[1]);
+        dpp_argoclasscheck(retvar[1]);
         for(new i; i < dpp_maxvar; i++)
         {
             if(!strcmp(retvar[1], dpp_vardata[i][var_name]))
@@ -212,6 +214,7 @@ stock dpp_process(line[])
                 if(dpp_vardata[i][var_valid] == 1)
                 {
                     dpp_retvar__ = i;
+                    //dpp_error("dpp_retvar__ : '%i' | retvar[1] : '%s'",dpp_retvar__,retvar[1]);
                     break;
                 }
             }
@@ -777,11 +780,6 @@ stock dpp_process(line[])
         dpp_lastdeco = dpp_deco_task;
         return 1;
     }
-    if(!strcmp(funcgroup[0], "@yield"))
-    {
-        dpp_lastdeco = dpp_deco_yield;
-        return 1;
-    }
     if(!strcmp(funcgroup[0], "@extern"))
     {
         dpp_lastdeco = dpp_deco_extern;
@@ -795,6 +793,17 @@ stock dpp_process(line[])
     if(!strcmp(funcgroup[0], "@import"))
     {
         dpp_lastdeco = dpp_deco_import;
+        return 1;
+    }
+    //small decorators
+    if(!strcmp(funcgroup[0], "[yield]"))
+    {
+        dpp_lastdeco = dpp_deco_yield;
+        return 1;
+    }
+    if(!strcmp(funcgroup[0], "[quiet]"))
+    {
+        dpp_lastdeco = dpp_deco_quiet;
         return 1;
     }
 
@@ -2805,6 +2814,20 @@ stock dpp_process(line[])
 
             return 1;
         }
+        if(!strcmp(var_group_2[0], "byte"))
+        {
+            if(!dpp_isnumeric(var_group_3[1]))
+            {
+                dpp_error("Argument error; value must be an integer.",);
+                return 0;
+            }
+
+            dpp_createintvar(var_group_3[0],
+                -128 <= strval(var_group_3[1]) <= 127 ? strval(var_group_3[1]) : 0, 
+                .staticvar = 1, .baseform = dpp_processfunc,.byte = 1);
+
+            return 1;
+        }
         if(!strcmp(var_group_2[0], "bool"))
         {
             if(strcmp(var_group_3[1],"true") && strcmp(var_group_3[1],"false"))
@@ -4366,6 +4389,13 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
                             0,
                             dpp_argcharsize/2,
                             dpp_argcharsize/2);
+                        dpp_error("ARG BACKTRACE :: dpp_args[i][argid][dpp_argvalue] : '%s'",dpp_args[i][argid][dpp_argvalue]);
+                    }
+                    if(dpp_lastdeco == dpp_deco_quiet)
+                    {
+                        dpp_subexecute(dpp_funccodeblock[i], i);
+                        dpp_lastdeco = dpp_deco_invalid;
+                        return 1;
                     }
                     dpp_returned[i] = 0;
                     dpp_processfunc = i;
@@ -4399,8 +4429,11 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
                             }
                         }
                     }
-                    dpp_clearformstack(dpp_processfunc); 
+                    dpp_clearformstack(dpp_processfunc);
+
                     dpp_deletestaticvars();
+                    
+
                     dpp_processfunc = DPP_INVALID_FORM_ID;
 
                     if(dpp_returntype[i] == dpp_rtn_type_int)

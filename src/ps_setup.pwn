@@ -161,6 +161,7 @@ new dpp_switchedvar;
 #define dpp_deco_extern 5
 #define dpp_deco_export 6
 #define dpp_deco_import 7
+#define dpp_deco_quiet 8
 new dpp_lastdeco = dpp_deco_invalid;
 //-----------------------------------------------------------
 // PREDEFINES
