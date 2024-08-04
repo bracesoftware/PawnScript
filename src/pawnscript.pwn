@@ -122,9 +122,17 @@ public main_again()
     CallLocalFunction("DPP_GAMEMODEINIT", "");
     CallRemoteFunction("dppcord_init", "");
     CallLocalFunction("dpp_taskinit", "");
-    CallRemoteFunction("__ps_sdktest", "");
+    //CallRemoteFunction("__ps_sdktest", "");
 
+    /*samp*/
     CallLocalFunction("PS_Callback", "ss", "@onserverinit","");
+
+    dpp_sdkprint("Attempting to connect to the SDK...");
+    new checkCode = CallRemoteFunction("__pawnscript_sdk", "");
+    if(checkCode == 0b01010010101001)
+    {
+        dpp_sdkprint("Successfully connected to the SDK!");
+    }
     return 1;
 }
 //-----------------------------------------------------------

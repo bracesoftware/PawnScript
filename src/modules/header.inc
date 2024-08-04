@@ -27,6 +27,9 @@ the Initial Developer. All Rights Reserved.
 #define dpp_nullcomment%1(%1) print("                                               ")
 #define dpp_print%0(%1) printf("[PawnScript] SERVER THREAD - Info: "%1)
 
+#define dpp_sdkprint%0(%1) printf("[PawnScript] SERVER THREAD :: SDK - Info: "%1)
+#define dpp_sdkerr%0(%1) printf("[PawnScript] SERVER THREAD :: SDK - Info: "%1)
+
 #define dpp_gprint%0(%1) printf("[PawnScript] GRAPHICS SYSTEM @ Info: "%1)
 #define dpp_gerror%0(%1) printf("[PawnScript] GRAPHICS SYSTEM @ Error: "%1)
 

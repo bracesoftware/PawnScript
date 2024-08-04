@@ -52,6 +52,17 @@ stock dpp_argoclasscheck(arg[])
         }
     }
 
+    format(newvalue,sizeof(newvalue),"DPPOf@%s_%s",funcgroup[0],funcgroup[1]);
+
+    for(new i; i < dpp_maxfuncs; i++)
+    {
+        if(!strcmp(dpp_funcname[i],newvalue) && dpp_validfunc[i] == 1)
+        {
+            strmid(arg, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+            break;
+        }
+    }
+
     //dpp_debug("Class backtrace 4:\n\tclassvalid : '%i'\n\tclasselementvalid[0] : '%i'\n\tclasselementvalid[1] : '%i'\n\tclasselementvalid[2] : '%i'",classvalid,classelementvalid[0],classelementvalid[1],classelementvalid[2]);
 
     return 1;

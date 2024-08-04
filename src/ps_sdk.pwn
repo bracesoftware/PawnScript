@@ -17,9 +17,43 @@ the Initial Developer. All Rights Reserved.
 
 */
 
+#define @PAWNSCRIPT_N_DECO@%0\32; @PAWNSCRIPT_N_DECO@
+#define @pawnscript_sdk%0(%1) @PAWNSCRIPT_N_DECO@
+
+#define _PS_N@%0\32; _PS_N@
+#define @PAWNSCRIPT_N_DECO@native%0(%1) _PS_N@%0(%1);public _PS_N@%0(%1)
 
 //////////////////////// == API == ////////////////////////
 
+@pawnscript_sdk() native IsFuncValid(const name[])
+{
+    new localname[dpp_maxsymbolchar],_query__ = -1;
+    strmid(localname,name,0,sizeof localname,sizeof localname);
+    dpp_argclasscheck(localname);
+    dpp_argoclasscheck(localname);
+    dpp_sdkprint("Searching for a function : '%s'",localname);
+    for(new i; i < dpp_maxfuncs; i++)
+    {
+        if(!strcmp(dpp_funcname[i], localname))
+        {
+            if(dpp_validfunc[i] == 1 && dpp_hookform[i] == 0)
+            {
+                if(dpp_privatefunc[i] == 0)
+                {
+                    _query__ = i;
+                }
+            }
+        }
+    }
+    if(_query__ == -1)
+    {
+        dpp_sdkprint("Function not found.");
+        return 0;
+    }
+    dpp_sdkprint("Function found.");
+    return 1;
+}
+//SOME MORE INTERNAL SHEET
 PS_CallRemoteFunction(funcname[],args__[]);
 public PS_CallRemoteFunction(funcname[],args__[])
 {
