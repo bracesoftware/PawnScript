@@ -68,3 +68,57 @@ Output:
 ```
 13
 ```
+
+## Virtual functions
+- Virtual functions are blueprints for creating functions within classes:
+
+```cpp
+using namespace test
+{
+	void __eat() virtual
+	{
+		static[byte]StaticByte=9
+		console.println.log("This human is eating")
+	}
+	void __eat2() virtual
+	{
+		console.println.log("This human is eating again!")
+	}
+}
+
+class HumanBeing
+{
+	new[str]name="Mustafa"
+	public eat=>test::__eat
+	new[int]age=85
+	public eat2=>test::__eat2
+}
+
+object MeAgain=HumanBeing
+
+MeAgain.eat()
+console.println.log("MeAgain.name is {MeAgain.name}")
+console.rawout.log(MeAgain.age)
+
+void testfunc() private
+{
+	static[byte]StaticByte2=10
+	[quiet]
+	MeAgain.eat()
+	[quiet]
+	MeAgain.eat2()
+	console.println.log("StaticByte is {StaticByte}")
+	console.println.log("StaticByte2 is {StaticByte2}")
+}
+
+user.testfunc
+```
+
+The following line contained within a class will create a new public function `eat` using data of the virtual function `test::__eat`:
+```cpp
+public eat=>test::__eat
+```
+
+If you want the new function to be private, just change the `public` modifier to `private`.
+
+- **NOTE**: The reason you can't just create a function inside a class directly is an internal issue - basically, having a nested interpreter-terminating code block would cause potential issues.

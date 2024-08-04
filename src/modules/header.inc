@@ -402,12 +402,12 @@ stock dpp_inheritfunc(funcname[],fromfunc[],private=0)
 {
     dpp_argclasscheck(fromfunc);
     dpp_symbolcheck__(funcname);
-    if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
-    {
-        new newvalue[dpp_argcharsize];
-        format(newvalue,sizeof(newvalue),"DPPOf@%s_%s",dpp_objectname[dpp_currentobject],funcname);
-        strmid(funcname, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
-    }
+    //if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
+    //{
+    new newvalue[dpp_argcharsize];
+    format(newvalue,sizeof(newvalue),"DPPOf@%s_%s",dpp_objectname[dpp_currentobject],funcname);
+    strmid(funcname, newvalue, 0, dpp_argcharsize,dpp_argcharsize);
+    //}
     new _fromfunc__ = -1;
     for(new i; i < dpp_maxfuncs; i++)
     {

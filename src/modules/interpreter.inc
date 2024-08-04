@@ -49,6 +49,10 @@ var_group_3[1] = "1"
 
 stock dpp_process(line[])
 {
+    /*if(!isnull(line))
+    {
+        dpp_error("PROC_LOG :: Line : '%s'",line);
+    }*/
     dpp_hzinc();
     #if DPP_LOGPROCESSES == 1
     if(dpp_processfunc != dpp_lastvalueprcfunc)
@@ -3533,25 +3537,28 @@ stock dpp_process(line[])
     ///////////////////////////////////////////////////////
 
     //dpp_parseline_2
-    if(!strcmp(tokengroup[0], "public"))
+    if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
     {
-        new funcgroup_inherit[2][64];
-        dpp_parseline_2(tokengroup[1],funcgroup_inherit,"->");
-        if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
+        if(!strcmp(tokengroup[0], "public"))
         {
-            dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1]);
+            new funcgroup_inherit[2][64];
+            dpp_parseline_2(tokengroup[1],funcgroup_inherit,"=>");
+            if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
+            {
+                dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1]);
+            }
+            return 1;
         }
-        return 1;
-    }
-    if(!strcmp(tokengroup[0], "private"))
-    {
-        new funcgroup_inherit[2][64];
-        dpp_parseline_2(tokengroup[1],funcgroup_inherit,"->");
-        if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
+        if(!strcmp(tokengroup[0], "private"))
         {
-            dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1],.private=1);
+            new funcgroup_inherit[2][64];
+            dpp_parseline_2(tokengroup[1],funcgroup_inherit,"=>");
+            if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
+            {
+                dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1],.private=1);
+            }
+            return 1;
         }
-        return 1;
     }
 
     if(dpp_funcfound == 0)
