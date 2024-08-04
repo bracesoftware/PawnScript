@@ -89,7 +89,7 @@ user.MyNameSpace::MyFunc
 ```
 
 ### Operator: `.`
-- Code block access operator.
+- Object access operator.
 
 ```cpp
 console.println.log("Hi!")
@@ -127,6 +127,27 @@ MyTag<-new[int]myvar=1
 
 ```cpp
 new[int]myvar=1
+```
+
+### Operator: `=>`
+- Memory copy operator used to create entities or objects from virtual blueprints.
+
+```cpp
+int myBluePrint() virtual
+{
+	//foo
+	return int 4
+}
+
+//class
+class MyFuncs
+{
+	private myFunc=>myBluePrint
+}
+
+object MyObj=MyFuncs
+// This will do foo and return 4:
+MyFuncs.myFunc()
 ```
 
 ### Operator: `|`
