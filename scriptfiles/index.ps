@@ -364,27 +364,33 @@ using namespace test
 		static[byte]StaticByte=9
 		console.println.log("This human is eating")
 	}
+	void __eat2() virtual
+	{
+		console.println.log("This human is eating again!")
+	}
 }
 
 class HumanBeing
 {
 	public eat->test::__eat
+	public eat2->test::__eat2
+	new[str]name="Mustafa"
+	new[int]age=85
 }
 
 object MeAgain=HumanBeing
 
 MeAgain.eat()
-
-//new[byte]HumansAge=MeAgain.age
-
-//console.rawout.log(MeAgain.age)
-//console.rawout.log(HumansAge)
+console.println.log("MeAgain.name is {MeAgain.name}")
+console.rawout.log(MeAgain.age)
 
 void testfunc() private
 {
 	static[byte]StaticByte2=10
 	[quiet]
 	MeAgain.eat()
+	[quiet]
+	MeAgain.eat2()
 	console.println.log("StaticByte is {StaticByte}")
 	console.println.log("StaticByte2 is {StaticByte2}")
 }

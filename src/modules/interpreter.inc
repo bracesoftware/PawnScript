@@ -1461,28 +1461,6 @@ stock dpp_process(line[])
         return 1;
     }
 
-    //dpp_parseline_2
-    if(!strcmp(tokengroup[0], "public"))
-    {
-        new funcgroup_inherit[2][64];
-        dpp_parseline_2(tokengroup[1],funcgroup_inherit,"->");
-        if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
-        {
-            dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1]);
-        }
-        return 1;
-    }
-    if(!strcmp(tokengroup[0], "private"))
-    {
-        new funcgroup_inherit[2][64];
-        dpp_parseline_2(tokengroup[1],funcgroup_inherit,"->");
-        if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
-        {
-            dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1],.private=1);
-        }
-        return 1;
-    }
-
     if(!strcmp(tokengroup[0], "constexpr"))
     {
         if(!strcmp(tokengroup[1], "namespace"))
@@ -3554,6 +3532,28 @@ stock dpp_process(line[])
     ////
     ///////////////////////////////////////////////////////
 
+    //dpp_parseline_2
+    if(!strcmp(tokengroup[0], "public"))
+    {
+        new funcgroup_inherit[2][64];
+        dpp_parseline_2(tokengroup[1],funcgroup_inherit,"->");
+        if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
+        {
+            dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1]);
+        }
+        return 1;
+    }
+    if(!strcmp(tokengroup[0], "private"))
+    {
+        new funcgroup_inherit[2][64];
+        dpp_parseline_2(tokengroup[1],funcgroup_inherit,"->");
+        if(!isnull(funcgroup_inherit[0]) && !isnull(funcgroup_inherit[1]))
+        {
+            dpp_inheritfunc(funcgroup_inherit[0],funcgroup_inherit[1],.private=1);
+        }
+        return 1;
+    }
+
     if(dpp_funcfound == 0)
     {
         dpp_funcfound = CallLocalFunction("dpp_processuser", "sss", funcgroup_form,args_form,args_fconst);
@@ -4367,10 +4367,7 @@ stock dpp_process(line[])
         dpp_funcfound = CallLocalFunction("dpp_processSAMP@GLOBAL", "sss", funcgroup_form,args_form,args_fconst);
     }
 
-    if(dpp_funcfound == 0)
-    {
-        dpp_funcfound = CallLocalFunction("dpp_processobj", "sss", funcgroup_form,args_form,args_fconst);
-    }
+
 
 
 
@@ -4410,6 +4407,7 @@ stock dpp_subprocess(line[])
 dpp_processuser(funcgroup[][],args[][],args_const[][]);
 public dpp_processuser(funcgroup[][],args[][],args_const[][])
 {
+    if(CallLocalFunction("dpp_processobj", "sss", funcgroup,args,args_const) == 1) return 1;
     if(!strcmp(funcgroup[0], "user"))
     {
         //printf("funcgroup: '%s' | args: '%s' | aconst: '%s'", funcgroup,args,args_const);
@@ -4533,17 +4531,6 @@ public dpp_processuser(funcgroup[][],args[][],args_const[][])
 dpp_processobj(funcgroup[][],args[][],args_const[][]);
 public dpp_processobj(funcgroup[][],args[][],args_const[][])
 {
-    new dpp_object_ID__ = -1;
-    for(new i; i < dpp_maxobj; i++)
-    {
-        if(!strcmp(dpp_objectname[i],funcgroup[0]) && dpp_validobject[i] == 1)
-        {
-            dpp_object_ID__ = i;
-            break;
-        }
-    }
-    if(dpp_object_ID__ == -1) return 0;
-
     new object_func_name[64];
     format(object_func_name,sizeof object_func_name,"DPPOf@%s_%s",funcgroup[0],funcgroup[1]);
 
@@ -4564,16 +4551,14 @@ public dpp_processobj(funcgroup[][],args[][],args_const[][])
             {
                 dpp_subexecute(dpp_funccodeblock[i], i);
                 dpp_lastdeco = dpp_deco_invalid;
-                return 1;
+                dpp_internal<return>(1);
             }
             dpp_returned[i] = 0;
             dpp_processfunc = i;
-            //dpp_warning("#1 Func: '%s' | Code: '%s'",dpp_funcname[i],dpp_funccodeblock[i]);
-            dpp_subexecute(dpp_funccodeblock[i], i);
-            //dpp_warning("#2 Func: '%s' | Code: '%s'",dpp_funcname[i],dpp_funccodeblock[i]);
-            dpp_debug("dpp_funccodeblock[i]:%s",dpp_funccodeblock[i]);
 
-            dpp_clearformstack(dpp_processfunc);
+            dpp_subexecute(dpp_funccodeblock[i], i);
+
+            dpp_clearformstack(i);
 
             dpp_deletestaticvars();
             
