@@ -13,6 +13,8 @@
 - [`iter`](#component-iter)
 - [`vec`](#component-vec)
 - [`graphics`](#component-graphics)
+- [`stk`](#component-stk)
+- [`bitarr`](#component-bitarr)
 
 ---------------------------------------------------------------------------------------------------------
 
@@ -433,3 +435,17 @@ Output:
 [Info]                                                                                                    
 [Info] 	Powered by: Pawn				Release: 3.10.11
 ```
+
+---------------------------------------------------------------------------------------------------------
+
+## Component: `stk`
+- Stack-related functions.
+
+For further information, check the data structure and `foreach` documentation.
+
+---------------------------------------------------------------------------------------------------------
+
+## Component: `bitarr`
+- Bit array-related functions.
+
+For further information, check the data structure and `foreach` documentation.
