@@ -1465,7 +1465,7 @@ stock dpp_process(line[])
         return 1;
     }
 
-    if(!strcmp(tokengroup[0], "constexpr"))
+    if(!strcmp(tokengroup[0], "final"))
     {
         if(!strcmp(tokengroup[1], "namespace"))
         {

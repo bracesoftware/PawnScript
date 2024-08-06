@@ -23,7 +23,7 @@ stock dpp_fatalerror(errorid, const fmat[] = "")
 {
     if(errorid == 1)
     {
-        dpp_fatalerror__("Attempted to modify a constexpr code block.");
+        dpp_fatalerror__("Attempted to modify a final code block.");
         dpp_terminated = 1;
         dpp_info("Process has been terminated to prevent further complication.");
         return 1;

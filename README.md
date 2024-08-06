@@ -63,7 +63,7 @@
 - [Decorators](doc/decorators.md)
 - [Objects and classes](doc/objclass.md)
 - [`do` statement](doc/do.md)
-- [`constexpr` keyword](doc/constexpr.md)
+- [`final` keyword](doc/final.md)
 - [`try`, `break` and `continue`](doc/try.md)
 - [Return reference](doc/retref.md)
 - [Call templates](doc/template.md)

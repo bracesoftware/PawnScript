@@ -494,7 +494,7 @@ new dpp_stkreg[DPP_STKSIZE][dpp_maxsymbolchar];
 new dpp_allowcollision;
 #define @emit__%0\32;%1\10;%3 dpp_asm__(%1);
 //-----------------------------------------------------------
-#define dpp_maxkwords 57
+#define dpp_maxkwords 61
 new dpp_kwords[dpp_maxkwords][256] = {
     "public",
     "default",
@@ -502,14 +502,18 @@ new dpp_kwords[dpp_maxkwords][256] = {
     "class",
     "inline",
     "namespace",
-    "constexpr",
+    "switch",
+    "case",
+    "final",
     "const",
     "static",
     "new",
     "int",
     "bool",
+    "quiet",
     "str",
     "double",
+    "byte"
     "char",
     "void",
     "using",
