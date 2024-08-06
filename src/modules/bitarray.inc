@@ -66,7 +66,7 @@ stock dpp_findbitarr(name[])
 
 stock dpp_getbitvalue(bitarrid, index)
 {
-	if(index > dpp_bitarrdata[bitarrid][bitarr_size])
+	if(index >= dpp_bitarrdata[bitarrid][bitarr_size])
 	{
 		return 0;
 	}
@@ -79,11 +79,11 @@ stock dpp_setbitvalue(bitarrid, index, value)
 	{
 		return 1;
 	}
-	if(!(0 <= index <= 32))
+	if(!(0 <= index < 32))
 	{
 		return 1;
 	}
-	if(index > dpp_bitarrdata[bitarrid][bitarr_size])
+	if(index >= dpp_bitarrdata[bitarrid][bitarr_size])
 	{
 		return 0;
 	}
