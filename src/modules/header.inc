@@ -821,7 +821,11 @@ stock dpp_createtask(const name[], interval, repeat)
 stock dpp_argsystemval(arg[])
 {
     new newvalue[dpp_argcharsize];
-    
+    if(!strcmp(arg, "nullptr"))
+    {
+        format(newvalue, sizeof newvalue, "0@0");
+        strmid(arg, newvalue, 0, dpp_argcharsize, dpp_argcharsize);
+    }
     if(!strcmp(arg, "__procspeed") || !strcmp(arg, "$system.speed"))
     {
         format(newvalue, sizeof newvalue, "%i", dpp_speedhz);

@@ -396,3 +396,66 @@ void testfunc() private
 }
 
 user.testfunc
+
+///////////
+console.println.log("Stack tests")
+
+using stk
+stack<8>myStack
+
+new[ptr]myPtr=nullptr
+
+new[int]stacktest1=243
+new[int]stacktest2=072
+new[int]stacktest3=87236
+new[int]stacktest4=974
+
+stk.myStack.push(addressof?stacktest1)
+stk.myStack.push(addressof?stacktest2)
+stk.myStack.push(addressof?stacktest3)
+stk.myStack.push(addressof?stacktest4)
+
+try
+{
+	myPtr=364
+}
+foreach myPtr>>myStack
+
+console.println.log("{stacktest1}")
+console.println.log("{stacktest2}")
+console.println.log("{stacktest3}")
+console.println.log("{stacktest4}")
+
+using vec
+vector<10>myVector
+
+vec.myVector.add(1)
+vec.myVector.add(12)
+vec.myVector.add(133)
+vec.myVector.add(1345)
+vec.myVector.add(6543)
+
+new[int]forvecvar=0
+
+try
+{
+	console.println("{forvecvar}")
+}
+foreach forvecvar>>myVector
+
+using iter
+iterator<8>myIter
+
+iter.myIter.add(657)
+iter.myIter.add(345)
+iter.myIter.add(2)
+iter.myIter.add(24)
+iter.myIter.add(1)
+
+new[int]forvecvar2=0
+
+try
+{
+	console.println("{forvecvar2}")
+}
+foreach forvecvar2>>myIter

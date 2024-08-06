@@ -52,7 +52,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxformargs 15
 //-----------------------------------------------------------
 // Constant values (used for initial memory allocation)
-#define dpp_entities__ 15
+#define dpp_entities__ 16
 #define dpp_rescells__ 255
 
 #define dpp_maxconst__ dpp_rescells__
@@ -70,6 +70,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxtemplate__ dpp_rescells__
 #define dpp_maxvector__ dpp_rescells__
 #define dpp_maxptr__ dpp_rescells__
+#define dpp_maxstk__ dpp_rescells__
 // Variables with max values of constants above.
 // Used in #pragma to select amount of memory used for each entity.
 new dpp_maxconst        = dpp_maxconst__;
@@ -87,6 +88,7 @@ new dpp_maxoclass       = dpp_maxoclass__;
 new dpp_maxtemplate     = dpp_maxtemplate__;
 new dpp_maxvector       = dpp_maxvector__;
 new dpp_maxptr          = dpp_maxptr__;
+new dpp_maxstk          = dpp_maxstk__;
 dpp_memory__dyn(dyn)
 {
 if(dyn>dpp_rescells__)
@@ -108,6 +110,7 @@ dpp_maxoclass           = dyn;
 dpp_maxtemplate         = dyn;
 dpp_maxvector           = dyn;
 dpp_maxptr              = dyn;
+dpp_maxstk              = dyn;
 #emit const.pri 1
 #emit retn
 }
@@ -116,8 +119,12 @@ dpp_maxptr              = dyn;
 //-----------------------------------------------------------
 #define dpp_maxitersize 1000
 #define dpp_maxvectorsize 5000
+#define dpp_maxstksize 100
 #define dpp_invaliditerval -1
 #define dpp_invalidvectorval -1
+
+#define dpp_stkaddrsize 10
+#define dpp_invalidstkval "PSSTK"
 //-----------------------------------------------------------
 #define dpp_argcharsize 100
 //-----------------------------------------------------------
@@ -245,6 +252,7 @@ enum dpp_enumset
     iter_comp,
     vector_comp,
     graphics_comp,
+    stk_comp,
     //samp,
     @global_comp
 }
@@ -331,6 +339,11 @@ new dpp_validvector[dpp_maxvector__];
 new dpp_vectorname[dpp_maxvector__][dpp_maxsymbolchar];
 new dpp_vectorsize[dpp_maxvector__]; // Completely irrelevant.
 new dpp_vectorvalues[dpp_maxvector__][dpp_maxvectorsize];
+//stack
+new dpp_validstk[dpp_maxstk__];
+new dpp_stkname[dpp_maxstk__][dpp_maxsymbolchar];
+new dpp_stksize[dpp_maxstk__];
+new dpp_stkvalues[dpp_maxstk__][dpp_maxstksize][dpp_stkaddrsize];
 //-----------------------------------------------------------
 //classes and objects
 new dpp_currentobject = DPP_INVALID_OBJECT_ID;
@@ -494,7 +507,7 @@ new dpp_stkreg[DPP_STKSIZE][dpp_maxsymbolchar];
 new dpp_allowcollision;
 #define @emit__%0\32;%1\10;%3 dpp_asm__(%1);
 //-----------------------------------------------------------
-#define dpp_maxkwords 61
+#define dpp_maxkwords 62
 new dpp_kwords[dpp_maxkwords][256] = {
     "public",
     "default",
@@ -513,7 +526,7 @@ new dpp_kwords[dpp_maxkwords][256] = {
     "quiet",
     "str",
     "double",
-    "byte"
+    "byte",
     "char",
     "void",
     "using",
@@ -552,6 +565,7 @@ new dpp_kwords[dpp_maxkwords][256] = {
     "vector",
     "@export",
     "@import",
+    "stack",
     "true",
     "false",
     "this",
@@ -578,6 +592,7 @@ new dpp_usingfor__ = 0;
 #define dpp_comp_iter 8
 #define dpp_comp_vec 9
 #define dpp_comp_graphics 10
+#define dpp_comp_stk 11
 //samp
 #define dpp_comp_@global 100
 new dpp_compusedfor__ = 0;

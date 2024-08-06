@@ -126,6 +126,18 @@ stock dpp_argclasscheck(arg[])
         }
     }
 
+    format(newvalue,sizeof(newvalue),"DPPCstk@%s_%s",funcgroup[0],funcgroup[1]);
+    dpp_debug("Class backtrace 3:\n\tnewvalue : '%s'",newvalue);
+
+    for(new i; i < dpp_maxstk; i++)
+    {
+        if(!strcmp(dpp_stkname[i],newvalue) && dpp_validstk[i] == 1)
+        {
+            strmid(arg, newvalue, 0, dpp_argcharsize,dpp_argcharsize);//classelementvalid[dpp_classelement_var] = 1;
+            break;
+        }
+    }
+
     format(newvalue,sizeof(newvalue),"DPPCe@%s_%s",funcgroup[0],funcgroup[1]);
     dpp_debug("Class backtrace 3:\n\tnewvalue : '%s'",newvalue);
 

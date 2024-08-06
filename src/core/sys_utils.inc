@@ -70,5 +70,26 @@ stock dpp_fatalerror(errorid, const fmat[] = "")
         dpp_info("Process has been terminated to prevent further complication.");
         return 1;
     }
+    if(errorid == 8)
+    {
+        dpp_fatalerror__("Invalid object passed by reference.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
+    if(errorid == 9)
+    {
+        dpp_fatalerror__("Memory container overflow - system is facing insufficient container size.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
+    if(errorid == 10)
+    {
+        dpp_fatalerror__("Memory container underflow - system is facing insufficient container size.");
+        dpp_terminated = 1;
+        dpp_info("Process has been terminated to prevent further complication.");
+        return 1;
+    }
     return 0;
 }

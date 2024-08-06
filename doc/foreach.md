@@ -1,6 +1,6 @@
 # Foreach-loop and data structures
 
-- In computer programming, a foreach loop is a loop used to access a integer value at a specific index of an array-like data structure. 
+- In computer programming, a foreach loop is a loop used to access a value at a specific index of an array-like data structure, or data container. Data containers in PawnScript are hard-coded "nested objects" that can be manipulated using functions.
 
 ## Iterators
 - Iterators are arrays with a specific size assigned at declaration.
@@ -8,51 +8,32 @@
 ### Example
 
 ```cpp
-using iter // Use iter. functions.
+using iter
+iterator<8>myIter
 
-iterator<100>testiter // Declare a `testiter` with size of 100 which means it can hold up to 100 integers.
-new.int,foreachtestvar=0
+iter.myIter.add(657)
+iter.myIter.add(345)
+iter.myIter.add(2)
+iter.myIter.add(24)
+iter.myIter.add(1)
 
-// We use functions from the `iter` component to manipulate with them.
-iter.add(testiter,1)
-iter.add(testiter,10)
-iter.remove(testiter,1)
+new[int]forvecvar2=0
 
-foreach.int,foreachtestvar,testiter->console.println("foreach test {foreachtestvar}")
-
-iter.add(testiter,1)
-
-foreach.int,foreachtestvar,testiter->console.println("foreach test #2 {foreachtestvar}")
-
-#undef:testiter
-```
-
-Output:
-
-```
-foreach test 10
-foreach test #2 1
-foreach test #2 10
-```
-
-### Example `#2`
-
-- Iterators inside namespaces.
-
-```cpp
-namespace IterClass
+try
 {
-	iterator<10>iter
+	console.println("{forvecvar2}")
 }
-
-iter.add(IterClass::iter,364)
-foreach.int,foreachtestvar,IterClass::iter->console.println("foreach test #3 {foreachtestvar}")
+foreach forvecvar2>>myIter
 ```
 
 Output:
 
 ```
-foreach test #3 364
+657
+345
+2
+24
+1
 ```
 
 ## Vectors
@@ -61,77 +42,76 @@ foreach test #3 364
 ### Example
 
 ```cpp
-
-vector<324>vectorname // 	An initial size can be a completely random number,
-// 							because the size updates dynamically during the runtime.
-
-// `using vec` is already in stdlib.ps
 using vec
+// 	An initial size can be a completely random number,
+// 							because the size updates dynamically during the runtime.
+vector<10>myVector
 
-vec.add(vectorname,1)
-vec.add(vectorname,312)
-vec.add(vectorname,2)
-new.int,vectortest=0
+vec.myVector.add(1)
+vec.myVector.add(12)
+vec.myVector.add(133)
+vec.myVector.add(1345)
+vec.myVector.add(6543)
 
-console.rawout(sizeof?vectorname) // Size is changed from 324 to 3.
-foreach.int,vectortest,vectorname->std::writeln("vector test #1 {vectortest}")
+new[int]forvecvar=0
 
-vec.remove(vectorname,312)
-
-console.rawout(sizeof?vectorname) // Size is changed from 3 to 2.
-foreach.int,vectortest,vectorname->std::writeln("vector test #2 {vectortest}")
-
+try
+{
+	console.println("{forvecvar}")
+}
+foreach forvecvar>>myVector
 ```
 
 Output:
 
 ```
-3
-vector test #1 1
-vector test #1 312
-vector test #1 2
-2
-vector test #2 1
-vector test #2 2
+1
+12
+133
+1345
+6543
 ```
 
 
-### Example `#2`
+## LIFO stack
 
-- Vectors inside namespaces.
+- You can use a stack to manipulate various types of data, basically a stack in PawnScript is pointer container; an array made of pointers. Here is an example how we can push memory addresses to our stack and then reset all of them to some random value.
 
 ```cpp
-namespace vectors
+using stk
+stack<8>myStack
+
+new[ptr]myPtr=nullptr
+
+new[int]stacktest1=243
+new[int]stacktest2=072
+new[int]stacktest3=87236
+new[int]stacktest4=974
+
+stk.myStack.push(addressof?stacktest1)
+stk.myStack.push(addressof?stacktest2)
+stk.myStack.push(addressof?stacktest3)
+stk.myStack.push(addressof?stacktest4)
+
+try
 {
-	vector<324>myvec
-	new.int,vectortest2=0
+	myPtr=1
 }
+foreach myPtr>>myStack
 
-vec.add(vectors::myvec,24)
-vec.add(vectors::myvec,31)
-vec.add(vectors::myvec,29)
-
-console.rawout(sizeof?vectors::myvec)
- // Size is changed from 324 to 3.
-foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #3 {vectors::vectortest2}")
-
-vec.remove(vectors::myvec,24)
-
-console.rawout(sizeof?vectors::myvec)
- // Size is changed from 3 to 2.
-foreach.int,vectors::vectortest2,vectors::myvec->std::writeln("vector test #4 {vectors::vectortest2}")
+console.println.log("{stacktest1}")
+console.println.log("{stacktest2}")
+console.println.log("{stacktest3}")
+console.println.log("{stacktest4}")
 ```
 
 Output:
 
 ```
-3
-vector test #3 24
-vector test #3 31
-vector test #3 29
-2
-vector test #4 31
-vector test #4 29
+1
+1
+1
+1
 ```
 
 ## `sizeof` instruction
@@ -148,3 +128,7 @@ Output:
 ```
 100
 ```
+
+## Data containers in namespaces
+
+- You can declare any of these containers above inside a namespace.

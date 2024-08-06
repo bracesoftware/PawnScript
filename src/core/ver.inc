@@ -24,7 +24,7 @@ the Initial Developer. All Rights Reserved.
 #endif
 #define DPP_VERSION_MAJOR 		1
 #define DPP_VERSION_MINOR 		2
-#define DPP_VERSION_PATCH 		1
+#define DPP_VERSION_PATCH 		2
 //dpp_genver__()
 #define DPP_VERSION_RELEASE 	"u"
 //dpp_genver__()*2

@@ -18,30 +18,36 @@ the Initial Developer. All Rights Reserved.
 */
 
 
-forward dpp_processvector(funcgroup[][],args[][],args_const[][]);
-public dpp_processvector(funcgroup[][],args[][],args_const[][])
+forward dpp_processstk(funcgroup[][],args[][],args_const[][]);
+public dpp_processstk(funcgroup[][],args[][],args_const[][])
 {
-    if(!strcmp(funcgroup[0], "vec"))
+    if(!strcmp(funcgroup[0], "stk"))
     {
-        if(dpp_config[vector_comp] == 0)
+        if(dpp_config[stk_comp] == 0)
         {
-            dpp_error("Component \"vec\" is not imported.",);
+            dpp_error("Component \"stk\" is not imported.",);
+            dpp_internal<return>(0);
+        }
+        new stkid = dpp_findstk(funcgroup[1]);
+        if(stkid == -1)
+        {
+            dpp_fatalerror(8);
             dpp_internal<return>(0);
         }
         // If the function used it "print"
-        if(!strcmp(funcgroup[2], "add"))
+        if(!strcmp(funcgroup[2], "push"))
         {
-            dpp_addvalue__v(funcgroup[1],strval(args[0]));
+            dpp_pushvalue(stkid,args[0]);
             dpp_internal<return>(1);
         }
-        if(!strcmp(funcgroup[2], "remove"))
+        if(!strcmp(funcgroup[2], "pop"))
         {
-            dpp_removevalue__v(funcgroup[1],strval(args[0]));
+            dpp_popvalue(stkid,args[0]);
             dpp_internal<return>(1);
         }
         else
         {
-            dpp_error("Unknown form in the component \"vec\".",);
+            dpp_error("Unknown form in the component \"stk\".",);
             dpp_internal<return>(0);
         }
     }

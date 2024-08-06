@@ -29,14 +29,14 @@ public dpp_processiter(funcgroup[][],args[][],args_const[][])
             dpp_internal<return>(0);
         }
         // If the function used it "print"
-        if(!strcmp(funcgroup[1], "add"))
+        if(!strcmp(funcgroup[2], "add"))
         {
-            dpp_addvalue(args_const[0],strval(args[1]));
+            dpp_addvalue(funcgroup[1],strval(args[0]));
             dpp_internal<return>(1);
         }
-        if(!strcmp(funcgroup[1], "remove"))
+        if(!strcmp(funcgroup[2], "remove"))
         {
-            dpp_removevalue(args_const[0],strval(args[1]));
+            dpp_removevalue(funcgroup[1],strval(args[0]));
             dpp_internal<return>(1);
         }
         else

@@ -575,6 +575,10 @@ stock dpp_process(line[])
             {
                 dpp_config[graphics_comp] = 0;
             }
+            if(dpp_compusedfor__ == dpp_comp_stk)
+            {
+                dpp_config[stk_comp] = 0;
+            }
             if(dpp_compusedfor__ == dpp_comp_@global)
             {
                 dpp_config[@global_comp] = 0;
@@ -1439,6 +1443,7 @@ stock dpp_process(line[])
         dpp_deletecharvar(dirgroup[1]);
         dpp_deletefunc(dirgroup[1]);
         dpp_deletevector(dirgroup[1]);
+        dpp_deletestk(dirgroup[1]);
 
         @emit__     stk@pop        ,.str=dirgroup[1]
         return 1;
@@ -1486,6 +1491,161 @@ stock dpp_process(line[])
 
         dpp_event = dpp_event_class;
         return 1;
+    }
+
+    //foreach var>>container
+    if(!strcmp(tokengroup[0], "foreach"))
+    {
+        new dpp_eacharg__[2][64];
+        dpp_parseline_2(tokengroup[1],dpp_eacharg__,">>");
+        new dpp_varid = -1, dpp_iterid = -1, dpp_vectorid = -1, dpp_stkid = -1, dpp_ptrid = -1;
+        dpp_argclasscheck(dpp_eacharg__[0]);
+        dpp_argoclasscheck(dpp_eacharg__[0]);
+        for(new i; i < dpp_maxvar; i++)
+        {
+            if(!strcmp(dpp_eacharg__[0], dpp_vardata[i][var_name]))
+            {
+                if(dpp_vardata[i][var_valid] == 1)
+                {
+                    dpp_varid = i;
+                    break;
+                }
+            }
+        }
+        dpp_argclasscheck(dpp_eacharg__[0]);
+        dpp_argoclasscheck(dpp_eacharg__[0]);
+        for(new i; i < dpp_maxptr; i++)
+        {
+            if(!strcmp(dpp_eacharg__[0], dpp_ptrdata[i][ptr_name]))
+            {
+                if(dpp_ptrdata[i][ptr_valid] == 1)
+                {
+                    dpp_ptrid = i;
+                    break;
+                }
+            }
+        }
+        dpp_argclasscheck(dpp_eacharg__[1]);
+        dpp_argoclasscheck(dpp_eacharg__[1]);
+        for(new i; i < dpp_maxiter; i++)
+        {
+            if(!strcmp(dpp_eacharg__[1], dpp_itername[i]))
+            {
+                if(dpp_validiter[i] == 1)
+                {
+                    dpp_iterid = i;
+                    break;
+                }
+            }
+        }
+
+        dpp_argclasscheck(dpp_eacharg__[1]);
+        dpp_argoclasscheck(dpp_eacharg__[1]);
+        for(new i; i < dpp_maxvector; i++)
+        {
+            if(!strcmp(dpp_eacharg__[1], dpp_vectorname[i]))
+            {
+                if(dpp_validvector[i] == 1)
+                {
+                    dpp_vectorid = i;
+                    break;
+                }
+            }
+        }
+
+        dpp_argclasscheck(dpp_eacharg__[1]);
+        dpp_argoclasscheck(dpp_eacharg__[1]);
+        for(new i; i < dpp_maxstk; i++)
+        {
+            if(!strcmp(dpp_eacharg__[1], dpp_stkname[i]))
+            {
+                if(dpp_validstk[i] == 1)
+                {
+                    dpp_stkid = i;
+                    break;
+                }
+            }
+        }
+
+        if((dpp_iterid == -1 && dpp_vectorid == -1 && dpp_stkid == -1))
+        {
+            dpp_error("Unknown symbol passed; can't loop.",);
+            return 1;
+        }
+
+        //dpp_error("Found iterator '%s'; found variable '%s'",dpp_itername[dpp_iterid],dpp_vardata[dpp_varid][var_name]);
+        if(dpp_iterid != -1) // If we're looping through an iterator.
+        {
+            if(dpp_varid == -1)
+            {
+                dpp_error("Unknown symbol passed; can't loop.",);
+                return 1;
+            }
+            for(new i; i < dpp_itersize[dpp_iterid]; i++)
+            {
+                if(dpp_itervalues[dpp_iterid][i] != dpp_invaliditerval)
+                {
+                    if(dpp_break == 1)
+                    {
+                        dpp_break = 0;
+                        return 1;
+                    }
+
+                    dpp_vardata[dpp_varid][integervalue] = dpp_itervalues[dpp_iterid][i];
+
+                    dpp_subexecute__3(dpp_trycodeblock);
+                }
+            }
+            return 1;
+        }
+        if(dpp_vectorid != -1) // If we're looping through a vector.
+        {
+            if(dpp_varid == -1)
+            {
+                dpp_error("Unknown symbol passed; can't loop.",);
+                return 1;
+            }
+            for(new i; i < dpp_maxvectorsize; i++)
+            {
+                if(dpp_vectorvalues[dpp_vectorid][i] != dpp_invalidvectorval)
+                {
+                    if(dpp_break == 1)
+                    {
+                        dpp_break = 0;
+                        return 1;
+                    }
+
+                    dpp_vardata[dpp_varid][integervalue] = dpp_vectorvalues[dpp_vectorid][i];
+
+                    dpp_subexecute__3(dpp_trycodeblock);
+                }
+            }
+            return 1;
+        }
+        if(dpp_stkid != -1) // If we're looping through a vector.
+        {
+            if(dpp_ptrid == -1)
+            {
+                dpp_error("Unknown symbol passed; can't loop.",);
+                return 1;
+            }
+            for(new i; i < dpp_stksize[dpp_stkid]; i++)
+            {
+                if(strcmp(dpp_stkvalues[dpp_stkid][i], dpp_invalidstkval))
+                {
+                    if(dpp_break == 1)
+                    {
+                        dpp_break = 0;
+                        return 1;
+                    }
+
+                    dpp_updatepointer(dpp_ptrdata[dpp_ptrid][ptr_name], dpp_stkvalues[dpp_stkid][i]);
+
+                    dpp_subexecute__3(dpp_trycodeblock);
+                }
+            }
+            return 1;
+        }
     }
 
     if(!strcmp(tokengroup[0], "object"))
@@ -1984,111 +2144,6 @@ stock dpp_process(line[])
                 return 1;
             }
             dpp_error("Unknown for-loop subject.",);
-        }
-        //foreach
-        if(!strcmp(funcgroup[0], "foreach"))
-        {
-            if(!strcmp(funcgroup[1], "int"))
-            {
-                new dpp_varid = -1, dpp_iterid = -1, dpp_vectorid = -1;
-                dpp_argclasscheck(args_const[1]);
-                dpp_argoclasscheck(args_const[1]);
-                for(new i; i < dpp_maxvar; i++)
-                {
-                    if(!strcmp(args_const[1], dpp_vardata[i][var_name]))
-                    {
-                        if(dpp_vardata[i][var_valid] == 1)
-                        {
-                            dpp_varid = i;
-                            break;
-                        }
-                    }
-                }
-                dpp_argclasscheck(args_const[2]);
-                dpp_argoclasscheck(args_const[2]);
-                for(new i; i < dpp_maxiter; i++)
-                {
-                    if(!strcmp(args_const[2], dpp_itername[i]))
-                    {
-                        if(dpp_validiter[i] == 1)
-                        {
-                            dpp_iterid = i;
-                            break;
-                        }
-                    }
-                }
-
-                dpp_argclasscheck(args_const[2]);
-                dpp_argoclasscheck(args_const[2]);
-                for(new i; i < dpp_maxvector; i++)
-                {
-                    if(!strcmp(args_const[2], dpp_vectorname[i]))
-                    {
-                        if(dpp_validvector[i] == 1)
-                        {
-                            dpp_vectorid = i;
-                            break;
-                        }
-                    }
-                }
-
-                if((dpp_iterid == -1 && dpp_vectorid == -1) || dpp_varid == -1)
-                {
-                    dpp_error("Unknown symbol passed; can't loop.",);
-                    return 1;
-                }
-
-                //dpp_error("Found iterator '%s'; found variable '%s'",dpp_itername[dpp_iterid],dpp_vardata[dpp_varid][var_name]);
-                if(dpp_iterid != -1) // If we're looping through an iterator.
-                {
-                    for(new i; i < dpp_itersize[dpp_iterid]; i++)
-                    {
-                        if(dpp_itervalues[dpp_iterid][i] != dpp_invaliditerval)
-                        {
-                            if(dpp_break == 1)
-                            {
-                                dpp_break = 0;
-                                return 1;
-                            }
-
-                            dpp_vardata[dpp_varid][integervalue] = dpp_itervalues[dpp_iterid][i];
-
-                            dpp_subexecute2(extracode);
-
-                            if(isnull(extracode))
-                            {
-                                dpp_subexecute__3(dpp_trycodeblock);
-                            }
-                        }
-                    }
-                    return 1;
-                }
-                if(dpp_vectorid != -1) // If we're looping through a vector.
-                {
-                    for(new i; i < dpp_maxvectorsize; i++)
-                    {
-                        if(dpp_vectorvalues[dpp_vectorid][i] != dpp_invalidvectorval)
-                        {
-                            if(dpp_break == 1)
-                            {
-                                dpp_break = 0;
-                                return 1;
-                            }
-
-                            dpp_vardata[dpp_varid][integervalue] = dpp_vectorvalues[dpp_vectorid][i];
-
-                            dpp_subexecute2(extracode);
-
-                            if(isnull(extracode))
-                            {
-                                dpp_subexecute__3(dpp_trycodeblock);
-                            }
-                        }
-                    }
-                    return 1;
-                }
-            }
-            dpp_error("Unknown foreach-loop subject.",);
         }
         //do
         if(!strcmp(funcgroup[0], "this"))
@@ -2598,6 +2653,28 @@ stock dpp_process(line[])
         dpp_formatarg(templategroup2[0]);
 
         dpp_createvector(templategroup2[1],strval(templategroup2[0]));
+        return 1;
+    }
+    if(!strcmp(templategroup[0], "stack"))
+    {
+        dpp_removeslashes(templategroup2[0]);
+        dpp_argclasscheck(templategroup2[0]);
+        dpp_argoclasscheck(templategroup2[0]);
+        dpp_argarraycheck(templategroup2[0]);
+        dpp_argfunccheck(templategroup2[0]);
+        dpp_argvarcheck(templategroup2[0]);
+        dpp_argmathcheck(templategroup2[0]);
+        dpp_argformargcheck(templategroup2[0]);
+        dpp_argsystemval(templategroup2[0]);
+        CallLocalFunction("dpp_arginstruct", "s", templategroup2[0]);
+        CallLocalFunction("dpp_argenumcheck", "s", templategroup2[0]);
+        CallLocalFunction("dpp_argtagcheck", "s", templategroup2[0]);
+        CallLocalFunction("dpp_logics", "s", templategroup2[0]);
+        CallLocalFunction("dpp_argptrcheck", "s", templategroup2[0]);
+
+        dpp_formatarg(templategroup2[0]);
+
+        dpp_createstk(templategroup2[1],strval(templategroup2[0]));
         return 1;
     }
 
@@ -3459,6 +3536,15 @@ stock dpp_process(line[])
                 dpp_compusedfor__ = dpp_comp_graphics;
             }
             dpp_config[graphics_comp] = 1;
+            return 1;
+        }
+        if(!strcmp(tokengroup[1], "stk"))
+        {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_stk;
+            }
+            dpp_config[stk_comp] = 1;
             return 1;
         }
         //samp@api_module
@@ -4361,6 +4447,10 @@ stock dpp_process(line[])
     if(dpp_funcfound == 0)
     {
         dpp_funcfound = CallLocalFunction("dpp_processgraphics", "sss", funcgroup_form,args_form,args_fconst);
+    }
+    if(dpp_funcfound == 0)
+    {
+        dpp_funcfound = CallLocalFunction("dpp_processstk", "sss", funcgroup_form,args_form,args_fconst);
     }
     ///////////////////////////////////////////////////////
     ////

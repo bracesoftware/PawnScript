@@ -61,7 +61,7 @@ stock dpp_updatepointer(const name[], const addr[])
 			dpp_parseline(addr,ptr_addr,'@');
 			if(!dpp_isnumeric(ptr_addr[0]) || !dpp_isnumeric(ptr_addr[1]))
 			{
-				dpp_error("Invalid memory address passed to pointer '%s'.",name);
+				dpp_error("Invalid memory address passed to pointer '%s' (%s).",name,addr);
 				return 1;
 			}
 
