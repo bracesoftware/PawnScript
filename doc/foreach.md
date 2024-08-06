@@ -132,3 +132,20 @@ Output:
 ## Data containers in namespaces
 
 - You can declare any of these containers above inside a namespace.
+
+## Non-iterable data containers
+
+### Bit arrays
+- Declare bit arrays with a maximum size of 32 bits.
+```cpp
+using bitarr
+using namespace test
+{
+	bitarray<8>myBitArray
+}
+
+bitarr.test::myBitArray.set_at(6,1)
+new[int]getBitValue=0
+bitarr.test::myBitArray.get_at(6) getBitValue
+console.println.log("Bit 6 is {getBitValue}")
+```

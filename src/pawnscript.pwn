@@ -62,6 +62,7 @@ native fcreatedir(const filename[]);
 #include "modules/logics.inc"
 #include "modules/pointers.inc"
 #include "modules/stack.inc"
+#include "modules/bitarray.inc"
 
 #include "modules/interpreter.inc"
 //-----------------------------------------------------------
@@ -87,6 +88,7 @@ native fcreatedir(const filename[]);
 #include "components/vector.inc"
 #include "components/graphics.inc"
 #include "components/stk.inc"
+#include "components/bitarr.inc"
 //-----------------------------------------------------------
 dpp_resspeedhz(); public dpp_resspeedhz()
 {

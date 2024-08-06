@@ -52,7 +52,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxformargs 15
 //-----------------------------------------------------------
 // Constant values (used for initial memory allocation)
-#define dpp_entities__ 16
+#define dpp_entities__ 17
 #define dpp_rescells__ 255
 
 #define dpp_maxconst__ dpp_rescells__
@@ -71,6 +71,7 @@ new dpp_ignoreline=0,File:dpp_indexhandle;
 #define dpp_maxvector__ dpp_rescells__
 #define dpp_maxptr__ dpp_rescells__
 #define dpp_maxstk__ dpp_rescells__
+#define dpp_maxbitarr__ dpp_rescells__
 // Variables with max values of constants above.
 // Used in #pragma to select amount of memory used for each entity.
 new dpp_maxconst        = dpp_maxconst__;
@@ -89,6 +90,7 @@ new dpp_maxtemplate     = dpp_maxtemplate__;
 new dpp_maxvector       = dpp_maxvector__;
 new dpp_maxptr          = dpp_maxptr__;
 new dpp_maxstk          = dpp_maxstk__;
+new dpp_maxbitarr       = dpp_maxbitarr__;
 dpp_memory__dyn(dyn)
 {
 if(dyn>dpp_rescells__)
@@ -111,6 +113,7 @@ dpp_maxtemplate         = dyn;
 dpp_maxvector           = dyn;
 dpp_maxptr              = dyn;
 dpp_maxstk              = dyn;
+dpp_maxbitarr           = dyn;
 #emit const.pri 1
 #emit retn
 }
@@ -253,6 +256,7 @@ enum dpp_enumset
     vector_comp,
     graphics_comp,
     stk_comp,
+    bitarr_comp,
     //samp,
     @global_comp
 }
@@ -593,6 +597,7 @@ new dpp_usingfor__ = 0;
 #define dpp_comp_vec 9
 #define dpp_comp_graphics 10
 #define dpp_comp_stk 11
+#define dpp_comp_bitarr 12
 //samp
 #define dpp_comp_@global 100
 new dpp_compusedfor__ = 0;
@@ -608,3 +613,12 @@ new dpp_moduledir[dpp_maxpathsize];
 #define dpp_defaultstruct 1
 #define dpp_callbackstruct 2
 new dpp_structtype__;
+//-----------------------------------------------------------
+enum __e_dpp_bitarr
+{
+    bitarr_valid,
+    bitarr_name[dpp_maxsymbolchar],
+    bitarr_size,
+    bitarr_value
+}
+new dpp_bitarrdata[dpp_maxbitarr__][__e_dpp_bitarr];

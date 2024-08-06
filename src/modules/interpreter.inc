@@ -579,6 +579,10 @@ stock dpp_process(line[])
             {
                 dpp_config[stk_comp] = 0;
             }
+            if(dpp_compusedfor__ == dpp_comp_bitarr)
+            {
+                dpp_config[bitarr_comp] = 0;
+            }
             if(dpp_compusedfor__ == dpp_comp_@global)
             {
                 dpp_config[@global_comp] = 0;
@@ -2677,6 +2681,28 @@ stock dpp_process(line[])
         dpp_createstk(templategroup2[1],strval(templategroup2[0]));
         return 1;
     }
+    if(!strcmp(templategroup[0], "bitarray"))
+    {
+        dpp_removeslashes(templategroup2[0]);
+        dpp_argclasscheck(templategroup2[0]);
+        dpp_argoclasscheck(templategroup2[0]);
+        dpp_argarraycheck(templategroup2[0]);
+        dpp_argfunccheck(templategroup2[0]);
+        dpp_argvarcheck(templategroup2[0]);
+        dpp_argmathcheck(templategroup2[0]);
+        dpp_argformargcheck(templategroup2[0]);
+        dpp_argsystemval(templategroup2[0]);
+        CallLocalFunction("dpp_arginstruct", "s", templategroup2[0]);
+        CallLocalFunction("dpp_argenumcheck", "s", templategroup2[0]);
+        CallLocalFunction("dpp_argtagcheck", "s", templategroup2[0]);
+        CallLocalFunction("dpp_logics", "s", templategroup2[0]);
+        CallLocalFunction("dpp_argptrcheck", "s", templategroup2[0]);
+
+        dpp_formatarg(templategroup2[0]);
+
+        dpp_createbitarr(templategroup2[1],strval(templategroup2[0]));
+        return 1;
+    }
 
     /*if(!strcmp(funcgroup[0], "iter::add"))
     {
@@ -3545,6 +3571,15 @@ stock dpp_process(line[])
                 dpp_compusedfor__ = dpp_comp_stk;
             }
             dpp_config[stk_comp] = 1;
+            return 1;
+        }
+        if(!strcmp(tokengroup[1], "bitarr"))
+        {
+            if(dpp_usingfor__ == 1)
+            {
+                dpp_compusedfor__ = dpp_comp_bitarr;
+            }
+            dpp_config[bitarr_comp] = 1;
             return 1;
         }
         //samp@api_module
@@ -4451,6 +4486,10 @@ stock dpp_process(line[])
     if(dpp_funcfound == 0)
     {
         dpp_funcfound = CallLocalFunction("dpp_processstk", "sss", funcgroup_form,args_form,args_fconst);
+    }
+    if(dpp_funcfound == 0)
+    {
+        dpp_funcfound = CallLocalFunction("dpp_processbitarr", "sss", funcgroup_form,args_form,args_fconst);
     }
     ///////////////////////////////////////////////////////
     ////
