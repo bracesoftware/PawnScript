@@ -120,7 +120,7 @@ Output:
 
 
 ```cpp
-console.cout(sizeof?testiter)
+new[int]size=sizeof?testiter
 ```
 
 Output:
@@ -134,6 +134,8 @@ Output:
 - You can declare any of these containers above inside a namespace.
 
 ## Non-iterable data containers
+
+- You basically can't use `foreach` with these.
 
 ### Bit arrays
 - Declare bit arrays with a maximum size of 32 bits.
