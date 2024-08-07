@@ -2742,7 +2742,7 @@ stock dpp_process(line[])
 
     //new.int,var=1;
     //new[int]var=1
-    if(!strcmp(var_group[0], "new"))
+    if(!strcmp(var_group[0], "new") || !strcmp(var_group[0], "register"))
     {
         //pointer
         //new[ptr]mypointer=addressof?something
@@ -2750,6 +2750,11 @@ stock dpp_process(line[])
         {
             dpp_createptr(var_group_3[0],var_group_3[1]);
             return 1;
+        }
+        dpp_setregister__ = 0;
+        if(!strcmp(var_group[0], "register"))
+        {
+            dpp_setregister__ = 1;
         }
         //vars
         if(!strcmp(var_group_2[0], "int"))
@@ -3080,6 +3085,10 @@ stock dpp_process(line[])
                 dpp_updatepointer(varsetgroup[0],varsetgroup[1]);
                 return 1;
             }
+        }
+        if(!strcmp(varsetgroup[0],"nullptr"))
+        {
+            return 1;
         }
         //actual variable mod
         new varid=-1;

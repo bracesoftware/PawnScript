@@ -482,3 +482,11 @@ try
 	console.println.log("bitarray<{idx}> = {getBitValue}")
 }
 for.int,idx,100->
+
+register[int]myRegister=364
+
+new[ptr]pointToReg=addressof?myRegister
+
+pointToReg=73
+
+console.println.log("myRegister remains {myRegister}")

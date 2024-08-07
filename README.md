@@ -72,6 +72,7 @@
 - [Private functions](doc/private.md)
 - [Pointers](doc/pointers.md)
 - [Quiet function call](doc/quiet.md)
+- [Register variables](doc/register.md)
 
 ### Other info
 

@@ -123,6 +123,8 @@ stock dpp_createintvar(name[], value, obj = -1, staticvar = 0, baseform = -1, un
             dpp_vardata[i][var_valid] = 1;
             dpp_vardata[i][var_object] = obj;
 
+            dpp_vardata[i][var_register] = dpp_setregister__;
+
             dpp_vardata[i][var_static] = staticvar;
             dpp_vardata[i][var_baseformid] = baseform;
             if(staticvar == 1)
@@ -175,6 +177,8 @@ stock dpp_createboolvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
             dpp_vardata[i][var_valid] = 1;
             dpp_vardata[i][var_object] = obj;
 
+            dpp_vardata[i][var_register] = dpp_setregister__;
+
             dpp_vardata[i][var_static] = staticvar;
             dpp_vardata[i][var_baseformid] = baseform;
             if(staticvar == 1)
@@ -222,6 +226,8 @@ stock dpp_createstrvar(name[], const value[], obj = -1, staticvar = 0, baseform 
             dpp_vardata[i][var_type] = dpp_var_type_str;
             dpp_vardata[i][var_valid] = 1;
             dpp_vardata[i][var_object] = obj;
+
+            dpp_vardata[i][var_register] = dpp_setregister__;
 
             dpp_vardata[i][var_static] = staticvar;
             dpp_vardata[i][var_baseformid] = baseform;
@@ -271,6 +277,8 @@ stock dpp_createdoublevar(name[], Float:value, obj = -1, staticvar = 0, baseform
             dpp_vardata[i][var_valid] = 1;
             dpp_vardata[i][var_object] = obj;
 
+            dpp_vardata[i][var_register] = dpp_setregister__;
+
             dpp_vardata[i][var_static] = staticvar;
             dpp_vardata[i][var_baseformid] = baseform;
             if(staticvar == 1)
@@ -317,6 +325,8 @@ stock dpp_createcharvar(name[], value, obj = -1, staticvar = 0, baseform = -1)
             dpp_vardata[i][var_type] = dpp_var_type_char;
             dpp_vardata[i][var_valid] = 1;
             dpp_vardata[i][var_object] = obj;
+
+            dpp_vardata[i][var_register] = dpp_setregister__;
 
             dpp_vardata[i][var_static] = staticvar;
             dpp_vardata[i][var_baseformid] = baseform;

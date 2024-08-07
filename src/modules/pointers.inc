@@ -44,6 +44,14 @@ stock dpp_createptr(name[], const addr[])
             dpp_ptrdata[i][ptr_cell] = strval(ptr_addr[0]);
             dpp_ptrdata[i][ptr_memsec] = strval(ptr_addr[1]);
             //dpp_error("POINTER DEBUG :: Created ptr '%s'",name);
+            if(dpp_ptrdata[i][ptr_memsec] == dpp_memsec_var)
+            {
+                if(dpp_vardata[dpp_ptrdata[i][ptr_cell]][var_register] == 1)
+                {
+                    dpp_ptrdata[i][ptr_cell] = 0;
+                    dpp_ptrdata[i][ptr_memsec] = 0;
+                }
+            }
             return 1;
         }
     }
@@ -67,6 +75,15 @@ stock dpp_updatepointer(const name[], const addr[])
 
             dpp_ptrdata[i][ptr_cell] = strval(ptr_addr[0]);
             dpp_ptrdata[i][ptr_memsec] = strval(ptr_addr[1]);
+
+            if(dpp_ptrdata[i][ptr_memsec] == dpp_memsec_var)
+            {
+                if(dpp_vardata[dpp_ptrdata[i][ptr_cell]][var_register] == 1)
+                {
+                    dpp_ptrdata[i][ptr_cell] = 0;
+                    dpp_ptrdata[i][ptr_memsec] = 0;
+                }
+            }
             return 1;
         }
     }
@@ -91,6 +108,11 @@ public dpp_argptrtosym(arg[])
     if(ptrid == -1)
     {
         return 1;
+    }
+
+    if(dpp_ptrdata[ptrid][ptr_memsec] == 0)
+    {
+        strmid(arg,"nullptr",0,dpp_maxsymbolchar,dpp_maxsymbolchar);
     }
 
     if(dpp_ptrdata[ptrid][ptr_memsec] == dpp_memsec_var)

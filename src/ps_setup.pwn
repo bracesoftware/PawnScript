@@ -283,6 +283,7 @@ enum __dpp_const_val
 new dpp_constdata[dpp_maxconst__][__dpp_const_val];
 //-----------------------------------------------------------
 //vars
+new dpp_setregister__ = 0;
 enum __dpp_var_val
 {
     var_valid,
@@ -292,6 +293,7 @@ enum __dpp_var_val
     var_unsigned,
     var_short,
     var_byte,
+    var_register,
     integervalue,
     /*bool:*/boolvalue,
     Float:floatvalue,
