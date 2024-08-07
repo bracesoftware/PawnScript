@@ -464,11 +464,21 @@ foreach forvecvar2>>myIter
 using bitarr
 using namespace test
 {
-	bitarray<8>myBitArray
+	bitarray<100>myBitArray
 }
 
-bitarr.test::myBitArray.set_at(6,1)
-new[int]getBitValue=0
-bitarr.test::myBitArray.get_at(6) getBitValue
-console.println.log("Bit 6 is {getBitValue}")
+bitarr.test::myBitArray.set_at(7,1)
+bitarr.test::myBitArray.set_at(1,1)
+bitarr.test::myBitArray.set_at(3,1)
+bitarr.test::myBitArray.set_at(4,1)
+bitarr.test::myBitArray.set_at(99,1)
+bitarr.test::myBitArray.set_at(67,1)
 
+new[int]getBitValue=0
+new[int]idx=0
+try
+{
+	bitarr.test::myBitArray.get_at(idx) getBitValue
+	console.println.log("bitarray<{idx}> = {getBitValue}")
+}
+for.int,idx,100->

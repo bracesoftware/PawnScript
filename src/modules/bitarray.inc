@@ -32,14 +32,17 @@ stock dpp_createbitarr(const name[], size)
                 strmid(dpp_bitarrdata[i][bitarr_name], newvalue, 0, dpp_argcharsize,dpp_argcharsize);
             }
             dpp_symbolcheck__(name);
-            if(!(0 < size <= 32))
+            if(!(0 < size < dpp_maxbitarrsize__*32))
             {
             	dpp_error("Invalid bit array size.",);
             	dpp_bitarrdata[i][bitarr_valid] = 0;
             	return 0;
             }
             dpp_bitarrdata[i][bitarr_size] = size;
-            dpp_bitarrdata[i][bitarr_value] = 0;
+            for(new j; j < dpp_maxbitarrsize__; j++)
+            {
+                dpp_bitarrdata[i][bitarr_value][j] = 0;
+            }
             return 1;
         }
     }
@@ -70,7 +73,8 @@ stock dpp_getbitvalue(bitarrid, index)
 	{
 		return 0;
 	}
-	return dpp_bitarrdata[bitarrid][bitarr_value] & (1 << index) ? 1 : 0;
+    new arridx = index / cellbits, bitidx = index % cellbits;
+	return (dpp_bitarrdata[bitarrid][bitarr_value][arridx]) & (1 << bitidx) ? 1 : 0;
 }
 
 stock dpp_setbitvalue(bitarrid, index, value)
@@ -79,15 +83,13 @@ stock dpp_setbitvalue(bitarrid, index, value)
 	{
 		return 1;
 	}
-	if(!(0 <= index < 32))
+	if(!(0 <= index < dpp_bitarrdata[bitarrid][bitarr_size]))
 	{
 		return 1;
 	}
-	if(index >= dpp_bitarrdata[bitarrid][bitarr_size])
-	{
-		return 0;
-	}
-
-	dpp_bitarrdata[bitarrid][bitarr_value] = value ? (dpp_bitarrdata[bitarrid][bitarr_value] | (1 << index)) : (dpp_bitarrdata[bitarrid][bitarr_value] & ~(1 << index));
+    new arridx = index / cellbits, bitidx = index % cellbits;
+	dpp_bitarrdata[bitarrid][bitarr_value][arridx] = value ?
+    (dpp_bitarrdata[bitarrid][bitarr_value][arridx] | (1 << bitidx)) :
+    (dpp_bitarrdata[bitarrid][bitarr_value][arridx] & ~(1 << bitidx));
 	return 1;
 }

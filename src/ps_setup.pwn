@@ -614,11 +614,12 @@ new dpp_moduledir[dpp_maxpathsize];
 #define dpp_callbackstruct 2
 new dpp_structtype__;
 //-----------------------------------------------------------
+#define dpp_maxbitarrsize__ 100
 enum __e_dpp_bitarr
 {
     bitarr_valid,
     bitarr_name[dpp_maxsymbolchar],
     bitarr_size,
-    bitarr_value
+    bitarr_value[dpp_maxbitarrsize__]
 }
 new dpp_bitarrdata[dpp_maxbitarr__][__e_dpp_bitarr];

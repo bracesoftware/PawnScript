@@ -2105,7 +2105,7 @@ stock dpp_process(line[])
                     dpp_error("Unknown variable; can't loop.",);
                     return 1;
                 }
-                do
+                for(dpp_vardata[dpp_varid][integervalue]=0;dpp_vardata[dpp_varid][integervalue] < strval(args[2]); dpp_vardata[dpp_varid][integervalue]++)
                 {
                     if(dpp_break == 1)
                     {
@@ -2136,7 +2136,6 @@ stock dpp_process(line[])
                     }
 
                     //dpp_error("Found a variable: '%s', supposed var: '%s'",dpp_vardata[dpp_varid][var_name],args_const[1]);
-                    dpp_vardata[dpp_varid][integervalue]++;
                     dpp_subexecute2(extracode);
 
                     if(isnull(extracode))
@@ -2144,7 +2143,7 @@ stock dpp_process(line[])
                         dpp_subexecute__3(dpp_trycodeblock);
                     }
                 }
-                while(dpp_vardata[dpp_varid][integervalue] < strval(args[2]));
+                //while(dpp_vardata[dpp_varid][integervalue] < strval(args[2]));
                 return 1;
             }
             dpp_error("Unknown for-loop subject.",);

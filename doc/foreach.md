@@ -138,7 +138,7 @@ Output:
 - You basically can't use `foreach` with these.
 
 ### Bit arrays
-- Declare bit arrays with a maximum size of 32 bits.
+- Declare bit arrays with a maximum size of 3200 bits (this is literally a meaningless limit and can be easily increased in the interpreter's source code).
 ```cpp
 using bitarr
 using namespace test
@@ -150,4 +150,30 @@ bitarr.test::myBitArray.set_at(6,1)
 new[int]getBitValue=0
 bitarr.test::myBitArray.get_at(6) getBitValue
 console.println.log("Bit 6 is {getBitValue}")
+```
+
+- **NOTE**: When said that bit arrays are non-iterable containers, it is meant that you cannot use foreach to loop through them, but `for` is still there:
+
+```cpp
+using bitarr
+using namespace test
+{
+	bitarray<100>myBitArray
+}
+
+bitarr.test::myBitArray.set_at(7,1)
+bitarr.test::myBitArray.set_at(1,1)
+bitarr.test::myBitArray.set_at(3,1)
+bitarr.test::myBitArray.set_at(4,1)
+bitarr.test::myBitArray.set_at(99,1)
+bitarr.test::myBitArray.set_at(67,1)
+
+new[int]getBitValue=0
+new[int]idx=0
+try
+{
+	bitarr.test::myBitArray.get_at(idx) getBitValue
+	console.println.log("bitarray<{idx}> = {getBitValue}")
+}
+for.int,idx,100->
 ```
