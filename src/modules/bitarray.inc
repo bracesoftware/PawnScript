@@ -34,9 +34,9 @@ stock dpp_createbitarr(const name[], size)
             dpp_symbolcheck__(name);
             if(!(0 < size < dpp_maxbitarrsize__*32))
             {
-            	dpp_error("Invalid bit array size.",);
-            	dpp_bitarrdata[i][bitarr_valid] = 0;
-            	return 0;
+                dpp_error("Invalid bit array size.",);
+                dpp_bitarrdata[i][bitarr_valid] = 0;
+                return 0;
             }
             dpp_bitarrdata[i][bitarr_size] = size;
             for(new j; j < dpp_maxbitarrsize__; j++)
@@ -51,8 +51,8 @@ stock dpp_createbitarr(const name[], size)
 
 stock dpp_findbitarr(name[])
 {
-	dpp_argclasscheck(name);
-	new bitarrid = -1;
+    dpp_argclasscheck(name);
+    new bitarrid = -1;
     for(new i; i < dpp_maxbitarr; i++)
     {
         if(dpp_strcmp(name, dpp_bitarrdata[i][bitarr_name]))
@@ -69,27 +69,27 @@ stock dpp_findbitarr(name[])
 
 stock dpp_getbitvalue(bitarrid, index)
 {
-	if(index >= dpp_bitarrdata[bitarrid][bitarr_size])
-	{
-		return 0;
-	}
+    if(index >= dpp_bitarrdata[bitarrid][bitarr_size])
+    {
+        return 0;
+    }
     new arridx = index / cellbits, bitidx = index % cellbits;
-	return (dpp_bitarrdata[bitarrid][bitarr_value][arridx]) & (1 << bitidx) ? 1 : 0;
+    return (dpp_bitarrdata[bitarrid][bitarr_value][arridx]) & (1 << bitidx) ? 1 : 0;
 }
 
 stock dpp_setbitvalue(bitarrid, index, value)
 {
-	if(value != 0 && value != 1)
-	{
-		return 1;
-	}
-	if(!(0 <= index < dpp_bitarrdata[bitarrid][bitarr_size]))
-	{
-		return 1;
-	}
+    if(value != 0 && value != 1)
+    {
+        return 1;
+    }
+    if(!(0 <= index < dpp_bitarrdata[bitarrid][bitarr_size]))
+    {
+        return 1;
+    }
     new arridx = index / cellbits, bitidx = index % cellbits;
-	dpp_bitarrdata[bitarrid][bitarr_value][arridx] = value ?
+    dpp_bitarrdata[bitarrid][bitarr_value][arridx] = value ?
     (dpp_bitarrdata[bitarrid][bitarr_value][arridx] | (1 << bitidx)) :
     (dpp_bitarrdata[bitarrid][bitarr_value][arridx] & ~(1 << bitidx));
-	return 1;
+    return 1;
 }

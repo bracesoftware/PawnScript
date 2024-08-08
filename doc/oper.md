@@ -145,9 +145,9 @@ class MyFuncs
 	private myFunc=>myBluePrint
 }
 
-object MyObj=MyFuncs
+MyFuncs<explicit>MyObj
 // This will do foo and return 4:
-MyFuncs.myFunc()
+MyObj.myFunc()
 ```
 
 ### Operator: `|`

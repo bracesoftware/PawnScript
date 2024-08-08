@@ -513,7 +513,7 @@ new dpp_stkreg[DPP_STKSIZE][dpp_maxsymbolchar];
 new dpp_allowcollision;
 #define @emit__%0\32;%1\10;%3 dpp_asm__(%1);
 //-----------------------------------------------------------
-#define dpp_maxkwords 62
+#define dpp_maxkwords 63
 new dpp_kwords[dpp_maxkwords][256] = {
     "public",
     "default",
@@ -547,7 +547,8 @@ new dpp_kwords[dpp_maxkwords][256] = {
     "while",
     "do",
     "try",
-    "object",
+    "explicit",
+    "union",
     "tag",
     "break",
     "continue",
@@ -625,3 +626,8 @@ enum __e_dpp_bitarr
     bitarr_value[dpp_maxbitarrsize__]
 }
 new dpp_bitarrdata[dpp_maxbitarr__][__e_dpp_bitarr];
+//-----------------------------------------------------------
+#define dpp_unmsize 32
+new dpp_currentunion[dpp_unmsize];
+new dpp_currentunionreq[dpp_unmsize];
+new dpp_explicit__ = 0;

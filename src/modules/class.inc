@@ -93,11 +93,43 @@ stock dpp_createoclass(name[])
     return 1;
 }
 
-
-stock dpp_createobject(const name[], classname[])
+stock bool:dpp_isvalidclass(name[])
 {
-    dpp_argclasscheck(classname);
+    dpp_argclasscheck(name);
+    for(new i; i < dpp_maxoclass; i++)
+    {
+        if(dpp_validoclass[i] == 1)
+        {
+            if(!strcmp(dpp_oclassname[i], name))
+            {
+                //dpp_error("CLASS BACKTRACE :: Class '%s' found.",name);
+                return true;
+            }
+        }
+    }
+    //dpp_error("CLASS BACKTRACE :: Class '%s' not found.",name);
+    return false;
+}
+
+stock dpp_setunion(const name[])
+{
+    if(!strcmp(name,"explicit"))
+    {
+        return 1;
+    }
+    if(!strcmp(name,"false"))
+    {
+        return 1;
+    }
+    strmid(dpp_currentunion, name, 0,dpp_unmsize,dpp_unmsize);
+    return 1;
+}
+
+stock dpp_createobject(const name[], const classname[], const union[])
+{
+    //dpp_argclasscheck(classname);
     dpp_symbolcheck__(name);
+    //dpp_error("Created a class '%s' -> '%s'",name,classname);
     new classid = -1;
     for(new i; i < dpp_maxoclass; i++)
     {
@@ -124,6 +156,14 @@ stock dpp_createobject(const name[], classname[])
             break;
         }
     }
+
+    dpp_explicit__ = 0;
+    if(!strcmp(union,"explicit"))
+    {
+        dpp_explicit__ = 1;
+    }
+    strmid(dpp_currentunion,"false",0,dpp_unmsize,dpp_unmsize);
+    strmid(dpp_currentunionreq, union, 0,dpp_unmsize,dpp_unmsize);
 
     dpp_subexecute2(dpp_oclassblock[classid]);
     dpp_currentobject = DPP_INVALID_OBJECT_ID;

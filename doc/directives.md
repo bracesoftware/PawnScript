@@ -21,7 +21,7 @@
 Example:
 
 ```cpp
-new.int,undeftest=1
+new[int]undeftest=1
 
 if.equ,defined?undeftest,1->console.println.log("undeftest is defined")
 
@@ -70,31 +70,31 @@ var=73
 - Changes a return value.
 
 ```cpp
-new.int,ADDRESSOFTEST=0
+new[int]ADDRESSOFTEST=0
 #emit:addrset,addressof?ADDRESSOFTEST
 #emit:vlset,23746
 
 console.cout.log(ADDRESSOFTEST)
 
-new.bool,ADDRESSOFTEST2=false
+new[bool]ADDRESSOFTEST2=false
 #emit:addrset,addressof?ADDRESSOFTEST2
 #emit:vlset,true
 
 console.cout.log(ADDRESSOFTEST2)
 
-new.str,ADDRESSOFTEST3="000"
+new[str]ADDRESSOFTEST3="000"
 #emit:addrset,addressof?ADDRESSOFTEST3
 #emit:vlset,"#emit works!"
 
 console.println.log(ADDRESSOFTEST3)
 
-new.double,ADDRESSOFTEST4=0.0
+new[double]ADDRESSOFTEST4=0.0
 #emit:addrset,addressof?ADDRESSOFTEST4
 #emit:vlset,23.746
 
 console.cout.log(ADDRESSOFTEST4)
 
-new.char,ADDRESSOFTEST5='0'
+new[char]ADDRESSOFTEST5='0'
 #emit:addrset,addressof?ADDRESSOFTEST5
 #emit:vlset,'K'
 
@@ -131,7 +131,7 @@ true
 - Create an integer variable, change its data type to `char`, set a value, and then print the value.
 
 ```cpp
-new.int,ADDRESSOFTEST6=1
+new[int]ADDRESSOFTEST6=1
 #emit:addrset,addressof?ADDRESSOFTEST6
 #emit:dtyp,5
 #emit:vlset,'Z'
@@ -150,7 +150,7 @@ Output:
 - Change the symbol name.
 
 ```cpp
-new.int,ADDRESSOFTEST7=364
+new[int]ADDRESSOFTEST7=364
 #emit:addrset,addressof?ADDRESSOFTEST7
 #emit:csnm,__ADDRESSOFTEST7
 
@@ -168,7 +168,7 @@ Output:
 - Set the value of the primary register to the value stored inside the loaded address.
 
 ```cpp
-new.int,var=1
+new[int]var=1
 #emit:addrset,addressof?var
 #emit:load.pri
 ```
@@ -180,7 +180,7 @@ new.int,var=1
 - Set the value of the alternate register to the value stored inside the loaded address.
 
 ```cpp
-new.int,var=1
+new[int]var=1
 #emit:addrset,addressof?var
 #emit:load.alt
 ```
@@ -211,10 +211,10 @@ new.int,var=1
 
 ### `stor.pri`
 
-- Set the value of the primary register to a constant value not loaded with `addrset`.
+- Store the value of the primary register into a loaded address.
 
 ```cpp
-new.int,var=1
+new[int]var=1
 #emit:addrset,addressof?var
 #emit:const.pri,6
 #emit:stor.pri
@@ -229,7 +229,7 @@ new.int,var=1
 - Store the value of the alternate register into a loaded address.
 
 ```cpp
-new.int,var=1
+new[int]var=1
 #emit:addrset,addressof?var
 #emit:const.alt,6
 #emit:stor.alt

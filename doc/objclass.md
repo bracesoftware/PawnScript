@@ -9,16 +9,16 @@ class TestClass
 	new[double]TestClassDouble=364.234
 }
 
-object TestObj=TestClass
-console.cout.log(TestObj.ClassTestVar)
-console.cout.log(TestObj.TestClassDouble)
+TestClass<explicit>TestObj
+console.rawout.log(TestObj.ClassTestVar)
+console.rawout.log(TestObj.TestClassDouble)
 console.println.log("#1 {TestObj.ClassTestVar} & {TestObj.TestClassDouble}")
 
-object TestObj2=TestClass
+TestClass<explicit>TestObj2
 TestObj2.ClassTestVar=9376216
 TestObj2.TestClassDouble=314.159267243
-console.cout.log(TestObj2.ClassTestVar)
-console.cout.log(TestObj2.TestClassDouble)
+console.rawout.log(TestObj2.ClassTestVar)
+console.rawout.log(TestObj2.TestClassDouble)
 console.println.log("#2 {TestObj2.ClassTestVar} & {TestObj2.TestClassDouble}")
 
 class TestClass2
@@ -28,9 +28,9 @@ class TestClass2
 	new[bool]TestClassBool=false
 }
 
-object TestObj3=TestClass2
-console.cout.log(TestObj3.ClassTestVar)
-console.cout.log(TestObj3.TestClassDouble)
+TestClass2<explicit>TestObj3
+console.rawout.log(TestObj3.ClassTestVar)
+console.rawout.log(TestObj3.TestClassDouble)
 console.println.log("#3 {TestObj3.ClassTestVar} & {TestObj3.TestClassDouble} & {TestObj3.TestClassBool}")
 ```
 
@@ -58,7 +58,7 @@ namespace testnamespace
 	}
 }
 
-object Obj=testnamespace::testclass
+testnamespace::testclass<explicit>Obj
 Obj.testinteger=13
 std::writeln("{Obj.testinteger}")
 ```
@@ -94,7 +94,7 @@ class HumanBeing
 	public eat2=>test::__eat2
 }
 
-object MeAgain=HumanBeing
+HumanBeing<explicit>MeAgain
 
 MeAgain.eat()
 console.println.log("MeAgain.name is {MeAgain.name}")

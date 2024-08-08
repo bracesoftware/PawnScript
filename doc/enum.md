@@ -79,7 +79,7 @@ namespace Me
 console.rawout(Me::Family.Mom+Me::Family.Dad)
 ```
 
-### `constexpr enum` and `using enum`
+### `final enum` and `using enum`
 
 ```cpp
 console.println("Const expr enum test:")
@@ -92,7 +92,7 @@ namespace ConstexprTest
 		w
 		e
 	}
-	constexpr enum MyConstEnum
+	final enum MyConstEnum
 	{
 		q
 		w

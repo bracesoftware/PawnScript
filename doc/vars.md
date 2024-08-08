@@ -101,7 +101,7 @@ Check pointer documentation for more...
 - This is a built-in instruction which returns an address of a symbol, most frequently a variable.
 
 ```cpp
-console.cout(addressof?myvar)
+console.rawout(addressof?myvar)
 ```
 
 Output:

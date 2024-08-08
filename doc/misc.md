@@ -12,7 +12,7 @@ exit
 - You can format any string argument in any form.
 
 ```cpp
-new.str,test="Test string"
+new[str]test="Test string"
 
 console.println("{test}")
 ```
@@ -39,7 +39,7 @@ Test string
 ## `defined` instruction
 
 ```cpp
-new.int,variable=1
+new[int]variable=1
 
 if.equ,defined?variable,1->console.println("'variable' is defined!")
 if.equ,defined?dummyvar,1->console.println("This should not be printed!!")

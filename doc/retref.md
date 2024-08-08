@@ -5,7 +5,7 @@
 ```cpp
 #pragma:reqref,true
 
-new.int.unsigned,ReturnReference__=9283
+new[int.unsigned]ReturnReference__=9283
 
 console.println("Heyy"); // This will give a warning.
 

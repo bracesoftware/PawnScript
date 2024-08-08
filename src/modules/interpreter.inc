@@ -667,6 +667,23 @@ stock dpp_process(line[])
         return 1;
     }
 
+    if(dpp_currentobject != DPP_INVALID_OBJECT_ID)
+    {
+        if(!strcmp(tokengroup[0],"union"))
+        {
+            dpp_setunion(tokengroup[1]);
+            return 1;
+        }
+    }
+
+    if(dpp_explicit__ == 0 && dpp_currentobject != DPP_INVALID_OBJECT_ID)
+    {
+        if(!dpp_strcmp(dpp_currentunion,dpp_currentunionreq))
+        {
+            return 1;
+        }
+    }
+
 
     if(dpp_interpreter == 0)
     {
@@ -1652,13 +1669,13 @@ stock dpp_process(line[])
         }
     }
 
-    if(!strcmp(tokengroup[0], "object"))
+    /*if(!strcmp(tokengroup[0], "object"))
     {
         new address[2][dpp_maxsymbolchar];
         dpp_parseline(tokengroup[1], address, '=');
         dpp_createobject(address[0],address[1]);
         return 1;
-    }
+    }*/
 
     ///////////////////////////////////////////////////////
     ////
@@ -2700,6 +2717,13 @@ stock dpp_process(line[])
         dpp_formatarg(templategroup2[0]);
 
         dpp_createbitarr(templategroup2[1],strval(templategroup2[0]));
+        return 1;
+    }
+    //templategroup[0] is class name
+    //templategroup2[1] is object name
+    if(dpp_isvalidclass(templategroup[0]) && (!isnull(templategroup2[1])))
+    {
+        dpp_createobject(templategroup2[1],templategroup[0],templategroup2[0]);
         return 1;
     }
 

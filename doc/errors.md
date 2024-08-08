@@ -62,8 +62,9 @@ new.int,hey=9; // Error.
 
 ```cpp
 @hook=j
-constexpr=namespace UUUUU+class+enum
+final=namespace UUUUU+class+enum
 inT func() publex{
 	retern,0
 }
+union str[int]
 ```

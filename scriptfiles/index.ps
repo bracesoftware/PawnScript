@@ -134,7 +134,7 @@ namespace test
 	}
 }
 
-object MyObj=test::ANOTHERTEST
+test::ANOTHERTEST<explicit>MyObj
 console.println.log("{MyObj.myvar}")
 MyObj.myvar=24
 console.println.log("{MyObj.myvar}")
@@ -280,7 +280,7 @@ class Human
 	new[int]age=8
 }
 
-object me=Human
+Human<explicit>me
 console.println.log("me.age is now {me.age}")
 user.myYieldFunc() me.age
 console.println.log("me.age is now {me.age}") me.age
@@ -378,7 +378,7 @@ class HumanBeing
 	public eat2=>test::__eat2
 }
 
-object MeAgain=HumanBeing
+HumanBeing<explicit>MeAgain
 
 MeAgain.eat()
 console.println.log("MeAgain.name is {MeAgain.name}")
@@ -490,3 +490,32 @@ new[ptr]pointToReg=addressof?myRegister
 pointToReg=73
 
 console.println.log("myRegister remains {myRegister}")
+
+
+//new oop features
+console.println.log("new oop features")
+
+class LabelTest
+{
+	new[int]variable_1=364
+	union testunion
+		new[int]variable_2=463
+	union union2
+		new[int]variable_3=634
+}
+
+LabelTest<explicit>MyObj2
+LabelTest<testunion>MyObj3
+LabelTest<union2>MyObj4
+
+console.println.log("{MyObj2.variable_1}")
+console.println.log("{MyObj2.variable_2}")
+console.println.log("{MyObj2.variable_3}")
+
+console.println.log("{MyObj3.variable_1}")
+console.println.log("{MyObj3.variable_2}")
+console.println.log("{MyObj3.variable_3}")
+
+console.println.log("{MyObj4.variable_1}")
+console.println.log("{MyObj4.variable_2}")
+console.println.log("{MyObj4.variable_3}")

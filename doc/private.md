@@ -11,7 +11,7 @@ void myPrivateFunc() private
 Doing this in your Pawn script will not work:
 ```pawn
 #include <open.mp>
-#include <a_pawnscript>
+#include <pawnscript_sdk>
 
 main()
 {

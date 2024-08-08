@@ -73,6 +73,7 @@
 - [Pointers](doc/pointers.md)
 - [Quiet function call](doc/quiet.md)
 - [Register variables](doc/register.md)
+- [Class unions](doc/union.md)
 
 ### Other info
 
